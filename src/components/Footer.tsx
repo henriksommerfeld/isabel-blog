@@ -35,11 +35,6 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/contact/examples">
-                      Form Examples
-                    </Link>
-                  </li>
-                  <li>
                     <a
                       className="navbar-item"
                       href="/admin/"
@@ -58,11 +53,6 @@ export default function Footer() {
                   <li>
                     <Link className="navbar-item" to="/blog">
                       Latest Stories
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar-item" to="/contact">
-                      Contact
                     </Link>
                   </li>
                 </ul>
