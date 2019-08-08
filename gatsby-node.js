@@ -3,6 +3,11 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
+function getFileFrom(templateKey) {
+  if (templateKey === 'blog-post') return 'blog-post.tsx';
+  return templateKey + '.js';
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
@@ -38,7 +43,9 @@ exports.createPages = ({ actions, graphql }) => {
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${getFileFrom(
+            String(edge.node.frontmatter.templateKey)
+          )}`
         ),
         // additional data can be passed via context
         context: {
