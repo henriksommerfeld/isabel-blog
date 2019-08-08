@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import Footer from './Footer';
+import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
 
-const TemplateWrapper = ({ children }) => {
+interface TemplateWrapperProps {
+  children: ReactNode;
+}
+
+export default function TemplateWrapper({ children }: TemplateWrapperProps) {
   const { title, description } = useSiteMetadata();
   return (
     <div>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={description!} />
 
         <link
           rel="apple-touch-icon"
@@ -40,7 +44,7 @@ const TemplateWrapper = ({ children }) => {
         <meta name="theme-color" content="#fff" />
 
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={title || ''} />
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
@@ -52,6 +56,4 @@ const TemplateWrapper = ({ children }) => {
       <Footer />
     </div>
   );
-};
-
-export default TemplateWrapper;
+}
