@@ -3,8 +3,8 @@ import Helmet from 'react-helmet';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 
-export default function TagRoute({ pageContext }) {
-  const data = useStaticQuery(tagPageQuery);
+export default function TagRoute({ pageContext }: TagRouteProps) {
+  const data = useStaticQuery<TagRouteData>(tagPageQuery);
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
@@ -41,6 +41,35 @@ export default function TagRoute({ pageContext }) {
       </section>
     </Layout>
   );
+}
+
+interface TagRouteProps {
+  pageContext: {
+    tag: string;
+  };
+}
+
+interface TagRouteData {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    totalCount: number;
+    edges: TaggedPost[];
+  };
+}
+
+interface TaggedPost {
+  node: {
+    fields: {
+      slug: string;
+    };
+    frontmatter: {
+      title: string;
+    };
+  };
 }
 
 const tagPageQuery = graphql`
