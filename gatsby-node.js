@@ -5,6 +5,7 @@ const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 function getFileFrom(templateKey) {
   if (templateKey === 'blog-post') return 'blog-post.tsx';
+  if (templateKey === 'about-page') return 'about-page.tsx';
   return templateKey + '.js';
 }
 
