@@ -20,7 +20,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "npx tsc",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "codegen": "graphql-codegen --config graphql-codegen.yml"
   },
   "dependencies": {
     "gatsby": "^2.13.51",
@@ -48,6 +49,14 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.5.0",
+    "@graphql-codegen/introspection": "^1.5.0",
+    "@graphql-codegen/typescript": "^1.5.0",
+    "@graphql-codegen/typescript-operations": "^1.5.0",
+    "@types/graphql": "^14.2.3",
+    "@types/node": "^12.7.1",
+    "@types/react": "^16.8.25",
+    "@types/react-dom": "^16.8.5",
     "@types/react-helmet": "^5.0.9",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",

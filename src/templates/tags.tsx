@@ -2,20 +2,21 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
+import { TagPageQuery } from '../graphql';
 
 export default function TagRoute({ pageContext }: TagRouteProps) {
-  const data = useStaticQuery<TagRouteData>(tagPageQuery);
-  const posts = data.allMarkdownRemark.edges;
+  const data = useStaticQuery<TagPageQuery>(tagPageQuery);
+  const posts = data.allMarkdownRemark!.edges!;
   const postLinks = posts.map(post => (
-    <li key={post.node.fields.slug}>
-      <Link to={post.node.fields.slug}>
-        <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
+    <li key={post.node.fields!.slug!}>
+      <Link to={post.node.fields!.slug!}>
+        <h2 className="is-size-2">{post.node.frontmatter!.title}</h2>
       </Link>
     </li>
   ));
   const tag = pageContext.tag;
-  const title = data.site.siteMetadata.title;
-  const totalCount = data.allMarkdownRemark.totalCount;
+  const title = data.site!.siteMetadata!.title;
+  const totalCount = data.allMarkdownRemark!.totalCount;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with “${tag}”`;
@@ -76,25 +77,25 @@ interface TagRouteProps {
   };
 }
 
-interface TagRouteData {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-  allMarkdownRemark: {
-    totalCount: number;
-    edges: TaggedPost[];
-  };
-}
+// interface TagRouteData {
+//   site: {
+//     siteMetadata: {
+//       title: string;
+//     };
+//   };
+//   allMarkdownRemark: {
+//     totalCount: number;
+//     edges: TaggedPost[];
+//   };
+// }
 
-interface TaggedPost {
-  node: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-    };
-  };
-}
+// interface TaggedPost {
+//   node: {
+//     fields: {
+//       slug: string;
+//     };
+//     frontmatter: {
+//       title: string;
+//     };
+//   };
+// }
