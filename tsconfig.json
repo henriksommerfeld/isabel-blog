@@ -12,5 +12,11 @@
     "noImplicitAny": true,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "public", ".cache", "auto-generated"]
+  "exclude": [
+    "node_modules",
+    "public",
+    ".cache",
+    "auto-generated",
+    "graphql.ts"
+  ]
 }
