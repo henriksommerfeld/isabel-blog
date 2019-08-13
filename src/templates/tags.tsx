@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
-import { TagPageQuery } from '../graphql';
+import { TagPageQuery } from '../../auto-generated/graphql';
 
 export default function TagRoute({ pageContext }: TagRouteProps) {
   const data = useStaticQuery<TagPageQuery>(tagPageQuery);

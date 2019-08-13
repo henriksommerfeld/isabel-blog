@@ -3314,16 +3314,6 @@
             "defaultValue": null
           },
           {
-            "name": "slug",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "date",
             "description": null,
             "type": {
@@ -3355,6 +3345,16 @@
           },
           {
             "name": "tags",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "slug",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -7030,14 +7030,6 @@
             "deprecationReason": null
           },
           {
-            "name": "slug",
-            "description": null,
-            "args": [],
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "date",
             "description": null,
             "args": [
@@ -7095,6 +7087,14 @@
               "name": null,
               "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
             },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "slug",
+            "description": null,
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -9485,12 +9485,6 @@
             "deprecationReason": null
           },
           {
-            "name": "childMarkdownRemark___frontmatter___slug",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "childMarkdownRemark___frontmatter___date",
             "description": null,
             "isDeprecated": false,
@@ -9720,6 +9714,12 @@
           },
           {
             "name": "childMarkdownRemark___frontmatter___tags",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childMarkdownRemark___frontmatter___slug",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -12599,12 +12599,6 @@
             "deprecationReason": null
           },
           {
-            "name": "frontmatter___slug",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "frontmatter___date",
             "description": null,
             "isDeprecated": false,
@@ -12984,6 +12978,12 @@
           },
           {
             "name": "frontmatter___tags",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "frontmatter___slug",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

@@ -8,7 +8,7 @@ pluckConfig:
     - name: gatsby
       identifier: graphql
 generates:
-  src/graphql.ts:
+  auto-generated/graphql.ts:
     plugins:
       - 'typescript'
       - 'typescript-operations'

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
-import { MarkdownRemark } from '../graphql';
+import { MarkdownRemark } from '../../auto-generated/graphql';
 
 interface BlogPostTemplate {
   content: string;
@@ -64,6 +64,7 @@ interface BlogPost {
 export default function BlogPost(props: BlogPost) {
   const { markdownRemark: post } = props.data;
   const frontmatter = post.frontmatter!;
+  const tags: string[] = (frontmatter!.tags || []) as string[];
 
   return (
     <Layout>
@@ -77,7 +78,7 @@ export default function BlogPost(props: BlogPost) {
             <meta name="description" content={`${frontmatter.description}`} />
           </Helmet>
         }
-        tags={frontmatter.tags || []}
+        tags={tags}
         title={frontmatter.title!}
       />
     </Layout>
