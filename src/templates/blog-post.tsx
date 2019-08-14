@@ -1,20 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
+import { MarkdownRemark } from '../../auto-generated/graphql';
 
-export const BlogPostTemplate = ({
+interface BlogPostTemplate {
+  content: string;
+  contentComponent: any;
+  description: string;
+  tags: string[];
+  title: string;
+  helmet: any;
+}
+
+export function BlogPostTemplate({
   content,
   contentComponent,
   description,
-  tags,
+  tags = [],
   title,
   helmet,
-}) => {
-  const PostContent = contentComponent || Content
+}: BlogPostTemplate) {
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="section">
@@ -43,49 +52,38 @@ export const BlogPostTemplate = ({
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
+interface BlogPost {
+  data: {
+    markdownRemark: MarkdownRemark;
+  };
 }
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+export default function BlogPost(props: BlogPost) {
+  const { markdownRemark: post } = props.data;
+  const frontmatter = post.frontmatter!;
+  const tags: string[] = (frontmatter!.tags || []) as string[];
 
   return (
     <Layout>
       <BlogPostTemplate
-        content={post.html}
+        content={post.html!}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={frontmatter.description!}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
+            <title>{`${frontmatter.title}`}</title>
+            <meta name="description" content={`${frontmatter.description}`} />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        tags={tags}
+        title={frontmatter.title!}
       />
     </Layout>
-  )
+  );
 }
-
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
-
-export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -100,4 +98,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
