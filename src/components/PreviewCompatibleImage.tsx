@@ -1,10 +1,10 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { ImageSharp } from '../../auto-generated/graphql';
+import { Jsx } from '../../my-graphql';
 
 export default function PreviewCompatibleImage({
   imageInfo,
-}: PreviewCompatibleImage) {
+}: PreviewCompatibleImage): Jsx {
   const imageStyle = { borderRadius: '5px' };
   const { alt = '', childImageSharp, image } = imageInfo;
 
@@ -27,7 +27,7 @@ export default function PreviewCompatibleImage({
 interface PreviewCompatibleImage {
   imageInfo: {
     alt: string;
-    childImageSharp: any;
+    childImageSharp?: any;
     image?: any;
     style?: object;
   };

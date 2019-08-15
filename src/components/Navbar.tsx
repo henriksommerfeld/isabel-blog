@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Link } from 'gatsby';
 
-export default function NavBar() {
+export default function NavBar(): ReactElement {
   return (
     <div className="navbar-start has-text-centered">
       <Link className="navbar-item" to="/about">

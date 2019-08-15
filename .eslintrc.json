@@ -27,7 +27,8 @@
   },
   "rules": {
     "react/prop-types": "off", // Disable prop-types as we use TypeScript for type checking
-    "@typescript-eslint/explicit-function-return-type": "on"
+    "@typescript-eslint/explicit-function-return-type": 1,
+    "@typescript-eslint/no-use-before-define": 0
   },
   "overrides": [
     // Override some TypeScript rules just for .js files

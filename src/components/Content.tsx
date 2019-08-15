@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 interface Content {
   content: string;
 }
 
-export const HTMLContent = ({ content }: Content) => (
-  <div dangerouslySetInnerHTML={{ __html: content! }} />
-);
+export default function Content({ content }: Content): ReactElement {
+  return <div>{content}</div>;
+}
 
-const Content = ({ content }: Content) => <div>{content}</div>;
-
-export default Content;
+export function HTMLContent({ content }: Content): ReactElement {
+  return <div dangerouslySetInnerHTML={{ __html: content }} />;
+}
