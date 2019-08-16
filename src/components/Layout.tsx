@@ -14,7 +14,7 @@ export default function TemplateWrapper({
 }: TemplateWrapperProps): ReactElement {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -53,9 +53,12 @@ export default function TemplateWrapper({
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
-    </div>
+      <div>
+        {/* <Navbar /> */}
+        <div style={{ border: 'dashed blue 2px' }}>HEAD</div>
+        <div style={{ border: 'dashed red 2px' }}>{children}</div>
+        <Footer />
+      </div>
+    </>
   );
 }
