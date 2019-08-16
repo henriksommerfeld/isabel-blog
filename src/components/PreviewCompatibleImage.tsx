@@ -1,34 +1,24 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { Jsx } from '../../my-graphql';
+import { File } from '../../auto-generated/graphql';
 
 export default function PreviewCompatibleImage({
-  imageInfo,
+  image,
+  alt,
 }: PreviewCompatibleImage): Jsx {
   const imageStyle = { borderRadius: '5px' };
-  const { alt = '', childImageSharp, image } = imageInfo;
 
-  if (!!image && !!image.childImageSharp) {
+  if (!!image && !!image.childImageSharp && image.childImageSharp.fluid) {
     return (
-      <Img style={imageStyle} fluid={image.childImageSharp!.fluid} alt={alt} />
+      <Img style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
     );
   }
-
-  if (childImageSharp) {
-    return <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />;
-  }
-
-  if (!!image && typeof image === 'string')
-    return <img style={imageStyle} src={image} alt={alt} />;
 
   return null;
 }
 
 interface PreviewCompatibleImage {
-  imageInfo: {
-    alt: string;
-    childImageSharp?: any;
-    image?: any;
-    style?: object;
-  };
+  image: File;
+  alt: string;
 }

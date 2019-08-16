@@ -2,6 +2,7 @@ const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+const { getUniqueTags } = require('./tags-parser');
 
 function getFileFrom(templateKey) {
   if (templateKey === 'blog-post') return 'blog-post.tsx';
@@ -63,11 +64,12 @@ exports.createPages = ({ actions, graphql }) => {
         tags = tags.concat(edge.node.frontmatter.tags);
       }
     });
+
     // Eliminate duplicate tags
-    tags = _.uniq(tags);
+    const uniqueTags = getUniqueTags(tags);
 
     // Make tag pages
-    tags.forEach(tag => {
+    uniqueTags.forEach(tag => {
       const tagPath = `/tags/${_.kebabCase(tag)}/`;
 
       createPage({

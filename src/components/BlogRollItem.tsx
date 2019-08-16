@@ -5,7 +5,7 @@ import {
   MarkdownRemarkEdge,
   MarkdownRemark,
 } from '../../auto-generated/graphql';
-import { Jsx, FeaturedImageWithTitle } from '../../my-graphql';
+import { Jsx } from '../../my-graphql';
 
 export default function BlogRollItem(post: MarkdownRemark): Jsx {
   if (!post || !post.frontmatter) return null;
@@ -42,19 +42,19 @@ export default function BlogRollItem(post: MarkdownRemark): Jsx {
   );
 }
 
-function FeaturedImage({ title, image }: FeaturedImageWithTitle): Jsx {
+interface FeaturedImage {
+  image: File;
+  title: string | null | undefined;
+}
+
+function FeaturedImage({ image, title }: FeaturedImage): Jsx {
   if (!image) return null;
 
   const altText = title ? `featured image thumbnail for post ${title}` : '';
 
   return (
     <div className="featured-thumbnail">
-      <PreviewCompatibleImage
-        imageInfo={{
-          image: image,
-          alt: altText,
-        }}
-      />
+      <PreviewCompatibleImage image={image} alt={altText} />
     </div>
   );
 }

@@ -1,13 +1,11 @@
 import React, { ReactElement } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { MarkdownRemarkEdge } from '../../auto-generated/graphql';
+import { MarkdownRemarkConnection } from '../../auto-generated/graphql';
 import BlogRollItem from './BlogRollItem';
 import { Jsx } from '../../my-graphql';
 
 interface BlogRoll {
-  allMarkdownRemark: {
-    edges: MarkdownRemarkEdge[];
-  };
+  allMarkdownRemark: MarkdownRemarkConnection;
 }
 
 export default function BlogRoll(): ReactElement {
