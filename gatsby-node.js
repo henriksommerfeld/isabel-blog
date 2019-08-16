@@ -2,7 +2,7 @@ const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
-const { getUniqueTags } = require('./tags-parser');
+const { getUniqueTags } = require('./src/tags-parser');
 
 function getFileFrom(templateKey) {
   if (templateKey === 'blog-post') return 'blog-post.tsx';
