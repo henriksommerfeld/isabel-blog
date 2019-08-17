@@ -4,13 +4,14 @@
     "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
-    "strict": true,
+    "baseUrl": "./src",
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "noImplicitAny": true,
-    "skipLibCheck": true
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "noUnusedParameters": true
   },
   "exclude": [
     "node_modules",
