@@ -55,8 +55,8 @@ export default function TemplateWrapper({
       </Helmet>
       <div>
         {/* <Navbar /> */}
-        <div style={{ border: 'dashed blue 2px' }}>HEAD</div>
-        <div style={{ border: 'dashed red 2px' }}>{children}</div>
+        <div style={{ border: 'dashed blue 2px' }}>HEADER</div>
+        <div style={{ border: 'dashed red 2px' }}>BODY</div>
         <Footer />
       </div>
     </>
