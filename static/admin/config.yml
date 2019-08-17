@@ -20,10 +20,9 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', , dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm" }
-      - { label: 'Sammanfattning', name: 'description', widget: 'text' }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image, optional: true }
+      - { label: 'Featured Image', name: 'featuredimage', widget: image, required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
 
   - name: 'pages'
     label: 'Pages'
