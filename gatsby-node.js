@@ -25,7 +25,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               tags
               templateKey
-              slug
+              url
             }
           }
         }
@@ -88,8 +88,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   fmImagesToRelative(node); // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = node.frontmatter.slug || createFilePath({ node, getNode });
-    console.log('value', value);
+    const value = node.frontmatter.url || createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
