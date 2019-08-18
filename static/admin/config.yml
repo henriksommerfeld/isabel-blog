@@ -7,7 +7,7 @@ public_folder: /img
 
 collections:
   - name: 'blog'
-    label: 'Blog'
+    label: 'Blog post'
     folder: 'src/pages/blog'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
@@ -19,10 +19,15 @@ collections:
           default: 'blog-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime', , dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm" }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', , dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm", default: null }
       - { label: 'Featured Image', name: 'featuredimage', widget: image, required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false }
+      - label: "Downloadable files"
+        name: "files"
+        widget: "list"
+        hint: "Files that the visitor can download"
+        field: {label: File, name: file, widget: file}
 
   - name: 'pages'
     label: 'Pages'
