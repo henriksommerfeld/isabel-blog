@@ -48,10 +48,11 @@ collections:
           default: null,
         }
       - {
-          label: 'Bild',
+          label: 'Utvald bild',
           name: 'featuredimage',
           widget: image,
           required: false,
+          hint: 'Bild som visas mellan rubriken och huvudinnehållet, samt på startsidan.'
         }
       - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
       - { label: 'Taggar', label_singular: 'Tagg', name: 'tags', widget: 'list', required: false }
