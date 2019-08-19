@@ -7,17 +7,20 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: static/img
-public_folder: /img
+media_folder: static/uploads
+public_folder: /uploads
+display_url: https://www.isabelsommerfeld.com
+logo_url: /img/apple-touch-icon.png
+
 slug:
-  encoding: "ascii"
+  encoding: 'ascii'
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: '_'
 
 collections:
   - name: 'blog'
-    label: 'Blog'
-    label_singular: 'Blog post'
+    label: 'Blogg'
+    label_singular: 'Bloggpost'
     folder: 'src/pages/blog'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
@@ -28,22 +31,44 @@ collections:
           widget: 'hidden',
           default: 'blog-post',
         }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime', , dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm", default: null }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image, required: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
-      - label: "Downloadable files"
-        name: "files"
-        widget: "list"
-        hint: "Files that the visitor can download"
-        field: {label: File, name: file, widget: file}
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - { 
+          label: 'Dold',
+          name: 'visible',
+          widget: 'boolean',
+          default: false,
+          hint: 'Om du vill spara utan att publicera kan du göra artikeln osynlig här.',
+      }
+      - {
+          label: 'Datum',
+          name: 'date',
+          widget: 'datetime',
+          dateFormat: 'YYYY-MM-DD',
+          timeFormat: 'HH:mm',
+          default: null,
+        }
+      - {
+          label: 'Bild',
+          name: 'featuredimage',
+          widget: image,
+          required: false,
+        }
+      - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
+      - { label: 'Taggar', label_singular: 'Tagg', name: 'tags', widget: 'list', required: false }
+      - label: 'Nerladdningsbara filer'
+        label_singular: 'Nerladdningsbar fil'
+        name: 'files'
+        widget: 'list'
+        hint: 'Filer som besökaren kan ladda ner'
+        field: { label: Fil, name: file, widget: file }
 
   - name: 'pages'
-    label: 'Pages'
+    label: 'Sidor'
+    label_singular: 'Sida'
+    delete: false
     files:
       - file: 'src/pages/index.md'
-        label: 'Landing Page'
+        label: 'Landningssida'
         name: 'index'
         fields:
           - {
@@ -52,11 +77,11 @@ collections:
               widget: 'hidden',
               default: 'index-page',
             }
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
-          - { label: Heading, name: heading, widget: string }
-          - { label: Subheading, name: subheading, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Titel, name: title, widget: string }
+          - { label: Bikd, name: image, widget: image }
+          - { label: Rubrik, name: heading, widget: string }
+          - { label: Underrrubrik, name: subheading, widget: string }
+          - { label: Beskrivning, name: description, widget: string }
           - {
               label: Intro,
               name: intro,
@@ -117,8 +142,9 @@ collections:
                   },
                 ],
             }
+
       - file: 'src/pages/about/index.md'
-        label: 'About'
+        label: 'Om mig'
         name: 'about'
         fields:
           - {
@@ -127,5 +153,5 @@ collections:
               widget: 'hidden',
               default: 'about-page',
             }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Titel', name: 'title', widget: 'string' }
+          - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
