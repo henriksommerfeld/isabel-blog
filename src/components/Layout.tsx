@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
+import { Jsx } from '../../my-graphql';
 
 interface TemplateWrapperProps {
   children: ReactNode;
@@ -11,7 +12,7 @@ interface TemplateWrapperProps {
 
 export default function TemplateWrapper({
   children,
-}: TemplateWrapperProps): ReactElement {
+}: TemplateWrapperProps): Jsx {
   const { title, description } = useSiteMetadata();
   return (
     <>

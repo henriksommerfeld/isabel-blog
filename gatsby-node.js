@@ -10,6 +10,11 @@ function getFileFrom(templateKey) {
   return templateKey + '.js';
 }
 
+exports.onCreateDevServer = ({ app }) => {
+  const fsMiddlewareAPI = require('netlify-cms-backend-fs/dist/fs');
+  fsMiddlewareAPI(app);
+};
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 

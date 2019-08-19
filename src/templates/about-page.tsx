@@ -2,19 +2,22 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import { Jsx } from '../../my-graphql';
 
-export function AboutPageTemplate({ title, content, contentComponent }: any) {
+export function AboutPageTemplate({
+  title,
+  content,
+  contentComponent,
+}: any): Jsx {
   const PageContent = contentComponent || Content;
 
   return (
-    <section className="section section--gradient">
+    <section style={{ background: 'cyan' }}>
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
+              <h2>{title}</h2>
               <PageContent className="content" content={content} />
             </div>
           </div>
@@ -24,7 +27,7 @@ export function AboutPageTemplate({ title, content, contentComponent }: any) {
   );
 }
 
-export default function AboutPage({ data }: AboutPageData) {
+export default function AboutPage({ data }: AboutPageData): Jsx {
   const { markdownRemark: post } = data;
 
   return (
