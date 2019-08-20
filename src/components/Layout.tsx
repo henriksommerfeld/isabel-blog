@@ -1,5 +1,6 @@
 import React, { ReactNode, ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
+import styled, { createGlobalStyle } from 'styled-components';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
@@ -54,12 +55,26 @@ export default function TemplateWrapper({
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <div>
+      <GlobalStyle />
+      <Page>
         {/* <Navbar /> */}
         <div style={{ border: 'dashed blue 2px' }}>HEADER</div>
         <div style={{ border: 'dashed red 2px' }}>BODY</div>
         <Footer />
-      </div>
+      </Page>
     </>
   );
 }
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;
+
+const Page = styled('div')`
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
