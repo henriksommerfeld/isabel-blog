@@ -59,7 +59,13 @@ module.exports = {
         name: 'images',
       },
     },
-
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/typography`,
+      },
+    },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-plugin-netlify-cms',
