@@ -57,17 +57,10 @@ export default function TemplateWrapper({
       </Helmet>
       <GlobalStyle />
       <Page>
-        {/* <Navbar /> */}
         <Header>
-          <div>{title}</div>{' '}
-          <nav>
-            <Link to="/">Startsida</Link>
-            <Link to="/about">Publicerat</Link>
-            <Link to="/about">Om mig</Link>
-            <Link to="/about">Pressbilder</Link>
-          </nav>
+          <div>{title}</div> <Navbar />
         </Header>
-        <Body>BODY</Body>
+        <Body>{children}</Body>
         <Footer />
       </Page>
     </>

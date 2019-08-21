@@ -11,7 +11,12 @@ export const IndexPageTemplate = ({
   subheading,
   description,
   intro,
-}) => <div>Landing page!</div>;
+}) => (
+  <div>
+    Landing page!
+    <BlogRoll />
+  </div>
+);
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
