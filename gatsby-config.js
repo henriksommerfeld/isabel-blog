@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Isabel Sommerfeld',
-    description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    description: 'Bellas blogg',
   },
   plugins: [
     'gatsby-plugin-sharp',
@@ -33,15 +32,15 @@ module.exports = {
             },
           },
           {
-            resolve: "gatsby-remark-embed-video",
+            resolve: 'gatsby-remark-embed-video',
             options: {
               width: 800,
               ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
               height: 400, // Optional: Overrides optional.ratio
               related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-              noIframeBorder: true //Optional: Disable insertion of <style> border: 0
-            }
-          }
+              noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
+            },
+          },
         ],
       },
     },
@@ -73,6 +72,7 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/typography`,
+        omitGoogleFont: false,
       },
     },
     'gatsby-plugin-styled-components',
