@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
-import { withPrefix } from 'gatsby';
+import { withPrefix, Link } from 'gatsby';
 import { Jsx } from '../../my-graphql';
 
 interface TemplateWrapperProps {
@@ -58,8 +58,16 @@ export default function TemplateWrapper({
       <GlobalStyle />
       <Page>
         {/* <Navbar /> */}
-        <div style={{ border: 'dashed blue 2px' }}>HEADER</div>
-        <div style={{ border: 'dashed red 2px' }}>BODY</div>
+        <Header>
+          <div>{title}</div>{' '}
+          <nav>
+            <Link to="/">Startsida</Link>
+            <Link to="/about">Publicerat</Link>
+            <Link to="/about">Om mig</Link>
+            <Link to="/about">Pressbilder</Link>
+          </nav>
+        </Header>
+        <Body>BODY</Body>
         <Footer />
       </Page>
     </>
@@ -72,9 +80,26 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Page = styled('div')`
-  background-color: #f8f8f8;
-  min-height: 100vh;
+const Header = styled('header')`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: dashed blue 2px;
+`;
+
+const Body = styled('div')`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  border: red dashed 2px;
+`;
+
+const Page = styled('div')`
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #f8f8f8;
 `;
