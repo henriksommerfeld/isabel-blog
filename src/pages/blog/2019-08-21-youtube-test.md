@@ -11,3 +11,7 @@ Hejsan
 Hej då
 
 `vimeo: 6370469`
+
+Generisk video
+
+`video: https://archive.org/download/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4`
