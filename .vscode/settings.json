@@ -13,16 +13,16 @@
   "editor.formatOnSave": true,
   "prettier.eslintIntegration": true,
   "[javascript]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[javascriptreact]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[typescriptreact]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "eslint.autoFixOnSave": true,
   "eslint.validate": [

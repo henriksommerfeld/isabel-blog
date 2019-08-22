@@ -3,6 +3,7 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 const { getUniqueTags } = require('./src/tags-parser');
+const { removeBlogFromUrl } = require('./src/url-replacer');
 
 function getFileFrom(templateKey) {
   if (templateKey === 'blog-post') return 'blog-post.tsx';
@@ -93,11 +94,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   fmImagesToRelative(node); // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = node.frontmatter.url || createFilePath({ node, getNode });
+    const filePath = node.frontmatter.url || createFilePath({ node, getNode });
+    const route = removeBlogFromUrl(filePath);
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: route,
     });
   }
 };
