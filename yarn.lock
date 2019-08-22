@@ -6834,6 +6834,13 @@ gatsby-remark-relative-images@^0.2.3:
     slash "^2.0.0"
     unist-util-select "^1.5.0"
 
+gatsby-remark-video@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-video/-/gatsby-remark-video-1.2.2.tgz#698f6386d5d3df50ed772d043686c06aeec08eba"
+  integrity sha512-k0EuVn/ccYWJxC9tP7z6sZ7YGNo0ejkm41lT/TJT7GlcVqGHTveN8mdKQXD9WtOmngGsOXwLMqi+4+czteP3Aw==
+  dependencies:
+    unist-util-visit "^1.4.0"
+
 gatsby-source-filesystem@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.9.tgz#92fa2e06565b43d3750da5136b492dae705c9792"
