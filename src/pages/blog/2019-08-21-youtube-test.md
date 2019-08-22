@@ -1,8 +1,10 @@
 ---
 templateKey: blog-post
 title: Video-test
-visible: false
+hidden: true
 date: 2019-08-21T12:07:01.008Z
+tags:
+  - Video
 ---
 Hejsan
 

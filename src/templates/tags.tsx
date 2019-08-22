@@ -3,20 +3,22 @@ import Helmet from 'react-helmet';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import { TagPageQuery } from '../../auto-generated/graphql';
+import { Jsx } from '../../my-graphql';
 
-export default function TagRoute({ pageContext }: TagRouteProps) {
-  const data = useStaticQuery<TagPageQuery>(tagPageQuery);
-  const posts = data.allMarkdownRemark!.edges!;
+export default function TagRoute({ data, pageContext }): Jsx {
+  //const data = useStaticQuery<TagPageQuery>(tagPageQuery);
+
+  const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
-    <li key={post.node.fields!.slug!}>
-      <Link to={post.node.fields!.slug!}>
-        <h2 className="is-size-2">{post.node.frontmatter!.title}</h2>
+    <li key={post.node.fields.slug}>
+      <Link to={post.node.fields.slug}>
+        <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
       </Link>
     </li>
   ));
   const tag = pageContext.tag;
-  const title = data.site!.siteMetadata!.title;
-  const totalCount = data.allMarkdownRemark!.totalCount;
+  const title = data.site.siteMetadata.title;
+  const totalCount = data.allMarkdownRemark.totalCount;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with “${tag}”`;
@@ -44,7 +46,7 @@ export default function TagRoute({ pageContext }: TagRouteProps) {
   );
 }
 
-const tagPageQuery = graphql`
+export const tagPageQuery = graphql`
   query TagPage($tag: String) {
     site {
       siteMetadata {

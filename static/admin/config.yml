@@ -31,10 +31,16 @@ collections:
           widget: 'hidden',
           default: 'blog-post',
         }
+      - {
+          label: 'URL',
+          name: 'url',
+          widget: 'hidden',
+          default: '',
+        }
       - { label: 'Titel', name: 'title', widget: 'string' }
       - { 
           label: 'Dold',
-          name: 'visible',
+          name: 'hidden',
           widget: 'boolean',
           default: false,
           hint: 'Om du vill spara utan att publicera kan du göra artikeln osynlig här.',

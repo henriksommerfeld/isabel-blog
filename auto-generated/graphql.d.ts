@@ -750,7 +750,9 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterIntroDescription = 'childMarkdownRemark___frontmatter___intro___description',
   ChildMarkdownRemarkFrontmatterMainHeading = 'childMarkdownRemark___frontmatter___main___heading',
   ChildMarkdownRemarkFrontmatterMainDescription = 'childMarkdownRemark___frontmatter___main___description',
+  ChildMarkdownRemarkFrontmatterVisible = 'childMarkdownRemark___frontmatter___visible',
   ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
+  ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
   ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
   ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
   ChildMarkdownRemarkFrontmatterFilesBirthtime = 'childMarkdownRemark___frontmatter___files___birthtime',
@@ -789,12 +791,10 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFilesPublicUrl = 'childMarkdownRemark___frontmatter___files___publicURL',
   ChildMarkdownRemarkFrontmatterFilesId = 'childMarkdownRemark___frontmatter___files___id',
   ChildMarkdownRemarkFrontmatterFilesChildren = 'childMarkdownRemark___frontmatter___files___children',
-  ChildMarkdownRemarkFrontmatterVisible = 'childMarkdownRemark___frontmatter___visible',
-  ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
-  ChildMarkdownRemarkFieldsRoute = 'childMarkdownRemark___fields___route',
+  ChildMarkdownRemarkFieldsSlug = 'childMarkdownRemark___fields___slug',
   ChildMarkdownRemarkHtml = 'childMarkdownRemark___html',
   ChildMarkdownRemarkHtmlAst = 'childMarkdownRemark___htmlAst',
   ChildMarkdownRemarkExcerptAst = 'childMarkdownRemark___excerptAst',
@@ -1560,7 +1560,7 @@ export type MarkdownRemarkEdge = {
 
 export type MarkdownRemarkFields = {
   __typename?: 'MarkdownRemarkFields',
-  route?: Maybe<Scalars['String']>,
+  slug?: Maybe<Scalars['String']>,
 };
 
 export enum MarkdownRemarkFieldsEnum {
@@ -1640,7 +1640,9 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterMainImage1Alt = 'frontmatter___main___image1___alt',
   FrontmatterMainImage2Alt = 'frontmatter___main___image2___alt',
   FrontmatterMainImage3Alt = 'frontmatter___main___image3___alt',
+  FrontmatterVisible = 'frontmatter___visible',
   FrontmatterDate = 'frontmatter___date',
+  FrontmatterUrl = 'frontmatter___url',
   FrontmatterTags = 'frontmatter___tags',
   FrontmatterFiles = 'frontmatter___files',
   FrontmatterFilesBirthtime = 'frontmatter___files___birthtime',
@@ -1704,12 +1706,10 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFilesChildMarkdownRemarkTimeToRead = 'frontmatter___files___childMarkdownRemark___timeToRead',
   FrontmatterFilesChildMarkdownRemarkTableOfContents = 'frontmatter___files___childMarkdownRemark___tableOfContents',
   FrontmatterFilesChildMarkdownRemarkChildren = 'frontmatter___files___childMarkdownRemark___children',
-  FrontmatterVisible = 'frontmatter___visible',
-  FrontmatterUrl = 'frontmatter___url',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
-  FieldsRoute = 'fields___route',
+  FieldsSlug = 'fields___slug',
   Html = 'html',
   HtmlAst = 'htmlAst',
   ExcerptAst = 'excerptAst',
@@ -1809,7 +1809,7 @@ export enum MarkdownRemarkFieldsEnum {
 }
 
 export type MarkdownRemarkFieldsFilterInput = {
-  route?: Maybe<StringQueryOperatorInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkFilterInput = {
@@ -1841,11 +1841,11 @@ export type MarkdownRemarkFrontmatter = {
   description?: Maybe<Scalars['String']>,
   intro?: Maybe<MarkdownRemarkFrontmatterIntro>,
   main?: Maybe<MarkdownRemarkFrontmatterMain>,
+  visible?: Maybe<Scalars['Boolean']>,
   date?: Maybe<Scalars['Date']>,
+  url?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   files?: Maybe<Array<Maybe<File>>>,
-  visible?: Maybe<Scalars['Boolean']>,
-  url?: Maybe<Scalars['String']>,
 };
 
 
@@ -1865,11 +1865,11 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   description?: Maybe<StringQueryOperatorInput>,
   intro?: Maybe<MarkdownRemarkFrontmatterIntroFilterInput>,
   main?: Maybe<MarkdownRemarkFrontmatterMainFilterInput>,
+  visible?: Maybe<BooleanQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
   files?: Maybe<FileFilterListInput>,
-  visible?: Maybe<BooleanQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkFrontmatterIntro = {
@@ -2159,6 +2159,7 @@ export type QuerySitePageArgs = {
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
+  context?: Maybe<SitePageContextFilterInput>,
   pluginCreator?: Maybe<SitePluginFilterInput>,
   pluginCreatorId?: Maybe<StringQueryOperatorInput>,
   componentPath?: Maybe<StringQueryOperatorInput>
@@ -2449,6 +2450,7 @@ export type SitePage = Node & {
   component?: Maybe<Scalars['String']>,
   componentChunkName?: Maybe<Scalars['String']>,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
+  context?: Maybe<SitePageContext>,
   pluginCreator?: Maybe<SitePlugin>,
   pluginCreatorId?: Maybe<Scalars['String']>,
   componentPath?: Maybe<Scalars['String']>,
@@ -2474,6 +2476,17 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>,
   field: SitePageFieldsEnum
+};
+
+export type SitePageContext = {
+  __typename?: 'SitePageContext',
+  id?: Maybe<Scalars['String']>,
+  tag?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  tag?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2575,6 +2588,8 @@ export enum SitePageFieldsEnum {
   Component = 'component',
   ComponentChunkName = 'componentChunkName',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  ContextId = 'context___id',
+  ContextTag = 'context___tag',
   PluginCreatorId = 'pluginCreator___id',
   PluginCreatorParentId = 'pluginCreator___parent___id',
   PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -2688,6 +2703,7 @@ export type SitePageFilterInput = {
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
+  context?: Maybe<SitePageContextFilterInput>,
   pluginCreator?: Maybe<SitePluginFilterInput>,
   pluginCreatorId?: Maybe<StringQueryOperatorInput>,
   componentPath?: Maybe<StringQueryOperatorInput>,
@@ -3216,7 +3232,7 @@ export type BlogRollQueryQuery = (
         & Pick<MarkdownRemark, 'excerpt' | 'id'>
         & { fields: Maybe<(
           { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'route'>
+          & Pick<MarkdownRemarkFields, 'slug'>
         )>, frontmatter: Maybe<(
           { __typename?: 'MarkdownRemarkFrontmatter' }
           & Pick<MarkdownRemarkFrontmatter, 'title' | 'templateKey' | 'date'>
@@ -3282,7 +3298,7 @@ export type TagPageQuery = (
         { __typename?: 'MarkdownRemark' }
         & { fields: Maybe<(
           { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'route'>
+          & Pick<MarkdownRemarkFields, 'slug'>
         )>, frontmatter: Maybe<(
           { __typename?: 'MarkdownRemarkFrontmatter' }
           & Pick<MarkdownRemarkFrontmatter, 'title'>
