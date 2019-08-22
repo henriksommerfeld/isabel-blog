@@ -1,13 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import { TagPageQuery } from '../../auto-generated/graphql';
-import { Jsx } from '../../my-graphql';
 
-export default function TagRoute({ data, pageContext }): Jsx {
-  //const data = useStaticQuery<TagPageQuery>(tagPageQuery);
-
+export default function TagRoute({ data, pageContext }: TagRouteProps) {
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
@@ -19,9 +16,9 @@ export default function TagRoute({ data, pageContext }): Jsx {
   const tag = pageContext.tag;
   const title = data.site.siteMetadata.title;
   const totalCount = data.allMarkdownRemark.totalCount;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with “${tag}”`;
+  const tagHeader = `${totalCount} inlägg tagg${
+    totalCount === 1 ? 'at' : 'ade'
+  } med “${tag}”`;
 
   return (
     <Layout>
@@ -36,7 +33,7 @@ export default function TagRoute({ data, pageContext }): Jsx {
               <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
               <ul className="taglist">{postLinks}</ul>
               <p>
-                <Link to="/tags/">Browse all tags</Link>
+                <Link to="/tags/">Se alla taggar</Link>
               </p>
             </div>
           </div>
@@ -74,30 +71,8 @@ export const tagPageQuery = graphql`
 `;
 
 interface TagRouteProps {
+  data: TagPageQuery;
   pageContext: {
     tag: string;
   };
 }
-
-// interface TagRouteData {
-//   site: {
-//     siteMetadata: {
-//       title: string;
-//     };
-//   };
-//   allMarkdownRemark: {
-//     totalCount: number;
-//     edges: TaggedPost[];
-//   };
-// }
-
-// interface TaggedPost {
-//   node: {
-//     fields: {
-//       slug: string;
-//     };
-//     frontmatter: {
-//       title: string;
-//     };
-//   };
-// }
