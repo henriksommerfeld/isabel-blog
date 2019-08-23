@@ -1,6 +1,6 @@
 export default {
   id: 'video',
-  label: 'Video-länk',
+  label: 'Video',
 
   fields: [
     {

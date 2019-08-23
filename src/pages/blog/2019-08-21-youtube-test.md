@@ -1,19 +1,19 @@
 ---
 templateKey: blog-post
 title: Video-test
-hidden: true
+hidden: false
 date: 2019-08-21T12:07:01.008Z
 tags:
   - Video
 ---
-Hejsan
+## YouTube
 
-`youtube: 46Z6xupF9C0`
+`youtube: https://youtu.be/68WL0EPEnrQ`
 
-Hej då
+## Vimeo
 
-`vimeo: 6370469`
+`vimeo: https://vimeo.com/354980539`
 
-Generisk video
+## Sound Cloud
 
-`video: https://archive.org/download/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4`
+`soundcloud: https://soundcloud.com/thenumbersmagazine/jay-z-100-bill-great-gatsby`

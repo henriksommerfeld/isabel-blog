@@ -5,6 +5,7 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import { MarkdownRemark } from '../../auto-generated/graphql';
+import styled from 'styled-components';
 
 interface BlogPostTemplate {
   content: string;
@@ -26,9 +27,9 @@ export function BlogPostTemplate({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <>
       {helmet || ''}
-      <div className="container content">
+      <ContentWidth>
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
@@ -50,10 +51,15 @@ export function BlogPostTemplate({
             ) : null}
           </div>
         </div>
-      </div>
-    </section>
+      </ContentWidth>
+    </>
   );
 }
+
+const ContentWidth = styled('div')`
+  width: 100%;
+  max-width: 1000px;
+`;
 
 interface BlogPost {
   data: {
@@ -63,15 +69,15 @@ interface BlogPost {
 
 export default function BlogPost(props: BlogPost) {
   const { markdownRemark: post } = props.data;
-  const frontmatter = post.frontmatter!;
-  const tags: string[] = (frontmatter!.tags || []) as string[];
+  const frontmatter = post.frontmatter;
+  const tags: string[] = (frontmatter.tags || []) as string[];
 
   return (
     <Layout>
       <BlogPostTemplate
-        content={post.html!}
+        content={post.html}
         contentComponent={HTMLContent}
-        description={frontmatter.description!}
+        description={frontmatter.description}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${frontmatter.title}`}</title>
@@ -79,7 +85,7 @@ export default function BlogPost(props: BlogPost) {
           </Helmet>
         }
         tags={tags}
-        title={frontmatter.title!}
+        title={frontmatter.title}
       />
     </Layout>
   );

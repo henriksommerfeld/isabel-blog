@@ -9,6 +9,19 @@ export default `
   .video {
     position: relative; left: 0; top: 0;
   }
+  .video-fake-background {
+    background: darkslateblue;
+    padding: 2rem;
+    height: 402px;
+    margin-bottom: 1.16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .video-fake-background h3 {
+    line-height: 1.5;
+  }
   .video-background {
     position: relative;
 		top: 0;

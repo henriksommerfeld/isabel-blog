@@ -31,25 +31,59 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          // {
+          //   resolve: 'gatsby-remark-video',
+          //   options: {
+          //     width: '100%',
+          //     height: 'auto',
+          //     preload: 'auto',
+          //     muted: true,
+          //     autoplay: false,
+          //     loop: false,
+          //     controls: true,
+          //   },
+          // },
+          // {
+          //   resolve: 'gatsby-remark-embed-video',
+          //   options: {
+          //     width: 800,
+          //     ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+          //     //height: 400, // Optional: Overrides optional.ratio
+          //     related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
+          //     noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
+          //   },
+          // },
           {
-            resolve: 'gatsby-remark-video',
+            resolve: `@raae/gatsby-remark-oembed`,
             options: {
-              width: '100%',
-              height: 'auto',
-              preload: 'auto',
-              muted: true,
-              autoplay: false,
-              loop: false,
+              // usePrefix defaults to false
+              // usePrefix: true is the same as ["oembed"]
+              usePrefix: ['youtube', 'vimeo', 'soundcloud'],
+              providers: {
+                // Important to exclude providers
+                // that adds js to the page.
+                // If you do not need them.
+                include: ['YouTube', 'Vimeo', 'SoundCloud'],
+                exclude: [
+                  'Reddit',
+                  'Instagram',
+                  'Flickr',
+                  'Twitter',
+                  'Spotify',
+                ],
+              },
+              settings: {
+                // Ex. Show all Twitter embeds with the dark theme
+                //Twitter: { theme: 'dark' },
+                // Ex. Hide all Instagram comments by default
+                Instagram: { hidecaption: true },
+              },
             },
           },
           {
-            resolve: 'gatsby-remark-embed-video',
+            resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              width: 800,
-              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-              //height: 400, // Optional: Overrides optional.ratio
-              related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-              noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
+              wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
         ],
