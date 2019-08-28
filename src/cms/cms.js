@@ -4,6 +4,7 @@ import BlogPostPreview from './preview-templates/BlogPostPreview';
 import IndexPagePreview from './preview-templates/IndexPagePreview';
 import EditorYoutube from './editors/editor-youtube';
 import EditorVimeo from './editors/editor-vimeo';
+import EditorVideo from './editors/editor-video';
 import EditorSoundCloud from './editors/editor-soundcloud';
 import previewStyles from './previewStyles';
 
@@ -17,7 +18,7 @@ if (isDevelopment) {
 
 CMS.registerEditorComponent(EditorYoutube);
 CMS.registerEditorComponent(EditorVimeo);
-//CMS.registerEditorComponent(EditorVideo);
+CMS.registerEditorComponent(EditorVideo);
 CMS.registerEditorComponent(EditorSoundCloud);
 CMS.registerPreviewStyle(previewStyles, { raw: true });
 CMS.registerPreviewTemplate('index', IndexPagePreview);

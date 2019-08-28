@@ -7,6 +7,7 @@ import Content, { HTMLContent } from '../components/Content';
 import { MarkdownRemark } from '../../auto-generated/graphql';
 import styled from 'styled-components';
 
+
 interface BlogPostTemplate {
   content: string;
   contentComponent: any;

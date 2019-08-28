@@ -14,7 +14,7 @@ export default function BlogRoll(): ReactElement {
   const { edges: posts } = data && data.allMarkdownRemark;
 
   return (
-    <div className="columns is-multiline">
+    <div className="blog-roll" style={{maxWidth: '1000px', background: '#fff',margin: '0 3rem',boxShadow: '0px 20px 40px rgba(0,0,0,0.8)',padding: '3rem',borderRadius: '4px'}}>
       {posts && posts.map(({ node: post }): Jsx => BlogRollItem(post))}
     </div>
   );

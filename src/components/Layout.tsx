@@ -6,6 +6,10 @@ import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix, Link } from 'gatsby';
 import { Jsx } from '../../my-graphql';
+import { colors } from '../variables';
+import blur10 from '../../static/img/photo-1513346940221-6f673d962e97-blur-10.jpg'
+import blur200 from '../../static/img/photo-1513346940221-6f673d962e97-blur-200.jpg'
+import whitePatterns from '../../static/img/jj-ying-7JX0-bfiuxQ-unsplash.jpg'
 
 interface TemplateWrapperProps {
   children: ReactNode;
@@ -20,7 +24,7 @@ export default function TemplateWrapper({
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
-        <meta name="description" content={description || undefined} />
+        <meta name="description" content={description} />
 
         <link
           rel="apple-touch-icon"
@@ -58,7 +62,7 @@ export default function TemplateWrapper({
       <GlobalStyle />
       <Page>
         <Header>
-          <div>{title}</div> <Navbar />
+          <Navbar />
         </Header>
         <Body>{children}</Body>
         <Footer />
@@ -76,9 +80,14 @@ const GlobalStyle = createGlobalStyle`
 const Header = styled('header')`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  border: dashed blue 2px;
+  padding: 1rem;
+  /* border: dashed blue 2px; */
+  background: ${colors.headerBackground};
+  box-shadow: 0 1px 20px rgba(0,0,0,0.2);
+  z-index: 1;
+
 `;
 
 const Body = styled('div')`
@@ -86,7 +95,7 @@ const Body = styled('div')`
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  border: red dashed 2px;
+  /* border: red dashed 2px; */
 `;
 
 const Page = styled('div')`
@@ -95,4 +104,36 @@ const Page = styled('div')`
   min-height: 100vh;
   flex-direction: column;
   background-color: #f8f8f8;
+  /* background-color: #2C5282; */
+
+  /*  */
+  /* background-image: url(${whitePatterns}); */
+
+  /* Rosa färgbad */
+  /* background-image: url('https://images.unsplash.com/photo-1562619371-b67725b6fde2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); */
+
+  /* Sädesåker */
+  background-image: url('https://images.unsplash.com/photo-1421435371524-d26441ec7dda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80');
+  
+  /* Köpcenter med sparka linjer */ 
+  /* background-image: url('https://images.unsplash.com/photo-1486927181919-3ac1fc3a8082?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80'); */
+  
+  
+  /*Svart-vit målning */
+  /* background-image: url('https://images.unsplash.com/photo-1505562130589-9879683e72da?ixlib=rb-1.2.1&auto=format&q=80'); */
+
+  /* Blå trävägg */
+  /* background-image: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80');   */
+
+
+/* Guld */
+/* background-image: url('https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80'); */
+/* background-image: url(${blur200}); */
+
+/* background-image: linear-gradient(violet, black 60%); */
+
+background-repeat: repeat-x;
+background-attachment: fixed;
+background-position: top center;
+background-size: cover;
 `;
