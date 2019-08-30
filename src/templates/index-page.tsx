@@ -27,6 +27,7 @@ export const IndexPageTemplate = ({
         alignItems: 'center',
       }}
     >
+      <PortraitLarge />
       <div
         style={{
           backgroundColor: 'rgba(0,0,0,0.5)',
@@ -48,17 +49,6 @@ export const IndexPageTemplate = ({
           <li>Corporate Social Responsibility</li>
         </ul>
       </div>
-      <img
-        style={{
-          border: '0.5em solid white',
-          boxShadow: '0 0 1em black',
-          borderRadius: '100%',
-          maxWidth: '280px',
-          maxHeight: '280px',
-          margin: '2rem 0',
-        }}
-        src={portrait}
-      />
     </div>
     <div style={{ width: 'auto' }}>
       <BlogRoll />
@@ -66,7 +56,21 @@ export const IndexPageTemplate = ({
   </div>
 );
 
-// const LandingIntro = styled('div')``;
+function PortraitLarge() {
+  return (
+    <img
+      style={{
+        border: '0.5em solid white',
+        boxShadow: '0 0 1em black',
+        borderRadius: '100%',
+        maxWidth: '280px',
+        maxHeight: '280px',
+        margin: '2rem 0',
+      }}
+      src={portrait}
+    />
+  );
+}
 
 export default function IndexPage({ data }) {
   const { frontmatter } = data.markdownRemark;

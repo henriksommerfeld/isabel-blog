@@ -32,5 +32,6 @@
   ],
   "typescript.tsdk": "./node_modules/typescript/lib",
   "debug.node.autoAttach": "on",
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "cSpell.enabled": false
 }
