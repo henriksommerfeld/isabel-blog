@@ -1,9 +1,8 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'gatsby';
 
-
 export default function NavBar(): ReactElement {
-  return <div style={{ fontSize: '2em' }}>🍔</div>;
+  return <div style={{ fontSize: '1.5em' }}>🍔</div>;
 
   // return (
   //   <div>
@@ -13,3 +12,5 @@ export default function NavBar(): ReactElement {
   //   </div>
   // );
 }
+
+function NameWithHamburger() {}

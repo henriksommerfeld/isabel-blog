@@ -16,23 +16,53 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <div style={{background: colors.headerBackground, padding: `${spacing.paddingDouble} ${spacing.paddingDefault}`, paddingBottom: '5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-      <div style={{backgroundColor: 'rgba(255,255,255,0.7)',borderRadius: '4px',padding: '3rem',border: '9px solid white'}}>
-
-      <h1>Isabel Sommerfeld</h1>
-      <h2>Jurist</h2>
-      <ul style={{padding: spacing.paddingDefault}}>
-        <li>Mänskliga rättigheter</li>   
-        <li>Terapeutisk juridik</li>
-        <li>Corporate Social Responsibility</li>
-      </ul>
+    <div
+      style={{
+        background: colors.headerBackground,
+        // padding: `${spacing.paddingDouble} ${spacing.paddingDefault}`,
+        paddingBottom: '5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.5)',
+          borderRadius: '0px',
+          padding: '3rem 1rem',
+          // border: '9px solid white',
+          width: '100%',
+          color: '#fff',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <h1>Isabel Sommerfeld</h1>
+        <h2>Jurist</h2>
+        <ul>
+          <li>Mänskliga rättigheter</li>
+          <li>Terapeutisk juridik</li>
+          <li>Corporate Social Responsibility</li>
+        </ul>
       </div>
-      <img style={{border: '0.5em solid white', boxShadow: '0 0 1em black', borderRadius: '100%', maxWidth: '280px', maxHeight: '280px', margin: '2rem 0' }} src={portrait} />
+      <img
+        style={{
+          border: '0.5em solid white',
+          boxShadow: '0 0 1em black',
+          borderRadius: '100%',
+          maxWidth: '280px',
+          maxHeight: '280px',
+          margin: '2rem 0',
+        }}
+        src={portrait}
+      />
     </div>
-    <div style={{width: 'auto'}}>
-    <BlogRoll />
+    <div style={{ width: 'auto' }}>
+      <BlogRoll />
     </div>
-
   </div>
 );
 

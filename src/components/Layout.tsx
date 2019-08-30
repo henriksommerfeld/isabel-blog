@@ -7,9 +7,8 @@ import useSiteMetadata from './SiteMetadata';
 import { withPrefix, Link } from 'gatsby';
 import { Jsx } from '../../my-graphql';
 import { colors } from '../variables';
-import blur10 from '../../static/img/photo-1513346940221-6f673d962e97-blur-10.jpg'
-import blur200 from '../../static/img/photo-1513346940221-6f673d962e97-blur-200.jpg'
-import whitePatterns from '../../static/img/jj-ying-7JX0-bfiuxQ-unsplash.jpg'
+import violetForrest from '../../static/img/photo-1563206706-37fc22744de1.jpg';
+import Header from './Header';
 
 interface TemplateWrapperProps {
   children: ReactNode;
@@ -61,9 +60,8 @@ export default function TemplateWrapper({
       </Helmet>
       <GlobalStyle />
       <Page>
-        <Header>
-          <Navbar />
-        </Header>
+        <Header />
+
         <Body>{children}</Body>
         <Footer />
       </Page>
@@ -75,19 +73,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
-`;
-
-const Header = styled('header')`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1rem;
-  /* border: dashed blue 2px; */
-  background: ${colors.headerBackground};
-  box-shadow: 0 1px 20px rgba(0,0,0,0.2);
-  z-index: 1;
-
 `;
 
 const Body = styled('div')`
@@ -103,20 +88,17 @@ const Page = styled('div')`
   height: 100%;
   min-height: 100vh;
   flex-direction: column;
-  background-color: #f8f8f8;
-  /* background-color: #2C5282; */
+  /* background-color: #f8f8f8; */
+  background-color: white;
 
   /*  */
-  /* background-image: url(${whitePatterns}); */
+  /* background-image: url(${greenBlur}); */
 
-  /* Rosa färgbad */
-  /* background-image: url('https://images.unsplash.com/photo-1562619371-b67725b6fde2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); */
+  /* Lila-rosa med skog i siluett */
+  /* background-image: url(${violetForrest}); */
 
   /* Sädesåker */
-  background-image: url('https://images.unsplash.com/photo-1421435371524-d26441ec7dda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80');
-  
-  /* Köpcenter med sparka linjer */ 
-  /* background-image: url('https://images.unsplash.com/photo-1486927181919-3ac1fc3a8082?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80'); */
+  /* background-image: url('https://images.unsplash.com/photo-1421435371524-d26441ec7dda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80'); */
   
   
   /*Svart-vit målning */
@@ -125,12 +107,15 @@ const Page = styled('div')`
   /* Blå trävägg */
   /* background-image: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80');   */
 
+  /* Blå trävägg suddig */
+  /* background-image: url(${blueWoodBlur});   */
+
 
 /* Guld */
 /* background-image: url('https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80'); */
 /* background-image: url(${blur200}); */
 
-/* background-image: linear-gradient(violet, black 60%); */
+/* background-image: linear-gradient(#B2F5EA, #234E52 60%); */
 
 background-repeat: repeat-x;
 background-attachment: fixed;
