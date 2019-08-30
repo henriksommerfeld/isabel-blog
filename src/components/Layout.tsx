@@ -16,6 +16,7 @@ interface TemplateWrapperProps {
 
 export default function TemplateWrapper({
   children,
+  location,
 }: TemplateWrapperProps): Jsx {
   const { title, description } = useSiteMetadata();
   return (
@@ -60,7 +61,7 @@ export default function TemplateWrapper({
       </Helmet>
       <GlobalStyle />
       <Page>
-        <Header />
+        <Header location={location} />
 
         <Body>{children}</Body>
         <Footer />

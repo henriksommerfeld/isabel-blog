@@ -5,8 +5,10 @@ import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
+import onClickOutside from 'react-onclickoutside';
+// https://www.npmjs.com/package/react-onclickoutside
 
-export default function Header() {
+export default function Header({ location }: any) {
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
   const showPortrait = location.pathname !== '/';

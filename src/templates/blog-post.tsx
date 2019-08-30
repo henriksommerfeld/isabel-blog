@@ -7,7 +7,6 @@ import Content, { HTMLContent } from '../components/Content';
 import { MarkdownRemark } from '../../auto-generated/graphql';
 import styled from 'styled-components';
 
-
 interface BlogPostTemplate {
   content: string;
   contentComponent: any;
@@ -74,7 +73,7 @@ export default function BlogPost(props: BlogPost) {
   const tags: string[] = (frontmatter.tags || []) as string[];
 
   return (
-    <Layout>
+    <Layout location={props.location}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}

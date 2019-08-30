@@ -72,11 +72,11 @@ function PortraitLarge() {
   );
 }
 
-export default function IndexPage({ data }) {
+export default function IndexPage({ data, location }) {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

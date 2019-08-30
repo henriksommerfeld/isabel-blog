@@ -11,8 +11,9 @@ const TagsPage = ({
       siteMetadata: { title },
     },
   },
+  location,
 }) => (
-  <Layout>
+  <Layout location={location}>
     <section className="section">
       <Helmet title={`Tags | ${title}`} />
       <div className="container content">
