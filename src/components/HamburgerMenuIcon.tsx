@@ -1,7 +1,11 @@
 import React from 'react';
-import { useSpring, animated, config } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 
-export default function HamburgerMenuIcon({ isOpen, clickAction }: Hamburger) {
+export default function HamburgerMenuIcon({
+  isOpen,
+  clickAction,
+  className,
+}: Hamburger) {
   const { top, center, bottom, color } = useSpring({
     to: isOpen ? crossStyle : hamburgerStyle,
   });
@@ -13,10 +17,29 @@ export default function HamburgerMenuIcon({ isOpen, clickAction }: Hamburger) {
       fill={color}
       xmlns="http://www.w3.org/2000/svg"
       onClick={clickAction}
+      className={className}
     >
-      <animated.rect width="40" height="6" rx="1" transform={top} />
-      <animated.rect width="40" height="6" rx="1" transform={center} />
-      <animated.rect width="40" height="6" rx="1" transform={bottom} />
+      <animated.rect
+        width="40"
+        height="6"
+        rx="1"
+        transform={top}
+        className={className}
+      />
+      <animated.rect
+        width="40"
+        height="6"
+        rx="1"
+        transform={center}
+        className={className}
+      />
+      <animated.rect
+        width="40"
+        height="6"
+        rx="1"
+        transform={bottom}
+        className={className}
+      />
     </animated.svg>
   );
 }
@@ -24,6 +47,7 @@ export default function HamburgerMenuIcon({ isOpen, clickAction }: Hamburger) {
 interface Hamburger {
   isOpen: boolean;
   clickAction: any;
+  className: string;
 }
 
 const hamburgerStyle = {
