@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { colors } from '../variables';
 import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
-import onClickOutside from 'react-onclickoutside';
+import useOnClickOutside from 'use-onclickoutside'
 // https://www.npmjs.com/package/react-onclickoutside
 
 export default function Header({ location }: any) {
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
   const showPortrait = location.pathname !== '/';
-  const pullDownAnimation = useSpring({
-    to: {
-      transform: mobileMenuIsVisible
-        ? `translateY(${headerHeight})`
-        : `translateY(-${mobileMenuHeight})`,
-    },
-  });
+  
+  
 
   return (
     <>
@@ -30,19 +25,10 @@ export default function Header({ location }: any) {
         <HamburgerMenuIcon
           isOpen={mobileMenuIsVisible}
           clickAction={toggleMenu}
+          className="ignore-onOutsideClick"
         />
       </NavStyled>
-      <MobileMenu style={pullDownAnimation}>
-        <MobileLink to="/om">1</MobileLink>
-        <MobileLink to="/publicerat">2</MobileLink>
-        <MobileLink to="/blog">3</MobileLink>
-        <MobileLink to="/om">4</MobileLink>
-        <MobileLink to="/publicerat">5</MobileLink>
-        <MobileLink to="/blog">6</MobileLink>
-        <MobileLink to="/om">7</MobileLink>
-        <MobileLink to="/publicerat">8</MobileLink>
-        <MobileLink to="/blog">9</MobileLink>
-      </MobileMenu>
+      <MobileMenu isVisible={mobileMenuIsVisible} setIsVisible={setMobileMenuIsVisible} />
     </>
   );
 }
@@ -50,7 +36,41 @@ export default function Header({ location }: any) {
 const headerHeight = '80px';
 const mobileMenuHeight = '500px';
 
-const MobileMenu = styled(animated.div)`
+function hasClass(e, className): boolean {
+console.log('e', e);
+ return e.target && e.target.className && e.target.className.includes(className);
+}
+
+function MobileMenu({isVisible, setIsVisible}) {
+  const menuRef = useRef(null);
+  const pullDownAnimation = useSpring({
+    to: {
+      transform: isVisible
+      ? `translateY(${headerHeight})`
+      : `translateY(-${mobileMenuHeight})`,
+    },
+  });
+  
+
+  useOnClickOutside(menuRef, e => {
+    if (!hasClass(e, 'ignore-onOutsideClick')) 
+    setIsVisible(false);
+  })
+
+  return (<MobileMenuStyled ref={menuRef} style={pullDownAnimation}>
+    <MobileLink to="/om">1</MobileLink>
+    <MobileLink to="/publicerat">2</MobileLink>
+    <MobileLink to="/blog">3</MobileLink>
+    <MobileLink to="/om">4</MobileLink>
+    <MobileLink to="/publicerat">5</MobileLink>
+    <MobileLink to="/blog">6</MobileLink>
+    <MobileLink to="/om">7</MobileLink>
+    <MobileLink to="/publicerat">8</MobileLink>
+    <MobileLink to="/blog">9</MobileLink>
+  </MobileMenuStyled>)
+}
+
+const MobileMenuStyled = styled(animated.div)`
   display: flex;
   flex-direction: column;
   width: 100%;
