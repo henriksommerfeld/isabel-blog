@@ -46,9 +46,10 @@ const SiteTitle = styled('div')`
 `;
 
 const Isabel = styled('div')`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-family: 'Domine', 'sans-serif';
   color: white;
+  margin-right: 1rem;
 `;
 
 const NavStyled = styled('nav')`
