@@ -15,10 +15,12 @@ export default function Header({ location }: any) {
   return (
     <>
       <NavStyled>
-        <HeaderLink to="/" aria-label="till startsidan">
-          {showPortrait ? <PortraitSmall /> : null}
+        <SiteTitle>
+          <Link to="/" aria-label="till startsidan">
+            {showPortrait ? <PortraitSmall /> : null}
+          </Link>
           <Isabel>Isabel Sommerfeld</Isabel>
-        </HeaderLink>
+        </SiteTitle>
         <HamburgerMenuIcon
           isOpen={mobileMenuIsVisible}
           clickAction={toggleMenu}
@@ -36,7 +38,7 @@ export default function Header({ location }: any) {
 
 export const headerHeight = '80px';
 
-const HeaderLink = styled(Link)`
+const SiteTitle = styled('div')`
   display: flex;
   flex-direction: row;
   justify-content: center;
