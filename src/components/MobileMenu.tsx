@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import useOnClickOutside from 'use-onclickoutside';
 import { headerHeight } from './Header';
+import { navLinks } from '../constants';
 
 export default function MobileMenu({
   isVisible,
@@ -25,15 +26,11 @@ export default function MobileMenu({
 
   return (
     <MobileMenuStyled ref={menuRef} style={pullDownAnimation}>
-      <MobileLink to="/om">1</MobileLink>
-      <MobileLink to="/publicerat">2</MobileLink>
-      <MobileLink to="/blog">3</MobileLink>
-      <MobileLink to="/om">4</MobileLink>
-      <MobileLink to="/publicerat">5</MobileLink>
-      <MobileLink to="/blog">6</MobileLink>
-      <MobileLink to="/om">7</MobileLink>
-      <MobileLink to="/publicerat">8</MobileLink>
-      <MobileLink to="/blog">9</MobileLink>
+      {navLinks.map(link => (
+        <MobileLink to={link.url} key={link.url}>
+          {link.title}
+        </MobileLink>
+      ))}
     </MobileMenuStyled>
   );
 }

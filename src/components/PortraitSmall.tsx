@@ -1,5 +1,5 @@
 import React from 'react';
-import { spacing, colors } from '../variables';
+import { spacing, colors } from '../constants';
 import styled from 'styled-components';
 import portrait from '../../static/uploads/isabel_960x960.jpg';
 

@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix, Link } from 'gatsby';
 import { Jsx } from '../../my-graphql';
-import { colors } from '../variables';
+import { colors } from '../constants';
 import violetForrest from '../../static/img/photo-1563206706-37fc22744de1.jpg';
 import Header from './Header';
 

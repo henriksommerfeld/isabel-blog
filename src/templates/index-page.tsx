@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
 import styled from 'styled-components';
 import portrait from '../../static/uploads/isabel_960x960.jpg';
-import { spacing, colors } from '../variables';
+import { spacing, colors } from '../constants';
 
 export const IndexPageTemplate = ({
   image,
