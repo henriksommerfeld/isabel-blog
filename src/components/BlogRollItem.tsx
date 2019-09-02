@@ -54,7 +54,7 @@ function FeaturedImage({ image, title }: FeaturedImage): Jsx {
 
   return (
     <div className="featured-thumbnail">
-      <PreviewCompatibleImage image={image} alt={altText} />
+      {/* <PreviewCompatibleImage image={image} alt={altText} /> */}
     </div>
   );
 }

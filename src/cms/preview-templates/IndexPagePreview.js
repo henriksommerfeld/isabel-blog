@@ -1,23 +1,22 @@
 import React from 'react';
 import { IndexPageTemplate } from '../../templates/index-page';
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const IndexPagePreview = ({ entry, widgetFor }) => {
   const data = entry.getIn(['data']).toJS();
 
-  if (data) {
-    return (
-      <IndexPageTemplate
-        image={data.image}
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-        description={data.description}
-        intro={data.intro || { blurbs: [] }}
-      />
-    );
-  } else {
-    return <div>Loading...</div>;
-  }
+  if (!data) return <div>Loading...</div>;
+
+  const imageInfo = {image: data.image};
+  
+  return (
+    <IndexPageTemplate
+      image={imageInfo}
+      heading={data.heading}
+      subheading={data.subheading}
+      description={widgetFor('body')}
+      isPreview={true}
+    />
+  );  
 };
 
 export default IndexPagePreview;

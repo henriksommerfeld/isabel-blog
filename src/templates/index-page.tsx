@@ -4,22 +4,21 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import BlogRoll from '../components/BlogRoll';
 import styled from 'styled-components';
-import portrait from '../../static/uploads/isabel_960x960.jpg';
 import { spacing, colors } from '../constants';
+import Content, { HTMLContent } from '../components/Content';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const IndexPageTemplate = ({
   image,
-  title,
   heading,
   subheading,
   description,
-  intro,
+  isPreview = false,
 }) => (
   <div>
     <div
       style={{
         background: colors.headerBackground,
-        // padding: `${spacing.paddingDouble} ${spacing.paddingDefault}`,
         paddingBottom: '5rem',
         display: 'flex',
         flexDirection: 'column',
@@ -27,7 +26,15 @@ export const IndexPageTemplate = ({
         alignItems: 'center',
       }}
     >
-      <PortraitLarge src={portrait} />
+      <PortraitLarge
+        imageInfo={image}
+        style={{
+          borderRadius: '50%',
+          border: '0.5em solid white',
+          width: '280px',
+          margin: '2rem 0',
+        }}
+      />
       <div
         style={{
           backgroundColor: 'rgba(0,0,0,0.5)',
@@ -41,40 +48,37 @@ export const IndexPageTemplate = ({
           alignItems: 'center',
         }}
       >
-        <h1>Isabel Sommerfeld</h1>
-        <h2>Jurist</h2>
-        <ul>
-          <li>Mänskliga rättigheter</li>
-          <li>Terapeutisk juridik</li>
-          <li>Corporate Social Responsibility</li>
-        </ul>
+        <h1>{heading}</h1>
+        <h2>{subheading}</h2>
+        {isPreview ? (
+          <Content content={description} />
+        ) : (
+          <HTMLContent content={description} />
+        )}
       </div>
     </div>
-    <div style={{ width: '100%' }}>{/* <BlogRoll /> */}</div>
+    <div style={{ width: '100%' }}>{isPreview ? null : <BlogRoll />}</div>
   </div>
 );
 
-const PortraitLarge = styled('img')`
+const PortraitLarge = styled(PreviewCompatibleImage)`
   border: 0.5em solid white;
   box-shadow: 0 0 1em black;
   border-radius: 100%;
-  max-width: 280px;
-  max-height: 280px;
+  width: 280px;
   margin: 2rem 0;
 `;
 
 export default function IndexPage({ data, location }) {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter, html } = data.markdownRemark;
 
   return (
     <Layout location={location}>
       <IndexPageTemplate
         image={frontmatter.image}
-        title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        description={html}
       />
     </Layout>
   );
@@ -83,11 +87,12 @@ export default function IndexPage({ data, location }) {
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      html
       frontmatter {
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 300, quality: 100) {
               src
               srcSet
               aspectRatio
@@ -98,25 +103,6 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  src
-                  srcSet
-                  aspectRatio
-                  sizes
-                  base64
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }
