@@ -12,6 +12,7 @@ import Header from './Header';
 
 interface TemplateWrapperProps {
   children: ReactNode;
+  location: string;
 }
 
 export default function TemplateWrapper({

@@ -7,6 +7,7 @@ import EditorVimeo from './editors/editor-vimeo';
 import EditorVideo from './editors/editor-video';
 import EditorSoundCloud from './editors/editor-soundcloud';
 import previewStyles from './previewStyles';
+import withStyledComponents from './withStyledComponentsRendered'
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -21,8 +22,9 @@ CMS.registerEditorComponent(EditorVimeo);
 CMS.registerEditorComponent(EditorVideo);
 CMS.registerEditorComponent(EditorSoundCloud);
 CMS.registerPreviewStyle(previewStyles, { raw: true });
-CMS.registerPreviewTemplate('index', IndexPagePreview);
-CMS.registerPreviewTemplate('about', AboutPagePreview);
-CMS.registerPreviewTemplate('blog', BlogPostPreview);
+CMS.registerPreviewTemplate('index', withStyledComponents(IndexPagePreview));
+CMS.registerPreviewTemplate('about', withStyledComponents(AboutPagePreview));
+CMS.registerPreviewTemplate('blog', withStyledComponents(BlogPostPreview));
+
 
 CMS.init();

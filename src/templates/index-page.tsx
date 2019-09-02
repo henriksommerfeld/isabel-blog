@@ -27,7 +27,7 @@ export const IndexPageTemplate = ({
         alignItems: 'center',
       }}
     >
-      <PortraitLarge />
+      <PortraitLarge src={portrait} />
       <div
         style={{
           backgroundColor: 'rgba(0,0,0,0.5)',
@@ -50,27 +50,18 @@ export const IndexPageTemplate = ({
         </ul>
       </div>
     </div>
-    <div style={{ width: 'auto' }}>
-      <BlogRoll />
-    </div>
+    <div style={{ width: '100%' }}>{/* <BlogRoll /> */}</div>
   </div>
 );
 
-function PortraitLarge() {
-  return (
-    <img
-      style={{
-        border: '0.5em solid white',
-        boxShadow: '0 0 1em black',
-        borderRadius: '100%',
-        maxWidth: '280px',
-        maxHeight: '280px',
-        margin: '2rem 0',
-      }}
-      src={portrait}
-    />
-  );
-}
+const PortraitLarge = styled('img')`
+  border: 0.5em solid white;
+  box-shadow: 0 0 1em black;
+  border-radius: 100%;
+  max-width: 280px;
+  max-height: 280px;
+  margin: 2rem 0;
+`;
 
 export default function IndexPage({ data, location }) {
   const { frontmatter } = data.markdownRemark;
