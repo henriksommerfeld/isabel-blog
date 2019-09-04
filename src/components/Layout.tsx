@@ -75,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
-  a, a:visited {
+  a {
     color: ${colors.link};
   }
   a:visited {
@@ -99,7 +99,7 @@ const Page = styled('div')`
   min-height: 100vh;
   flex-direction: column;
   /* background-color: #f8f8f8; */
-  background-color: white;
+  background-color: ${colors.pageBackground};
 
   /*  */
   /* background-image: url(${greenBlur}); */

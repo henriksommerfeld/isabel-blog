@@ -7,6 +7,7 @@ import {
 } from '../../auto-generated/graphql';
 import { Jsx } from '../../my-graphql';
 import styled from 'styled-components';
+import { fonts, colors, spacing, breakpoints } from '../constants';
 
 export default function BlogRollItem(post: MarkdownRemark): Jsx {
   if (!post || !post.frontmatter) return null;
@@ -37,11 +38,14 @@ export default function BlogRollItem(post: MarkdownRemark): Jsx {
 const HeadingLink = styled(Link)`
   &,
   &:visited {
-    display: block;
-    text-align: center;
-    color: black;
-    font-family: 'Domine';
+    color: ${colors.black};
+    font-family: ${fonts.headingFamily};
     font-size: 1.5rem;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: ${colors.linkFocus};
   }
 `;
 
@@ -52,11 +56,16 @@ const Date = styled('div')`
 `;
 
 const Article = styled('article')`
-  padding: 15px;
+  padding: ${spacing.paddingDefault};
   border-bottom: 1px dashed gray;
+
+  /* @media (min-width: ${breakpoints.medium}) {
+    padding: ${spacing.paddingDouble};
+  } */
 `;
 
 const Header = styled('header')`
+  text-align: center;
   margin-bottom: 2rem;
 `;
 

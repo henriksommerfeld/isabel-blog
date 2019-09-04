@@ -59,7 +59,7 @@ const NavStyled = styled('nav')`
   align-items: center;
   padding: 1rem;
   background: ${colors.headerBackground};
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
   z-index: 2;
   height: ${headerHeight};
 `;

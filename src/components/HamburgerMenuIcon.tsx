@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
+import { colors } from '../constants';
 
 export default function HamburgerMenuIcon({
   isOpen,
@@ -54,12 +55,12 @@ const hamburgerStyle = {
   top: 'translate(2, 7) rotate(0)',
   center: 'translate(2, 19) rotate(0)',
   bottom: 'translate(2, 31) rotate(0)',
-  color: '#fff',
+  color: colors.white,
 };
 
 const crossStyle = {
   top: 'translate(5, 32) rotate(-45)',
   center: 'translate(10, 4) rotate(45)',
   bottom: 'translate(5, 32) rotate(-45)',
-  color: 'lightblue',
+  color: colors.mobileMenuIconOpen,
 };

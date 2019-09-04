@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../constants';
+import { colors, breakpoints, spacing } from '../constants';
 import BlogRoll from '../components/BlogRoll';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -12,7 +12,7 @@ export const IndexPageTemplate = ({
   description,
   isPreview = false,
 }) => (
-  <div>
+  <PageStyled>
     <IntroBanner>
       <PortraitLarge imageInfo={image} style={portraitStyles} />
 
@@ -27,7 +27,7 @@ export const IndexPageTemplate = ({
       </IntroText>
     </IntroBanner>
     <BlogRollContainer>{isPreview ? null : <BlogRoll />}</BlogRollContainer>
-  </div>
+  </PageStyled>
 );
 
 const PortraitLarge = styled(PreviewCompatibleImage)`
@@ -45,12 +45,22 @@ const portraitStyles = {
   margin: '2rem 0',
 };
 
+const PageStyled = styled('div')`
+  width: 100%;
+`;
+
 const IntroBanner = styled('div')`
   background: ${colors.headerBackground};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: ${breakpoints.medium}) {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    padding-bottom: ${spacing.introBannerExtraPadding};
+  }
 `;
 
 const IntroText = styled('div')`
@@ -62,4 +72,9 @@ const IntroText = styled('div')`
 
 const BlogRollContainer = styled('div')`
   width: '100%';
+  margin: 0 auto;
+
+  @media (min-width: ${breakpoints.medium}) {
+    max-width: 1000px;
+  }
 `;
