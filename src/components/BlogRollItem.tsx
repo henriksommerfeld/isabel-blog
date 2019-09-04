@@ -6,6 +6,7 @@ import {
   MarkdownRemark,
 } from '../../auto-generated/graphql';
 import { Jsx } from '../../my-graphql';
+import styled from 'styled-components';
 
 export default function BlogRollItem(post: MarkdownRemark): Jsx {
   if (!post || !post.frontmatter) return null;
@@ -17,30 +18,56 @@ export default function BlogRollItem(post: MarkdownRemark): Jsx {
   const date = post.frontmatter.date;
 
   return (
-    <div className="is-parent column is-6" key={post.id}>
-      <article className={`blog-list-item tile is-child box notification`}>
-        <header>
-          <FeaturedImage title={title} image={featuredImage} />
-          <p className="post-meta">
-            <Link className="title has-text-primary is-size-4" to={slug}>
-              {title}
-            </Link>
-            <span> &bull; </span>
-            <span className="subtitle is-size-5 is-block">{date}</span>
-          </p>
-        </header>
-        <p>
-          {post.excerpt}
-          <br />
-          <br />
-          <Link className="button" to={slug}>
-            Keep Reading →
-          </Link>
-        </p>
-      </article>
-    </div>
+    <Article key={post.id}>
+      <Header>
+        <HeadingLink to={slug}>{title}</HeadingLink>
+        <Date>Publicerat {date}</Date>
+      </Header>
+      <div>
+        <p>{post.excerpt}</p>
+        <ReadMoreWrapper>
+          <ReadMoreLink to={slug}>Läs vidare →</ReadMoreLink>
+        </ReadMoreWrapper>
+      </div>
+      <FeaturedImage title={title} image={featuredImage} />
+    </Article>
   );
 }
+
+const HeadingLink = styled(Link)`
+  &,
+  &:visited {
+    display: block;
+    text-align: center;
+    color: black;
+    font-family: 'Domine';
+    font-size: 1.5rem;
+  }
+`;
+
+const Date = styled('div')`
+  text-align: center;
+  color: gray;
+  font-size: 0.8em;
+`;
+
+const Article = styled('article')`
+  padding: 15px;
+  border-bottom: 1px dashed gray;
+`;
+
+const Header = styled('header')`
+  margin-bottom: 2rem;
+`;
+
+const ReadMoreWrapper = styled('div')`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const ReadMoreLink = styled(Link)`
+  color: orangered;
+`;
 
 interface FeaturedImage {
   image: File;

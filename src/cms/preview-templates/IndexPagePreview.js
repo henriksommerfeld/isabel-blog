@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexPageTemplate } from '../../templates/index-page';
+import { IndexPageTemplate } from '../../templates/index-page-template';
 
 const IndexPagePreview = ({ entry, widgetFor }) => {
   const data = entry.getIn(['data']).toJS();

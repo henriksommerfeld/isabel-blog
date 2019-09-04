@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'gatsby';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 import logo from '../img/logo.svg';
 import facebook from '../img/social/facebook.svg';

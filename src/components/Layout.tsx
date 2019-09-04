@@ -75,6 +75,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
+  a, a:visited {
+    color: ${colors.link};
+  }
+  a:visited {
+    color: ${colors.linkVisited};
+  }
+  a:focus, a:active, a:hover {
+    color: ${colors.linkFocus};
+  }
 `;
 
 const Body = styled('div')`
@@ -82,7 +91,6 @@ const Body = styled('div')`
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  /* border: red dashed 2px; */
 `;
 
 const Page = styled('div')`
