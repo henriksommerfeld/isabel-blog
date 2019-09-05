@@ -7,7 +7,12 @@ export const spacing = {
   contentOffset: `-3rem`,
 };
 
+export const layout = {
+  contentMaxWidth: 1000,
+};
+
 export const breakpoints = {
+  mediumAsNumber: 1024,
   medium: '1024px',
 };
 

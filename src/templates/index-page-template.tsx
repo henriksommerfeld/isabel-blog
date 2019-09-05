@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, breakpoints, spacing } from '../constants';
+import { colors, breakpoints, spacing, layout } from '../constants';
 import BlogRoll from '../components/BlogRoll';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -14,17 +14,19 @@ export const IndexPageTemplate = ({
 }) => (
   <PageStyled>
     <IntroBanner>
-      <PortraitLarge imageInfo={image} style={portraitStyles} />
+      <IntroBannerWidthConstrainer>
+        <PortraitLarge imageInfo={image} style={portraitStyles} />
 
-      <IntroText>
-        <h1>{heading}</h1>
-        <h2>{subheading}</h2>
-        {isPreview ? (
-          <Content content={description} />
-        ) : (
-          <HTMLContent content={description} />
-        )}
-      </IntroText>
+        <IntroText>
+          <h1>{heading}</h1>
+          <h2>{subheading}</h2>
+          {isPreview ? (
+            <Content content={description} />
+          ) : (
+            <HTMLContent content={description} />
+          )}
+        </IntroText>
+      </IntroBannerWidthConstrainer>
     </IntroBanner>
     <BlogRollContainer>{isPreview ? null : <BlogRoll />}</BlogRollContainer>
   </PageStyled>
@@ -55,11 +57,20 @@ const IntroBanner = styled('div')`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const IntroBannerWidthConstrainer = styled('div')`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @media (min-width: ${breakpoints.medium}) {
     flex-direction: row-reverse;
     justify-content: space-evenly;
     padding-bottom: ${spacing.introBannerExtraPadding};
+    max-width: ${layout.contentMaxWidth}px;
   }
 `;
 

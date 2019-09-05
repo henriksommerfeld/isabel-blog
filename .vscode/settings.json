@@ -11,7 +11,7 @@
   },
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "prettier.eslintIntegration": true,
+  "prettier-eslint.eslintIntegration": true,
   "[javascript]": {
     "editor.formatOnSave": true
   },

@@ -1,37 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { colors } from '../constants';
+import { colors, breakpoints } from '../constants';
 import { Link } from 'gatsby';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
+import useWindowSize from '../useWindowSize';
 
 export default function Header({ location }: any) {
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
-  const showPortrait = location.pathname !== '/';
+  const windowSize = useWindowSize();
+  const isStartPage = location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
 
   return (
     <>
       <NavStyled>
-        <SiteTitle>
-          <Link to="/" aria-label="till startsidan">
-            {showPortrait ? <PortraitSmall /> : null}
-          </Link>
-          <Isabel>Isabel Sommerfeld</Isabel>
-        </SiteTitle>
-        <HamburgerMenuIcon
-          isOpen={mobileMenuIsVisible}
-          clickAction={toggleMenu}
-          className={ignoreClickClassName}
-        />
+        {isStartPage ? (
+          <div />
+        ) : (
+          <SiteTitle>
+            <Link to="/" aria-label="till startsidan">
+              <PortraitSmall />
+            </Link>
+            <Isabel>Isabel Sommerfeld</Isabel>
+          </SiteTitle>
+        )}
+        {windowSize.width > breakpoints.mediumAsNumber ? null : (
+          <HamburgerMenuIcon
+            isOpen={mobileMenuIsVisible}
+            clickAction={toggleMenu}
+            className={ignoreClickClassName}
+          />
+        )}
       </NavStyled>
-      <MobileMenu
-        isVisible={mobileMenuIsVisible}
-        setIsVisible={setMobileMenuIsVisible}
-        ignoreClickClassName={ignoreClickClassName}
-      />
+      {windowSize.width > breakpoints.mediumAsNumber ? null : (
+        <MobileMenu
+          isVisible={mobileMenuIsVisible}
+          setIsVisible={setMobileMenuIsVisible}
+          ignoreClickClassName={ignoreClickClassName}
+        />
+      )}
     </>
   );
 }
