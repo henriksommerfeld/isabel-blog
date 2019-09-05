@@ -34,7 +34,6 @@ export const IndexPageTemplate = ({
 
 const PortraitLarge = styled(PreviewCompatibleImage)`
   border: 0.5em solid white;
-  box-shadow: 0 0 1em black;
   border-radius: 100%;
   width: 280px;
   margin: 2rem 0;
@@ -43,6 +42,7 @@ const PortraitLarge = styled(PreviewCompatibleImage)`
 const portraitStyles = {
   borderRadius: '100%',
   border: '0.5em solid white',
+  boxShadow: '0 0 1em black',
   width: '280px',
   margin: '2rem 0',
 };

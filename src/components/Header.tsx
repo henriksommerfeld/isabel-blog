@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { colors, breakpoints } from '../constants';
+import { colors, breakpoints, fonts } from '../constants';
 import { Link } from 'gatsby';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import useWindowSize from '../useWindowSize';
+import DesktopMenu from './DesktopMenu';
 
 export default function Header({ location }: any) {
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
@@ -13,6 +14,10 @@ export default function Header({ location }: any) {
   const windowSize = useWindowSize();
   const isStartPage = location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
+
+  function isMobile() {
+    return windowSize.width <= breakpoints.mediumAsNumber;
+  }
 
   return (
     <>
@@ -27,7 +32,9 @@ export default function Header({ location }: any) {
             <Isabel>Isabel Sommerfeld</Isabel>
           </SiteTitle>
         )}
-        {windowSize.width > breakpoints.mediumAsNumber ? null : (
+        {windowSize.width > breakpoints.mediumAsNumber ? (
+          <DesktopMenu />
+        ) : (
           <HamburgerMenuIcon
             isOpen={mobileMenuIsVisible}
             clickAction={toggleMenu}
@@ -35,13 +42,14 @@ export default function Header({ location }: any) {
           />
         )}
       </NavStyled>
-      {windowSize.width > breakpoints.mediumAsNumber ? null : (
+
+      {isMobile() ? (
         <MobileMenu
-          isVisible={mobileMenuIsVisible}
+          isVisible={mobileMenuIsVisible && isMobile()}
           setIsVisible={setMobileMenuIsVisible}
           ignoreClickClassName={ignoreClickClassName}
         />
-      )}
+      ) : null}
     </>
   );
 }
@@ -57,7 +65,7 @@ const SiteTitle = styled('div')`
 
 const Isabel = styled('div')`
   font-size: 1.3rem;
-  font-family: 'Domine', 'sans-serif';
+  font-family: ${fonts.headingFamily};
   color: white;
   margin-right: 1rem;
 `;

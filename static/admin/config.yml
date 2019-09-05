@@ -89,7 +89,7 @@ collections:
           - { label: Underrrubrik, name: subheading, widget: string }
           - { label: Beskrivning, name: body, widget: markdown }
           
-      - file: 'src/pages/about/index.md'
+      - file: 'src/pages/om/index.md'
         label: 'Om mig'
         name: 'about'
         fields:
