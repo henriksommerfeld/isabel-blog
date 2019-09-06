@@ -59,8 +59,7 @@ const LinkStyled = styled(({ isActive, ...restProps }) => (
 
   &,
   &:visited {
-    /* color: ${props => (props.isActive ? colors.link : colors.white)}; */
-    color: ${colors.white};    
+    color: ${colors.white};
     text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
     background-size: ${props =>
       props.isActive ? `calc(100% - 2em) 3px` : `0px 3px`};

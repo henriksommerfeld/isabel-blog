@@ -45,6 +45,7 @@ export const navLinks: NavLink[] = [
   { url: '/om', title: 'Om mig' },
   { url: '/cv', title: 'CV' },
   { url: '/pressbilder', title: 'Pressbilder' },
+  { url: '/sok', title: 'Sök' },
 ];
 
 interface NavLink {

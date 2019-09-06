@@ -24,25 +24,27 @@ export default function Header({ location }: any) {
   return (
     <>
       <NavStyled>
-        {isStartPage ? (
-          <div />
-        ) : (
-          <SiteTitle>
-            <Link to="/" aria-label="till startsidan">
-              <PortraitSmall />
-            </Link>
-            <Isabel>{title}</Isabel>
-          </SiteTitle>
-        )}
-        {windowSize.width > breakpoints.mediumAsNumber ? (
-          <DesktopMenu location={location} />
-        ) : (
-          <HamburgerMenuIcon
-            isOpen={mobileMenuIsVisible}
-            clickAction={toggleMenu}
-            className={ignoreClickClassName}
-          />
-        )}
+        <NavWidthConstrainer centered={isStartPage && !isMobile()}>
+          {isStartPage ? (
+            <div />
+          ) : (
+            <SiteTitle>
+              <Link to="/" aria-label="till startsidan">
+                <PortraitSmall />
+              </Link>
+              <Isabel>{title}</Isabel>
+            </SiteTitle>
+          )}
+          {windowSize.width > breakpoints.mediumAsNumber ? (
+            <DesktopMenu location={location} />
+          ) : (
+            <HamburgerMenuIcon
+              isOpen={mobileMenuIsVisible}
+              clickAction={toggleMenu}
+              className={ignoreClickClassName}
+            />
+          )}
+        </NavWidthConstrainer>
       </NavStyled>
 
       {isMobile() ? (
@@ -75,11 +77,22 @@ const Isabel = styled('div')`
 const NavStyled = styled('nav')`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem;
   background: ${colors.headerBackground};
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.8);
   z-index: 2;
   height: ${headerHeight};
+`;
+
+const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
+  <div {...restProps} />
+))`
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: ${props => (props.centered ? 'center' : 'space-between')};
+  align-items: center;
+  padding: 1rem;
 `;

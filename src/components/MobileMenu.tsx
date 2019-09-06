@@ -4,7 +4,8 @@ import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import useOnClickOutside from 'use-onclickoutside';
 import { headerHeight } from './Header';
-import { navLinks, colors, fonts } from '../constants';
+import { navLinks, colors } from '../constants';
+import { tailwindColors } from '../tailwind-colors';
 
 export default function MobileMenu({
   isVisible,
@@ -48,6 +49,7 @@ const MobileMenuStyled = styled(animated.div)`
   top: 0;
   transform: translateY(-${mobileMenuHeight});
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid ${tailwindColors.gray100};
 `;
 
 const MobileLink = styled(Link)`

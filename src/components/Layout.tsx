@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix, Link } from 'gatsby';
 import { Jsx } from '../../my-graphql';
-import { colors } from '../constants';
+import { colors, breakpoints } from '../constants';
 import violetForrest from '../../static/img/photo-1563206706-37fc22744de1.jpg';
 import Header from './Header';
 
@@ -98,8 +98,11 @@ const Page = styled('div')`
   height: 100%;
   min-height: 100vh;
   flex-direction: column;
-  /* background-color: #f8f8f8; */
-  background-color: ${colors.pageBackground};
+  background-color: ${colors.white};
+
+  @media (min-width: ${breakpoints.medium}) {
+    background-color: ${colors.pageBackground};
+  }
 
   /*  */
   /* background-image: url(${greenBlur}); */
