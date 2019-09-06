@@ -7,6 +7,7 @@ import Content, { HTMLContent } from '../components/Content';
 import { MarkdownRemark } from '../../auto-generated/graphql';
 import styled from 'styled-components';
 import BlogPostTemplate from './blog-post-template';
+import useSiteMetadata from '../components/SiteMetadata';
 
 interface BlogPost {
   data: {
@@ -18,6 +19,7 @@ export default function BlogPost(props: BlogPost) {
   const { markdownRemark: post } = props.data;
   const frontmatter = post.frontmatter;
   const tags: string[] = (frontmatter.tags || []) as string[];
+  const { title: siteTitle } = useSiteMetadata();
 
   return (
     <Layout location={props.location}>
@@ -26,7 +28,7 @@ export default function BlogPost(props: BlogPost) {
         contentComponent={HTMLContent}
         description={frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate={`%s | ${siteTitle}`}>
             <title>{`${frontmatter.title}`}</title>
             <meta name="description" content={`${frontmatter.description}`} />
           </Helmet>
