@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, fonts } from '../constants';
 import { Link } from 'gatsby';
+import useSiteMetadata from './SiteMetadata';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
@@ -9,6 +10,7 @@ import useWindowSize from '../useWindowSize';
 import DesktopMenu from './DesktopMenu';
 
 export default function Header({ location }: any) {
+  const { title } = useSiteMetadata();
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
   const windowSize = useWindowSize();
@@ -29,11 +31,11 @@ export default function Header({ location }: any) {
             <Link to="/" aria-label="till startsidan">
               <PortraitSmall />
             </Link>
-            <Isabel>Isabel Sommerfeld</Isabel>
+            <Isabel>{title}</Isabel>
           </SiteTitle>
         )}
         {windowSize.width > breakpoints.mediumAsNumber ? (
-          <DesktopMenu />
+          <DesktopMenu location={location} />
         ) : (
           <HamburgerMenuIcon
             isOpen={mobileMenuIsVisible}

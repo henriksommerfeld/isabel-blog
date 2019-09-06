@@ -7,17 +7,36 @@ import { headerHeight } from './Header';
 import { navLinks, colors, spacing } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 
-export default function DesktopMenu() {
+export default function DesktopMenu({ location }: any) {
   return (
     <MenuStyled>
       {navLinks.map(link => (
-        <LinkStyled to={link.url} key={link.url}>
+        <LinkStyled
+          to={link.url}
+          key={link.url}
+          isActive={matchesRoute(location.pathname, link.url)}
+        >
           {link.title}
         </LinkStyled>
       ))}
     </MenuStyled>
   );
 }
+
+function matchesRoute(currentPath: string, path: string): boolean {
+  if (!currentPath || !path) return false;
+  if (currentPath === path) return true;
+
+  const currentPathWithoutTrailingSlash = currentPath.replace(/\/$/, '');
+  const pathWithoutTrailingSlash = path.replace(/\/$/, '');
+
+  if (currentPathWithoutTrailingSlash === pathWithoutTrailingSlash) return true;
+
+  if (currentPath.startsWith('/20') && path === '/publicerat') return true;
+
+  return false;
+}
+
 const MenuStyled = styled('div')``;
 
 const LinkStyled = styled(Link)`
@@ -33,7 +52,7 @@ const LinkStyled = styled(Link)`
     ${tailwindColors.red800} 100%
   );
   background-position-x: center;
-  background-position-y: bottom;
+  background-position-y: 90%;
   background-repeat: repeat;
   background-size: auto;
   background-size: 0px 3px;
@@ -41,8 +60,11 @@ const LinkStyled = styled(Link)`
 
   &,
   &:visited {
-    color: ${colors.white};
+    /* color: ${props => (props.isActive ? colors.link : colors.white)}; */
+    color: ${colors.white};    
     text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    background-size: ${props =>
+      props.isActive ? `calc(100% - 2em) 3px` : `0px 3px`};
   }
 
   &:hover {
