@@ -26,7 +26,7 @@ export default function BlogPost(props: BlogPost) {
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        description={frontmatter.description}
+        date={frontmatter.date}
         helmet={
           <Helmet titleTemplate={`%s | ${siteTitle}`}>
             <title>{`${frontmatter.title}`}</title>
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM, YYYY", locale: "sv")
         title
         tags
       }

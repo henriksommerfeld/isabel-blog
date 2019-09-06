@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import useOnClickOutside from 'use-onclickoutside';
 import { headerHeight } from './Header';
-import { navLinks, colors } from '../constants';
+import { navLinks, colors, fonts } from '../constants';
 
 export default function MobileMenu({
   isVisible,
@@ -47,16 +47,16 @@ const MobileMenuStyled = styled(animated.div)`
   right: 0;
   top: 0;
   transform: translateY(-${mobileMenuHeight});
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.8);
 `;
 
 const MobileLink = styled(Link)`
   padding: 1rem;
+  font-size: 1.1em;
   text-align: center;
 
   :hover {
     background: ${colors.mobileMenuBackgroundHover};
-    /* color: ${colors.mobileMenuTextHover}; */
   }
 `;
 

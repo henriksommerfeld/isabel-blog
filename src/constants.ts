@@ -3,8 +3,11 @@ import { tailwindColors } from './tailwind-colors';
 export const spacing = {
   paddingDefault: '1rem',
   paddingDouble: '2rem',
+  paddingX3: '3rem',
   introBannerExtraPadding: '3rem',
+  postBannerExtraPadding: '5rem',
   contentOffset: `-3rem`,
+  postHeadingOffset: `-1rem`,
 };
 
 export const layout = {
@@ -12,6 +15,7 @@ export const layout = {
 };
 
 export const breakpoints = {
+  small: '768px',
   mediumAsNumber: 1024,
   medium: '1024px',
 };
@@ -27,6 +31,7 @@ export const colors = {
   link: tailwindColors.red600,
   linkVisited: tailwindColors.red600,
   linkFocus: tailwindColors.red700,
+  postDate: tailwindColors.gray400,
 };
 
 export const fonts = {
