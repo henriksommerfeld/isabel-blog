@@ -1,22 +1,13 @@
 import React from 'react';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
-import { MarkdownRemark } from '../../auto-generated/graphql';
-import styled from 'styled-components';
+import { HTMLContent } from '../components/Content';
 import BlogPostTemplate from './blog-post-template';
 import useSiteMetadata from '../components/SiteMetadata';
 
-interface BlogPost {
-  data: {
-    markdownRemark: MarkdownRemark;
-  };
-}
-
-export default function BlogPost(props: BlogPost) {
-  const { markdownRemark: post } = props.data;
+export default function BlogPost({ data, ...props }) {
+  const { markdownRemark: post } = data;
   const frontmatter = post.frontmatter;
   const tags: string[] = (frontmatter.tags || []) as string[];
   const { title: siteTitle } = useSiteMetadata();
