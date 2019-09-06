@@ -1,10 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { useSpring, animated } from 'react-spring';
-import useOnClickOutside from 'use-onclickoutside';
-import { headerHeight } from './Header';
-import { navLinks, colors, spacing } from '../constants';
+import { navLinks, colors } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 
 export default function DesktopMenu({ location }: any) {
@@ -39,7 +36,9 @@ function matchesRoute(currentPath: string, path: string): boolean {
 
 const MenuStyled = styled('div')``;
 
-const LinkStyled = styled(Link)`
+const LinkStyled = styled(({ isActive, ...restProps }) => (
+  <Link {...restProps} />
+))`
   font-size: 1.1em;
   padding: 1em;
   text-align: center;
