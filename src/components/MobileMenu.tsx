@@ -6,6 +6,7 @@ import useOnClickOutside from 'use-onclickoutside';
 import { headerHeight } from './Header';
 import { navLinks, colors } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
+import { matchesRoute } from '../active-node';
 
 export default function MobileMenu({
   isVisible,
@@ -28,7 +29,11 @@ export default function MobileMenu({
   return (
     <MobileMenuStyled ref={menuRef} style={pullDownAnimation}>
       {navLinks.map(link => (
-        <MobileLink to={link.url} key={link.url}>
+        <MobileLink
+          to={link.url}
+          key={link.url}
+          isActive={matchesRoute(location.pathname, link.url)}
+        >
           {link.title}
         </MobileLink>
       ))}
@@ -52,10 +57,14 @@ const MobileMenuStyled = styled(animated.div)`
   border-bottom: 1px solid ${tailwindColors.gray100};
 `;
 
-const MobileLink = styled(Link)`
+const MobileLink = styled(({ isActive, ...restProps }) => (
+  <Link {...restProps} />
+))`
   padding: 1rem;
   font-size: 1.1em;
   text-align: center;
+  display: inline;
+  font-weight: ${props => (props.isActive ? `bold` : `normal`)};
 
   :hover {
     background: ${colors.mobileMenuBackgroundHover};

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { navLinks, colors } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
+import { matchesRoute } from '../active-node';
 
 export default function DesktopMenu({ location }: any) {
   return (
@@ -18,20 +19,6 @@ export default function DesktopMenu({ location }: any) {
       ))}
     </MenuStyled>
   );
-}
-
-function matchesRoute(currentPath: string, path: string): boolean {
-  if (!currentPath || !path) return false;
-  if (currentPath === path) return true;
-
-  const currentPathWithoutTrailingSlash = currentPath.replace(/\/$/, '');
-  const pathWithoutTrailingSlash = path.replace(/\/$/, '');
-
-  if (currentPathWithoutTrailingSlash === pathWithoutTrailingSlash) return true;
-
-  if (currentPath.startsWith('/20') && path === '/publicerat') return true;
-
-  return false;
 }
 
 const MenuStyled = styled('div')``;

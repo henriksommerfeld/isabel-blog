@@ -52,6 +52,7 @@ export default function Header({ location }: any) {
           isVisible={mobileMenuIsVisible && isMobile()}
           setIsVisible={setMobileMenuIsVisible}
           ignoreClickClassName={ignoreClickClassName}
+          location={location}
         />
       ) : null}
     </>
