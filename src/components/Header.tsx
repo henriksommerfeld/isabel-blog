@@ -29,9 +29,9 @@ export default function Header({ location }: any) {
             <div />
           ) : (
             <SiteTitle>
-              <Link to="/" aria-label="till startsidan">
+              <PortraitLink to="/" aria-label="till startsidan">
                 <PortraitSmall />
-              </Link>
+              </PortraitLink>
               <Isabel>{title}</Isabel>
             </SiteTitle>
           )}
@@ -66,6 +66,16 @@ const SiteTitle = styled('div')`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+`;
+
+const PortraitLink = styled(Link)`
+  &,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    background: none;
+  }
 `;
 
 const Isabel = styled('div')`

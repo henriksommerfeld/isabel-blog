@@ -6,6 +6,7 @@ date: 2019-08-21T12:07:01.008Z
 tags:
   - Video
 ---
+
 ## YouTube
 
 `youtube: https://youtu.be/68WL0EPEnrQ`
@@ -17,10 +18,6 @@ tags:
 ## Sound Cloud
 
 `soundcloud: https://soundcloud.com/thenumbersmagazine/jay-z-100-bill-great-gatsby`
-
-## Ickemedborgarna
-
-`soundcloud: https://soundcloud.com/magasinetparagraf/ickemedborgarna-2014-10-05`
 
 ## Generisk video
 

@@ -26,11 +26,11 @@ export default function BlogRollItem(post: MarkdownRemark): Jsx {
       </Header>
       <div>
         <p>{post.excerpt}</p>
+        <FeaturedImage title={title} imageInfo={featuredImage} />
         <ReadMoreWrapper>
           <ReadMoreLink to={slug}>Läs vidare →</ReadMoreLink>
         </ReadMoreWrapper>
       </div>
-      <FeaturedImage title={title} image={featuredImage} />
     </Article>
   );
 }
@@ -40,12 +40,14 @@ const HeadingLink = styled(Link)`
   &:visited {
     color: ${colors.black};
     font-family: ${fonts.headingFamily};
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    transition: color ease-in-out 150ms;
   }
   &:hover,
   &:active,
   &:focus {
     color: ${colors.linkFocus};
+    background: none;
   }
 `;
 
@@ -58,10 +60,6 @@ const Date = styled('div')`
 const Article = styled('article')`
   padding: ${spacing.paddingDefault};
   border-bottom: 1px dashed gray;
-
-  /* @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.paddingDouble};
-  } */
 `;
 
 const Header = styled('header')`
@@ -78,19 +76,16 @@ const ReadMoreLink = styled(Link)`
   color: orangered;
 `;
 
-interface FeaturedImage {
-  image: File;
-  title: string | null | undefined;
-}
-
-function FeaturedImage({ image, title }: FeaturedImage): Jsx {
-  if (!image) return null;
+function FeaturedImage({ imageInfo, title }): Jsx {
+  if (!imageInfo) return null;
 
   const altText = title ? `featured image thumbnail for post ${title}` : '';
+  imageInfo.alt = altText;
+  const marginBottom = { marginBottom: spacing.paddingDefault };
 
   return (
-    <div className="featured-thumbnail">
-      {/* <PreviewCompatibleImage image={image} alt={altText} /> */}
+    <div className="featured-thumbnail" style={marginBottom}>
+      <PreviewCompatibleImage imageInfo={imageInfo} />
     </div>
   );
 }

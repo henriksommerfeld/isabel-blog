@@ -11,7 +11,7 @@ import { colors, spacing, breakpoints } from '../constants';
 interface BlogPostTemplate {
   content: string;
   contentComponent: any;
-  description: string;
+  date: string;
   tags: string[];
   title: string;
   helmet: any;

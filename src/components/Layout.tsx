@@ -9,6 +9,7 @@ import { Jsx } from '../../my-graphql';
 import { colors, breakpoints } from '../constants';
 import violetForrest from '../../static/img/photo-1563206706-37fc22744de1.jpg';
 import Header from './Header';
+import { tailwindColors } from '../tailwind-colors';
 
 interface TemplateWrapperProps {
   children: ReactNode;
@@ -77,12 +78,33 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     color: ${colors.link};
+    transition: color, text-shadow, background 150ms ease-out, outline 60ms;
+    background: linear-gradient(
+    to right,
+    ${tailwindColors.red700} 0%,
+    ${tailwindColors.red400} 50%,
+    ${tailwindColors.red700} 100%
+    );
+    background-position-x: left;
+    background-position-y: 99%;
+    background-repeat: repeat;
+    background-size: auto;
+    background-size: 0px 2px;
+    background-repeat: no-repeat;
   }
   a:visited {
     color: ${colors.linkVisited};
   }
   a:focus, a:active, a:hover {
     color: ${colors.linkFocus};
+    background-size: 100% 2px;
+
+  }
+  .gatsby-resp-image-background-image, .gatsby-resp-image-image, .featured-thumbnail {
+    margin: 0;
+    padding: 4px;
+    box-shadow: rgba(34,25,25,.4) 0 1px 3px !important;
+    background-color: #fff;
   }
 `;
 

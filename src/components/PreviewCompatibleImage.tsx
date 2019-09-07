@@ -1,6 +1,10 @@
 import React from 'react';
 import Image from 'gatsby-image';
-export default function PreviewCompatibleImage({ imageInfo, style, imgStyle }) {
+export default function PreviewCompatibleImage({
+  imageInfo,
+  style = null,
+  imgStyle = null,
+}) {
   const { alt = '', childImageSharp, image } = imageInfo;
 
   if (!!image && !!image.childImageSharp) {

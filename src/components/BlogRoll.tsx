@@ -51,6 +51,17 @@ const blogRollQuery = graphql`
             title
             templateKey
             date(formatString: "DD MMMM, YYYY", locale: "sv")
+            featuredimage {
+              childImageSharp {
+                fluid(maxWidth: 1000, quality: 100) {
+                  src
+                  srcSet
+                  aspectRatio
+                  sizes
+                  base64
+                }
+              }
+            }
           }
         }
       }

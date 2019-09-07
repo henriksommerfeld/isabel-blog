@@ -34,7 +34,7 @@ const LinkStyled = styled(({ isActive, ...restProps }) => (
   background: linear-gradient(
     to right,
     ${tailwindColors.red800} 0%,
-    ${tailwindColors.red400} 50%,
+    ${tailwindColors.red500} 50%,
     ${tailwindColors.red800} 100%
   );
   background-position-x: center;
