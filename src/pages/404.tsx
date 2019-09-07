@@ -6,12 +6,17 @@ import { colors, breakpoints, spacing } from '../constants';
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function NotFoundPage({ location }) {
-  // const data = useStaticQuery(backgroundImageQuery);
-  // const fluidImage = getImageFrom(data);
+  const data = useStaticQuery(backgroundImageQuery);
+  const fluidImage = getImageFrom(data);
 
   return (
     <Layout location={location}>
-      <Page>
+      <Page
+        fluid={fluidImage}
+        backgroundColor={darkGreen}
+        Tag="div"
+        className="lost-background"
+      >
         <Text>
           <h1>Gått vilse?</h1>
           <Description>
@@ -35,6 +40,8 @@ function getImageFrom(data) {
 
   return data.fileName.childImageSharp.fluid;
 }
+
+const darkGreen = '#062c21';
 
 const backgroundImageQuery = graphql`
   query {
@@ -114,12 +121,12 @@ const Text = styled('div')`
   }
 `;
 
-const Page = styled('div')`
+const Page = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 80px);
   color: ${colors.white};
-  background-color: #062c21;
+  background-color: ${darkGreen};
 
   background-repeat: no-repeat;
   background-attachment: fixed;
