@@ -5,6 +5,10 @@ title: Ny krönika om eventuellt tiggeriförbud
 hidden: false
 date: 2016-08-29T17:30:24.217Z
 featuredimage: /uploads/paragraf1.jpg
+tags:
+  - Magasinet Paragraf
+  - Juridik
+  - Tiggeriförbud
 ---
 ![](/uploads/paragraf.jpg)
 

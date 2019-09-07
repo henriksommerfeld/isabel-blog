@@ -1,10 +1,7 @@
 import React from 'react';
 import { kebabCase } from 'lodash';
-import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
-import { MarkdownRemark } from '../../auto-generated/graphql';
+import { Link } from 'gatsby';
+import Content from '../components/Content';
 import styled from 'styled-components';
 import { colors, spacing, breakpoints } from '../constants';
 
@@ -26,6 +23,7 @@ export default function BlogPostTemplate({
   helmet,
 }: BlogPostTemplate) {
   const PostContent = contentComponent || Content;
+  const dateString = date ? `Publicerat ${date}` : '';
 
   return (
     <>
@@ -34,7 +32,7 @@ export default function BlogPostTemplate({
         <IntroBanner>
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
-            <PostDate>Publicerat {date}</PostDate>
+            <PostDate>{dateString}</PostDate>
           </IntroBannerWidthConstrainer>
         </IntroBanner>
         <PostContainer>
@@ -43,7 +41,7 @@ export default function BlogPostTemplate({
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Taggar</h4>
-                <ul className="taglist">
+                <ul>
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
@@ -61,6 +59,12 @@ export default function BlogPostTemplate({
 
 const PageStyled = styled('div')`
   width: 100%;
+
+  .gatsby-resp-image-figcaption {
+    text-align: center;
+    font-style: italic;
+    padding-top: 0.5rem;
+  }
 `;
 
 const PostDate = styled.div`
@@ -74,7 +78,7 @@ const PostDate = styled.div`
 const IntroBannerWidthConstrainer = styled('div')`
   max-width: 1000px;
   text-align: center;
-  padding: ${spacing.paddingDouble};
+  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
     padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};

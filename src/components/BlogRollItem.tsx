@@ -1,13 +1,10 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import {
-  MarkdownRemarkEdge,
-  MarkdownRemark,
-} from '../../auto-generated/graphql';
+import { MarkdownRemark } from '../../auto-generated/graphql';
 import { Jsx } from '../../my-graphql';
 import styled from 'styled-components';
-import { fonts, colors, spacing, breakpoints } from '../constants';
+import { fonts, colors, spacing } from '../constants';
 
 export default function BlogRollItem(post: MarkdownRemark): Jsx {
   if (!post || !post.frontmatter) return null;
@@ -17,12 +14,13 @@ export default function BlogRollItem(post: MarkdownRemark): Jsx {
   const featuredImage = frontmatter.featuredimage;
   const slug = (post.fields && post.fields.slug) || '';
   const date = post.frontmatter.date;
+  const dateString = date ? `Publicerat ${date}` : '';
 
   return (
     <Article key={post.id}>
       <Header>
         <HeadingLink to={slug}>{title}</HeadingLink>
-        <Date>Publicerat {date}</Date>
+        <Date>{dateString}</Date>
       </Header>
       <div>
         <p>{post.excerpt}</p>

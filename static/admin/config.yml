@@ -43,7 +43,7 @@ collections:
           name: 'hidden',
           widget: 'boolean',
           default: false,
-          hint: 'Om du vill spara utan att publicera kan du göra artikeln osynlig här.',
+          hint: 'Om du vill spara utan att publicera kan du göra artikeln dold här.',
       }
       - {
           label: 'Datum',
@@ -58,7 +58,7 @@ collections:
           name: 'featuredimage',
           widget: image,
           required: false,
-          hint: 'Bild som visas mellan rubriken och huvudinnehållet, samt på startsidan.'
+          hint: 'Bild som visas i listningar, ex. på startsidan.'
         }
       - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
       - { label: 'Taggar', label_singular: 'Tagg', name: 'tags', widget: 'list', required: false }

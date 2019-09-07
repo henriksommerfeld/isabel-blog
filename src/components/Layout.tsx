@@ -86,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
     ${tailwindColors.red700} 100%
     );
     background-position-x: left;
-    background-position-y: 99%;
+    background-position-y: 97%;
     background-repeat: repeat;
     background-size: auto;
     background-size: 0px 2px;
