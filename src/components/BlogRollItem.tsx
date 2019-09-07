@@ -1,11 +1,10 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import {
-  MarkdownRemarkEdge,
-  MarkdownRemark,
-} from '../../auto-generated/graphql';
+import { MarkdownRemark } from '../../auto-generated/graphql';
 import { Jsx } from '../../my-graphql';
+import styled from 'styled-components';
+import { fonts, colors, spacing } from '../constants';
 
 export default function BlogRollItem(post: MarkdownRemark): Jsx {
   if (!post || !post.frontmatter) return null;
@@ -15,46 +14,76 @@ export default function BlogRollItem(post: MarkdownRemark): Jsx {
   const featuredImage = frontmatter.featuredimage;
   const slug = (post.fields && post.fields.slug) || '';
   const date = post.frontmatter.date;
+  const dateString = date ? `Publicerat ${date}` : '';
 
   return (
-    <div className="is-parent column is-6" key={post.id}>
-      <article className={`blog-list-item tile is-child box notification`}>
-        <header>
-          <FeaturedImage title={title} image={featuredImage} />
-          <p className="post-meta">
-            <Link className="title has-text-primary is-size-4" to={slug}>
-              {title}
-            </Link>
-            <span> &bull; </span>
-            <span className="subtitle is-size-5 is-block">{date}</span>
-          </p>
-        </header>
-        <p>
-          {post.excerpt}
-          <br />
-          <br />
-          <Link className="button" to={slug}>
-            Keep Reading →
-          </Link>
-        </p>
-      </article>
-    </div>
+    <Article key={post.id}>
+      <Header>
+        <HeadingLink to={slug}>{title}</HeadingLink>
+        <Date>{dateString}</Date>
+      </Header>
+      <div>
+        <p>{post.excerpt}</p>
+        <FeaturedImage title={title} imageInfo={featuredImage} />
+        <ReadMoreWrapper>
+          <ReadMoreLink to={slug}>Läs vidare →</ReadMoreLink>
+        </ReadMoreWrapper>
+      </div>
+    </Article>
   );
 }
 
-interface FeaturedImage {
-  image: File;
-  title: string | null | undefined;
-}
+const HeadingLink = styled(Link)`
+  &,
+  &:visited {
+    color: ${colors.black};
+    font-family: ${fonts.headingFamily};
+    font-size: 1.7rem;
+    transition: color ease-in-out 150ms;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: ${colors.linkFocus};
+    background: none;
+  }
+`;
 
-function FeaturedImage({ image, title }: FeaturedImage): Jsx {
-  if (!image) return null;
+const Date = styled('div')`
+  text-align: center;
+  color: gray;
+  font-size: 0.8em;
+`;
+
+const Article = styled('article')`
+  padding: ${spacing.paddingDefault};
+  border-bottom: 1px dashed gray;
+`;
+
+const Header = styled('header')`
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
+const ReadMoreWrapper = styled('div')`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const ReadMoreLink = styled(Link)`
+  color: orangered;
+`;
+
+function FeaturedImage({ imageInfo, title }): Jsx {
+  if (!imageInfo) return null;
 
   const altText = title ? `featured image thumbnail for post ${title}` : '';
+  imageInfo.alt = altText;
+  const marginBottom = { marginBottom: spacing.paddingDefault };
 
   return (
-    <div className="featured-thumbnail">
-      <PreviewCompatibleImage image={image} alt={altText} />
+    <div className="featured-thumbnail" style={marginBottom}>
+      <PreviewCompatibleImage imageInfo={imageInfo} />
     </div>
   );
 }

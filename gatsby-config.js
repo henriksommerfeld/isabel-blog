@@ -4,6 +4,28 @@ module.exports = {
     description: 'Bellas blogg',
   },
   plugins: [
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/uploads`,
+        name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/img`,
+        name: 'images',
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -22,7 +44,10 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 2048,
+              maxWidth: 1000,
+              linkImagesToOriginal: false,
+              showCaptions: ['title'],
+              quality: 50,
             },
           },
           {
@@ -31,28 +56,18 @@ module.exports = {
               destinationDir: 'static',
             },
           },
-          // {
-          //   resolve: 'gatsby-remark-video',
-          //   options: {
-          //     width: '100%',
-          //     height: 'auto',
-          //     preload: 'auto',
-          //     muted: true,
-          //     autoplay: false,
-          //     loop: false,
-          //     controls: true,
-          //   },
-          // },
-          // {
-          //   resolve: 'gatsby-remark-embed-video',
-          //   options: {
-          //     width: 800,
-          //     ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-          //     //height: 400, // Optional: Overrides optional.ratio
-          //     related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-          //     noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
-          //   },
-          // },
+          {
+            resolve: 'gatsby-remark-video',
+            options: {
+              width: '100%',
+              height: 'auto',
+              preload: 'auto',
+              muted: true,
+              autoplay: false,
+              loop: false,
+              controls: true,
+            },
+          },
           {
             resolve: `@raae/gatsby-remark-oembed`,
             options: {
@@ -91,28 +106,7 @@ module.exports = {
     },
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
-    {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/static/img`,
-        name: 'uploads',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
-      },
-    },
+
     {
       resolve: `gatsby-plugin-typography`,
       options: {

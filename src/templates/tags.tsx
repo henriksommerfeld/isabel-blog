@@ -4,7 +4,11 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import { TagPageQuery } from '../../auto-generated/graphql';
 
-export default function TagRoute({ data, pageContext }: TagRouteProps) {
+export default function TagRoute({
+  data,
+  pageContext,
+  location,
+}: TagRouteProps) {
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
@@ -21,7 +25,7 @@ export default function TagRoute({ data, pageContext }: TagRouteProps) {
   } med “${tag}”`;
 
   return (
-    <Layout>
+    <Layout location={location} t>
       <section className="section">
         <Helmet title={`${tag} | ${title}`} />
         <div className="container content">

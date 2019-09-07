@@ -27,11 +27,11 @@ export function AboutPageTemplate({
   );
 }
 
-export default function AboutPage({ data }: AboutPageData): Jsx {
+export default function AboutPage({ data, location }: AboutPageData): Jsx {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
