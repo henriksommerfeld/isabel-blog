@@ -49,7 +49,7 @@ const backgroundImageQuery = graphql`
       relativePath: { eq: "hidden/martin-reisch-pEb-Xf_qM0s-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 5000, maxHeight: 3000) {
+        fluid(maxWidth: 5000, maxHeight: 3000, quality: 80) {
           src
           srcSet
           aspectRatio
