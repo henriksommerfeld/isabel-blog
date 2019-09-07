@@ -6,6 +6,7 @@ export const spacing = {
   paddingX3: '3rem',
   introBannerExtraPadding: '3rem',
   postBannerExtraPadding: '5rem',
+  notFoundBannerExtraPadding: '5rem',
   contentOffset: `-3rem`,
   postHeadingOffset: `-1rem`,
 };
@@ -18,6 +19,7 @@ export const breakpoints = {
   small: '768px',
   mediumAsNumber: 1024,
   medium: '1024px',
+  large: '2048px',
 };
 
 export const colors = {
