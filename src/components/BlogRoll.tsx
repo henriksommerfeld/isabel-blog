@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { MarkdownRemarkConnection } from '../../auto-generated/graphql';
 import BlogRollItem from './BlogRollItem';
-import { Jsx } from '../../my-graphql';
 import { colors, spacing, breakpoints } from '../constants';
 
 interface BlogRoll {
@@ -18,7 +17,7 @@ export default function BlogRoll(): ReactElement {
 
   return (
     <BlogRollStyled className="blog-roll">
-      {posts.map(({ node: post }): Jsx => BlogRollItem(post))}
+      {posts.map(({ node: post }) => BlogRollItem(post))}
     </BlogRollStyled>
   );
 }

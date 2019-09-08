@@ -1,7 +1,9 @@
 ---
 templateKey: blog-post
 title: 'Hockey-VM, på bekostnad av mänskliga rättigheter'
+hidden: false
 date: 2017-05-19T06:33:48.535Z
+featuredimage: ''
 tags:
   - Juridik
   - Belarus

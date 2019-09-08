@@ -58,6 +58,7 @@ collections:
           name: 'featuredimage',
           widget: image,
           required: false,
+          default: null,
           hint: 'Bild som visas i listningar, ex. på startsidan.'
         }
       - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }

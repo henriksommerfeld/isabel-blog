@@ -1,3 +1,7 @@
+const {
+  removeEmptyImageFieldsParser,
+} = require('./src/transformerRemarkParser');
+
 module.exports = {
   siteMetadata: {
     title: 'Isabel Sommerfeld',
@@ -26,11 +30,15 @@ module.exports = {
         name: 'images',
       },
     },
+
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        engines: {
+          yaml: removeEmptyImageFieldsParser,
+        },
         plugins: [
           {
             resolve: 'gatsby-remark-relative-images',
@@ -47,7 +55,7 @@ module.exports = {
               maxWidth: 1000,
               linkImagesToOriginal: false,
               showCaptions: ['title'],
-              quality: 50,
+              quality: 80,
             },
           },
           {

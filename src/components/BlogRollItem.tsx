@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { MarkdownRemark } from '../../auto-generated/graphql';
-import { Jsx } from '../../my-graphql';
 import styled from 'styled-components';
 import { fonts, colors, spacing } from '../constants';
 
-export default function BlogRollItem(post: MarkdownRemark): Jsx {
+export default function BlogRollItem(post: MarkdownRemark) {
   if (!post || !post.frontmatter) return null;
 
   const frontmatter = post.frontmatter;
@@ -74,7 +73,7 @@ const ReadMoreLink = styled(Link)`
   color: orangered;
 `;
 
-function FeaturedImage({ imageInfo, title }): Jsx {
+function FeaturedImage({ imageInfo, title }) {
   if (!imageInfo) return null;
 
   const altText = title ? `featured image thumbnail for post ${title}` : '';

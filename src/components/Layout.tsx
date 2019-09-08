@@ -5,7 +5,6 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix, Link } from 'gatsby';
-import { Jsx } from '../../my-graphql';
 import { colors, breakpoints } from '../constants';
 import violetForrest from '../../static/img/photo-1563206706-37fc22744de1.jpg';
 import Header from './Header';
@@ -19,7 +18,7 @@ interface TemplateWrapperProps {
 export default function TemplateWrapper({
   children,
   location,
-}: TemplateWrapperProps): Jsx {
+}: TemplateWrapperProps) {
   const { title, description } = useSiteMetadata();
   return (
     <>

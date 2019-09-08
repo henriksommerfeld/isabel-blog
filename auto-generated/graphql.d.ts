@@ -733,10 +733,10 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterHeading = 'childMarkdownRemark___frontmatter___heading',
   ChildMarkdownRemarkFrontmatterSubheading = 'childMarkdownRemark___frontmatter___subheading',
   ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
-  ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
-  ChildMarkdownRemarkFrontmatterHidden = 'childMarkdownRemark___frontmatter___hidden',
   ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
   ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
+  ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
+  ChildMarkdownRemarkFrontmatterHidden = 'childMarkdownRemark___frontmatter___hidden',
   ChildMarkdownRemarkFrontmatterFeaturedimageBirthtime = 'childMarkdownRemark___frontmatter___featuredimage___birthtime',
   ChildMarkdownRemarkFrontmatterFeaturedimageBirthtimeMs = 'childMarkdownRemark___frontmatter___featuredimage___birthtimeMs',
   ChildMarkdownRemarkFrontmatterFeaturedimageSourceInstanceName = 'childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName',
@@ -1603,10 +1603,10 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterHeading = 'frontmatter___heading',
   FrontmatterSubheading = 'frontmatter___subheading',
   FrontmatterDate = 'frontmatter___date',
-  FrontmatterUrl = 'frontmatter___url',
-  FrontmatterHidden = 'frontmatter___hidden',
   FrontmatterTags = 'frontmatter___tags',
   FrontmatterFiles = 'frontmatter___files',
+  FrontmatterUrl = 'frontmatter___url',
+  FrontmatterHidden = 'frontmatter___hidden',
   FrontmatterFeaturedimageBirthtime = 'frontmatter___featuredimage___birthtime',
   FrontmatterFeaturedimageBirthtimeMs = 'frontmatter___featuredimage___birthtimeMs',
   FrontmatterFeaturedimageSourceInstanceName = 'frontmatter___featuredimage___sourceInstanceName',
@@ -1799,10 +1799,10 @@ export type MarkdownRemarkFrontmatter = {
   heading?: Maybe<Scalars['String']>,
   subheading?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
-  url?: Maybe<Scalars['String']>,
-  hidden?: Maybe<Scalars['Boolean']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   files?: Maybe<Array<Maybe<Scalars['String']>>>,
+  url?: Maybe<Scalars['String']>,
+  hidden?: Maybe<Scalars['Boolean']>,
   featuredimage?: Maybe<File>,
 };
 
@@ -1821,10 +1821,10 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   heading?: Maybe<StringQueryOperatorInput>,
   subheading?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
-  hidden?: Maybe<BooleanQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
   files?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  hidden?: Maybe<BooleanQueryOperatorInput>,
   featuredimage?: Maybe<FileFilterInput>,
 };
 
@@ -2519,6 +2519,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsMaxWidth = 'pluginCreator___pluginOptions___maxWidth',
   PluginCreatorPluginOptionsLinkImagesToOriginal = 'pluginCreator___pluginOptions___linkImagesToOriginal',
   PluginCreatorPluginOptionsShowCaptions = 'pluginCreator___pluginOptions___showCaptions',
+  PluginCreatorPluginOptionsQuality = 'pluginCreator___pluginOptions___quality',
   PluginCreatorPluginOptionsDestinationDir = 'pluginCreator___pluginOptions___destinationDir',
   PluginCreatorPluginOptionsWidth = 'pluginCreator___pluginOptions___width',
   PluginCreatorPluginOptionsHeight = 'pluginCreator___pluginOptions___height',
@@ -2739,6 +2740,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsPluginOptionsMaxWidth = 'pluginOptions___plugins___pluginOptions___maxWidth',
   PluginOptionsPluginsPluginOptionsLinkImagesToOriginal = 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal',
   PluginOptionsPluginsPluginOptionsShowCaptions = 'pluginOptions___plugins___pluginOptions___showCaptions',
+  PluginOptionsPluginsPluginOptionsQuality = 'pluginOptions___plugins___pluginOptions___quality',
   PluginOptionsPluginsPluginOptionsDestinationDir = 'pluginOptions___plugins___pluginOptions___destinationDir',
   PluginOptionsPluginsPluginOptionsWidth = 'pluginOptions___plugins___pluginOptions___width',
   PluginOptionsPluginsPluginOptionsHeight = 'pluginOptions___plugins___pluginOptions___height',
@@ -2758,6 +2760,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsMaxWidth = 'pluginOptions___maxWidth',
   PluginOptionsLinkImagesToOriginal = 'pluginOptions___linkImagesToOriginal',
   PluginOptionsShowCaptions = 'pluginOptions___showCaptions',
+  PluginOptionsQuality = 'pluginOptions___quality',
   PluginOptionsDestinationDir = 'pluginOptions___destinationDir',
   PluginOptionsWidth = 'pluginOptions___width',
   PluginOptionsHeight = 'pluginOptions___height',
@@ -2906,7 +2909,8 @@ export type SitePluginPluginOptions = {
   name?: Maybe<Scalars['String']>,
   maxWidth?: Maybe<Scalars['Int']>,
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
-  showCaptions?: Maybe<Scalars['Boolean']>,
+  showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>,
+  quality?: Maybe<Scalars['Int']>,
   destinationDir?: Maybe<Scalars['String']>,
   width?: Maybe<Scalars['String']>,
   height?: Maybe<Scalars['String']>,
@@ -2935,7 +2939,8 @@ export type SitePluginPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
-  showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  showCaptions?: Maybe<StringQueryOperatorInput>,
+  quality?: Maybe<IntQueryOperatorInput>,
   destinationDir?: Maybe<StringQueryOperatorInput>,
   width?: Maybe<StringQueryOperatorInput>,
   height?: Maybe<StringQueryOperatorInput>,
@@ -2992,7 +2997,8 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   name?: Maybe<Scalars['String']>,
   maxWidth?: Maybe<Scalars['Int']>,
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
-  showCaptions?: Maybe<Scalars['Boolean']>,
+  showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>,
+  quality?: Maybe<Scalars['Int']>,
   destinationDir?: Maybe<Scalars['String']>,
   width?: Maybe<Scalars['String']>,
   height?: Maybe<Scalars['String']>,
@@ -3011,7 +3017,8 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
-  showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  showCaptions?: Maybe<StringQueryOperatorInput>,
+  quality?: Maybe<IntQueryOperatorInput>,
   destinationDir?: Maybe<StringQueryOperatorInput>,
   width?: Maybe<StringQueryOperatorInput>,
   height?: Maybe<StringQueryOperatorInput>,
@@ -3150,6 +3157,23 @@ export type BlogRollQueryQuery = (
       ) }
     )> }
   ) }
+);
+
+export type Unnamed_1_QueryVariables = {};
+
+
+export type Unnamed_1_Query = (
+  { __typename?: 'Query' }
+  & { fileName: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+      )> }
+    )> }
+  )> }
 );
 
 export type AboutPageQueryVariables = {

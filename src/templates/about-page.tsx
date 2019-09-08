@@ -2,13 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
-import { Jsx } from '../../my-graphql';
 
-export function AboutPageTemplate({
-  title,
-  content,
-  contentComponent,
-}: any): Jsx {
+export function AboutPageTemplate({ title, content, contentComponent }: any) {
   const PageContent = contentComponent || Content;
 
   return (
@@ -27,7 +22,7 @@ export function AboutPageTemplate({
   );
 }
 
-export default function AboutPage({ data, location }: AboutPageData): Jsx {
+export default function AboutPage({ data, location }: AboutPageData) {
   const { markdownRemark: post } = data;
 
   return (
