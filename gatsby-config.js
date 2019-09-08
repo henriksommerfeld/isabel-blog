@@ -1,6 +1,4 @@
-const {
-  removeEmptyImageFieldsParser,
-} = require('./src/transformerRemarkParser');
+const { transformerRemarkParser } = require('./src/transformerRemarkParser');
 
 module.exports = {
   siteMetadata: {
@@ -37,7 +35,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         engines: {
-          yaml: removeEmptyImageFieldsParser,
+          yaml: transformerRemarkParser,
         },
         plugins: [
           {
