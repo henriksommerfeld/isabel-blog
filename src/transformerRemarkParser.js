@@ -2,12 +2,9 @@ const yaml = require('js-yaml');
 
 module.exports.removeEmptyImageFieldsParser = str => {
   const result = yaml.safeLoad(str);
-  console.log('TCL: result', result);
 
   let toReturn = removeFeaturedImage(result);
-  console.log('TCL: toReturn', toReturn);
   toReturn = removeImage(toReturn);
-  console.log('TCL: toReturn', toReturn);
 
   return toReturn;
 };
