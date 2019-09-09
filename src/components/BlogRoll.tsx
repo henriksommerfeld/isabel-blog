@@ -37,7 +37,9 @@ const blogRollQuery = graphql`
   query BlogRollQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      filter: {
+        frontmatter: { templateKey: { eq: "blog-post" }, hidden: { ne: true } }
+      }
     ) {
       edges {
         node {
@@ -52,7 +54,7 @@ const blogRollQuery = graphql`
             date(formatString: "DD MMMM, YYYY", locale: "sv")
             featuredimage {
               childImageSharp {
-                fluid(maxWidth: 1000, quality: 100) {
+                fluid(maxWidth: 1000, quality: 80) {
                   src
                   srcSet
                   aspectRatio
