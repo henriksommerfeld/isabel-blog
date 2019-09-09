@@ -111,6 +111,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-typescript',
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
 
     {
