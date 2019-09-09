@@ -1,7 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import { MarkdownRemarkConnection } from '../../auto-generated/graphql';
+import {
+  MarkdownRemarkConnection,
+  MarkdownRemarkEdge,
+} from '../../auto-generated/graphql';
 import BlogRollItem from './BlogRollItem';
 import { colors, spacing, breakpoints } from '../constants';
 
@@ -10,14 +13,26 @@ interface BlogRoll {
 }
 
 export default function BlogRoll(): ReactElement {
+  const postsPerPage = 5;
   const data = useStaticQuery<BlogRoll>(blogRollQuery);
   const { edges: posts } = data && data.allMarkdownRemark;
+  const [postsShown, setPostsShown] = useState(postsPerPage);
 
   if (!posts) return null;
 
+  function getPostsToShow(): MarkdownRemarkEdge[] {
+    return posts.slice(0, postsShown);
+  }
+
   return (
     <BlogRollStyled className="blog-roll">
-      {posts.map(({ node: post }) => BlogRollItem(post))}
+      {getPostsToShow().map(({ node: post }) => BlogRollItem(post))}
+
+      {posts.length > postsShown ? (
+        <button onClick={() => setPostsShown(x => x + postsPerPage)}>
+          Ladda fler
+        </button>
+      ) : null}
     </BlogRollStyled>
   );
 }
