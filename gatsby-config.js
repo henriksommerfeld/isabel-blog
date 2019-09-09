@@ -117,7 +117,23 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/typography`,
-        omitGoogleFont: false,
+        omitGoogleFont: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Domine`,
+            subsets: [`latin`],
+            variants: [`700`],
+          },
+          {
+            family: `Open Sans`,
+            variants: ['400', '400i', '700', '700i'],
+          },
+        ],
       },
     },
     'gatsby-plugin-styled-components',
