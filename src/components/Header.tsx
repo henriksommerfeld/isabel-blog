@@ -6,27 +6,21 @@ import useSiteMetadata from './SiteMetadata';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
-import useWindowSize from '../useWindowSize';
 import DesktopMenu from './DesktopMenu';
 
 export default function Header({ location }: any) {
   const { title } = useSiteMetadata();
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
-  const windowSize = useWindowSize();
-  const isStartPage = location.pathname === '/';
+  const isStartPage = location && location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
-
-  function isMobile() {
-    return windowSize.width <= breakpoints.mediumAsNumber;
-  }
 
   return (
     <>
       <NavStyled>
-        <NavWidthConstrainer centered={isStartPage && !isMobile()}>
+        <NavWidthConstrainer centered={isStartPage}>
           {isStartPage ? (
-            <div />
+            <EmptyDiv />
           ) : (
             <SiteTitle>
               <PortraitLink to="/" aria-label="till startsidan">
@@ -35,31 +29,34 @@ export default function Header({ location }: any) {
               <Isabel>{title}</Isabel>
             </SiteTitle>
           )}
-          {windowSize.width > breakpoints.mediumAsNumber ? (
-            <DesktopMenu location={location} />
-          ) : (
-            <HamburgerMenuIcon
-              isOpen={mobileMenuIsVisible}
-              clickAction={toggleMenu}
-              className={ignoreClickClassName}
-            />
-          )}
+
+          <HamburgerMenuIcon
+            isOpen={mobileMenuIsVisible}
+            clickAction={toggleMenu}
+            className={ignoreClickClassName}
+          />
+
+          <DesktopMenu location={location} />
         </NavWidthConstrainer>
       </NavStyled>
 
-      {isMobile() ? (
-        <MobileMenu
-          isVisible={mobileMenuIsVisible && isMobile()}
-          setIsVisible={setMobileMenuIsVisible}
-          ignoreClickClassName={ignoreClickClassName}
-          location={location}
-        />
-      ) : null}
+      <MobileMenu
+        isVisible={mobileMenuIsVisible}
+        setIsVisible={setMobileMenuIsVisible}
+        ignoreClickClassName={ignoreClickClassName}
+        location={location}
+      />
     </>
   );
 }
 
 export const headerHeight = '80px';
+
+const EmptyDiv = styled.div`
+  @media (min-width: ${breakpoints.medium}) {
+    display: none;
+  }
+`;
 
 const SiteTitle = styled('div')`
   display: flex;
@@ -103,7 +100,11 @@ const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
   max-width: 1000px;
   display: flex;
   flex-direction: row;
-  justify-content: ${props => (props.centered ? 'center' : 'space-between')};
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
+
+  @media (min-width: ${breakpoints.medium}) {
+    justify-content: ${props => (props.centered ? 'center' : 'space-between')};
+  }
 `;

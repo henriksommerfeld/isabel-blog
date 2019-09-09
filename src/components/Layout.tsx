@@ -64,7 +64,7 @@ export default function TemplateWrapper({
       <Page>
         <Header location={location} />
 
-        <Body>{children}</Body>
+        <Body className="Body">{children}</Body>
         <Footer />
       </Page>
     </>

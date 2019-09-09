@@ -12,6 +12,7 @@ export default function MobileMenu({
   isVisible,
   setIsVisible,
   ignoreClickClassName,
+  location,
 }) {
   const menuRef = useRef(null);
   const pullDownAnimation = useSpring({
@@ -27,12 +28,16 @@ export default function MobileMenu({
   });
 
   return (
-    <MobileMenuStyled ref={menuRef} style={pullDownAnimation}>
+    <MobileMenuStyled
+      ref={menuRef}
+      style={pullDownAnimation}
+      aria-hidden="true"
+    >
       {navLinks.map(link => (
         <MobileLink
           to={link.url}
           key={link.url}
-          isActive={matchesRoute(location.pathname, link.url)}
+          isActive={matchesRoute(location, link.url)}
         >
           {link.title}
         </MobileLink>

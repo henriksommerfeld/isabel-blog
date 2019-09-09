@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
-import { colors } from '../constants';
+import styled from 'styled-components';
+import { colors, breakpoints } from '../constants';
 
 export default function HamburgerMenuIcon({
   isOpen,
@@ -11,39 +12,61 @@ export default function HamburgerMenuIcon({
     to: isOpen ? crossStyle : hamburgerStyle,
   });
   return (
-    <animated.svg
-      width="44"
-      height="44"
-      viewBox="0 0 44 44"
-      fill={color}
-      xmlns="http://www.w3.org/2000/svg"
-      onClick={clickAction}
-      className={className}
-    >
-      <animated.rect
-        width="40"
-        height="6"
-        rx="1"
-        transform={top}
+    <ButtonStyled onClick={clickAction}>
+      <MobileIconStyled
+        width="44"
+        height="44"
+        viewBox="0 0 44 44"
+        fill={color}
+        xmlns="http://www.w3.org/2000/svg"
         className={className}
-      />
-      <animated.rect
-        width="40"
-        height="6"
-        rx="1"
-        transform={center}
-        className={className}
-      />
-      <animated.rect
-        width="40"
-        height="6"
-        rx="1"
-        transform={bottom}
-        className={className}
-      />
-    </animated.svg>
+        aria-hidden="true"
+      >
+        <animated.rect
+          width="40"
+          height="6"
+          rx="1"
+          transform={top}
+          className={className}
+        />
+        <animated.rect
+          width="40"
+          height="6"
+          rx="1"
+          transform={center}
+          className={className}
+        />
+        <animated.rect
+          width="40"
+          height="6"
+          rx="1"
+          transform={bottom}
+          className={className}
+        />
+      </MobileIconStyled>
+    </ButtonStyled>
   );
 }
+
+const ButtonStyled = styled.button`
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  /* TODO: Show when using keyboard navigation */
+  &:focus,
+  &:hover,
+  &:active {
+    outline-width: 0;
+  }
+`;
+
+const MobileIconStyled = styled(animated.svg)`
+  @media (min-width: ${breakpoints.medium}) {
+    display: none;
+  }
+`;
 
 interface Hamburger {
   isOpen: boolean;

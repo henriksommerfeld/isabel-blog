@@ -1,4 +1,6 @@
-export function matchesRoute(currentPath: string, path: string): boolean {
+export function matchesRoute(location: any, path: string): boolean {
+  if (!location) return false;
+  const currentPath = location.pathname;
   if (!currentPath || !path) return false;
   if (currentPath === path) return true;
 

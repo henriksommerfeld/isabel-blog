@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { navLinks, colors } from '../constants';
+import { navLinks, colors, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
 
@@ -12,7 +12,7 @@ export default function DesktopMenu({ location }: any) {
         <LinkStyled
           to={link.url}
           key={link.url}
-          isActive={matchesRoute(location.pathname, link.url)}
+          isActive={matchesRoute(location, link.url)}
         >
           {link.title}
         </LinkStyled>
@@ -21,7 +21,13 @@ export default function DesktopMenu({ location }: any) {
   );
 }
 
-const MenuStyled = styled('div')``;
+const MenuStyled = styled('div')`
+  display: none;
+
+  @media (min-width: ${breakpoints.medium}) {
+    display: block;
+  }
+`;
 
 const LinkStyled = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />

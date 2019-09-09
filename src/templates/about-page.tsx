@@ -45,6 +45,7 @@ interface AboutPageData {
       };
     };
   };
+  location: any;
 }
 
 export const aboutPageQuery = graphql`
