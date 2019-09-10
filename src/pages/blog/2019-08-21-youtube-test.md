@@ -2,11 +2,10 @@
 templateKey: blog-post
 title: Video-test
 hidden: false
-date: 2019-08-21T12:07:01.008Z
+date: 2010-08-21T12:07:00.000Z
 tags:
   - Video
 ---
-
 ## YouTube
 
 `youtube: https://youtu.be/68WL0EPEnrQ`
