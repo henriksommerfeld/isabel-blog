@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, fonts } from '../constants';
-import { Link } from 'gatsby';
-import useSiteMetadata from './SiteMetadata';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
 
 export default function Header({ location }: any) {
-  const { title } = useSiteMetadata();
+  const data = useStaticQuery(pageQuery);
+  const { heading, image } = data.markdownRemark.frontmatter;
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
   const isStartPage = location && location.pathname === '/';
@@ -24,9 +24,9 @@ export default function Header({ location }: any) {
           ) : (
             <SiteTitle>
               <PortraitLink to="/" aria-label="till startsidan">
-                <PortraitSmall />
+                <PortraitSmall image={image} />
               </PortraitLink>
-              <Isabel>{title}</Isabel>
+              <Isabel>{heading}</Isabel>
             </SiteTitle>
           )}
 
@@ -49,6 +49,27 @@ export default function Header({ location }: any) {
     </>
   );
 }
+
+const pageQuery = graphql`
+  query IndexPageData {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      frontmatter {
+        heading
+        image {
+          childImageSharp {
+            fluid(maxWidth: 50, quality: 80) {
+              src
+              srcSet
+              aspectRatio
+              sizes
+              base64
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export const headerHeight = '80px';
 
@@ -88,7 +109,7 @@ const NavStyled = styled('nav')`
   justify-content: center;
   align-items: center;
   background: ${colors.headerBackground};
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
   z-index: 2;
   height: ${headerHeight};
 `;

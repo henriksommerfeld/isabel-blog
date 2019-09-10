@@ -79,6 +79,9 @@ const IntroText = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: ${spacing.paddingDefault};
+  padding-right: ${spacing.paddingDefault};
+  text-align: center;
 `;
 
 const BlogRollContainer = styled('div')`

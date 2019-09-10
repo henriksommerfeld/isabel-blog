@@ -50,6 +50,7 @@ export default function HamburgerMenuIcon({
 
 const ButtonStyled = styled.button`
   background: none;
+  height: 44px;
   border: 0;
   margin: 0;
   padding: 0;

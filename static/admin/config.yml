@@ -86,9 +86,10 @@ collections:
               default: 'index-page',
             }
           - { label: Bild, name: image, widget: image }
-          - { label: Rubrik, name: heading, widget: string }
+          - { label: Rubrik, name: heading, widget: string, hint: 'Används också som titel på hela sajten' }
           - { label: Underrrubrik, name: subheading, widget: string }
           - { label: Beskrivning, name: body, widget: markdown }
+          - { label: Sajtbeskrivning, name: description, widget: string, hint: 'Syns inte på landningssidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.'}
           
       - file: 'src/pages/om/index.md'
         label: 'Om mig'

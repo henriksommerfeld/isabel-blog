@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
 
-export default function IndexPage({ data, location }) {
+export default function IndexPage({ location }) {
+  const data = useStaticQuery(pageQuery);
   const { frontmatter, html } = data.markdownRemark;
 
   return (
@@ -19,12 +20,11 @@ export default function IndexPage({ data, location }) {
   );
 }
 
-export const pageQuery = graphql`
+const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       html
       frontmatter {
-        title
         image {
           childImageSharp {
             fluid(maxWidth: 300, quality: 100) {
