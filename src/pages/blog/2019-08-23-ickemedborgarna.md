@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-url: ''
+url: /2014/10/10/ickemedborgarna
 title: Ickemedborgarna
 hidden: false
 date: 2014-10-10T06:22:00.000Z

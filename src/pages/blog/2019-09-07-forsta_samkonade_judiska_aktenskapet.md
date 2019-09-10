@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-url: ''
+url: /2013/06/09/forsta-samkonade-judiska-aktenskapet
 title: Första samkönade judiska äktenskapet
 hidden: false
 date: 2013-06-09T17:27:30.479Z
