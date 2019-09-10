@@ -10,7 +10,6 @@ tags:
   - Mänskliga rättigheter
   - Magasinet Paragraf
 ---
-
 Ny krönika publicerad i dag. Den här gången skriver jag om ishockey-VM i Belarus (Vitryssland) 2014.
 
 [Du hittar hela krönikan här](http://www.magasinetparagraf.se/kronikor/munkavle-pa-journalister).

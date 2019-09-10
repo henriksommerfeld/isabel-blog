@@ -11,7 +11,6 @@ tags:
   - Mänskliga rättigheter
   - TeliaSonera
 ---
-
 I april 2012 deltog jag i Uppdrag Gransknings program "[De svarta lådorna](http://www.svt.se/ug/video-the-black-boxes-3)", där jag tillsammans med TV-teamet åkte till diktaturen Belarus för att träffa folk som råkat illa ut på grund av teleoperatören Life's (ägd av TeliaSoneras dotterbolag Turkcell) samarbete med regimen, när det gäller bl.a. avlyssning, spårning och utlämnande av information om kunderna. Granskningen visade hur säkerhetstjänsten KGB fick tillgång till all information om kunderna, dygnet runt i realtid, via den "svarta lådan". På samma sätt bidrar TeliaSonera till förtrycket även i andra diktaturstater så som Uzbekistan och Azerbajdzjan.
 
 Medan kritikerstormen och debatten i media har pågått sedan drygt ett år tillbaka, har TeliaSonera tillsammans med andra bolag i branschen utvecklat nya riktlinjer om yttrandefrihet och rätten till privatliv. Det gläder mig att de har tagit tag i detta. Men nu när dessa riktlinjer har undertecknats kan jag tyvärr fortfarande inte tro att det här skulle handla om något annat än mycket snack och lite verkstad, att det helt enkelt bara ska se bra ut på pappret.

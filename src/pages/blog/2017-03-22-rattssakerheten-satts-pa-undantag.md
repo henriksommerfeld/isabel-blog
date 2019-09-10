@@ -7,7 +7,6 @@ hidden: false
 tags:
   - Juridik
 ---
-
 I dag skriver jag om rätten till rättvis rättegång och den bristande svenska tryckfrihets- och yttrandefrihetsprocessen, med Sargon De Basso, Sebastian Scheiman, Henrik Mansfeld, Anders Petrus, Filip Rydin och  Karl-Emil Ekdahl, på Dagens Juridik.
 
 _"Rätten till en rättvis rättegång är - liksom yttrande- och tryckfriheten - en av de viktigaste grundpelarna i ett demokratiskt och rättssäkert samhälle. Att staten inte kan garantera detta innebär att rättssäkerheten sätts på undantag._

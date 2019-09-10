@@ -7,7 +7,6 @@ date: 2013-03-26T20:50:58.421Z
 featuredimage: >-
   /uploads/http-annotagger-tv4-se-grid-4fd721ab9557dc0007001012-eftertio_ny_topp3.jpg
 ---
-
 ![Malou efter tio](/uploads/http-annotagger-tv4-se-grid-4fd721ab9557dc0007001012-eftertio_ny_topp3.jpg)
 
 Imorgon (onsdag 27 mars) ser ni mig och min syster [Sara](http://www.sarasommerfeld.com) i TV4:s Efter tio med Malou von Sivers. Vi ska prata om hur det är att leva som jude i Sverige i dag, om judisk identitet och högtiden Pesach.

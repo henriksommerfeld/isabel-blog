@@ -7,7 +7,6 @@ date: 2012-04-22T06:31:37.521Z
 tags:
   - TeliaSonera
 ---
-
 [**_"Stockholms stad kan komma att välja en annan leverantör än Telia Sonera vid nästa upphandling av telefonabonnemang. Fastighets- och kulturborgarrådet Madeleine Sjöstedt (FP) är mycket kritisk till företagets koppling till diktaturer" - Dagens Nyheter_**](http://www.dn.se/sthlm/stockholm-kan-valja-bort-telia)
 
 Madeleine Sjöstedt kritiserar starkt TeliaSonera efter Uppdrag Gransknings avslöjande om hur TeliaSonera samarbetar med säkerhetstjänster i diktaturer.

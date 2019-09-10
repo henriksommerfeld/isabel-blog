@@ -5,7 +5,6 @@ title: Munkavlar på Stockholms statyer för yttrandefrihet i Belarus
 hidden: false
 date: 2012-03-18T08:26:38.819Z
 ---
-
 ![](/uploads/belarus2.jpg)
 
 I dag anordnar [människorättsnätverket Info Belarus](http://www.infobelarus.nu) tillsammans med [Östgruppen för demokrati och mänskliga rättigheter](http://www.ostgruppen.se) en aktion i Stockholm för att uppmärksamma situationen i Europas sista diktatur, Belarus.

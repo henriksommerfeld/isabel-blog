@@ -5,8 +5,7 @@ title: Avrättning i lagens namn - Nej tack!
 hidden: false
 date: 2011-09-11T07:26:42.164Z
 ---
-
-![](/uploads/tumblr_lrvlsi6ilp1r22t2co1_400.jpg 'RIP – Troy Davis')
+![](/uploads/tumblr_lrvlsi6ilp1r22t2co1_400.jpg "RIP – Troy Davis")
 
 **Mer än 2/3 av världens länder har slutat använda sig av dödsstraffet. I USA (världens största demokrati) är dödsstraffet dock fortfarande en rå verklighet**. Ett exempel på när "rättsstaten" tar död på oskyldigt dömda fick vi se svart på vitt i fallet Troy Davis.
 
@@ -18,9 +17,9 @@ date: 2011-09-11T07:26:42.164Z
 
 **Här kommer färsk statistik om dödsstraffet, från Amnesty International**:
 
-- 96 länder har avskaffat dödsstraffet för alla brott
-- 9 länder har avskaffat dödsstraffet i fredstid
-- 34 länder har avskaffat dödsstraffet i praktiken
+* 96 länder har avskaffat dödsstraffet för alla brott
+* 9 länder har avskaffat dödsstraffet i fredstid
+* 34 länder har avskaffat dödsstraffet i praktiken
 
 16 av de 23 länder som genomförde avrättningar 2010, genomförde avrättningar även 2009, 2008 och 2007.
 
@@ -34,10 +33,10 @@ Minst 17 833 sitter i dödscell runt om i världen.
 
 Dödsstraffet är oacceptabelt och bör avskaffas runt hela världen. Troy Davis är inte den första personen som avrättats, troligtvis oskyldig. [**En avrättning kan inte upphävas**](http://www.amnesty.se/vad-gor-vi/dodsstraffet/argument-mot-dodsstraffet/). [Stöd Amnesty Internationals kampanj för avskaffandet av dödsstraff](http://www.amnesty.se/engagera-dig/bli-medlem/).
 
-**_Läs mer om Troy Davis-fallet:_**
+_**Läs mer om Troy Davis-fallet:**_
 
 <http://www.amnesty.se/vad-gor-vi/dodsstraffet/troy-davis/>
 
-**_Hjälp till att göra Europa till en dödsstraffsfri zoon:_**
+_**Hjälp till att göra Europa till en dödsstraffsfri zoon:**_
 
 <http://www.amnesty.se/vad-gor-vi/dodsstraffet/vitryssland/>

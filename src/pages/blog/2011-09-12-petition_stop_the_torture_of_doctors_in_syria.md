@@ -7,7 +7,6 @@ date: 2011-09-12T11:59:08.288Z
 tags:
   - Mänskliga rättigheter
 ---
-
 ![](/uploads/hallak_781626c.jpg)
 
 _**The Syrian physician Sakher Hallak lived well in Syria. But when he signed a petition calling for doctors to treat gunshot protesters, his destiny changed. He was selected to die and to frighten other doctors.**_

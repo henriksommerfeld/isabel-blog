@@ -8,7 +8,6 @@ tags:
   - Mänskliga rätigheter
   - TeliaSonera
 ---
-
 **I februari 2012 meddelade Europeiska kommissionen att riktlinjer skulle utvecklas för  företag inom bl.a. informations-och kommunikationsteknik (ICT) samt olje-och gassektorn.**
 
 **Tillsammans står dessa sektorer inför en rad viktiga utmaningar när det gäller mänskliga rättigheter**. Europeiska kommissionen menar att de kan dra nytta av detaljerad vägledning, med fokus på företags ansvar och respekten av de mänskliga rättigheterna. Riktlinjerna som tas fram ska också fungera som vägledning för företag från andra sektorer med liknande utmaningar när det gäller mänskliga rättigheter. Företagen kan sedan utifrån dessa riktlinjer, utveckla sina egna policys och tillvägagångssätt när det gäller mänskliga rättigheter.

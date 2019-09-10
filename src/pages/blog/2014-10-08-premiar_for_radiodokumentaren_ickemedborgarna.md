@@ -7,7 +7,6 @@ date: 2014-10-08T11:02:54.421Z
 tags:
   - Magasinet Paragraf
 ---
-
 ![](/uploads/vi.jpg 'Jag tillsammans med min kusin och kollega Daniela Auerbach i Warszawa, 2012.')
 
 ***Nu har jag äntligen äran att få presentera radiodokumentären som jag sedan en lång tid tillbaka arbetat på tillsammans med min kusin Daniela Auerbach. Fredag den 10/10 kl. 10.00 släpps "Ickemedborgarna" som podcast på*** [_**www.magasinetparagraf.se**_](http://www.magasinetparagraf.se)_**. Den kommer även finnas tillgänglig för nedladdning och streaming på Itunes och Soundcloud.**_

@@ -10,7 +10,6 @@ tags:
   - Idrott
   - Mänskliga rättigheter
 ---
-
 ![](/uploads/mrpc3a5halis1.jpg)
 
 I dag publicerar Swedwatch i samarbete med LO-TCO Biståndsnämnd rapporten "Mänskliga rättigheter på hal is" som jag skrivit om ishockey-VM i Belarus. Rapporten avslöjar människorättskränkningar i samband med förberedelserna inför ishockey-VM, bland annat direkt sanktionerade av organisationskommittén för VM.

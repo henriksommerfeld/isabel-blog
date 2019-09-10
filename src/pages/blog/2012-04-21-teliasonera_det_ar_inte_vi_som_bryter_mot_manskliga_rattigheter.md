@@ -9,7 +9,6 @@ tags:
   - Belarus
   - Mänskliga rättigheter
 ---
-
 TeliaSoneras VD, Lars Nyberg, publicerade i dag en debattartikel i DN. Debattartikeln kan sammanfattas i två punkter.
 
 **1) "Det är inte vi som begår brott mot de mänskliga rättigheterna. Ett enskilt bolag är aldrig skyldiga"**

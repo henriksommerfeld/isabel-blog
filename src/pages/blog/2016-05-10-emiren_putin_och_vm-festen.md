@@ -10,7 +10,6 @@ tags:
   - Juridik
 files: []
 ---
-
 ![Framsida av publikationen Emiren, Putin och VM-festen](/uploads/fullsizerender1.jpg ' ')
 
 Idag var det dags för publicering av rapporten _Emiren, Putin och VM-festen_, som jag skrivit för [Silc](https://www.silc.se), om fotbollsrörelsen och statens ansvar för mänskliga rättigheter, korruptionen i FIFA och människorättskränkningarna inför byggandet av världsmästerskapen i Ryssland 2018 och Qatar 2022.

@@ -7,7 +7,6 @@ date: 2012-05-06T20:20:20.933Z
 tags:
   - TeliaSonera
 ---
-
 In March 2012, I was followed by a TV crew from Swedish Television’s ”Uppdrag Granskning” to Europe’s last dictatorship, Belarus. The trip was part of a depth investigation of the Nordic Telecom giant TeliaSonera and their business in dictatorships. ”Uppdrag Granskning” can now disclose how TeliaSonera is connected to human rights abuses in the former CIS countries, cooperating closely with for example the secret service KGB in Belarus, tracking and intercepting oppositional activists and journalists.
 
 **The documentary was shown on Swedish television, April 18th. So what has happened since then?**

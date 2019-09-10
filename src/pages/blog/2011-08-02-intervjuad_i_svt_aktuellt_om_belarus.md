@@ -7,7 +7,6 @@ date: 2011-08-02T19:50:32.312Z
 tags:
   - Belarus
 ---
-
 Ännu en onsdag närmar sig. I Belarus innebär det nu mera att tusentals samlas på gator och torg, i tysta manifestationer, för att protestera mot diktaturregimen. Men det innebär också att fängelserna i landet blir mer och mer överfyllda, av unga som gamla. Arresterade för att de tyst promenerat genom staden samt för att de klappat händer.
 
 Det belarusiska folket har tröttnat. Tröttnat på både den politiska och ekonomiska situationen i landet. De som vågar engagera sig och öppet kritiserar regimen riskerar att förlora allt; jobb,studier och dagliga hot från underrättelsetjänsten KGB. Och så förstås frihetsberövandet. Ändå samlas fler och fler i tysta manifestationer varje onsdag.

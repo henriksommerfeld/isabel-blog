@@ -8,7 +8,6 @@ tags:
   - Belarus
   - Lukasjenka
 ---
-
 ![](/uploads/r-lukashenk-dictator-gay-large570.jpg)
 
 **Det diplomatiska kriget mellan Lukasjenka (Belarus) och EU fortsätter**. De utökade sanktionerna från EU:s håll resulterade här om dagen i att Lukasjenka bl.a. drog tillbaka sin ambassadör från Polen, samt uppmanade särskilt Polen, men också EU:s övriga ambassadörer att lämna landet. EU tog därefter beslut om att tills vidare kalla tillbaka alla sina ambassadörer.
