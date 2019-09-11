@@ -28,7 +28,13 @@ module.exports = {
         name: 'images',
       },
     },
-
+    {
+      resolve: `gatsby-plugin-scroll-indicator`,
+      options: {
+        color: '#C53030',
+        paths: ['**'],
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
