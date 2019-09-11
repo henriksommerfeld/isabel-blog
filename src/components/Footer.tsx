@@ -7,16 +7,19 @@ import facebook from '../img/social/facebook.svg';
 import instagram from '../img/social/instagram.svg';
 import twitter from '../img/social/twitter.svg';
 import vimeo from '../img/social/vimeo.svg';
+import { spacing, colors, breakpoints } from '../constants';
+import { tailwindColors } from '../tailwind-colors';
 
 export default function Footer(): ReactElement {
-  return <InnerFooter>FOOTER</InnerFooter>;
+  return <InnerFooter>FOOTER 🧁</InnerFooter>;
 }
 
 const InnerFooter = styled('footer')`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
-  border: dashed red 2px;
-  border: green dashed 2px;
+  padding: ${spacing.paddingDefault};
+  background-color: ${colors.footerBackground};
+  color: ${tailwindColors.blue100};
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
 `;
