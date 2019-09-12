@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 url: /2011/03/31/svartlistade-i-belarus-kevin-spacey-jude-law
-title: 'Svartlistade i Belarus: Kevin Spacey &amp; Jude Law'
+title: 'Svartlistade i Belarus: Kevin Spacey & Jude Law'
 hidden: false
 date: 2011-03-31T18:59:18.868Z
 tags:
