@@ -1,36 +1,30 @@
 import React, { ReactElement, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
+import Ripples from 'react-ripples';
 import {
   MarkdownRemarkConnection,
   MarkdownRemarkEdge,
 } from '../../auto-generated/graphql';
 import BlogRollItem from './BlogRollItem';
 import { colors, spacing, breakpoints } from '../constants';
-import Ripples from 'react-ripples';
 import { tailwindColors } from '../tailwind-colors';
+import { exists } from '../exists';
 
 interface BlogRoll {
   allMarkdownRemark: MarkdownRemarkConnection;
 }
 
 export default function BlogRoll(): ReactElement {
+  const sesstionStorageKey = 'blogroll';
   const postsPerPage = 5;
+
   const data = useStaticQuery<BlogRoll>(blogRollQuery);
   const { edges: posts } = data && data.allMarkdownRemark;
-  const [postsShown, setPostsShown] = useState(postsPerPage);
+  const postsToShowCount = getPostsToShowCount(posts);
+  const [postsShown, setPostsShown] = useState(postsToShowCount);
 
   if (!posts) return null;
-
-  function getPostsToShow(): MarkdownRemarkEdge[] {
-    return posts.slice(0, postsShown);
-  }
-
-  function loadMorePostsClicked() {
-    setTimeout(() => {
-      setPostsShown(x => x + postsPerPage);
-    }, 150);
-  }
 
   return (
     <BlogRollStyled className="blog-roll">
@@ -47,6 +41,35 @@ export default function BlogRoll(): ReactElement {
       ) : null}
     </BlogRollStyled>
   );
+
+  function getPostsToShow(): MarkdownRemarkEdge[] {
+    return posts.slice(0, postsShown);
+  }
+
+  function loadMorePostsClicked() {
+    setTimeout(() => {
+      const newPostCount = postsShown + postsPerPage;
+      setPostsShown(newPostCount);
+      sessionStorage.setItem(sesstionStorageKey, `${newPostCount}`);
+    }, 150);
+  }
+
+  function getPreviousCount(): number {
+    const count = getFromSessionStorage(sesstionStorageKey);
+    return parseInt(count) || 0;
+  }
+
+  function getFromSessionStorage(key: string): string {
+    if (typeof sessionStorage === 'undefined') return '';
+    return sessionStorage.getItem(key);
+  }
+
+  function getPostsToShowCount(posts: MarkdownRemarkEdge[]): number {
+    if (!posts || posts.length < 1) return 0;
+
+    const previousPosition = getPreviousCount();
+    return previousPosition > postsPerPage ? previousPosition : postsPerPage;
+  }
 }
 
 const MorePostsButton = styled('button')`
