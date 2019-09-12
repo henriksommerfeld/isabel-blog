@@ -9,7 +9,6 @@ import {
 import BlogRollItem from './BlogRollItem';
 import { colors, spacing, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
-import { exists } from '../exists';
 
 interface BlogRoll {
   allMarkdownRemark: MarkdownRemarkConnection;
