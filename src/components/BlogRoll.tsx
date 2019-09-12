@@ -1,14 +1,13 @@
 import React, { ReactElement, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import Ripples from 'react-ripples';
 import {
   MarkdownRemarkConnection,
   MarkdownRemarkEdge,
 } from '../../auto-generated/graphql';
 import BlogRollItem from './BlogRollItem';
 import { colors, spacing, breakpoints } from '../constants';
-import { tailwindColors } from '../tailwind-colors';
+import MorePostsButton from './MorePostsButton';
 
 interface BlogRoll {
   allMarkdownRemark: MarkdownRemarkConnection;
@@ -30,13 +29,7 @@ export default function BlogRoll(): ReactElement {
       {getPostsToShow().map(({ node: post }) => BlogRollItem(post))}
 
       {posts.length > postsShown ? (
-        <ButtonContainer>
-          <Ripples className="button">
-            <MorePostsButton onClick={loadMorePostsClicked}>
-              Visa äldre inlägg
-            </MorePostsButton>
-          </Ripples>
-        </ButtonContainer>
+        <MorePostsButton clickedHandler={loadMorePostsClicked} />
       ) : null}
     </BlogRollStyled>
   );
@@ -70,33 +63,6 @@ export default function BlogRoll(): ReactElement {
     return previousPosition > postsPerPage ? previousPosition : postsPerPage;
   }
 }
-
-const MorePostsButton = styled('button')`
-  padding: 0.5rem 1rem;
-  width: 100%;
-  background-color: ${tailwindColors.red600};
-  transition: background-color 100ms ease-in-out;
-  color: ${colors.white};
-  border-style: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${tailwindColors.red700};
-  }
-  &:active {
-    background-color: ${tailwindColors.red800};
-  }
-`;
-
-const ButtonContainer = styled('div')`
-  width: 100%;
-  padding: ${spacing.paddingDefault};
-
-  @media (min-width: ${breakpoints.small}) {
-    display: flex;
-    justify-content: flex-end;
-  }
-`;
 
 const BlogRollStyled = styled('div')`
   background-color: ${colors.white};
