@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import { HTMLContent } from '../components/Content';
 import BlogPostTemplate from './blog-post-template';
 import useSiteMetadata from '../components/SiteMetadata';
+import { editBlogUrlFromAbsolutePath } from '../url-replacer';
 
 export default function BlogPost({ data, ...props }) {
   const { markdownRemark: post } = data;
@@ -13,7 +14,10 @@ export default function BlogPost({ data, ...props }) {
   const { title: siteTitle } = useSiteMetadata();
 
   return (
-    <Layout location={props.location}>
+    <Layout
+      location={props.location}
+      editLink={editBlogUrlFromAbsolutePath(post.fileAbsolutePath)}
+    >
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -36,6 +40,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fileAbsolutePath
       frontmatter {
         date(formatString: "DD MMMM, YYYY", locale: "sv")
         title

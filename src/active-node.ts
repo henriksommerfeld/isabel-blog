@@ -9,7 +9,5 @@ export function matchesRoute(location: any, path: string): boolean {
 
   if (currentPathWithoutTrailingSlash === pathWithoutTrailingSlash) return true;
 
-  if (currentPath.startsWith('/20') && path === '/publicerat') return true;
-
   return false;
 }

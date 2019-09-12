@@ -1,23 +1,23 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import styled, { createGlobalStyle } from 'styled-components';
 import Footer from './Footer';
-import Navbar from './Navbar';
 import useSiteMetadata from './SiteMetadata';
-import { withPrefix, Link } from 'gatsby';
+import { withPrefix } from 'gatsby';
 import { colors, breakpoints } from '../constants';
-import violetForrest from '../../static/img/photo-1563206706-37fc22744de1.jpg';
 import Header from './Header';
 import { tailwindColors } from '../tailwind-colors';
 
 interface TemplateWrapperProps {
   children: ReactNode;
   location: string;
+  editLink: string;
 }
 
 export default function TemplateWrapper({
   children,
   location,
+  editLink,
 }: TemplateWrapperProps) {
   const { title, description } = useSiteMetadata();
   return (
@@ -65,7 +65,7 @@ export default function TemplateWrapper({
         <Header location={location} />
 
         <Body className="Body">{children}</Body>
-        <Footer />
+        <Footer editLink={editLink} />
       </Page>
     </>
   );
@@ -125,34 +125,8 @@ const Page = styled('div')`
     background-color: ${colors.pageBackground};
   }
 
-  /*  */
-  /* background-image: url(${greenBlur}); */
-
-  /* Lila-rosa med skog i siluett */
-  /* background-image: url(${violetForrest}); */
-
-  /* Sädesåker */
-  /* background-image: url('https://images.unsplash.com/photo-1421435371524-d26441ec7dda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80'); */
-  
-  
-  /*Svart-vit målning */
-  /* background-image: url('https://images.unsplash.com/photo-1505562130589-9879683e72da?ixlib=rb-1.2.1&auto=format&q=80'); */
-
-  /* Blå trävägg */
-  /* background-image: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80');   */
-
-  /* Blå trävägg suddig */
-  /* background-image: url(${blueWoodBlur});   */
-
-
-/* Guld */
-/* background-image: url('https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&q=80'); */
-/* background-image: url(${blur200}); */
-
-/* background-image: linear-gradient(#B2F5EA, #234E52 60%); */
-
-background-repeat: repeat-x;
-background-attachment: fixed;
-background-position: top center;
-background-size: cover;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: top center;
+  background-size: cover;
 `;

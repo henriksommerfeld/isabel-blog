@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { editPageUrl } from '../url-replacer';
 
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
@@ -9,7 +10,7 @@ export default function IndexPage({ location }) {
   const { frontmatter, html } = data.markdownRemark;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} editLink={editPageUrl('index')}>
       <IndexPageTemplate
         image={frontmatter.image}
         heading={frontmatter.heading}

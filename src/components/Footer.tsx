@@ -10,8 +10,19 @@ import vimeo from '../img/social/vimeo.svg';
 import { spacing, colors, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 
-export default function Footer(): ReactElement {
-  return <InnerFooter>FOOTER 🧁</InnerFooter>;
+interface Footer {
+  editLink: string;
+}
+
+export default function Footer({ editLink = '/admin' }: Footer) {
+  return (
+    <InnerFooter>
+      FOOTER 🧁.{' '}
+      <a href={editLink} target="_blank" rel="noopener noreferrer">
+        Redigera sidan
+      </a>
+    </InnerFooter>
+  );
 }
 
 const InnerFooter = styled('footer')`

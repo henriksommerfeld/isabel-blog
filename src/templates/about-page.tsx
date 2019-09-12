@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import { editPageUrl } from '../url-replacer';
 
 export function AboutPageTemplate({ title, content, contentComponent }: any) {
   const PageContent = contentComponent || Content;
@@ -26,7 +27,7 @@ export default function AboutPage({ data, location }: AboutPageData) {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} editLink={editPageUrl('about')}>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
