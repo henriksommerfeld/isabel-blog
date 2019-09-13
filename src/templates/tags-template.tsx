@@ -15,12 +15,18 @@ export function TagsTemplate({ children }) {
 }
 
 const ContentBox = styled('div')`
-  font-size: 1.2rem;
+  font-size: 1.1em;
   border-radius: ${layout.borderRadius};
+  max-width: 1000px;
 
   ul {
     list-style: none;
     margin: 0;
+
+    li {
+      padding-left: 1em;
+      text-indent: -1em;
+    }
 
     li::before {
       content: url(${linkArrow});
