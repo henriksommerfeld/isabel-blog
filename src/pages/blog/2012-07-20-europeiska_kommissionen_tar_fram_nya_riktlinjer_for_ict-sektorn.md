@@ -5,7 +5,7 @@ title: Europeiska kommissionen tar fram nya riktlinjer för ICT-sektorn
 hidden: false
 date: 2012-07-20T09:25:10.894Z
 tags:
-  - Mänskliga rätigheter
+  - Mänskliga rättigheter
   - TeliaSonera
 ---
 **I februari 2012 meddelade Europeiska kommissionen att riktlinjer skulle utvecklas för  företag inom bl.a. informations-och kommunikationsteknik (ICT) samt olje-och gassektorn.**
