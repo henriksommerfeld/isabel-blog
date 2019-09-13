@@ -66,7 +66,7 @@ const MobileLink = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />
 ))`
   padding: 1rem;
-  font-size: 1.1em;
+  font-size: 1.2rem;
   text-align: center;
   display: inline;
   font-weight: ${props => (props.isActive ? `bold` : `normal`)};

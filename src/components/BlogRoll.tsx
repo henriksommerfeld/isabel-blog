@@ -6,7 +6,7 @@ import {
   MarkdownRemarkEdge,
 } from '../../auto-generated/graphql';
 import BlogRollItem from './BlogRollItem';
-import { colors, spacing, breakpoints } from '../constants';
+import { colors, spacing, breakpoints, layout } from '../constants';
 import MorePostsButton from './MorePostsButton';
 
 interface BlogRoll {
@@ -69,7 +69,7 @@ const BlogRollStyled = styled('div')`
 
   .button {
     width: 100%;
-    border-radius: 0.25rem;
+    border-radius: ${layout.borderRadius};
     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
 
     @media (min-width: ${breakpoints.small}) {
@@ -79,7 +79,7 @@ const BlogRollStyled = styled('div')`
 
   @media (min-width: ${breakpoints.medium}) {
     transform: translateY(${spacing.contentOffset});
-    border-radius: 0.25rem;
+    border-radius: ${layout.borderRadius};
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
     padding: ${spacing.paddingDouble};
   }

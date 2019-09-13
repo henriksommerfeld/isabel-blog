@@ -13,6 +13,7 @@ export const spacing = {
 
 export const layout = {
   contentMaxWidth: 1000,
+  borderRadius: '0.25rem',
 };
 
 export const breakpoints = {
@@ -46,7 +47,6 @@ export const navLinks: NavLink[] = [
   { url: '/', title: 'Startsida' },
   { url: '/publicerat', title: 'Publicerat' },
   { url: '/om', title: 'Om mig' },
-  { url: '/cv', title: 'CV' },
   { url: '/pressbilder', title: 'Pressbilder' },
   { url: '/sok', title: 'Sök' },
 ];

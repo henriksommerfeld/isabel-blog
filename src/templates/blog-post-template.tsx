@@ -44,7 +44,7 @@ export default function BlogPostTemplate({
                 <ul>
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                      <Link to={`/taggar/${kebabCase(tag)}/`}>{tag}</Link>
                     </li>
                   ))}
                 </ul>

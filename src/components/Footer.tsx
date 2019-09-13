@@ -11,14 +11,14 @@ import { spacing, colors, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 
 interface Footer {
-  editLink: string;
+  editLink?: string;
 }
 
 export default function Footer({ editLink = '/admin' }: Footer) {
   return (
     <InnerFooter>
       FOOTER 🧁.{' '}
-      <a href={editLink} target="_blank" rel="noopener noreferrer">
+      <a href={editLink || '/admin'} target="_blank" rel="noopener noreferrer">
         Redigera sidan
       </a>
     </InnerFooter>

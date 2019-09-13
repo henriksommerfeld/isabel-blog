@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-plugin-scroll-indicator`,
       options: {
         color: '#C53030',
-        paths: ['**'],
+        paths: ['/', '/20**', '/om', '/publicerat'],
       },
     },
     'gatsby-plugin-sharp',

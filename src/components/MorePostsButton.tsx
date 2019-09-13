@@ -32,6 +32,7 @@ const ButtonText = styled('span')`
 const MorePostsButtonStyled = styled('button')`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
   width: 100%;
   background-color: ${tailwindColors.red600};

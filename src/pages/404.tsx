@@ -124,13 +124,15 @@ const Text = styled('div')`
 const Page = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: flex-start;
+  flex-grow: 1;
   color: ${colors.white};
   background-color: ${darkGreen};
 
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position-y: center;
+  background-position-y: bottom;
   background-position-x: 25%;
   background-size: cover;
 

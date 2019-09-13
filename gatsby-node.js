@@ -80,11 +80,11 @@ exports.createPages = ({ actions, graphql }) => {
 
     // Make tag pages
     uniqueTags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`;
+      const tagPath = `/taggar/${_.kebabCase(tag)}/`;
 
       createPage({
         path: tagPath,
-        component: path.resolve(`src/templates/tags.tsx`),
+        component: path.resolve(`src/templates/taggar.tsx`),
         context: {
           tag,
         },

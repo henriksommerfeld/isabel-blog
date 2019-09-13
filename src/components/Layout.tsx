@@ -11,7 +11,7 @@ import { tailwindColors } from '../tailwind-colors';
 interface TemplateWrapperProps {
   children: ReactNode;
   location: string;
-  editLink: string;
+  editLink?: string;
 }
 
 export default function TemplateWrapper({
