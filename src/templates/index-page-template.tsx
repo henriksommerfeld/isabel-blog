@@ -89,6 +89,6 @@ const BlogRollContainer = styled('div')`
   margin: 0 auto;
 
   @media (min-width: ${breakpoints.medium}) {
-    max-width: 1000px;
+    max-width: ${layout.contentMaxWidth}px;
   }
 `;

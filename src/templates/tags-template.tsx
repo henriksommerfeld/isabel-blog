@@ -16,7 +16,7 @@ export function TagsTemplate({ children }) {
 const ContentBox = styled('div')`
   font-size: 1.1em;
   border-radius: ${layout.borderRadius};
-  max-width: 1000px;
+  max-width: ${layout.contentMaxWidth}px;
 
   ul {
     list-style: none;

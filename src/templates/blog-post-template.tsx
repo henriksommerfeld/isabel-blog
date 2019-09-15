@@ -3,7 +3,7 @@ import { kebabCase } from 'lodash';
 import { Link } from 'gatsby';
 import Content from '../components/Content';
 import styled from 'styled-components';
-import { colors, spacing, breakpoints } from '../constants';
+import { colors, spacing, breakpoints, layout } from '../constants';
 
 interface BlogPostTemplate {
   content: string;
@@ -76,7 +76,7 @@ const PostDate = styled.div`
 `;
 
 const IntroBannerWidthConstrainer = styled('div')`
-  max-width: 1000px;
+  max-width: ${layout.contentMaxWidth}px;
   text-align: center;
   padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
 
@@ -108,7 +108,7 @@ const PostContainer = styled('div')`
   margin: 0 auto;
 
   @media (min-width: ${breakpoints.medium}) {
-    max-width: 1000px;
+    max-width: ${layout.contentMaxWidth}px;
   }
 `;
 

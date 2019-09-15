@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { colors, breakpoints, fonts } from '../constants';
+import { colors, breakpoints, fonts, layout } from '../constants';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
@@ -118,7 +118,7 @@ const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
   <div {...restProps} />
 ))`
   width: 100%;
-  max-width: 1000px;
+  max-width: ${layout.contentMaxWidth}px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

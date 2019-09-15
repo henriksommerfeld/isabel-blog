@@ -2,12 +2,13 @@ import CMS from 'netlify-cms-app';
 import AboutPagePreview from './preview-templates/AboutPagePreview';
 import BlogPostPreview from './preview-templates/BlogPostPreview';
 import IndexPagePreview from './preview-templates/IndexPagePreview';
+import PublishedPagePreview from './preview-templates/PublishedPagePreview';
 import EditorYoutube from './editors/editor-youtube';
 import EditorVimeo from './editors/editor-vimeo';
 import EditorVideo from './editors/editor-video';
 import EditorSoundCloud from './editors/editor-soundcloud';
 import previewStyles from './previewStyles';
-import withStyledComponents from './withStyledComponentsRendered'
+import withStyledComponents from './withStyledComponentsRendered';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -25,6 +26,9 @@ CMS.registerPreviewStyle(previewStyles, { raw: true });
 CMS.registerPreviewTemplate('index', withStyledComponents(IndexPagePreview));
 CMS.registerPreviewTemplate('about', withStyledComponents(AboutPagePreview));
 CMS.registerPreviewTemplate('blog', withStyledComponents(BlogPostPreview));
-
+CMS.registerPreviewTemplate(
+  'published',
+  withStyledComponents(PublishedPagePreview)
+);
 
 CMS.init();
