@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
@@ -9,22 +9,16 @@ export function AboutPageTemplate({ title, content, contentComponent }: any) {
 
   return (
     <section style={{ background: 'cyan' }}>
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2>{title}</h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
+      <div>
+        <h2>{title}</h2>
+        <PageContent className="content" content={content} />
       </div>
     </section>
   );
 }
 
-export default function AboutPage({ data, location }: AboutPageData) {
-  const { markdownRemark: post } = data;
+export default function AboutPage({ location }: AboutPageData) {
+  const { markdownRemark: post } = useStaticQuery(aboutPageQuery);
 
   return (
     <Layout location={location} editLink={editPageUrl('about')}>
@@ -49,9 +43,9 @@ interface AboutPageData {
   location: any;
 }
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+const aboutPageQuery = graphql`
+  query AboutPage {
+    markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
       html
       frontmatter {
         title

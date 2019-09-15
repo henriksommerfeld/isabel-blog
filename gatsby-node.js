@@ -6,10 +6,7 @@ const { getUniqueTags } = require('./src/tags-parser');
 const { removeBlogFromUrl } = require('./src/url-replacer');
 
 function getFileFrom(templateKey) {
-  if (templateKey === 'blog-post') return 'blog-post.tsx';
-  if (templateKey === 'about-page') return 'about-page.tsx';
-  if (templateKey === 'index-page') return 'index-page.tsx';
-  return templateKey + '.js';
+  return templateKey + '.tsx';
 }
 
 exports.onCreateDevServer = ({ app }) => {
