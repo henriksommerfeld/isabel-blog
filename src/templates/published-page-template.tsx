@@ -1,22 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
-import { HTMLContent } from '../components/Content';
 import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import { getFluid, isImageUrl } from '../images';
 
 interface PublishedTemplate {
+  contentComponent: any;
   content: any;
   title: string;
   image: FluidObject | undefined;
 }
 
 export function PublishedPageTemplate({
+  contentComponent,
   content,
   title,
   image,
 }: PublishedTemplate) {
+  const PageContent = contentComponent;
+
   return (
     <PageStyled>
       <IntroBanner backgroundImage={image}>
@@ -26,7 +29,7 @@ export function PublishedPageTemplate({
       </IntroBanner>
       <PostContainer>
         <PostStyled>
-          <HTMLContent content={content} />
+          <PageContent content={content} />
         </PostStyled>
       </PostContainer>
     </PageStyled>

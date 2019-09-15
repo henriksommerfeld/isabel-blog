@@ -1,4 +1,5 @@
 import React from 'react';
+import Content from '../../components/Content';
 import { PublishedPageTemplate } from '../../templates/published-page-template';
 
 const PublishedPagePreview = ({ entry, widgetFor }) => {
@@ -11,6 +12,7 @@ const PublishedPagePreview = ({ entry, widgetFor }) => {
       image={data.image}
       title={data.title}
       content={widgetFor('body')}
+      contentComponent={Content}
     />
   );
 };

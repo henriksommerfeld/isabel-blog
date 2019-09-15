@@ -1,8 +1,7 @@
 import React from 'react';
-import Content from '../components/Content';
 
 export function AboutPageTemplate({ title, content, contentComponent }: any) {
-  const PageContent = contentComponent || Content;
+  const PageContent = contentComponent;
 
   return (
     <section style={{ background: 'cyan' }}>
