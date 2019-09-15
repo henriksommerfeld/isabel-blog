@@ -1,10 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
+import styled from 'styled-components';
 import Layout from '../components/Layout';
 import { TagPageQuery } from '../../auto-generated/graphql';
 import useSiteMetadata from '../components/SiteMetadata';
 import { TagsTemplate } from './tags-template';
+import tagSvg from '../../static/img/tag-grey500.svg';
+import blogPostSvg from '../../static/img/blog-post-grey500.svg';
 
 export default function TagRoute({
   data,
@@ -14,9 +17,10 @@ export default function TagRoute({
   const { title } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
-    <li key={post.node.fields.slug}>
+    <LinkContainer key={post.node.fields.slug}>
+      <LinkIconSvg src={blogPostSvg} alt="" />
       <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-    </li>
+    </LinkContainer>
   ));
   const tag = pageContext.tag;
   const totalCount = data.allMarkdownRemark.totalCount;
@@ -33,13 +37,31 @@ export default function TagRoute({
         <p>{tagHeader}</p>
         <ul>{postLinks}</ul>
         <br />
-        <p>
+        <SeAllTagsLinkContainer>
+          <LinkIconSvg src={tagSvg} alt="" />
           <Link to="/taggar/">Se alla taggar</Link>
-        </p>
+        </SeAllTagsLinkContainer>
       </TagsTemplate>
     </Layout>
   );
 }
+
+const LinkIconSvg = styled('img')`
+  margin: 0 0.5em 0 0;
+  min-width: 1rem;
+`;
+
+const LinkContainer = styled('li')`
+  display: flex;
+  align-items: center;
+`;
+
+const SeAllTagsLinkContainer = styled('div')`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {

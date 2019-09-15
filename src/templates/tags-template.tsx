@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
 import tagBackground from '../../static/img/tag-bg.svg';
-import linkArrow from '../../static/img/link-arrow.svg';
 
 export function TagsTemplate({ children }) {
   return (
@@ -22,16 +21,6 @@ const ContentBox = styled('div')`
   ul {
     list-style: none;
     margin: 0;
-
-    li {
-      padding-left: 1em;
-      text-indent: -1em;
-    }
-
-    li::before {
-      content: url(${linkArrow});
-      margin-right: 0.5em;
-    }
   }
 
   @media (min-width: ${breakpoints.small}) {
