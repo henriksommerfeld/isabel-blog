@@ -1,21 +1,9 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
-
-export function AboutPageTemplate({ title, content, contentComponent }: any) {
-  const PageContent = contentComponent || Content;
-
-  return (
-    <section style={{ background: 'cyan' }}>
-      <div>
-        <h2>{title}</h2>
-        <PageContent className="content" content={content} />
-      </div>
-    </section>
-  );
-}
+import { AboutPageTemplate } from './about-page-template';
 
 export default function AboutPage({ location }: AboutPageData) {
   const { markdownRemark: post } = useStaticQuery(aboutPageQuery);
