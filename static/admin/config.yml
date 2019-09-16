@@ -114,8 +114,6 @@ collections:
               widget: 'hidden',
               default: 'published-page',
             }
-          - { label: 'Titel', name: 'title', widget: 'string' }
-          - { label: 'Bakgrundsbild', name: 'image', widget: 'image', default: '', required: false }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
       - file: 'src/pages/pressbilder/index.md'
@@ -127,7 +125,5 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'pressimages-page',
-            }
-          - { label: 'Titel', name: 'title', widget: 'string' }
-          - { label: 'Bakgrundsbild', name: 'image', widget: 'image', default: '', required: false }
+            }          
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
