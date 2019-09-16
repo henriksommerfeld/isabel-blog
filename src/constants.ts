@@ -20,7 +20,8 @@ export const breakpoints = {
   small: '768px',
   mediumAsNumber: 1024,
   medium: '1024px',
-  large: '2048px',
+  large: '1200px',
+  xl: '2048px',
 };
 
 export const colors = {

@@ -108,7 +108,7 @@ const Text = styled('div')`
     }
   }
 
-  @media (min-width: ${breakpoints.large}) {
+  @media (min-width: ${breakpoints.xl}) {
     h1 {
       font-size: 3rem;
       text-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 255, 255, 0.7);
@@ -136,7 +136,7 @@ const Page = styled(BackgroundImage)`
   background-position-x: 25%;
   background-size: cover;
 
-  @media (min-width: ${breakpoints.large}) {
+  @media (min-width: ${breakpoints.xl}) {
     background-position-y: 75%;
   }
 `;

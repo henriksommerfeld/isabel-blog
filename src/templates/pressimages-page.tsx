@@ -3,17 +3,17 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
 import Layout from '../components/Layout';
-import { PublishedPageTemplate } from './published-page-template';
+import { PressImagesPageTemplate } from './pressimages-page-template';
 
-export default function PublishedPage({ location }) {
-  const { markdownRemark: page } = useStaticQuery(publishedPageQuery);
+export default function PressImagesPage({ location }) {
+  const { markdownRemark: page } = useStaticQuery(pressImagesPageQuery);
   const content = page.html;
   const title = page.frontmatter.title;
   const image = page.frontmatter.image;
 
   return (
-    <Layout location={location} editLink={editPageUrl('published')}>
-      <PublishedPageTemplate
+    <Layout location={location} editLink={editPageUrl('pressimages')}>
+      <PressImagesPageTemplate
         contentComponent={HTMLContent}
         title={title}
         content={content}
@@ -23,9 +23,9 @@ export default function PublishedPage({ location }) {
   );
 }
 
-const publishedPageQuery = graphql`
-  query PublishedPage {
-    markdownRemark(frontmatter: { templateKey: { eq: "published-page" } }) {
+const pressImagesPageQuery = graphql`
+  query PressImagesPage {
+    markdownRemark(frontmatter: { templateKey: { eq: "pressimages-page" } }) {
       html
       frontmatter {
         title
