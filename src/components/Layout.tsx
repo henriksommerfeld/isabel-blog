@@ -71,7 +71,7 @@ export default function TemplateWrapper({
   );
 }
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }

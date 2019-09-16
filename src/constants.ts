@@ -20,7 +20,7 @@ export const breakpoints = {
   small: '768px',
   mediumAsNumber: 1024,
   medium: '1024px',
-  large: '1200px',
+  large: '1400px',
   xl: '2048px',
 };
 

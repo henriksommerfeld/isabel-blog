@@ -28,18 +28,18 @@ export function SharedIntroBanner({
 function IntroBanner({ backgroundImage, children }) {
   const fluidImage = getFluid(backgroundImage);
 
-  if (fluidImage) {
-    return (
-      <IntroBannerWithFluidImage
-        fluid={fluidImage}
-        backgroundColor={colors.black}
-      >
-        <IntroBannerDarkOverlay>{children}</IntroBannerDarkOverlay>
-      </IntroBannerWithFluidImage>
-    );
+  if (!fluidImage) {
+    return <IntroBannerSolidBackground>{children}</IntroBannerSolidBackground>;
   }
 
-  return <IntroBannerSolidBackground>{children}</IntroBannerSolidBackground>;
+  return (
+    <IntroBannerWithFluidImage
+      fluid={fluidImage}
+      backgroundColor={colors.black}
+    >
+      <IntroBannerDarkOverlay>{children}</IntroBannerDarkOverlay>
+    </IntroBannerWithFluidImage>
+  );
 }
 
 const IntroBannerSolidBackground = styled('div')`
