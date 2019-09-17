@@ -1,8 +1,12 @@
+// Add support for importing stuff written in TypeScript
+require('source-map-support').install();
+require('ts-node').register();
+
 const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
-const { getUniqueTags } = require('./src/tags-parser');
+const { getUniqueTags, getTagRouteUrl } = require('./src/tags-parser');
 const { removeBlogFromUrl } = require('./src/url-replacer');
 
 function getFileFrom(templateKey) {
@@ -77,7 +81,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     // Make tag pages
     uniqueTags.forEach(tag => {
-      const tagPath = `/taggar/${_.kebabCase(tag)}/`;
+      const tagPath = getTagRouteUrl(tag);
 
       createPage({
         path: tagPath,

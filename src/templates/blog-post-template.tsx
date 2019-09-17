@@ -1,15 +1,14 @@
 import React from 'react';
-import { kebabCase } from 'lodash';
-import { Link } from 'gatsby';
 import Content from '../components/Content';
 import styled from 'styled-components';
 import { colors, spacing, breakpoints, layout } from '../constants';
+import BlogPostTags from './blog-post-tags';
 
 interface BlogPostTemplate {
   content: string;
   contentComponent: any;
   date: string;
-  tags: string[];
+  tags: string[] | undefined;
   title: string;
   helmet: any;
 }
@@ -18,7 +17,7 @@ export default function BlogPostTemplate({
   content,
   contentComponent,
   date,
-  tags = [],
+  tags,
   title,
   helmet,
 }: BlogPostTemplate) {
@@ -38,18 +37,7 @@ export default function BlogPostTemplate({
         <PostContainer>
           <PostStyled>
             <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Taggar</h4>
-                <ul>
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/taggar/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+            <BlogPostTags tags={tags} />
           </PostStyled>
         </PostContainer>
       </PageStyled>

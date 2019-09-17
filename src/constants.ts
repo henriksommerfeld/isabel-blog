@@ -52,6 +52,8 @@ export const navLinks: NavLink[] = [
   { url: '/sok', title: 'Sök' },
 ];
 
+export const tagsUrl = '/taggar';
+
 interface NavLink {
   url: string;
   title: string;

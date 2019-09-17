@@ -8,6 +8,7 @@ import useSiteMetadata from '../components/SiteMetadata';
 import { TagsTemplate } from './tags-template';
 import tagSvg from '../../static/img/tag-grey500.svg';
 import blogPostSvg from '../../static/img/blog-post-grey500.svg';
+import { tagsUrl } from '../constants';
 
 export default function TagRoute({
   data,
@@ -39,7 +40,7 @@ export default function TagRoute({
         <br />
         <SeAllTagsLinkContainer>
           <LinkIconSvg src={tagSvg} alt="" />
-          <Link to="/taggar/">Se alla taggar</Link>
+          <Link to={tagsUrl}>Se alla taggar</Link>
         </SeAllTagsLinkContainer>
       </TagsTemplate>
     </Layout>
