@@ -70,12 +70,6 @@ collections:
         }
       - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
       - { label: 'Taggar', label_singular: 'Tagg', name: 'tags', widget: 'list', required: false }
-      - label: 'Nerladdningsbara filer'
-        label_singular: 'Nerladdningsbar fil'
-        name: 'files'
-        widget: 'list'
-        hint: 'Filer som besökaren kan ladda ner'
-        field: { label: Fil, name: file, widget: file }
 
   - name: 'pages'
     label: 'Sidor'
