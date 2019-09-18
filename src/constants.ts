@@ -79,6 +79,10 @@ export const buttonStyles = css`
   border-style: none;
   cursor: pointer;
 
+  &:visited {
+    color: ${colors.white};
+  }
+
   &:hover {
     background-color: ${colors.buttonHover};
     background-size: 0;

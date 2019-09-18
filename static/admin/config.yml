@@ -138,5 +138,5 @@ collections:
             label_singular: 'Nerladdningsbar bild'
             name: 'downloadableimages'
             widget: 'list'
-            hint: 'Bilder som besökaren kan ladda ner'
+            hint: 'Bilder som besökaren kan ladda ner. OBS! Layouten och bildernas dimentioner är inte tillgängliga i förhandsgranskningen.'
             field: { label: Bild, name: downloadableimage, widget: image }

@@ -6,6 +6,9 @@ export default `
   body {
     margin: 30px 15px;
   }
+  img {
+    margin-bottom: 0;
+  }
   .video {
     position: relative; left: 0; top: 0;
   }

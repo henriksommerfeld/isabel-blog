@@ -9,8 +9,6 @@ const PublishedPagePreview = ({ entry, widgetFor }) => {
 
   return (
     <PublishedPageTemplate
-      imageFile={data.image}
-      title={data.title}
       content={widgetFor('body')}
       contentComponent={Content}
     />

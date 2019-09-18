@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  colors,
-  breakpoints,
-  spacing,
-  layout,
-  imageBorderStyle,
-} from '../constants';
+import { colors, breakpoints, spacing, layout } from '../constants';
 import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
-import { isPortrait, getFluid, getOriginalImage } from '../images';
+import { isPortrait, getOriginalImage } from '../images';
 import PreviewCompatibleImage, {
   ImageProps,
 } from '../components/PreviewCompatibleImage';
@@ -21,6 +15,7 @@ interface PressImagesTemplate {
   title: string;
   headerImageFile: FluidObject | undefined;
   pressImages: ImageProps[] | undefined;
+  isPreview?: boolean;
 }
 
 export function PressImagesPageTemplate({
@@ -29,6 +24,7 @@ export function PressImagesPageTemplate({
   title,
   headerImageFile,
   pressImages = [],
+  isPreview = false,
 }: PressImagesTemplate) {
   const PageContent = contentComponent;
 
@@ -38,7 +34,7 @@ export function PressImagesPageTemplate({
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />
-          <PressImagesList pressImages={pressImages} />
+          <PressImagesList pressImages={pressImages} isPreview={isPreview} />
         </PostStyled>
       </PostContainer>
     </PageStyled>
@@ -47,9 +43,10 @@ export function PressImagesPageTemplate({
 
 interface PressImagesListProps {
   pressImages: ImageProps[];
+  isPreview?: boolean;
 }
 
-function PressImagesList({ pressImages }: PressImagesListProps) {
+function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
   if (pressImages.length < 1) return null;
 
   return (
@@ -58,8 +55,11 @@ function PressImagesList({ pressImages }: PressImagesListProps) {
         const isTallerThanWide = isPortrait(pressImage);
         const originalImage = getOriginalImage(pressImage);
         const suggestedFileName = `isabel-sommerfeld-${originalImage.name}`;
+        const urlToDownload = isPreview
+          ? ((pressImage as unknown) as string)
+          : originalImage.src;
 
-        if (!originalImage.src) return null;
+        if (!originalImage.src && !isPreview) return null;
 
         return (
           <DownloadableImage portrait={isTallerThanWide}>
@@ -70,7 +70,7 @@ function PressImagesList({ pressImages }: PressImagesListProps) {
               {originalImage.width} x {originalImage.height} px
             </ImageMetadata>
             <DownloadButton
-              url={originalImage.src}
+              url={urlToDownload}
               downloadedFilename={suggestedFileName}
             >
               Ladda ner
