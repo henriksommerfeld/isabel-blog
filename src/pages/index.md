@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-image: /uploads/isabel_960x960.jpg
+image: /uploads/portrait2_square_tight.jpg
 heading: Isabel Sommerfeld
 subheading: Jurist
 description: >-
