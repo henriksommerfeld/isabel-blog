@@ -127,3 +127,9 @@ collections:
               default: 'pressimages-page',
             }          
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
+          - label: 'Nerladdningsbara bilder'
+            label_singular: 'Nerladdningsbar bild'
+            name: 'downloadableimages'
+            widget: 'list'
+            hint: 'Bilder som besökaren kan ladda ner'
+            field: { label: Bild, name: downloadableimage, widget: image }

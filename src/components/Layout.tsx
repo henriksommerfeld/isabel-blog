@@ -102,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`
   .gatsby-resp-image-background-image, .gatsby-resp-image-image, .featured-thumbnail {
     margin: 0;
     padding: 4px;
-    box-shadow: rgba(34,25,25,.4) 0 1px 3px !important;
+    box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px !important;
     background-color: #fff;
   }
 `;

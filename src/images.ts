@@ -16,3 +16,11 @@ export function getFluid(image: any): FluidObject | null {
 export function isImageUrl(image: any): boolean {
   return typeof image === 'string' && image.length > 0;
 }
+
+export function isPortrait(image: any): boolean {
+  const fluidImage = getFluid(image);
+
+  if (!fluidImage) return false;
+
+  return fluidImage.aspectRatio < 1;
+}

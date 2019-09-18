@@ -54,6 +54,13 @@ export const navLinks: NavLink[] = [
 
 export const tagsUrl = '/taggar';
 
+export const imageBorderStyle = {
+  margin: 0,
+  padding: '4px',
+  boxShadow: 'rgba(34,25,25,0.4) 0 1px 3px !important',
+  backgroundColor: '#fff',
+};
+
 interface NavLink {
   url: string;
   title: string;
