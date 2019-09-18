@@ -13,6 +13,7 @@ import { isPortrait } from '../images';
 import PreviewCompatibleImage, {
   ImageInfoProps,
 } from '../components/PreviewCompatibleImage';
+import DownloadButton from '../components/DownloadButton';
 
 interface PressImagesTemplate {
   contentComponent: any;
@@ -61,7 +62,9 @@ function PressImagesList({ pressImages }: PressImagesListProps) {
             <ImageBorder className="featured-thumbnail">
               <PreviewCompatibleImage key={index} imageInfo={imageInfo} />
             </ImageBorder>
-            <button style={{ marginTop: '1em' }}>Ladda ner</button>
+            <DownloadButton style={{ marginTop: '1em' }}>
+              Ladda ner
+            </DownloadButton>
           </DownloadableImage>
         );
       })}

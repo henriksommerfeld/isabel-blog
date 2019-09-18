@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import Ripples from 'react-ripples';
 import { colors, spacing, breakpoints, layout } from '../constants';
-import ArrowsDownSvg from '../../static/img/arrows-down.svg';
+import DownloadSvg from '../../static/img/download.svg';
 
-export default function MorePostsButton({ clickedHandler }) {
+export default function DownloadButton({ clickedHandler, children }) {
   return (
     <ButtonContainer>
       <RipplesButton>
-        <MorePostsButtonStyled onClick={clickedHandler}>
-          <ArrowsDown src={ArrowsDownSvg} />
-          <ButtonText>Visa äldre inlägg</ButtonText>
-          <ArrowsDown src={ArrowsDownSvg} />
-        </MorePostsButtonStyled>
+        <DownloadButtonStyled onClick={clickedHandler}>
+          <ArrowsDown src={DownloadSvg} />
+          <ButtonText>{children}</ButtonText>
+        </DownloadButtonStyled>
       </RipplesButton>
     </ButtonContainer>
   );
@@ -34,10 +33,10 @@ const ButtonText = styled('span')`
   margin: 0 0.5em;
 `;
 
-const MorePostsButtonStyled = styled('button')`
+const DownloadButtonStyled = styled('button')`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.5rem 1rem;
   width: 100%;
   background-color: ${colors.buttonBackground};
@@ -56,10 +55,5 @@ const MorePostsButtonStyled = styled('button')`
 
 const ButtonContainer = styled('div')`
   width: 100%;
-  padding: ${spacing.paddingDefault};
-
-  @media (min-width: ${breakpoints.small}) {
-    display: flex;
-    justify-content: flex-end;
-  }
+  padding: ${spacing.paddingDefault} 0 0 0;
 `;
