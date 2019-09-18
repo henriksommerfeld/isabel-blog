@@ -36,6 +36,12 @@ const pressImagesPageQuery = graphql`
               aspectRatio
               sizes
               base64
+              originalName
+            }
+            original {
+              width
+              height
+              src
             }
           }
         }

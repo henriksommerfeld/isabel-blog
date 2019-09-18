@@ -9,9 +9,9 @@ import {
 } from '../constants';
 import { FluidObject, GatsbyImageProps } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
-import { isPortrait } from '../images';
+import { isPortrait, getFluid, getOriginalImage } from '../images';
 import PreviewCompatibleImage, {
-  ImageInfoProps,
+  ImageProps,
 } from '../components/PreviewCompatibleImage';
 import DownloadButton from '../components/DownloadButton';
 
@@ -20,7 +20,7 @@ interface PressImagesTemplate {
   content: any;
   title: string;
   headerImageFile: FluidObject | undefined;
-  pressImages: ImageInfoProps[] | undefined;
+  pressImages: ImageProps[] | undefined;
 }
 
 export function PressImagesPageTemplate({
@@ -46,7 +46,7 @@ export function PressImagesPageTemplate({
 }
 
 interface PressImagesListProps {
-  pressImages: ImageInfoProps[];
+  pressImages: ImageProps[];
 }
 
 function PressImagesList({ pressImages }: PressImagesListProps) {
@@ -55,14 +55,24 @@ function PressImagesList({ pressImages }: PressImagesListProps) {
   return (
     <DownloadableImages images={pressImages}>
       {pressImages.map((pressImage, index) => {
-        const imageInfo = { image: pressImage };
-        const portrait = isPortrait(pressImage);
+        const isTallerThanWide = isPortrait(pressImage);
+        const originalImage = getOriginalImage(pressImage);
+        const suggestedFileName = `isabel-sommerfeld-${originalImage.name}`;
+
+        if (!originalImage.src) return null;
+
         return (
-          <DownloadableImage portrait={portrait}>
+          <DownloadableImage portrait={isTallerThanWide}>
             <ImageBorder className="featured-thumbnail">
-              <PreviewCompatibleImage key={index} imageInfo={imageInfo} />
+              <PreviewCompatibleImage key={index} image={pressImage} />
             </ImageBorder>
-            <DownloadButton style={{ marginTop: '1em' }}>
+            <ImageMetadata>
+              {originalImage.width} x {originalImage.height} px
+            </ImageMetadata>
+            <DownloadButton
+              url={originalImage.src}
+              downloadedFilename={suggestedFileName}
+            >
               Ladda ner
             </DownloadButton>
           </DownloadableImage>
@@ -71,6 +81,13 @@ function PressImagesList({ pressImages }: PressImagesListProps) {
     </DownloadableImages>
   );
 }
+
+const ImageMetadata = styled('span')`
+  font-style: italic;
+  font-size: 0.9em;
+  padding-top: 0.5em;
+  color: ${colors.lighterTextForWhiteBackground};
+`;
 
 const ImageBorder = styled('div')`
   width: 100%;
@@ -100,7 +117,7 @@ const DownloadableImage = styled('div')`
   grid-column: ${({ portrait }) => (portrait ? 'span 1' : 'span 2')};
 `;
 
-function GetGridColumns(images: ImageInfoProps[], breakpoint: number): string {
+function GetGridColumns(images: ImageProps[], breakpoint: number): string {
   if (breakpoint < 2 || images.length < 1) return `repeat(2, 1fr)`;
 
   const totalWidth = GetImagesWidth(images);
@@ -109,14 +126,14 @@ function GetGridColumns(images: ImageInfoProps[], breakpoint: number): string {
   return `repeat(${columns}, 1fr)`;
 }
 
-function GetImagesWidth(images: ImageInfoProps[]): number {
+function GetImagesWidth(images: ImageProps[]): number {
   return images.reduce(
     (count, currentImage) => count + GetImageWidth(currentImage),
     0
   );
 }
 
-function GetImageWidth(image: ImageInfoProps): number {
+function GetImageWidth(image: ImageProps): number {
   return isPortrait(image) ? 1 : 2;
 }
 

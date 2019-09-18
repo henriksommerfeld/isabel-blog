@@ -15,7 +15,7 @@ export const IndexPageTemplate = ({
   <PageStyled>
     <IntroBanner>
       <IntroBannerWidthConstrainer>
-        <PortraitLarge imageInfo={image} style={portraitStyles} />
+        <PortraitLarge image={image} style={portraitStyles} />
 
         <IntroText>
           <h1>{heading}</h1>

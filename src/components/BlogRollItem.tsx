@@ -77,12 +77,11 @@ function FeaturedImage({ image, title }) {
   if (!image) return null;
 
   const altText = title ? `Bild till artikeln ${title}` : '';
-  const imageInfo = { image: image, alt: altText };
   const marginBottom = { marginBottom: spacing.paddingDefault };
 
   return (
     <div className="featured-thumbnail" style={marginBottom}>
-      <PreviewCompatibleImage imageInfo={imageInfo} />
+      <PreviewCompatibleImage image={image} altText={altText} />
     </div>
   );
 }

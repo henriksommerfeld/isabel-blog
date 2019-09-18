@@ -40,6 +40,7 @@ export const colors = {
   buttonBackground: tailwindColors.red600,
   buttonHover: tailwindColors.red700,
   buttonActive: tailwindColors.red800,
+  lighterTextForWhiteBackground: tailwindColors.gray700,
 };
 
 export const fonts = {

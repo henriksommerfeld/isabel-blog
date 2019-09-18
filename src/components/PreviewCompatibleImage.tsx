@@ -2,33 +2,37 @@ import React from 'react';
 import Image, { FluidObject, GatsbyImageProps } from 'gatsby-image';
 import { isImageUrl, getFluid } from '../images';
 
-export interface ImageInfoProps {
-  alt?: string;
+export interface ImageProps {
   image: GatsbyImageProps | string | undefined;
 }
 
 export interface PreviewCompatibleImageProps {
-  imageInfo: ImageInfoProps;
+  image: ImageProps;
   style?: any;
   imgStyle?: any;
+  altText?: string;
 }
 
 export default function PreviewCompatibleImage({
-  imageInfo,
+  image,
   style = null,
   imgStyle = null,
+  altText = '',
 }: PreviewCompatibleImageProps) {
-  const { alt = '', image } = imageInfo;
-
   if (isImageUrl(image)) {
-    const imageUrl = image as string;
-    return <img src={imageUrl} alt={alt} style={style} />;
+    const imageUrl = (image as unknown) as string;
+    return <img src={imageUrl} alt={altText} style={style} />;
   }
 
   const fluidImage = getFluid(image);
   if (fluidImage) {
     return (
-      <Image fluid={fluidImage} alt={alt} style={style} imgStyle={imgStyle} />
+      <Image
+        fluid={fluidImage}
+        alt={altText}
+        style={style}
+        imgStyle={imgStyle}
+      />
     );
   }
 

@@ -771,7 +771,6 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFeaturedimagePublicUrl = 'childMarkdownRemark___frontmatter___featuredimage___publicURL',
   ChildMarkdownRemarkFrontmatterFeaturedimageId = 'childMarkdownRemark___frontmatter___featuredimage___id',
   ChildMarkdownRemarkFrontmatterFeaturedimageChildren = 'childMarkdownRemark___frontmatter___featuredimage___children',
-  ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
   ChildMarkdownRemarkFrontmatterDownloadableimages = 'childMarkdownRemark___frontmatter___downloadableimages',
   ChildMarkdownRemarkFrontmatterDownloadableimagesBirthtime = 'childMarkdownRemark___frontmatter___downloadableimages___birthtime',
   ChildMarkdownRemarkFrontmatterDownloadableimagesBirthtimeMs = 'childMarkdownRemark___frontmatter___downloadableimages___birthtimeMs',
@@ -807,6 +806,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterDownloadableimagesPublicUrl = 'childMarkdownRemark___frontmatter___downloadableimages___publicURL',
   ChildMarkdownRemarkFrontmatterDownloadableimagesId = 'childMarkdownRemark___frontmatter___downloadableimages___id',
   ChildMarkdownRemarkFrontmatterDownloadableimagesChildren = 'childMarkdownRemark___frontmatter___downloadableimages___children',
+  ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -1706,7 +1706,6 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedimageChildMarkdownRemarkTimeToRead = 'frontmatter___featuredimage___childMarkdownRemark___timeToRead',
   FrontmatterFeaturedimageChildMarkdownRemarkTableOfContents = 'frontmatter___featuredimage___childMarkdownRemark___tableOfContents',
   FrontmatterFeaturedimageChildMarkdownRemarkChildren = 'frontmatter___featuredimage___childMarkdownRemark___children',
-  FrontmatterFiles = 'frontmatter___files',
   FrontmatterDownloadableimages = 'frontmatter___downloadableimages',
   FrontmatterDownloadableimagesBirthtime = 'frontmatter___downloadableimages___birthtime',
   FrontmatterDownloadableimagesBirthtimeMs = 'frontmatter___downloadableimages___birthtimeMs',
@@ -1767,6 +1766,7 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterDownloadableimagesChildMarkdownRemarkTimeToRead = 'frontmatter___downloadableimages___childMarkdownRemark___timeToRead',
   FrontmatterDownloadableimagesChildMarkdownRemarkTableOfContents = 'frontmatter___downloadableimages___childMarkdownRemark___tableOfContents',
   FrontmatterDownloadableimagesChildMarkdownRemarkChildren = 'frontmatter___downloadableimages___childMarkdownRemark___children',
+  FrontmatterFiles = 'frontmatter___files',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
@@ -1905,8 +1905,8 @@ export type MarkdownRemarkFrontmatter = {
   date?: Maybe<Scalars['Date']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   featuredimage?: Maybe<File>,
-  files?: Maybe<Array<Maybe<Scalars['String']>>>,
   downloadableimages?: Maybe<Array<Maybe<File>>>,
+  files?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 
@@ -1929,8 +1929,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
   featuredimage?: Maybe<FileFilterInput>,
-  files?: Maybe<StringQueryOperatorInput>,
   downloadableimages?: Maybe<FileFilterListInput>,
+  files?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -3419,6 +3419,22 @@ export type PressImagesPageQuery = (
   & { markdownRemark: Maybe<(
     { __typename?: 'MarkdownRemark' }
     & Pick<MarkdownRemark, 'html'>
+    & { frontmatter: Maybe<(
+      { __typename?: 'MarkdownRemarkFrontmatter' }
+      & { downloadableimages: Maybe<Array<Maybe<(
+        { __typename?: 'File' }
+        & { childImageSharp: Maybe<(
+          { __typename?: 'ImageSharp' }
+          & { fluid: Maybe<(
+            { __typename?: 'ImageSharpFluid' }
+            & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+          )>, original: Maybe<(
+            { __typename?: 'ImageSharpOriginal' }
+            & Pick<ImageSharpOriginal, 'width' | 'height' | 'src'>
+          )> }
+        )> }
+      )>>> }
+    )> }
   )>, fileName: Maybe<(
     { __typename?: 'File' }
     & { childImageSharp: Maybe<(
