@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2016/08/29/det-kan-inte-vara-brottsligt-att-be-om-hjalp
 title: Ny krönika om eventuellt tiggeriförbud
 hidden: false
+language: sv
 date: 2016-08-29T17:30:24.217Z
 featuredimage: /uploads/paragraf1.jpg
 tags:

@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/07/20/europeiska-kommissionen-tar-fram-nya-riktlinjer-for-ict-sektorn
 title: Europeiska kommissionen tar fram nya riktlinjer för ICT-sektorn
 hidden: false
+language: sv
 date: 2012-07-20T09:25:10.894Z
 tags:
   - Mänskliga rättigheter

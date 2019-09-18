@@ -12,6 +12,7 @@ interface TemplateWrapperProps {
   children: ReactNode;
   location: string;
   editLink?: string;
+  language?: string;
 }
 
 export default function TemplateWrapper({
@@ -23,7 +24,7 @@ export default function TemplateWrapper({
   return (
     <>
       <Helmet>
-        <html lang="en" />
+        <html lang="sv" />
         <title>{title}</title>
         <meta name="description" content={description} />
 

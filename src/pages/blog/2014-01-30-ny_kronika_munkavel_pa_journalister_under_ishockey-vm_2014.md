@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2014/01/30/ny-kronika-munkavel-pa-journalister-under-ishockey-vm-2014
 title: 'Ny krönika: Munkavel på journalister under ishockey-VM 2014'
 hidden: false
+language: sv
 date: 2014-01-30T15:30:48.806Z
 tags:
   - Idrott

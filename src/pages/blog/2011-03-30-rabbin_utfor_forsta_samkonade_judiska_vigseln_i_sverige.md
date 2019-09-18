@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/03/30/rabbin-utfor-forsta-samkonade-judiska-vigseln-i-sverige
 title: Rabbin utför första samkönade judiska vigseln i Sverige
 hidden: false
+language: sv
 date: 2011-03-30T21:16:54.740Z
 ---
 ![Tidningsartikel med rubriken \"David utför första samkönade judiska vigseln i Sverige\"](/uploads/davidqx.jpg)

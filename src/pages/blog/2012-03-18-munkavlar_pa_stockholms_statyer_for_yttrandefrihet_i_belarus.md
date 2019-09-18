@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/03/18/munkavlar-pa-stockholms-statyer-for-yttrandefrihet-i-belarus
 title: Munkavlar på Stockholms statyer för yttrandefrihet i Belarus
 hidden: false
+language: sv
 date: 2012-03-18T08:26:38.819Z
 ---
 ![](/uploads/belarus2.jpg)

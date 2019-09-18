@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/05/11/intervjuad-av-ordfront-magasin
 title: Intervjuad av Ordfront Magasin
 hidden: false
+language: sv
 date: 2011-05-11T07:53:52.889Z
 featuredimage: ''
 ---

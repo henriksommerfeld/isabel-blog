@@ -3,6 +3,7 @@ templateKey: blog-post
 url: ''
 title: Om min farmor stannat där...
 hidden: true
+language: sv
 date: 2014-09-09T09:00:31.100Z
 tags:
   - Rasism

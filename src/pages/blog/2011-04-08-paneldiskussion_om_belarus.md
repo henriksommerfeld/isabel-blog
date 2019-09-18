@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/04/08/paneldiskussion-om-belarus
 title: Paneldiskussion om Belarus
 hidden: false
+language: sv
 date: 2011-04-08T11:00:59.275Z
 tags:
   - Belarus

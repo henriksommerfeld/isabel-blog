@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/05/30/det-ar-dags-att-stalla-politikerna-mot-vaggen
 title: Det är dags att ställa politikerna mot väggen
 hidden: false
+language: sv
 date: 2011-05-30T21:32:03.616Z
 tags:
   - Mänskliga rättigheter

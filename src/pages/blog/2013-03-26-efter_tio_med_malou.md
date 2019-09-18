@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2013/03/26/efter-tio-med-malou
 title: Efter tio med Malou
 hidden: false
+language: sv
 date: 2013-03-26T20:50:58.421Z
 featuredimage: >-
   /uploads/http-annotagger-tv4-se-grid-4fd721ab9557dc0007001012-eftertio_ny_topp3.jpg

@@ -45,6 +45,13 @@ collections:
           default: false,
           hint: 'Om du vill spara utan att publicera kan du göra artikeln dold här.',
       }
+      - { 
+          label: 'Språk',
+          name: 'language',
+          widget: 'select',
+          default: 'sv',
+          options: [{ label: "Svenska", value: "sv" }, { label: "Engelska", value: "en" }],
+      }
       - {
           label: 'Datum',
           name: 'date',

@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/04/22/stockholm-stad-angaende-teliasonera-skandalen
 title: Stockholm Stad ryter till mot TeliaSonera
 hidden: false
+language: sv
 date: 2012-04-22T06:31:37.521Z
 tags:
   - TeliaSonera

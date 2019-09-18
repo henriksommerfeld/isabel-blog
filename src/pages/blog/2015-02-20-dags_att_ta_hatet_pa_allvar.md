@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2015/02/20/dags-att-ta-hatet-pa-allvar
 title: Dags att ta hatet på allvar
 hidden: false
+language: sv
 date: 2015-02-20T11:20:37.282Z
 ---
 

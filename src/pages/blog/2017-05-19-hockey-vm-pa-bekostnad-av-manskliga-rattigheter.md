@@ -1,8 +1,9 @@
 ---
 templateKey: blog-post
+url: /2017/05/19/hockey-vm-pa-bekostnad-av-manskliga-rattigheter
 title: 'Hockey-VM, på bekostnad av mänskliga rättigheter'
 hidden: false
-url: /2017/05/19/hockey-vm-pa-bekostnad-av-manskliga-rattigheter
+language: sv
 date: 2017-05-19T06:33:48.535Z
 featuredimage: ''
 tags:

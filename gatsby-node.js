@@ -106,5 +106,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value: route,
     });
+
+    if (!node.frontmatter.language) {
+      createNodeField({
+        name: `language`,
+        node,
+        value: 'sv',
+      });
+    }
   }
 };

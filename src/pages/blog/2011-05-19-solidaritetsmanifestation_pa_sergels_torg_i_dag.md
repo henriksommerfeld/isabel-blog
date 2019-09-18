@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/05/19/solidaritetsmanifestation-pa-sergels-torg-i-dag
 title: Solidaritetsmanifestation på Sergels Torg i dag
 hidden: false
+language: sv
 date: 2011-05-19T04:34:38.242Z
 ---
 ![](/uploads/17876_310494050845_661590845_4001671_2099347_n.jpg "Ales Michalevic. Dagens skribent på infobelarus.nu.")

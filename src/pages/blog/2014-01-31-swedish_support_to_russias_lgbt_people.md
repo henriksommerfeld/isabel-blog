@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2014/01/31/swedish-support-to-russias-lgbt-people
 title: Swedish Support to Russia's LGBT People
 hidden: false
+language: en
 date: 2014-01-31T11:52:27.299Z
 ---
 I think I don't say it too often. I'm good at criticizing my country when we do wrong. But here's one reason for why I am always proud to be Swedish.
