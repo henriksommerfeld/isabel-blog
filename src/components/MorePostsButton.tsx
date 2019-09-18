@@ -1,28 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import Ripples from 'react-ripples';
-import { colors, spacing, breakpoints, layout } from '../constants';
+import { spacing, breakpoints, buttonStyles } from '../constants';
 import ArrowsDownSvg from '../../static/img/arrows-down.svg';
+import { RipplesButton } from './RipplesButton';
+import { ButtonText } from './ButtonText';
 
 export default function MorePostsButton({ clickedHandler }) {
   return (
     <ButtonContainer>
-      <RipplesButton>
+      <RipplesButtonWithBreakpoints>
         <MorePostsButtonStyled onClick={clickedHandler}>
           <ArrowsDown src={ArrowsDownSvg} />
           <ButtonText>Visa äldre inlägg</ButtonText>
           <ArrowsDown src={ArrowsDownSvg} />
         </MorePostsButtonStyled>
-      </RipplesButton>
+      </RipplesButtonWithBreakpoints>
     </ButtonContainer>
   );
 }
 
-const RipplesButton = styled(Ripples)`
-  width: 100%;
-  border-radius: ${layout.borderRadius};
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
-
+const RipplesButtonWithBreakpoints = styled(RipplesButton)`
   @media (min-width: ${breakpoints.small}) {
     width: auto;
   }
@@ -34,28 +31,8 @@ const ArrowsDown = styled('img')`
   margin-bottom: 0;
 `;
 
-const ButtonText = styled('span')`
-  margin: 0 0.5em;
-`;
-
 const MorePostsButtonStyled = styled('button')`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  background-color: ${colors.buttonBackground};
-  transition: background-color 100ms ease-in-out;
-  color: ${colors.white};
-  border-style: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${colors.buttonHover};
-  }
-  &:active {
-    background-color: ${colors.buttonActive};
-  }
+  ${buttonStyles}
 `;
 
 const ButtonContainer = styled('div')`

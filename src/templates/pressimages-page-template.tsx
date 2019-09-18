@@ -7,7 +7,7 @@ import {
   layout,
   imageBorderStyle,
 } from '../constants';
-import { FluidObject, GatsbyImageProps } from 'gatsby-image';
+import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
 import { isPortrait, getFluid, getOriginalImage } from '../images';
 import PreviewCompatibleImage, {

@@ -6,4 +6,4 @@ downloadableimages:
   - /uploads/pressbild-1.jpg
 ---
 Pressbilder för fri publicering. \
-Ange alltid: _Foto av OhSnap Sweden_.
+Ange alltid: **_Foto av OhSnap Sweden_**.

@@ -1,4 +1,5 @@
 import { tailwindColors } from './tailwind-colors';
+import { css } from 'styled-components';
 
 export const spacing = {
   paddingDefault: '1rem',
@@ -64,6 +65,32 @@ export const imageBorderStyle = {
   boxShadow: 'rgba(34,25,25,0.4) 0 1px 3px !important',
   backgroundColor: '#fff',
 };
+
+export const buttonStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: ${colors.buttonBackground};
+  background-size: 0;
+  transition: background-color 100ms ease-in-out;
+  color: ${colors.white};
+  border-style: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${colors.buttonHover};
+    background-size: 0;
+    color: ${colors.white};
+  }
+  &:active,
+  &:focus {
+    background-color: ${colors.buttonActive};
+    background-size: 0;
+    color: ${colors.white};
+  }
+`;
 
 interface NavLink {
   url: string;
