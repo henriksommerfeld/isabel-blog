@@ -35,17 +35,17 @@ const MorePostsButtonStyled = styled('button')`
   justify-content: space-between;
   padding: 0.5rem 1rem;
   width: 100%;
-  background-color: ${tailwindColors.red600};
+  background-color: ${colors.buttonBackground};
   transition: background-color 100ms ease-in-out;
   color: ${colors.white};
   border-style: none;
   cursor: pointer;
 
   &:hover {
-    background-color: ${tailwindColors.red700};
+    background-color: ${colors.buttonHover};
   }
   &:active {
-    background-color: ${tailwindColors.red800};
+    background-color: ${colors.buttonActive};
   }
 `;
 

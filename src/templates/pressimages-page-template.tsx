@@ -80,11 +80,11 @@ const DownloadableImages = styled('div')`
   grid-auto-flow: row dense;
 
   @media (min-width: ${breakpoints.small}) {
-    grid-template-columns: ${({ images }) => GetGridColumns(images, 2)};
     grid-gap: ${spacing.paddingDouble};
   }
 
   @media (min-width: ${breakpoints.medium}) {
+    grid-template-columns: ${({ images }) => GetGridColumns(images, 2)};
     grid-gap: ${spacing.paddingX3};
   }
 `;

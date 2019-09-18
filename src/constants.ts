@@ -37,6 +37,9 @@ export const colors = {
   linkVisited: tailwindColors.red600,
   linkFocus: tailwindColors.red700,
   postDate: tailwindColors.gray400,
+  buttonBackground: tailwindColors.red600,
+  buttonHover: tailwindColors.red700,
+  buttonActive: tailwindColors.red800,
 };
 
 export const fonts = {
