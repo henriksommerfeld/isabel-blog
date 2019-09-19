@@ -18,12 +18,10 @@ export default function BlogPostTags({ tags = [] }: BlogPostTags) {
       <LinkIconSvg src={tagSvg} alt="" />
 
       {tags.map((tag, index) => (
-        <>
-          <Link key={tag + `tag`} to={getTagRouteUrl(tag)}>
-            {tag}
-          </Link>
+        <React.Fragment key={tag + index}>
+          <Link to={getTagRouteUrl(tag)}>{tag}</Link>
           {GetCommaSeparator(index, numberOfTags)}
-        </>
+        </React.Fragment>
       ))}
     </LinksContainer>
   );
