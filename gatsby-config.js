@@ -148,11 +148,8 @@ module.exports = {
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-        // Fields to index
         fields: [`title`, `date`, `tags`, `body`, `excerpt`],
-        // How to resolve each field`s value for a supported node type
         resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
             date: node => node.frontmatter.date,
@@ -167,7 +164,7 @@ module.exports = {
                 .use(stripMarkdown)
                 .processSync(node.rawMarkdownBody).contents;
 
-              const excerptLength = 140; // Hard coded excerpt length
+              const excerptLength = 140;
               return String(text).substring(0, excerptLength) + '...';
             },
           },
