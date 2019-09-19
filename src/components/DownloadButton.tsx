@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { spacing, buttonStyles } from '../constants';
-import DownloadSvg from '../../static/img/download.svg';
+import DownloadSvg from '../../static/img/download-filled.svg';
 import { RipplesButton } from './RipplesButton';
 import { ButtonText } from './ButtonText';
 

@@ -54,7 +54,6 @@ export const navLinks: NavLink[] = [
   { url: '/publicerat', title: 'Publicerat' },
   { url: '/om', title: 'Om mig' },
   { url: '/pressbilder', title: 'Pressbilder' },
-  { url: '/sok', title: 'Sök' },
 ];
 
 export const tagsUrl = '/taggar';

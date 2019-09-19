@@ -18,7 +18,7 @@ export default function Header({ location }: any) {
   return (
     <>
       <NavStyled>
-        <NavWidthConstrainer centered={isStartPage}>
+        <NavWidthConstrainer>
           {isStartPage ? (
             <EmptyDiv />
           ) : (
@@ -73,7 +73,7 @@ const pageQuery = graphql`
 
 export const headerHeight = '80px';
 
-const EmptyDiv = styled.div`
+const EmptyDiv = styled('div')`
   @media (min-width: ${breakpoints.medium}) {
     display: none;
   }

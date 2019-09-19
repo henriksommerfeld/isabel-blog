@@ -8,12 +8,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="19"
-   height="27"
-   viewBox="0 0 19 27"
+   width="27.974443"
+   height="26.994581"
+   viewBox="0 0 27.974443 26.994581"
    version="1.1"
    id="svg11"
-   sodipodi:docname="blog-post.svg"
+   sodipodi:docname="tag-filled.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
      id="metadata15">
@@ -40,15 +40,15 @@
      id="namedview13"
      showgrid="false"
      inkscape:zoom="7.375"
-     inkscape:cx="9"
-     inkscape:cy="14"
+     inkscape:cx="14"
+     inkscape:cy="13.994581"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg11" />
   <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
   <title
-     id="title2">icon 69 document text</title>
+     id="title2">icon 145 tag cord</title>
   <desc
      id="desc4">Created with Sketch.</desc>
   <defs
@@ -57,14 +57,14 @@
      id="Page-1"
      sketch:type="MSPage"
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
-     transform="translate(-7,-3)">
+     transform="translate(-2,-3)">
     <g
-       id="icon-69-document-text"
+       id="icon-145-tag-cord"
        sketch:type="MSArtboardGroup"
        style="fill:#000000">
       <path
-         d="M 19.5,3 H 9.0027601 C 7.8966662,3 7,3.8983383 7,5.0073299 V 27.99267 C 7,29.101288 7.8909254,30 8.9974219,30 H 24.002578 C 25.105724,30 26,29.101788 26,28.009205 V 10.5 10 L 20,3 H 19.5 Z M 19,4 H 8.9955775 C 8.4457352,4 8,4.4552629 8,4.995457 V 28.004543 C 8,28.554319 8.4547089,29 8.9999602,29 H 24.00004 C 24.552303,29 25,28.555054 25,28.006602 V 11 H 20.997913 C 19.894496,11 19,10.113445 19,8.994081 Z m 1,0.5 V 8.9912152 C 20,9.5483517 20.450651,10 20.996739,10 h 3.703212 z M 10,6 v 1 1 h 1 V 7 h 1 v 4 h 1 V 7 h 1 v 1 h 1 V 7 6 Z m 0,10 v 1 h 13 v -1 z m 0,-3 v 1 h 13 v -1 z m 0,6 v 1 h 13 v -1 z m 0,3 v 1 h 13 v -1 z m 0,3 v 1 h 13 v -1 z"
-         id="document-text"
+         d="m 10.764917,6.0240956 h 5.238826 L 29.384645,19.404998 c 0.783148,0.783148 0.787114,2.051056 0.0075,2.830632 l -7.176907,7.176907 c -0.778416,0.778415 -2.046893,0.7762 -2.830632,-0.0075 L 6.0037425,16.024096 V 8.0237106 c 0,-0.9500856 0.6533144,-1.7361611 1.5321972,-1.9451143 0.1969752,0.3184346 0.3521728,0.7095568 0.4448494,1.1766404 0.8094903,4.0797733 1.6176705,5.5466763 3.4455609,5.7742913 0.0058,7.27e-4 0.01183,-0.0015 0.01793,-0.0066 0.01972,7.69e-4 0.03955,0.0012 0.05946,0.0012 0.828427,0 1.5,-0.671573 1.5,-1.5 0,-0.685371 -0.459659,-1.263383 -1.087514,-1.442572 1.59e-4,-0.0074 -5.4e-5,-0.01161 -6.58e-4,-0.01248 C 11.644564,9.6751966 11.308822,8.6137474 10.923424,6.6713722 10.879009,6.4475213 10.82596,6.2317658 10.764917,6.0240956 Z M 9.9425459,6.8659937 C 9.0759337,2.4983302 4.3873358,1.8835132 2.5804299,4.7580008 1.131536,7.0629505 2.5651194,11.024096 5.0037425,11.024096 l 10e-8,-1 c -1.5518893,0 -2.6482189,-3.029277 -1.5766875,-4.7339057 1.3426064,-2.135864 4.8508218,-1.6758309 5.5346124,1.7704249 0.8089096,4.0768468 1.4190105,4.9634808 3.0420755,4.9634798 l -10e-7,-1 c -0.993157,10e-7 -1.334626,-0.496243 -2.0611961,-4.1581013 z"
+         id="tag-cord"
          sketch:type="MSShapeGroup"
          inkscape:connector-curvature="0" />
     </g>

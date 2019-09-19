@@ -62,7 +62,7 @@ function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
         if (!originalImage.src && !isPreview) return null;
 
         return (
-          <DownloadableImage portrait={isTallerThanWide}>
+          <DownloadableImage portrait={isTallerThanWide} key={index}>
             <ImageBorder className="featured-thumbnail">
               <PreviewCompatibleImage key={index} image={pressImage} />
             </ImageBorder>
