@@ -1,4 +1,6 @@
 const { transformerRemarkParser } = require('./src/transformerRemarkParser');
+const remark = require('remark');
+const stripMarkdown = require('strip-markdown');
 
 module.exports = {
   siteMetadata: {
@@ -141,6 +143,37 @@ module.exports = {
             variants: ['400', '400i', '700', '700i'],
           },
         ],
+      },
+    },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`, `date`, `tags`, `body`, `excerpt`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            date: node => node.frontmatter.date,
+            tags: node => node.frontmatter.tags,
+            path: node => node.fields.slug,
+            body: node =>
+              remark()
+                .use(stripMarkdown)
+                .processSync(node.rawMarkdownBody).contents,
+            excerpt: node => {
+              const text = remark()
+                .use(stripMarkdown)
+                .processSync(node.rawMarkdownBody).contents;
+
+              const excerptLength = 140; // Hard coded excerpt length
+              return String(text).substring(0, excerptLength) + '...';
+            },
+          },
+        },
+        // Optional filter to limit indexed nodes
+        filter: (node, getNode) => node.frontmatter.title !== 'Video-test',
       },
     },
     'gatsby-plugin-styled-components',
