@@ -114,9 +114,7 @@ const NavStyled = styled('nav')`
   height: ${headerHeight};
 `;
 
-const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
-  <div {...restProps} />
-))`
+const NavWidthConstrainer = styled('div')`
   width: 100%;
   max-width: ${layout.contentMaxWidth}px;
   display: flex;
@@ -126,6 +124,6 @@ const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
   padding: 1rem;
 
   @media (min-width: ${breakpoints.medium}) {
-    justify-content: ${props => (props.centered ? 'center' : 'space-between')};
+    justify-content: 'space-between';
   }
 `;
