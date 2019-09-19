@@ -76,6 +76,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
+  ::selection {
+    background-color: ${colors.selectionBackground};
+    color: ${colors.white};
+  }
   a {
     color: ${colors.link};
     transition: color, text-shadow, background 150ms ease-out, outline 60ms;
