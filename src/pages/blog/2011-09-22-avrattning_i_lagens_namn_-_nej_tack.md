@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/09/22/avrattning-i-lagens-namn-nej-tack
 title: Avrättning i lagens namn - Nej tack!
 hidden: false
+language: sv
 date: 2011-09-11T07:26:42.164Z
 ---
 ![](/uploads/tumblr_lrvlsi6ilp1r22t2co1_400.jpg "RIP – Troy Davis")

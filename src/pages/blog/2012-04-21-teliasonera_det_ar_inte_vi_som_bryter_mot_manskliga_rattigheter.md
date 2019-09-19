@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/04/21/teliasonera-det-ar-inte-vi-som-bryter-mot-manskliga-rattigheter
 title: 'TeliaSonera: "Det är inte vi som bryter mot mänskliga rättigheter"'
 hidden: false
+language: sv
 date: 2012-04-21T06:44:33.807Z
 tags:
   - TeliaSonera

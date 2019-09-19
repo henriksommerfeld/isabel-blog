@@ -1,8 +1,10 @@
 ---
 templateKey: blog-post
-url: /2012/04/19/starka-reaktioner-efter-sandningen-av-uppdrag-gransknings-de-svarta-ladorna
+url: >-
+  /2012/04/19/starka-reaktioner-efter-sandningen-av-uppdrag-gransknings-de-svarta-ladorna
 title: Starka reaktioner efter sändningen av Uppdrag Gransknings "De svarta lådorna"
 hidden: false
+language: sv
 date: 2012-04-19T12:08:41.597Z
 tags:
   - Belarus

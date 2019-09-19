@@ -1,10 +1,12 @@
 ---
 templateKey: blog-post
-url: /2013/10/21/ny-kronika-ta-barns-rattigheter-pa-allvar-gor-barnkonventionen-till-svensk-lag
+url: >-
+  /2013/10/21/ny-kronika-ta-barns-rattigheter-pa-allvar-gor-barnkonventionen-till-svensk-lag
 title: >-
   Ny krönika: Ta barns rättigheter på allvar - Gör barnkonventionen till svensk
   lag!
 hidden: false
+language: sv
 date: 2013-10-21T08:38:23.819Z
 tags:
   - Mänskliga rättigheter

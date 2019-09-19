@@ -67,16 +67,6 @@ export default function BlogRoll(): ReactElement {
 const BlogRollStyled = styled('div')`
   background-color: ${colors.white};
 
-  .button {
-    width: 100%;
-    border-radius: ${layout.borderRadius};
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
-
-    @media (min-width: ${breakpoints.small}) {
-      width: auto;
-    }
-  }
-
   @media (min-width: ${breakpoints.medium}) {
     transform: translateY(${spacing.contentOffset});
     border-radius: ${layout.borderRadius};

@@ -12,6 +12,7 @@ interface TemplateWrapperProps {
   children: ReactNode;
   location: string;
   editLink?: string;
+  language?: string;
 }
 
 export default function TemplateWrapper({
@@ -23,7 +24,7 @@ export default function TemplateWrapper({
   return (
     <>
       <Helmet>
-        <html lang="en" />
+        <html lang="sv" />
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -71,7 +72,7 @@ export default function TemplateWrapper({
   );
 }
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
@@ -102,7 +103,7 @@ const GlobalStyle = createGlobalStyle`
   .gatsby-resp-image-background-image, .gatsby-resp-image-image, .featured-thumbnail {
     margin: 0;
     padding: 4px;
-    box-shadow: rgba(34,25,25,.4) 0 1px 3px !important;
+    box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px !important;
     background-color: #fff;
   }
 `;

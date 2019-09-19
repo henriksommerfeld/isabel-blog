@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/05/15/im-running-scared-en-passande-lattitel-for-azerbajdzjan
 title: '"I''m Running Scared" - En passande låttitel för Azerbajdzjan'
 hidden: false
+language: sv
 date: 2011-05-15T11:35:03.079Z
 ---
 **Ingen har missat att gårdagens vinnare av Eurovision Song Contest blev Azerbajdzjan med låten "I'm Running Scared". Men frågan är - vad vet vi egentligen om landet?** 

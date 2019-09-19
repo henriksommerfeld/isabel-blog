@@ -11,7 +11,9 @@
     "noUnusedLocals": false,
     "noImplicitAny": false,
     "skipLibCheck": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "allowJs": true
   },
+  "include": ["src/**/*.ts", "test/**/*.ts", "typings/**/*.ts", "src/**/*/.js"],
   "exclude": ["node_modules", "public", ".cache", "auto-generated"]
 }

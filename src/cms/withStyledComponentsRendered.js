@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheetManager } from 'styled-components';
+import { GlobalStyle } from '../components/Layout';
 
 function StyleInjector({ children }) {
   const [iframeRef, setIframeRef] = useState(null);
@@ -7,7 +8,7 @@ function StyleInjector({ children }) {
   useEffect(() => {
     const iframes = document.getElementsByTagName('iframe');
     const previewIframe = Array.from(iframes).find(x => {
-      return x.className.includes('PreviewPaneFrame');      
+      return x.className.includes('PreviewPaneFrame');
     });
     const iframeHeadElem = previewIframe.contentDocument.head;
     setIframeRef(iframeHeadElem);
@@ -21,9 +22,14 @@ function StyleInjector({ children }) {
 }
 
 export default function withStyledComponents(Comp) {
-  return props => (
+  const renderWithStyle = props => (
     <StyleInjector>
-      <Comp {...props} />
+      <>
+        <GlobalStyle />
+        <Comp {...props} />
+      </>
     </StyleInjector>
   );
+
+  return renderWithStyle;
 }

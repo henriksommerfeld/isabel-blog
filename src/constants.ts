@@ -1,4 +1,5 @@
 import { tailwindColors } from './tailwind-colors';
+import { css } from 'styled-components';
 
 export const spacing = {
   paddingDefault: '1rem',
@@ -20,7 +21,7 @@ export const breakpoints = {
   small: '768px',
   mediumAsNumber: 1024,
   medium: '1024px',
-  large: '1200px',
+  large: '1400px',
   xl: '2048px',
 };
 
@@ -37,6 +38,10 @@ export const colors = {
   linkVisited: tailwindColors.red600,
   linkFocus: tailwindColors.red700,
   postDate: tailwindColors.gray400,
+  buttonBackground: tailwindColors.red600,
+  buttonHover: tailwindColors.red700,
+  buttonActive: tailwindColors.red800,
+  lighterTextForWhiteBackground: tailwindColors.gray700,
 };
 
 export const fonts = {
@@ -51,6 +56,45 @@ export const navLinks: NavLink[] = [
   { url: '/pressbilder', title: 'Pressbilder' },
   { url: '/sok', title: 'Sök' },
 ];
+
+export const tagsUrl = '/taggar';
+
+export const imageBorderStyle = {
+  margin: 0,
+  padding: '4px',
+  boxShadow: 'rgba(34,25,25,0.4) 0 1px 3px !important',
+  backgroundColor: '#fff',
+};
+
+export const buttonStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: ${colors.buttonBackground};
+  background-size: 0;
+  transition: background-color 100ms ease-in-out;
+  color: ${colors.white};
+  border-style: none;
+  cursor: pointer;
+
+  &:visited {
+    color: ${colors.white};
+  }
+
+  &:hover {
+    background-color: ${colors.buttonHover};
+    background-size: 0;
+    color: ${colors.white};
+  }
+  &:active,
+  &:focus {
+    background-color: ${colors.buttonActive};
+    background-size: 0;
+    color: ${colors.white};
+  }
+`;
 
 interface NavLink {
   url: string;

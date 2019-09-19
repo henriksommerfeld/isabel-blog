@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/09/12/petition-stop-the-torture-of-doctors-in-syria
 title: 'Petition: Stop the torture of doctors in Syria!'
 hidden: false
+language: en
 date: 2011-09-12T11:59:08.288Z
 tags:
   - Mänskliga rättigheter

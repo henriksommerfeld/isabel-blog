@@ -3,12 +3,12 @@ templateKey: blog-post
 url: /2016/05/10/emiren-putin-och-vm-festen
 title: 'Emiren, Putin och VM-festen'
 hidden: false
+language: sv
 date: 2016-05-10T13:00:43.788Z
 featuredimage: /uploads/skacc88rmavbild-2016-08-10-kl-13-07-36.png
 tags:
   - Idrott
   - Juridik
-files: []
 ---
 ![Framsida av publikationen Emiren, Putin och VM-festen](/uploads/fullsizerender1.jpg ' ')
 

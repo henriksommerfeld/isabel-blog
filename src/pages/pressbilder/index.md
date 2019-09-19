@@ -1,7 +1,9 @@
 ---
 templateKey: pressimages-page
-title: Pressbilder
-image: /uploads/alexander-dummer-aS4Duj2j7r4-unsplash.jpg
+downloadableimages:
+  - /uploads/pressbild-2.jpg
+  - /uploads/pressbild-3.jpg
+  - /uploads/pressbild-1.jpg
 ---
-
-Lite text
+Pressbilder för fri publicering. \
+Ange alltid: **_Foto av OhSnap Sweden_**.

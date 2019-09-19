@@ -3,6 +3,7 @@ import AboutPagePreview from './preview-templates/AboutPagePreview';
 import BlogPostPreview from './preview-templates/BlogPostPreview';
 import IndexPagePreview from './preview-templates/IndexPagePreview';
 import PublishedPagePreview from './preview-templates/PublishedPagePreview';
+import PressImagesPagePreview from './preview-templates/PressImagesPagePreview';
 import EditorYoutube from './editors/editor-youtube';
 import EditorVimeo from './editors/editor-vimeo';
 import EditorVideo from './editors/editor-video';
@@ -29,6 +30,10 @@ CMS.registerPreviewTemplate('blog', withStyledComponents(BlogPostPreview));
 CMS.registerPreviewTemplate(
   'published',
   withStyledComponents(PublishedPagePreview)
+);
+CMS.registerPreviewTemplate(
+  'pressimages',
+  withStyledComponents(PressImagesPagePreview)
 );
 
 CMS.init();

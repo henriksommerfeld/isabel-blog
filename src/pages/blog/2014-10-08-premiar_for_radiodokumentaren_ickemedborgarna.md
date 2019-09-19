@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2014/10/08/premiar-for-radiodokumentaren-ickemedborgarna
 title: Premiär för radiodokumentären Ickemedborgarna
 hidden: false
+language: sv
 date: 2014-10-08T11:02:54.421Z
 tags:
   - Magasinet Paragraf

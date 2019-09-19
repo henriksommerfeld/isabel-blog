@@ -6,18 +6,16 @@ import Layout from '../components/Layout';
 import { PublishedPageTemplate } from './published-page-template';
 
 export default function PublishedPage({ location }) {
-  const { markdownRemark: page } = useStaticQuery(publishedPageQuery);
-  const content = page.html;
-  const title = page.frontmatter.title;
-  const image = page.frontmatter.image;
+  const data = useStaticQuery(publishedPageQuery);
+  const content = data.markdownRemark.html;
 
   return (
     <Layout location={location} editLink={editPageUrl('published')}>
       <PublishedPageTemplate
         contentComponent={HTMLContent}
-        title={title}
+        title="Publicerat"
         content={content}
-        image={image}
+        imageFile={data.fileName}
       />
     </Layout>
   );
@@ -27,18 +25,17 @@ const publishedPageQuery = graphql`
   query PublishedPage {
     markdownRemark(frontmatter: { templateKey: { eq: "published-page" } }) {
       html
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 1000, quality: 80) {
-              src
-              srcSet
-              aspectRatio
-              sizes
-              base64
-            }
-          }
+    }
+    fileName: file(
+      relativePath: { eq: "hidden/roman-kraft-_Zua2hyvTBk-unsplash.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 5000, maxHeight: 3000, quality: 80) {
+          src
+          srcSet
+          aspectRatio
+          sizes
+          base64
         }
       }
     }

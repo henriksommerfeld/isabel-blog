@@ -6,18 +6,18 @@ import Layout from '../components/Layout';
 import { PressImagesPageTemplate } from './pressimages-page-template';
 
 export default function PressImagesPage({ location }) {
-  const { markdownRemark: page } = useStaticQuery(pressImagesPageQuery);
-  const content = page.html;
-  const title = page.frontmatter.title;
-  const image = page.frontmatter.image;
+  const data = useStaticQuery(pressImagesPageQuery);
+  const content = data.markdownRemark.html;
+  const pressImages = data.markdownRemark.frontmatter.downloadableimages;
 
   return (
     <Layout location={location} editLink={editPageUrl('pressimages')}>
       <PressImagesPageTemplate
         contentComponent={HTMLContent}
-        title={title}
+        title="Pressbilder"
         content={content}
-        image={image}
+        headerImageFile={data.fileName}
+        pressImages={pressImages}
       />
     </Layout>
   );
@@ -28,17 +28,35 @@ const pressImagesPageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "pressimages-page" } }) {
       html
       frontmatter {
-        title
-        image {
+        downloadableimages {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 80) {
+            fluid(maxWidth: 5000, quality: 80) {
               src
               srcSet
               aspectRatio
               sizes
               base64
+              originalName
+            }
+            original {
+              width
+              height
+              src
             }
           }
+        }
+      }
+    }
+    fileName: file(
+      relativePath: { eq: "hidden/alexander-dummer-aS4Duj2j7r4-unsplash.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 5000, quality: 80) {
+          src
+          srcSet
+          aspectRatio
+          sizes
+          base64
         }
       }
     }

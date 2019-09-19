@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/03/05/lukasjenka-battre-att-vara-diktator-an-gay
 title: 'Lukasjenka: "Bättre att vara diktator än gay!"'
 hidden: false
+language: sv
 date: 2012-03-05T13:15:57.477Z
 tags:
   - Belarus

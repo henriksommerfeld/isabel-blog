@@ -1,39 +1,140 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
-import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
-import { getFluid, isImageUrl } from '../images';
+import { SharedIntroBanner } from './shared-intro-banner';
+import { isPortrait, getOriginalImage } from '../images';
+import PreviewCompatibleImage, {
+  ImageProps,
+} from '../components/PreviewCompatibleImage';
+import DownloadButton from '../components/DownloadButton';
 
 interface PressImagesTemplate {
   contentComponent: any;
   content: any;
   title: string;
-  image: FluidObject | undefined;
+  headerImageFile: FluidObject | undefined;
+  pressImages: ImageProps[] | undefined;
+  isPreview?: boolean;
 }
 
 export function PressImagesPageTemplate({
   contentComponent,
   content,
   title,
-  image,
+  headerImageFile,
+  pressImages = [],
+  isPreview = false,
 }: PressImagesTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <IntroBanner backgroundImage={image}>
-        <IntroBannerWidthConstrainer>
-          <Heading>{title}</Heading>
-        </IntroBannerWidthConstrainer>
-      </IntroBanner>
+      <SharedIntroBanner title={title} backgroundImage={headerImageFile} />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />
+          <PressImagesList pressImages={pressImages} isPreview={isPreview} />
         </PostStyled>
       </PostContainer>
     </PageStyled>
   );
+}
+
+interface PressImagesListProps {
+  pressImages: ImageProps[];
+  isPreview?: boolean;
+}
+
+function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
+  if (pressImages.length < 1) return null;
+
+  return (
+    <DownloadableImages images={pressImages}>
+      {pressImages.map((pressImage, index) => {
+        const isTallerThanWide = isPortrait(pressImage);
+        const originalImage = getOriginalImage(pressImage);
+        const suggestedFileName = `isabel-sommerfeld-${originalImage.name}`;
+        const urlToDownload = isPreview
+          ? ((pressImage as unknown) as string)
+          : originalImage.src;
+
+        if (!originalImage.src && !isPreview) return null;
+
+        return (
+          <DownloadableImage portrait={isTallerThanWide}>
+            <ImageBorder className="featured-thumbnail">
+              <PreviewCompatibleImage key={index} image={pressImage} />
+            </ImageBorder>
+            <ImageMetadata>
+              {originalImage.width} x {originalImage.height} px
+            </ImageMetadata>
+            <DownloadButton
+              url={urlToDownload}
+              downloadedFilename={suggestedFileName}
+            >
+              Ladda ner
+            </DownloadButton>
+          </DownloadableImage>
+        );
+      })}
+    </DownloadableImages>
+  );
+}
+
+const ImageMetadata = styled('span')`
+  font-style: italic;
+  font-size: 0.9em;
+  padding-top: 0.5em;
+  color: ${colors.lighterTextForWhiteBackground};
+`;
+
+const ImageBorder = styled('div')`
+  width: 100%;
+`;
+
+const DownloadableImages = styled('div')`
+  display: grid;
+  grid-template-columns: ${({ images }) => GetGridColumns(images, 1)};
+  grid-gap: ${spacing.paddingDefault};
+  grid-auto-flow: row dense;
+
+  @media (min-width: ${breakpoints.small}) {
+    grid-gap: ${spacing.paddingDouble};
+  }
+
+  @media (min-width: ${breakpoints.medium}) {
+    grid-template-columns: ${({ images }) => GetGridColumns(images, 2)};
+    grid-gap: ${spacing.paddingX3};
+  }
+`;
+
+const DownloadableImage = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  grid-column: ${({ portrait }) => (portrait ? 'span 1' : 'span 2')};
+`;
+
+function GetGridColumns(images: ImageProps[], breakpoint: number): string {
+  if (breakpoint < 2 || images.length < 1) return `repeat(2, 1fr)`;
+
+  const totalWidth = GetImagesWidth(images);
+  const columns = totalWidth < 2 ? 2 : totalWidth > 4 ? 4 : totalWidth;
+
+  return `repeat(${columns}, 1fr)`;
+}
+
+function GetImagesWidth(images: ImageProps[]): number {
+  return images.reduce(
+    (count, currentImage) => count + GetImageWidth(currentImage),
+    0
+  );
+}
+
+function GetImageWidth(image: ImageProps): number {
+  return isPortrait(image) ? 1 : 2;
 }
 
 const PageStyled = styled('div')`
@@ -43,97 +144,6 @@ const PageStyled = styled('div')`
     text-align: center;
     font-style: italic;
     padding-top: 0.5rem;
-  }
-`;
-
-function IntroBanner({ children, backgroundImage }) {
-  const fluidImage = getFluid(backgroundImage);
-  const isUrl = isImageUrl(backgroundImage);
-
-  if (fluidImage) {
-    return (
-      <IntroBannerWithFluidImage
-        fluid={fluidImage}
-        backgroundColor={colors.black}
-      >
-        <IntroBannerDarkOverlay>{children}</IntroBannerDarkOverlay>
-      </IntroBannerWithFluidImage>
-    );
-  }
-
-  if (isUrl) {
-    return (
-      <IntroBannerWithUrlImage image={backgroundImage}>
-        <IntroBannerDarkOverlay>{children}</IntroBannerDarkOverlay>
-      </IntroBannerWithUrlImage>
-    );
-  }
-
-  return <IntroBannerSolidBackground>{children}</IntroBannerSolidBackground>;
-}
-
-const IntroBannerSolidBackground = styled('div')`
-  background-color: ${colors.headerBackground};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const IntroBannerDarkOverlay = styled('div')`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-`;
-
-const IntroBannerWithFluidImage = styled(BackgroundImage)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  background-position-x: center;
-  background-position-y: 80%;
-  height: 20vh;
-
-  @media (min-width: ${breakpoints.large}) {
-    background-size: 70vw;
-    height: 400px;
-  }
-`;
-
-const IntroBannerWithUrlImage = styled('div')`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url(${props => props.image});
-  background-size: cover;
-  background-position-x: center;
-  background-position-y: center;
-`;
-
-const IntroBannerWidthConstrainer = styled('div')`
-  max-width: ${layout.contentMaxWidth}px;
-  text-align: center;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
-
-  @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
-  }
-`;
-
-const Heading = styled.h1`
-  color: ${colors.white};
-  line-height: 1.4em;
-  word-break: break-word;
-
-  @media (min-width: ${breakpoints.medium}) {
-    transform: translateY(${spacing.postHeadingOffset});
   }
 `;
 

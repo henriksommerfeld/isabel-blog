@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/04/18/isabel-sommerfeld-deltar-i-kvallens-uppdrag-granskning
 title: Isabel deltar i kvällens Uppdrag Granskning
 hidden: false
+language: sv
 date: 2012-04-18T03:13:10.682Z
 tags:
   - Uppdrag granskning

@@ -45,6 +45,13 @@ collections:
           default: false,
           hint: 'Om du vill spara utan att publicera kan du göra artikeln dold här.',
       }
+      - { 
+          label: 'Språk',
+          name: 'language',
+          widget: 'select',
+          default: 'sv',
+          options: [{ label: "Svenska", value: "sv" }, { label: "Engelska", value: "en" }],
+      }
       - {
           label: 'Datum',
           name: 'date',
@@ -63,12 +70,6 @@ collections:
         }
       - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
       - { label: 'Taggar', label_singular: 'Tagg', name: 'tags', widget: 'list', required: false }
-      - label: 'Nerladdningsbara filer'
-        label_singular: 'Nerladdningsbar fil'
-        name: 'files'
-        widget: 'list'
-        hint: 'Filer som besökaren kan ladda ner'
-        field: { label: Fil, name: file, widget: file }
 
   - name: 'pages'
     label: 'Sidor'
@@ -114,8 +115,6 @@ collections:
               widget: 'hidden',
               default: 'published-page',
             }
-          - { label: 'Titel', name: 'title', widget: 'string' }
-          - { label: 'Bakgrundsbild', name: 'image', widget: 'image', default: '', required: false }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
       - file: 'src/pages/pressbilder/index.md'
@@ -127,7 +126,11 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'pressimages-page',
-            }
-          - { label: 'Titel', name: 'title', widget: 'string' }
-          - { label: 'Bakgrundsbild', name: 'image', widget: 'image', default: '', required: false }
+            }          
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
+          - label: 'Nerladdningsbara bilder'
+            label_singular: 'Nerladdningsbar bild'
+            name: 'downloadableimages'
+            widget: 'list'
+            hint: 'Bilder som besökaren kan ladda ner. OBS! Layouten och bildernas dimentioner är inte tillgängliga i förhandsgranskningen.'
+            field: { label: Bild, name: downloadableimage, widget: image }

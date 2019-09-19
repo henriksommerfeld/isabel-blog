@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2014/05/06/manskliga-rattigheter-pa-hal-is
 title: Mänskliga rättigheter på hal is
 hidden: false
+language: sv
 date: 2014-05-06T03:54:50.618Z
 featuredimage: /uploads/cropped-mrpc3a5halis1.jpg
 tags:

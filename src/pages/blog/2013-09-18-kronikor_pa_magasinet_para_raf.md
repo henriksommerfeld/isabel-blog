@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2013/09/18/kronikor-pa-magasinet-paragraf
 title: Krönikör på Magasinet Para§raf
 hidden: false
+language: sv
 date: 2013-09-18T09:20:11.743Z
 tags:
   - Magasinet Paragraf

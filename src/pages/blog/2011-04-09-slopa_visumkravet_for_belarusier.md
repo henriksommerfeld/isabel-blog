@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/04/09/slopa-visumkravet-for-belarusier
 title: Slopa visumkravet för belarusier!
 hidden: false
+language: sv
 date: 2011-04-09T16:07:56.956Z
 featuredimage: /uploads/inmain.jpg
 tags:

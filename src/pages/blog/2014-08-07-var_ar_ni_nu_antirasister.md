@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2014/08/07/var-ar-ni-nu-antirasister
 title: 'Var är ni nu, antirasister?'
 hidden: false
+language: sv
 date: 2014-08-07T06:08:55.039Z
 tags:
   - ''

@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/05/11/stop-the-kill-the-gays-law-now
 title: STOP the "Kill the Gays" Law Now!
 hidden: false
+language: en
 date: 2011-05-11T10:43:12.470Z
 featuredimage: /uploads/uganda_original.jpg
 tags:

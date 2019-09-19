@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/08/02/intervjuad-i-svt-aktuellt-om-belarus
 title: Intervjuad i SVT Aktuellt om Belarus
 hidden: false
+language: sv
 date: 2011-08-02T19:50:32.312Z
 tags:
   - Belarus

@@ -23,7 +23,7 @@ export default function BlogRollItem(post: MarkdownRemark) {
       </Header>
       <div>
         <p>{post.excerpt}</p>
-        <FeaturedImage title={title} imageInfo={featuredImage} />
+        <FeaturedImage title={title} image={featuredImage} />
         <ReadMoreWrapper>
           <ReadMoreLink to={slug}>Läs vidare →</ReadMoreLink>
         </ReadMoreWrapper>
@@ -73,16 +73,15 @@ const ReadMoreLink = styled(Link)`
   color: orangered;
 `;
 
-function FeaturedImage({ imageInfo, title }) {
-  if (!imageInfo) return null;
+function FeaturedImage({ image, title }) {
+  if (!image) return null;
 
-  const altText = title ? `featured image thumbnail for post ${title}` : '';
-  imageInfo.alt = altText;
+  const altText = title ? `Bild till artikeln ${title}` : '';
   const marginBottom = { marginBottom: spacing.paddingDefault };
 
   return (
     <div className="featured-thumbnail" style={marginBottom}>
-      <PreviewCompatibleImage imageInfo={imageInfo} />
+      <PreviewCompatibleImage image={image} altText={altText} />
     </div>
   );
 }

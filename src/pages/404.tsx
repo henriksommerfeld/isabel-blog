@@ -4,6 +4,7 @@ import BackgroundImage from 'gatsby-background-image';
 import Layout from '../components/Layout';
 import { colors, breakpoints, spacing } from '../constants';
 import { graphql, useStaticQuery } from 'gatsby';
+import { getFluid } from '../images';
 
 export default function NotFoundPage({ location }) {
   const data = useStaticQuery(backgroundImageQuery);
@@ -30,15 +31,9 @@ export default function NotFoundPage({ location }) {
 }
 
 function getImageFrom(data) {
-  if (
-    !data ||
-    !data.fileName ||
-    !data.fileName.childImageSharp ||
-    !data.fileName.childImageSharp.fluid
-  )
-    return null;
+  if (!data || !data.fileName) return null;
 
-  return data.fileName.childImageSharp.fluid;
+  return getFluid(data.fileName);
 }
 
 const darkGreen = '#062c21';

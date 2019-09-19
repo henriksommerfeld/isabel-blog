@@ -732,11 +732,11 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterImageChildren = 'childMarkdownRemark___frontmatter___image___children',
   ChildMarkdownRemarkFrontmatterHeading = 'childMarkdownRemark___frontmatter___heading',
   ChildMarkdownRemarkFrontmatterSubheading = 'childMarkdownRemark___frontmatter___subheading',
-  ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
-  ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
-  ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
+  ChildMarkdownRemarkFrontmatterDescription = 'childMarkdownRemark___frontmatter___description',
   ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
   ChildMarkdownRemarkFrontmatterHidden = 'childMarkdownRemark___frontmatter___hidden',
+  ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
+  ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
   ChildMarkdownRemarkFrontmatterFeaturedimageBirthtime = 'childMarkdownRemark___frontmatter___featuredimage___birthtime',
   ChildMarkdownRemarkFrontmatterFeaturedimageBirthtimeMs = 'childMarkdownRemark___frontmatter___featuredimage___birthtimeMs',
   ChildMarkdownRemarkFrontmatterFeaturedimageSourceInstanceName = 'childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName',
@@ -771,6 +771,42 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFeaturedimagePublicUrl = 'childMarkdownRemark___frontmatter___featuredimage___publicURL',
   ChildMarkdownRemarkFrontmatterFeaturedimageId = 'childMarkdownRemark___frontmatter___featuredimage___id',
   ChildMarkdownRemarkFrontmatterFeaturedimageChildren = 'childMarkdownRemark___frontmatter___featuredimage___children',
+  ChildMarkdownRemarkFrontmatterDownloadableimages = 'childMarkdownRemark___frontmatter___downloadableimages',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesBirthtime = 'childMarkdownRemark___frontmatter___downloadableimages___birthtime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesBirthtimeMs = 'childMarkdownRemark___frontmatter___downloadableimages___birthtimeMs',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesSourceInstanceName = 'childMarkdownRemark___frontmatter___downloadableimages___sourceInstanceName',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesAbsolutePath = 'childMarkdownRemark___frontmatter___downloadableimages___absolutePath',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesRelativePath = 'childMarkdownRemark___frontmatter___downloadableimages___relativePath',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesExtension = 'childMarkdownRemark___frontmatter___downloadableimages___extension',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesSize = 'childMarkdownRemark___frontmatter___downloadableimages___size',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesPrettySize = 'childMarkdownRemark___frontmatter___downloadableimages___prettySize',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesModifiedTime = 'childMarkdownRemark___frontmatter___downloadableimages___modifiedTime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesAccessTime = 'childMarkdownRemark___frontmatter___downloadableimages___accessTime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesChangeTime = 'childMarkdownRemark___frontmatter___downloadableimages___changeTime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesBirthTime = 'childMarkdownRemark___frontmatter___downloadableimages___birthTime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesRoot = 'childMarkdownRemark___frontmatter___downloadableimages___root',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesDir = 'childMarkdownRemark___frontmatter___downloadableimages___dir',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesBase = 'childMarkdownRemark___frontmatter___downloadableimages___base',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesExt = 'childMarkdownRemark___frontmatter___downloadableimages___ext',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesName = 'childMarkdownRemark___frontmatter___downloadableimages___name',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesRelativeDirectory = 'childMarkdownRemark___frontmatter___downloadableimages___relativeDirectory',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesDev = 'childMarkdownRemark___frontmatter___downloadableimages___dev',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesMode = 'childMarkdownRemark___frontmatter___downloadableimages___mode',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesNlink = 'childMarkdownRemark___frontmatter___downloadableimages___nlink',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesUid = 'childMarkdownRemark___frontmatter___downloadableimages___uid',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesGid = 'childMarkdownRemark___frontmatter___downloadableimages___gid',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesRdev = 'childMarkdownRemark___frontmatter___downloadableimages___rdev',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesIno = 'childMarkdownRemark___frontmatter___downloadableimages___ino',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesAtimeMs = 'childMarkdownRemark___frontmatter___downloadableimages___atimeMs',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesMtimeMs = 'childMarkdownRemark___frontmatter___downloadableimages___mtimeMs',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesCtimeMs = 'childMarkdownRemark___frontmatter___downloadableimages___ctimeMs',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesAtime = 'childMarkdownRemark___frontmatter___downloadableimages___atime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesMtime = 'childMarkdownRemark___frontmatter___downloadableimages___mtime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesCtime = 'childMarkdownRemark___frontmatter___downloadableimages___ctime',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesPublicUrl = 'childMarkdownRemark___frontmatter___downloadableimages___publicURL',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesId = 'childMarkdownRemark___frontmatter___downloadableimages___id',
+  ChildMarkdownRemarkFrontmatterDownloadableimagesChildren = 'childMarkdownRemark___frontmatter___downloadableimages___children',
+  ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -864,6 +900,10 @@ export type FileFilterInput = {
   internal?: Maybe<InternalFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>,
+};
+
+export type FileFilterListInput = {
+  elemMatch?: Maybe<FileFilterInput>,
 };
 
 export type FileGroupConnection = {
@@ -1602,11 +1642,11 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterImageChildMarkdownRemarkChildren = 'frontmatter___image___childMarkdownRemark___children',
   FrontmatterHeading = 'frontmatter___heading',
   FrontmatterSubheading = 'frontmatter___subheading',
-  FrontmatterDate = 'frontmatter___date',
-  FrontmatterTags = 'frontmatter___tags',
-  FrontmatterFiles = 'frontmatter___files',
+  FrontmatterDescription = 'frontmatter___description',
   FrontmatterUrl = 'frontmatter___url',
   FrontmatterHidden = 'frontmatter___hidden',
+  FrontmatterDate = 'frontmatter___date',
+  FrontmatterTags = 'frontmatter___tags',
   FrontmatterFeaturedimageBirthtime = 'frontmatter___featuredimage___birthtime',
   FrontmatterFeaturedimageBirthtimeMs = 'frontmatter___featuredimage___birthtimeMs',
   FrontmatterFeaturedimageSourceInstanceName = 'frontmatter___featuredimage___sourceInstanceName',
@@ -1666,6 +1706,67 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedimageChildMarkdownRemarkTimeToRead = 'frontmatter___featuredimage___childMarkdownRemark___timeToRead',
   FrontmatterFeaturedimageChildMarkdownRemarkTableOfContents = 'frontmatter___featuredimage___childMarkdownRemark___tableOfContents',
   FrontmatterFeaturedimageChildMarkdownRemarkChildren = 'frontmatter___featuredimage___childMarkdownRemark___children',
+  FrontmatterDownloadableimages = 'frontmatter___downloadableimages',
+  FrontmatterDownloadableimagesBirthtime = 'frontmatter___downloadableimages___birthtime',
+  FrontmatterDownloadableimagesBirthtimeMs = 'frontmatter___downloadableimages___birthtimeMs',
+  FrontmatterDownloadableimagesSourceInstanceName = 'frontmatter___downloadableimages___sourceInstanceName',
+  FrontmatterDownloadableimagesAbsolutePath = 'frontmatter___downloadableimages___absolutePath',
+  FrontmatterDownloadableimagesRelativePath = 'frontmatter___downloadableimages___relativePath',
+  FrontmatterDownloadableimagesExtension = 'frontmatter___downloadableimages___extension',
+  FrontmatterDownloadableimagesSize = 'frontmatter___downloadableimages___size',
+  FrontmatterDownloadableimagesPrettySize = 'frontmatter___downloadableimages___prettySize',
+  FrontmatterDownloadableimagesModifiedTime = 'frontmatter___downloadableimages___modifiedTime',
+  FrontmatterDownloadableimagesAccessTime = 'frontmatter___downloadableimages___accessTime',
+  FrontmatterDownloadableimagesChangeTime = 'frontmatter___downloadableimages___changeTime',
+  FrontmatterDownloadableimagesBirthTime = 'frontmatter___downloadableimages___birthTime',
+  FrontmatterDownloadableimagesRoot = 'frontmatter___downloadableimages___root',
+  FrontmatterDownloadableimagesDir = 'frontmatter___downloadableimages___dir',
+  FrontmatterDownloadableimagesBase = 'frontmatter___downloadableimages___base',
+  FrontmatterDownloadableimagesExt = 'frontmatter___downloadableimages___ext',
+  FrontmatterDownloadableimagesName = 'frontmatter___downloadableimages___name',
+  FrontmatterDownloadableimagesRelativeDirectory = 'frontmatter___downloadableimages___relativeDirectory',
+  FrontmatterDownloadableimagesDev = 'frontmatter___downloadableimages___dev',
+  FrontmatterDownloadableimagesMode = 'frontmatter___downloadableimages___mode',
+  FrontmatterDownloadableimagesNlink = 'frontmatter___downloadableimages___nlink',
+  FrontmatterDownloadableimagesUid = 'frontmatter___downloadableimages___uid',
+  FrontmatterDownloadableimagesGid = 'frontmatter___downloadableimages___gid',
+  FrontmatterDownloadableimagesRdev = 'frontmatter___downloadableimages___rdev',
+  FrontmatterDownloadableimagesIno = 'frontmatter___downloadableimages___ino',
+  FrontmatterDownloadableimagesAtimeMs = 'frontmatter___downloadableimages___atimeMs',
+  FrontmatterDownloadableimagesMtimeMs = 'frontmatter___downloadableimages___mtimeMs',
+  FrontmatterDownloadableimagesCtimeMs = 'frontmatter___downloadableimages___ctimeMs',
+  FrontmatterDownloadableimagesAtime = 'frontmatter___downloadableimages___atime',
+  FrontmatterDownloadableimagesMtime = 'frontmatter___downloadableimages___mtime',
+  FrontmatterDownloadableimagesCtime = 'frontmatter___downloadableimages___ctime',
+  FrontmatterDownloadableimagesPublicUrl = 'frontmatter___downloadableimages___publicURL',
+  FrontmatterDownloadableimagesId = 'frontmatter___downloadableimages___id',
+  FrontmatterDownloadableimagesParentId = 'frontmatter___downloadableimages___parent___id',
+  FrontmatterDownloadableimagesParentChildren = 'frontmatter___downloadableimages___parent___children',
+  FrontmatterDownloadableimagesChildren = 'frontmatter___downloadableimages___children',
+  FrontmatterDownloadableimagesChildrenId = 'frontmatter___downloadableimages___children___id',
+  FrontmatterDownloadableimagesChildrenChildren = 'frontmatter___downloadableimages___children___children',
+  FrontmatterDownloadableimagesInternalContent = 'frontmatter___downloadableimages___internal___content',
+  FrontmatterDownloadableimagesInternalContentDigest = 'frontmatter___downloadableimages___internal___contentDigest',
+  FrontmatterDownloadableimagesInternalDescription = 'frontmatter___downloadableimages___internal___description',
+  FrontmatterDownloadableimagesInternalFieldOwners = 'frontmatter___downloadableimages___internal___fieldOwners',
+  FrontmatterDownloadableimagesInternalIgnoreType = 'frontmatter___downloadableimages___internal___ignoreType',
+  FrontmatterDownloadableimagesInternalMediaType = 'frontmatter___downloadableimages___internal___mediaType',
+  FrontmatterDownloadableimagesInternalOwner = 'frontmatter___downloadableimages___internal___owner',
+  FrontmatterDownloadableimagesInternalType = 'frontmatter___downloadableimages___internal___type',
+  FrontmatterDownloadableimagesChildImageSharpId = 'frontmatter___downloadableimages___childImageSharp___id',
+  FrontmatterDownloadableimagesChildImageSharpChildren = 'frontmatter___downloadableimages___childImageSharp___children',
+  FrontmatterDownloadableimagesChildMarkdownRemarkId = 'frontmatter___downloadableimages___childMarkdownRemark___id',
+  FrontmatterDownloadableimagesChildMarkdownRemarkExcerpt = 'frontmatter___downloadableimages___childMarkdownRemark___excerpt',
+  FrontmatterDownloadableimagesChildMarkdownRemarkRawMarkdownBody = 'frontmatter___downloadableimages___childMarkdownRemark___rawMarkdownBody',
+  FrontmatterDownloadableimagesChildMarkdownRemarkFileAbsolutePath = 'frontmatter___downloadableimages___childMarkdownRemark___fileAbsolutePath',
+  FrontmatterDownloadableimagesChildMarkdownRemarkHtml = 'frontmatter___downloadableimages___childMarkdownRemark___html',
+  FrontmatterDownloadableimagesChildMarkdownRemarkHtmlAst = 'frontmatter___downloadableimages___childMarkdownRemark___htmlAst',
+  FrontmatterDownloadableimagesChildMarkdownRemarkExcerptAst = 'frontmatter___downloadableimages___childMarkdownRemark___excerptAst',
+  FrontmatterDownloadableimagesChildMarkdownRemarkHeadings = 'frontmatter___downloadableimages___childMarkdownRemark___headings',
+  FrontmatterDownloadableimagesChildMarkdownRemarkTimeToRead = 'frontmatter___downloadableimages___childMarkdownRemark___timeToRead',
+  FrontmatterDownloadableimagesChildMarkdownRemarkTableOfContents = 'frontmatter___downloadableimages___childMarkdownRemark___tableOfContents',
+  FrontmatterDownloadableimagesChildMarkdownRemarkChildren = 'frontmatter___downloadableimages___childMarkdownRemark___children',
+  FrontmatterFiles = 'frontmatter___files',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
@@ -1798,12 +1899,14 @@ export type MarkdownRemarkFrontmatter = {
   image?: Maybe<File>,
   heading?: Maybe<Scalars['String']>,
   subheading?: Maybe<Scalars['String']>,
-  date?: Maybe<Scalars['Date']>,
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
-  files?: Maybe<Array<Maybe<Scalars['String']>>>,
+  description?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
   hidden?: Maybe<Scalars['Boolean']>,
+  date?: Maybe<Scalars['Date']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   featuredimage?: Maybe<File>,
+  downloadableimages?: Maybe<Array<Maybe<File>>>,
+  files?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 
@@ -1820,12 +1923,14 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   image?: Maybe<FileFilterInput>,
   heading?: Maybe<StringQueryOperatorInput>,
   subheading?: Maybe<StringQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
-  tags?: Maybe<StringQueryOperatorInput>,
-  files?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
   hidden?: Maybe<BooleanQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
   featuredimage?: Maybe<FileFilterInput>,
+  downloadableimages?: Maybe<FileFilterListInput>,
+  files?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2516,6 +2621,8 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPluginsPluginFilepath = 'pluginCreator___pluginOptions___plugins___pluginFilepath',
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
+  PluginCreatorPluginOptionsColor = 'pluginCreator___pluginOptions___color',
+  PluginCreatorPluginOptionsPaths = 'pluginCreator___pluginOptions___paths',
   PluginCreatorPluginOptionsMaxWidth = 'pluginCreator___pluginOptions___maxWidth',
   PluginCreatorPluginOptionsLinkImagesToOriginal = 'pluginCreator___pluginOptions___linkImagesToOriginal',
   PluginCreatorPluginOptionsShowCaptions = 'pluginCreator___pluginOptions___showCaptions',
@@ -2534,6 +2641,10 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsWrapperStyle = 'pluginCreator___pluginOptions___wrapperStyle',
   PluginCreatorPluginOptionsPathToConfigModule = 'pluginCreator___pluginOptions___pathToConfigModule',
   PluginCreatorPluginOptionsOmitGoogleFont = 'pluginCreator___pluginOptions___omitGoogleFont',
+  PluginCreatorPluginOptionsFonts = 'pluginCreator___pluginOptions___fonts',
+  PluginCreatorPluginOptionsFontsFamily = 'pluginCreator___pluginOptions___fonts___family',
+  PluginCreatorPluginOptionsFontsSubsets = 'pluginCreator___pluginOptions___fonts___subsets',
+  PluginCreatorPluginOptionsFontsVariants = 'pluginCreator___pluginOptions___fonts___variants',
   PluginCreatorPluginOptionsModulePath = 'pluginCreator___pluginOptions___modulePath',
   PluginCreatorPluginOptionsManualInit = 'pluginCreator___pluginOptions___manualInit',
   PluginCreatorPluginOptionsEnableIdentityWidget = 'pluginCreator___pluginOptions___enableIdentityWidget',
@@ -2757,6 +2868,8 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsPluginFilepath = 'pluginOptions___plugins___pluginFilepath',
   PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsName = 'pluginOptions___name',
+  PluginOptionsColor = 'pluginOptions___color',
+  PluginOptionsPaths = 'pluginOptions___paths',
   PluginOptionsMaxWidth = 'pluginOptions___maxWidth',
   PluginOptionsLinkImagesToOriginal = 'pluginOptions___linkImagesToOriginal',
   PluginOptionsShowCaptions = 'pluginOptions___showCaptions',
@@ -2776,6 +2889,10 @@ export enum SitePluginFieldsEnum {
   PluginOptionsWrapperStyle = 'pluginOptions___wrapperStyle',
   PluginOptionsPathToConfigModule = 'pluginOptions___pathToConfigModule',
   PluginOptionsOmitGoogleFont = 'pluginOptions___omitGoogleFont',
+  PluginOptionsFonts = 'pluginOptions___fonts',
+  PluginOptionsFontsFamily = 'pluginOptions___fonts___family',
+  PluginOptionsFontsSubsets = 'pluginOptions___fonts___subsets',
+  PluginOptionsFontsVariants = 'pluginOptions___fonts___variants',
   PluginOptionsModulePath = 'pluginOptions___modulePath',
   PluginOptionsManualInit = 'pluginOptions___manualInit',
   PluginOptionsEnableIdentityWidget = 'pluginOptions___enableIdentityWidget',
@@ -2907,6 +3024,8 @@ export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>,
   path?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
+  color?: Maybe<Scalars['String']>,
+  paths?: Maybe<Array<Maybe<Scalars['String']>>>,
   maxWidth?: Maybe<Scalars['Int']>,
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
   showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>,
@@ -2925,6 +3044,7 @@ export type SitePluginPluginOptions = {
   wrapperStyle?: Maybe<Scalars['String']>,
   pathToConfigModule?: Maybe<Scalars['String']>,
   omitGoogleFont?: Maybe<Scalars['Boolean']>,
+  fonts?: Maybe<Array<Maybe<SitePluginPluginOptionsFonts>>>,
   modulePath?: Maybe<Scalars['String']>,
   manualInit?: Maybe<Scalars['Boolean']>,
   enableIdentityWidget?: Maybe<Scalars['Boolean']>,
@@ -2937,6 +3057,8 @@ export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>,
   path?: Maybe<StringQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
+  color?: Maybe<StringQueryOperatorInput>,
+  paths?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
   showCaptions?: Maybe<StringQueryOperatorInput>,
@@ -2955,12 +3077,30 @@ export type SitePluginPluginOptionsFilterInput = {
   wrapperStyle?: Maybe<StringQueryOperatorInput>,
   pathToConfigModule?: Maybe<StringQueryOperatorInput>,
   omitGoogleFont?: Maybe<BooleanQueryOperatorInput>,
+  fonts?: Maybe<SitePluginPluginOptionsFontsFilterListInput>,
   modulePath?: Maybe<StringQueryOperatorInput>,
   manualInit?: Maybe<BooleanQueryOperatorInput>,
   enableIdentityWidget?: Maybe<BooleanQueryOperatorInput>,
   htmlTitle?: Maybe<StringQueryOperatorInput>,
   htmlFavicon?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsFonts = {
+   __typename?: 'SitePluginPluginOptionsFonts',
+  family?: Maybe<Scalars['String']>,
+  subsets?: Maybe<Array<Maybe<Scalars['String']>>>,
+  variants?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+export type SitePluginPluginOptionsFontsFilterInput = {
+  family?: Maybe<StringQueryOperatorInput>,
+  subsets?: Maybe<StringQueryOperatorInput>,
+  variants?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsFontsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsFontsFilterInput>,
 };
 
 export type SitePluginPluginOptionsPlugins = {
@@ -3159,6 +3299,30 @@ export type BlogRollQueryQuery = (
   ) }
 );
 
+export type IndexPageDataQueryVariables = {};
+
+
+export type IndexPageDataQuery = (
+  { __typename?: 'Query' }
+  & { markdownRemark: Maybe<(
+    { __typename?: 'MarkdownRemark' }
+    & { frontmatter: Maybe<(
+      { __typename?: 'MarkdownRemarkFrontmatter' }
+      & Pick<MarkdownRemarkFrontmatter, 'heading'>
+      & { image: Maybe<(
+        { __typename?: 'File' }
+        & { childImageSharp: Maybe<(
+          { __typename?: 'ImageSharp' }
+          & { fluid: Maybe<(
+            { __typename?: 'ImageSharpFluid' }
+            & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+          )> }
+        )> }
+      )> }
+    )> }
+  )> }
+);
+
 export type Unnamed_1_QueryVariables = {};
 
 
@@ -3176,9 +3340,21 @@ export type Unnamed_1_Query = (
   )> }
 );
 
-export type AboutPageQueryVariables = {
-  id: Scalars['String']
-};
+export type TagsQueryQueryVariables = {};
+
+
+export type TagsQueryQuery = (
+  { __typename?: 'Query' }
+  & { allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { group: Array<(
+      { __typename?: 'MarkdownRemarkGroupConnection' }
+      & Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>
+    )> }
+  ) }
+);
+
+export type AboutPageQueryVariables = {};
 
 
 export type AboutPageQuery = (
@@ -3202,7 +3378,7 @@ export type BlogPostByIdQuery = (
   { __typename?: 'Query' }
   & { markdownRemark: Maybe<(
     { __typename?: 'MarkdownRemark' }
-    & Pick<MarkdownRemark, 'id' | 'html'>
+    & Pick<MarkdownRemark, 'id' | 'html' | 'fileAbsolutePath'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
       & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'tags'>
@@ -3220,7 +3396,7 @@ export type IndexPageTemplateQuery = (
     & Pick<MarkdownRemark, 'html'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
-      & Pick<MarkdownRemarkFrontmatter, 'title' | 'heading' | 'subheading'>
+      & Pick<MarkdownRemarkFrontmatter, 'heading' | 'subheading'>
       & { image: Maybe<(
         { __typename?: 'File' }
         & { childImageSharp: Maybe<(
@@ -3235,6 +3411,62 @@ export type IndexPageTemplateQuery = (
   )> }
 );
 
+export type PressImagesPageQueryVariables = {};
+
+
+export type PressImagesPageQuery = (
+  { __typename?: 'Query' }
+  & { markdownRemark: Maybe<(
+    { __typename?: 'MarkdownRemark' }
+    & Pick<MarkdownRemark, 'html'>
+    & { frontmatter: Maybe<(
+      { __typename?: 'MarkdownRemarkFrontmatter' }
+      & { downloadableimages: Maybe<Array<Maybe<(
+        { __typename?: 'File' }
+        & { childImageSharp: Maybe<(
+          { __typename?: 'ImageSharp' }
+          & { fluid: Maybe<(
+            { __typename?: 'ImageSharpFluid' }
+            & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+          )>, original: Maybe<(
+            { __typename?: 'ImageSharpOriginal' }
+            & Pick<ImageSharpOriginal, 'width' | 'height' | 'src'>
+          )> }
+        )> }
+      )>>> }
+    )> }
+  )>, fileName: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+      )> }
+    )> }
+  )> }
+);
+
+export type PublishedPageQueryVariables = {};
+
+
+export type PublishedPageQuery = (
+  { __typename?: 'Query' }
+  & { markdownRemark: Maybe<(
+    { __typename?: 'MarkdownRemark' }
+    & Pick<MarkdownRemark, 'html'>
+  )>, fileName: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+      )> }
+    )> }
+  )> }
+);
+
 export type TagPageQueryVariables = {
   tag?: Maybe<Scalars['String']>
 };
@@ -3242,13 +3474,7 @@ export type TagPageQueryVariables = {
 
 export type TagPageQuery = (
   { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title'>
-    )> }
-  )>, allMarkdownRemark: (
+  & { allMarkdownRemark: (
     { __typename?: 'MarkdownRemarkConnection' }
     & Pick<MarkdownRemarkConnection, 'totalCount'>
     & { edges: Array<(

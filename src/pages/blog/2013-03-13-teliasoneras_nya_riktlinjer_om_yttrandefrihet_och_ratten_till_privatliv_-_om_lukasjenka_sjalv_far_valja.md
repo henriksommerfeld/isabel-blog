@@ -1,10 +1,12 @@
 ---
 templateKey: blog-post
-url: /2013/03/13/teliasoneras-nya-riktlinjer-om-yttrandefrihet-och-ratten-till-privatliv-om-diktator-lukasjenka-sjalv-far-valja
+url: >-
+  /2013/03/13/teliasoneras-nya-riktlinjer-om-yttrandefrihet-och-ratten-till-privatliv-om-diktator-lukasjenka-sjalv-far-valja
 title: >-
   TeliaSoneras nya riktlinjer om yttrandefrihet och rätten till privatliv - om
   Lukasjenka själv får välja?
 hidden: false
+language: sv
 date: 2013-03-13T14:58:08.978Z
 tags:
   - Belarus

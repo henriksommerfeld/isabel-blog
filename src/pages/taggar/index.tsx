@@ -1,5 +1,4 @@
 import React from 'react';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
@@ -7,6 +6,7 @@ import Layout from '../../components/Layout';
 import useSiteMetadata from '../../components/SiteMetadata';
 import { TagsTemplate } from '../../templates/tags-template';
 import tagSvg from '../../../static/img/tag-grey500.svg';
+import { getTagRouteUrl } from '../../tags-parser';
 
 export default function TagsPage({ location }) {
   const data = useStaticQuery(tagPageQuery);
@@ -22,7 +22,7 @@ export default function TagsPage({ location }) {
           {group.map(tag => (
             <LinkContainer key={tag.fieldValue}>
               <LinkIconSvg src={tagSvg} alt="" />
-              <Link to={`/taggar/${kebabCase(tag.fieldValue)}/`}>
+              <Link to={getTagRouteUrl(tag.fieldValue)}>
                 {tag.fieldValue} ({tag.totalCount})
               </Link>
             </LinkContainer>

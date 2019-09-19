@@ -1,23 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import Ripples from 'react-ripples';
-import { colors, spacing, breakpoints } from '../constants';
-import { tailwindColors } from '../tailwind-colors';
+import { spacing, breakpoints, buttonStyles } from '../constants';
 import ArrowsDownSvg from '../../static/img/arrows-down.svg';
+import { RipplesButton } from './RipplesButton';
+import { ButtonText } from './ButtonText';
 
 export default function MorePostsButton({ clickedHandler }) {
   return (
     <ButtonContainer>
-      <Ripples className="button">
+      <RipplesButtonWithBreakpoints>
         <MorePostsButtonStyled onClick={clickedHandler}>
           <ArrowsDown src={ArrowsDownSvg} />
           <ButtonText>Visa äldre inlägg</ButtonText>
           <ArrowsDown src={ArrowsDownSvg} />
         </MorePostsButtonStyled>
-      </Ripples>
+      </RipplesButtonWithBreakpoints>
     </ButtonContainer>
   );
 }
+
+const RipplesButtonWithBreakpoints = styled(RipplesButton)`
+  @media (min-width: ${breakpoints.small}) {
+    width: auto;
+  }
+`;
 
 const ArrowsDown = styled('img')`
   width: 1em;
@@ -25,28 +31,8 @@ const ArrowsDown = styled('img')`
   margin-bottom: 0;
 `;
 
-const ButtonText = styled('span')`
-  margin: 0 0.5em;
-`;
-
 const MorePostsButtonStyled = styled('button')`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  background-color: ${tailwindColors.red600};
-  transition: background-color 100ms ease-in-out;
-  color: ${colors.white};
-  border-style: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${tailwindColors.red700};
-  }
-  &:active {
-    background-color: ${tailwindColors.red800};
-  }
+  ${buttonStyles}
 `;
 
 const ButtonContainer = styled('div')`

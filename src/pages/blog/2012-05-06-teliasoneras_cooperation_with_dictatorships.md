@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2012/05/06/documentary-about-teliasoneras-cooperation-with-dictatorships
 title: TeliaSonera's cooperation with dictatorships
 hidden: false
+language: en
 date: 2012-05-06T20:20:20.933Z
 tags:
   - TeliaSonera

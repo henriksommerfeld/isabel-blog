@@ -3,6 +3,7 @@ templateKey: blog-post
 url: /2011/04/11/bombdad-i-centrala-minsk
 title: Bombdåd i centrala Minsk
 hidden: false
+language: sv
 date: 2011-04-11T06:21:08.759Z
 tags:
   - Belarus
