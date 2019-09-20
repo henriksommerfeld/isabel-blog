@@ -13,10 +13,11 @@ export const IndexPageTemplate = ({
   subheading,
   description,
   isPreview = false,
+  location,
 }) => (
   <PageStyled>
     <IntroBanner>
-      <Search />
+      <Search location={location} />
       <IntroBannerWidthConstrainer>
         <PortraitLarge image={image} style={portraitStyles} />
         <IntroText>

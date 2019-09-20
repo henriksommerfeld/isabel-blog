@@ -7,6 +7,7 @@ import { withPrefix } from 'gatsby';
 import { colors, breakpoints } from '../constants';
 import Header from './Header';
 import { tailwindColors } from '../tailwind-colors';
+import { SearchResult } from './SearchResult';
 
 interface TemplateWrapperProps {
   children: ReactNode;
@@ -68,6 +69,7 @@ export default function TemplateWrapper({
         <Body className="Body">{children}</Body>
         <Footer editLink={editLink} />
       </Page>
+      <SearchResult />
     </>
   );
 }

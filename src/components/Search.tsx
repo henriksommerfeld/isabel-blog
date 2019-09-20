@@ -1,21 +1,45 @@
 import React, { useState } from 'react';
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import { Index } from 'elasticlunr';
 import styled from 'styled-components';
-import { colors, breakpoints, spacing, layout } from '../constants';
+import {
+  colors,
+  breakpoints,
+  spacing,
+  layout,
+  globalStates,
+} from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
+import { headerHeight, headerHeightNumber } from './Header';
+import { useGlobalState } from '../useGlobalState';
 
-export default function Search() {
-  const [queryInput, setQueryInput] = useState('');
+export default function Search({ location }) {
   const [hasFocus, setHasFocus] = useState(false);
+  const data = useStaticQuery(searchIndexQuery);
+  const index = Index.load(data.siteSearchIndex.index);
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useGlobalState(globalStates.searchResults, []);
 
   const searchClicked = () => {
-    console.log('Search clicked', queryInput);
+    console.log('Search clicked', query);
   };
 
   const queryInputChanged = evt => {
-    setQueryInput(evt.target.value);
+    const newQuery = evt.target.value;
+    setQuery(newQuery);
+    search(newQuery);
+  };
+
+  const search = enteredQuery => {
+    const response = index
+      .search(enteredQuery, { expand: true })
+      .map(({ ref }) => index.documentStore.getDoc(ref));
+    console.log('TCL: Search -> response', response);
+
+    setResults(response || []);
   };
 
   return (
@@ -47,12 +71,9 @@ export default function Search() {
           </SearchButton>
         </SearchBox>
       </SearchArea>
-      <SearchResult />
     </>
   );
 }
-
-const SearchResult = styled('div')``;
 
 const SearchArea = styled('div')`
   display: flex;
@@ -98,4 +119,12 @@ const SearchButton = styled('button')`
 const SearchIcon = styled('img')`
   margin: 0;
   width: 1.5em;
+`;
+
+const searchIndexQuery = graphql`
+  query SearchIndexQuery {
+    siteSearchIndex {
+      index
+    }
+  }
 `;

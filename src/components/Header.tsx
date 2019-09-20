@@ -72,6 +72,7 @@ const pageQuery = graphql`
 `;
 
 export const headerHeight = '70px';
+export const headerHeightNumber = 70;
 
 const EmptyDiv = styled('div')`
   @media (min-width: ${breakpoints.medium}) {

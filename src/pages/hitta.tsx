@@ -50,7 +50,7 @@ export default function SearchPage({ location }) {
 }
 
 const searchIndexQuery = graphql`
-  query SearchIndexQuery {
+  query SearchIndex2Query {
     siteSearchIndex {
       index
     }

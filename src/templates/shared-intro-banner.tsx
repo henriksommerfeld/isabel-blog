@@ -9,17 +9,19 @@ import Search from '../components/Search';
 interface SharedIntroBanner {
   title: string;
   backgroundImage: FluidObject | undefined;
+  location: any;
 }
 
 export function SharedIntroBanner({
   title,
   backgroundImage,
+  location,
 }: SharedIntroBanner) {
   if (!title) return null;
 
   return (
     <IntroBanner backgroundImage={backgroundImage}>
-      <Search />
+      <Search location={location} />
       <IntroBannerWidthConstrainer>
         <Heading>{title}</Heading>
       </IntroBannerWidthConstrainer>
@@ -89,11 +91,11 @@ const IntroBannerWidthConstrainer = styled('div')`
 
   @media (min-width: ${breakpoints.medium}) {
     padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
-    transform: translateY(${spacing.contentOffset});
+    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
   }
 
   @media (min-width: ${breakpoints.large}) {
-    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
+    transform: translateY(${spacing.contentOffset});
   }
 `;
 
