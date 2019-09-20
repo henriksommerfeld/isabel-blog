@@ -72,9 +72,13 @@ const IntroBannerWithFluidImage = styled(BackgroundImage)`
   background-position-y: center;
   height: 20vh;
 
+  @media (min-width: ${breakpoints.medium}) {
+    height: 28vh;
+  }
+
   @media (min-width: ${breakpoints.large}) {
     background-size: 70vw;
-    height: 400px;
+    height: 32vh;
   }
 `;
 
@@ -85,6 +89,11 @@ const IntroBannerWidthConstrainer = styled('div')`
 
   @media (min-width: ${breakpoints.medium}) {
     padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
+    transform: translateY(${spacing.contentOffset});
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
   }
 `;
 
@@ -92,8 +101,4 @@ const Heading = styled.h1`
   color: ${colors.white};
   line-height: 1.4em;
   word-break: break-word;
-
-  @media (min-width: ${breakpoints.medium}) {
-    transform: translateY(${spacing.postHeadingOffset});
-  }
 `;

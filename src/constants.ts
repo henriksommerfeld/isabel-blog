@@ -10,6 +10,7 @@ export const spacing = {
   notFoundBannerExtraPadding: '5rem',
   contentOffset: `-3rem`,
   postHeadingOffset: `-1rem`,
+  postHeadingOffsetWithSearchbox: `-2rem`,
 };
 
 export const layout = {

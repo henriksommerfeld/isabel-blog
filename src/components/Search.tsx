@@ -19,35 +19,40 @@ export default function Search() {
   };
 
   return (
-    <SearchArea>
-      <SearchBox hasFocus={hasFocus}>
-        <label htmlFor="searchbox" className="screen-reader-text">
-          {`Ange dina sökord här... ${hasFocus}`}
-        </label>
-        <SearchBoxInput
-          id="searchbox"
-          type="search"
-          role="entry"
-          placeholder="Ange dina sökord här..."
-          onChange={queryInputChanged}
-          onFocus={() => setHasFocus(true)}
-          onBlur={() => setHasFocus(false)}
-        />
-        <SearchButton
-          onClick={searchClicked}
-          aria-label="Sök"
-          onFocus={() => setHasFocus(true)}
-          onBlur={() => setHasFocus(false)}
-        >
-          <SearchIcon
-            src={hasFocus ? SearchWhiteSvg : SearchGreySvg}
-            aria-hidden
+    <>
+      <SearchArea>
+        <SearchBox hasFocus={hasFocus}>
+          <label htmlFor="searchbox" className="screen-reader-text">
+            {`Ange dina sökord här... ${hasFocus}`}
+          </label>
+          <SearchBoxInput
+            id="searchbox"
+            type="search"
+            role="entry"
+            placeholder="Ange dina sökord här..."
+            onChange={queryInputChanged}
+            onFocus={() => setHasFocus(true)}
+            onBlur={() => setHasFocus(false)}
           />
-        </SearchButton>
-      </SearchBox>
-    </SearchArea>
+          <SearchButton
+            onClick={searchClicked}
+            aria-label="Sök"
+            onFocus={() => setHasFocus(true)}
+            onBlur={() => setHasFocus(false)}
+          >
+            <SearchIcon
+              src={hasFocus ? SearchWhiteSvg : SearchGreySvg}
+              aria-hidden
+            />
+          </SearchButton>
+        </SearchBox>
+      </SearchArea>
+      <SearchResult />
+    </>
   );
 }
+
+const SearchResult = styled('div')``;
 
 const SearchArea = styled('div')`
   display: flex;
