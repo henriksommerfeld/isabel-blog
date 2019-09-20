@@ -104,6 +104,9 @@ export const GlobalStyle = createGlobalStyle`
     background-size: 100% 2px;
 
   }
+  .screen-reader-text {
+    display: none;
+  }
   .gatsby-resp-image-background-image, .gatsby-resp-image-image, .featured-thumbnail {
     margin: 0;
     padding: 4px;

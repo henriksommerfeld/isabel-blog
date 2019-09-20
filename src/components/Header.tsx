@@ -71,7 +71,7 @@ const pageQuery = graphql`
   }
 `;
 
-export const headerHeight = '80px';
+export const headerHeight = '70px';
 
 const EmptyDiv = styled('div')`
   @media (min-width: ${breakpoints.medium}) {
@@ -125,5 +125,6 @@ const NavWidthConstrainer = styled('div')`
 
   @media (min-width: ${breakpoints.medium}) {
     justify-content: 'space-between';
+    padding: initial 1rem;
   }
 `;

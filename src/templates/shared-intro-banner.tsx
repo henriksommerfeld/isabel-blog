@@ -4,6 +4,7 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import { getFluid } from '../images';
+import Search from '../components/Search';
 
 interface SharedIntroBanner {
   title: string;
@@ -18,6 +19,7 @@ export function SharedIntroBanner({
 
   return (
     <IntroBanner backgroundImage={backgroundImage}>
+      <Search />
       <IntroBannerWidthConstrainer>
         <Heading>{title}</Heading>
       </IntroBannerWidthConstrainer>
@@ -53,7 +55,7 @@ const IntroBannerSolidBackground = styled('div')`
 const IntroBannerDarkOverlay = styled('div')`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;

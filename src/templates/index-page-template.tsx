@@ -4,6 +4,8 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BlogRoll from '../components/BlogRoll';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import { tailwindColors } from '../tailwind-colors';
+import Search from '../components/Search';
 
 export const IndexPageTemplate = ({
   image,
@@ -14,9 +16,9 @@ export const IndexPageTemplate = ({
 }) => (
   <PageStyled>
     <IntroBanner>
+      <Search />
       <IntroBannerWidthConstrainer>
         <PortraitLarge image={image} style={portraitStyles} />
-
         <IntroText>
           <h1>{heading}</h1>
           <h2>{subheading}</h2>

@@ -4,16 +4,21 @@ import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
 import Layout from '../components/Layout';
 import { PublishedPageTemplate } from './published-page-template';
+import Helmet from 'react-helmet';
+import useSiteMetadata from '../components/SiteMetadata';
 
 export default function PublishedPage({ location }) {
   const data = useStaticQuery(publishedPageQuery);
   const content = data.markdownRemark.html;
+  const pageName = 'Publicerat';
+  const { title } = useSiteMetadata();
 
   return (
     <Layout location={location} editLink={editPageUrl('published')}>
+      <Helmet title={`${pageName} | ${title}`} />
       <PublishedPageTemplate
         contentComponent={HTMLContent}
-        title="Publicerat"
+        title={pageName}
         content={content}
         imageFile={data.fileName}
       />
