@@ -6,16 +6,23 @@ import { transparentizeHex } from '../color-convertions';
 import { useGlobal } from 'reactn';
 import { SearchQuery, SearchRoute, SearchResults } from './Search';
 import CloseSvg from '../../static/img/close.svg';
+import { useEscKey } from '../useEscKey';
 
 export function SearchResult({ location }) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
 
-  const closeButtonClicked = () => {
+  const closeSearch = () => {
     setRoute(null);
     setQuery(null);
     setResults([]);
+  };
+
+  useEscKey(closeSearch);
+
+  const closeButtonClicked = () => {
+    closeSearch();
   };
 
   if (!shouldShowResults(results, route, location.pathname)) return null;
@@ -53,14 +60,33 @@ function shouldShowResults(
 }
 
 const CloseButtonStyled = styled('button')`
-  background: none;
+  /* background: none;
   border: none;
   position: absolute;
   top: ${spacing.paddingDouble};
   right: ${spacing.paddingDouble};
   margin: 0;
   padding: 0;
-  cursor: pointer;
+  cursor: pointer; */
+
+    background: ${colors.white};
+    border: none;
+    position: absolute;
+    top: ${spacing.paddingDouble};
+  right: ${spacing.paddingDouble};
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+    transition: transform 500ms ease;
+
+    &:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
 `;
 
 const CloseIcon = styled('img')`
@@ -74,7 +100,7 @@ const SearchResultsContainer = styled('div')`
   align-items: center;
   position: absolute;
   height: auto;
-  /* min-height: 100%; */
+  min-height: 100%;
   top: ${156}px;
   left: 0;
   right: 0;
@@ -84,8 +110,8 @@ const SearchResultsContainer = styled('div')`
   background-color: ${colors.white};
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     background-color: ${transparentizeHex(colors.white, 0.8)};
   }
 `;
