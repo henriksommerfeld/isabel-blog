@@ -7,11 +7,17 @@ import { useGlobal } from 'reactn';
 import { SearchQuery, SearchRoute, SearchResults } from './Search';
 import CloseSvg from '../../static/img/close.svg';
 import { useEscKey } from '../useEscKey';
+import { useTransition, animated, config } from 'react-spring';
 
 export function SearchResult({ location }) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
+  const containerTransitions = useTransition(
+    shouldShowResults(results, route, location.pathname),
+    null,
+    opacityTransition
+  );
 
   const closeSearch = () => {
     setRoute(null);
@@ -25,29 +31,37 @@ export function SearchResult({ location }) {
     closeSearch();
   };
 
-  if (!shouldShowResults(results, route, location.pathname)) return null;
-
-  return (
-    <SearchResultsContainer>
-      <CloseButtonStyled onClick={closeButtonClicked}>
-        <CloseIcon src={CloseSvg} />
-      </CloseButtonStyled>
-      <SearchResultsStyled className="search-results">
-        <h2>
-          {results.length ? results.length : 'Inga'} träffar för{' '}
-          <em>{query}</em>
-        </h2>
-        <ul>
-          {results.map(page => (
-            <li key={page.id}>
-              <Link to={page.path}>{page.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </SearchResultsStyled>
-    </SearchResultsContainer>
+  return containerTransitions.map(
+    ({ item, key, props }) =>
+      item && (
+        <SearchResultsContainer key={key} style={props}>
+          <CloseButtonStyled onClick={closeButtonClicked}>
+            <CloseIcon src={CloseSvg} />
+          </CloseButtonStyled>
+          <SearchResultsStyled className="search-results">
+            <h2>
+              {results.length ? results.length : 'Inga'} träffar för{' '}
+              <em>{query}</em>
+            </h2>
+            <ul>
+              {results.map(page => (
+                <li key={page.id}>
+                  <Link to={page.path}>{page.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </SearchResultsStyled>
+        </SearchResultsContainer>
+      )
   );
 }
+
+const opacityTransition = {
+  from: { opacity: 0 },
+  enter: { opacity: 1 },
+  leave: { opacity: 0 },
+  config: config.stiff,
+};
 
 function shouldShowResults(
   results: any,
@@ -94,7 +108,7 @@ const CloseIcon = styled('img')`
   margin: 0;
 `;
 
-const SearchResultsContainer = styled('div')`
+const SearchResultsContainer = styled(animated.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
