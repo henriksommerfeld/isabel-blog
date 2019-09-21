@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Index } from 'elasticlunr';
 import styled from 'styled-components';
-import {
-  colors,
-  breakpoints,
-  spacing,
-  layout,
-  globalStates,
-} from '../constants';
+import { useGlobal } from 'reactn';
+import { colors, layout } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
-import { headerHeight, headerHeightNumber } from './Header';
-import { useGlobalState } from '../useGlobalState';
 
 export default function Search({ location }) {
   const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useGlobalState(globalStates.searchResults, []);
+  const [, setResults] = useGlobal<SearchResults>('searchResults');
+  const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
+  const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
 
   const searchClicked = () => {
     console.log('Search clicked', query);
@@ -30,6 +24,7 @@ export default function Search({ location }) {
   const queryInputChanged = evt => {
     const newQuery = evt.target.value;
     setQuery(newQuery);
+    setRoute(location.pathname);
     search(newQuery);
   };
 
@@ -41,6 +36,12 @@ export default function Search({ location }) {
 
     setResults(response || []);
   };
+
+  const onBlur = () => {
+    setHasFocus(false);
+  };
+
+  const getPreviousQuery = path => (route === path ? query : '');
 
   return (
     <>
@@ -54,15 +55,16 @@ export default function Search({ location }) {
             type="search"
             role="entry"
             placeholder="Ange dina sökord här..."
+            value={getPreviousQuery(location.pathname)}
             onChange={queryInputChanged}
             onFocus={() => setHasFocus(true)}
-            onBlur={() => setHasFocus(false)}
+            onBlur={onBlur}
           />
           <SearchButton
             onClick={searchClicked}
             aria-label="Sök"
             onFocus={() => setHasFocus(true)}
-            onBlur={() => setHasFocus(false)}
+            onBlur={onBlur}
           >
             <SearchIcon
               src={hasFocus ? SearchWhiteSvg : SearchGreySvg}
@@ -120,6 +122,16 @@ const SearchIcon = styled('img')`
   margin: 0;
   width: 1.5em;
 `;
+
+export interface SearchRoute {
+  searchRoute: string;
+}
+export interface SearchQuery {
+  searchQuery: string;
+}
+export interface SearchResults {
+  searchResults: any[];
+}
 
 const searchIndexQuery = graphql`
   query SearchIndexQuery {

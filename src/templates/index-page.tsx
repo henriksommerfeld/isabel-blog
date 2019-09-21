@@ -4,6 +4,7 @@ import { editPageUrl } from '../url-replacer';
 
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
+import { useGlobal } from 'reactn';
 
 export default function IndexPage({ location }) {
   const data = useStaticQuery(pageQuery);

@@ -13,10 +13,6 @@ export const spacing = {
   postHeadingOffsetWithSearchbox: `-2rem`,
 };
 
-export const globalStates = {
-  searchResults: 'searchresults',
-};
-
 export const layout = {
   contentMaxWidth: 1000,
   borderRadius: '0.25rem',

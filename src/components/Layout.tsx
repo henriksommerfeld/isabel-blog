@@ -69,7 +69,7 @@ export default function TemplateWrapper({
         <Body className="Body">{children}</Body>
         <Footer editLink={editLink} />
       </Page>
-      <SearchResult />
+      <SearchResult location={location} />
     </>
   );
 }
