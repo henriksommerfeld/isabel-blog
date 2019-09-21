@@ -8,15 +8,21 @@ import { SearchQuery, SearchRoute, SearchResults } from './Search';
 import CloseSvg from '../../static/img/close.svg';
 
 export function SearchResult({ location }) {
-  const [results] = useGlobal<SearchResults>('searchResults');
-  const [route] = useGlobal<SearchRoute>('searchRoute');
-  const [query] = useGlobal<SearchQuery>('searchQuery');
+  const [results, setResults] = useGlobal<SearchResults>('searchResults');
+  const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
+  const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
+
+  const closeButtonClicked = () => {
+    setRoute(null);
+    setQuery(null);
+    setResults([]);
+  };
 
   if (!shouldShowResults(results, route, location.pathname)) return null;
 
   return (
     <SearchResultsContainer>
-      <CloseButtonStyled>
+      <CloseButtonStyled onClick={closeButtonClicked}>
         <CloseIcon src={CloseSvg} />
       </CloseButtonStyled>
       <SearchResultsStyled className="search-results">
@@ -53,10 +59,13 @@ const CloseButtonStyled = styled('button')`
   top: ${spacing.paddingDouble};
   right: ${spacing.paddingDouble};
   margin: 0;
+  padding: 0;
+  cursor: pointer;
 `;
 
 const CloseIcon = styled('img')`
   width: 2rem;
+  margin: 0;
 `;
 
 const SearchResultsContainer = styled('div')`
@@ -70,6 +79,7 @@ const SearchResultsContainer = styled('div')`
   left: 0;
   right: 0;
   /* bottom: 0; */
+  /* max-width: ${layout.contentMaxWidth}px; */
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5);
   background-color: ${colors.white};
 
@@ -84,8 +94,12 @@ const SearchResultsStyled = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${transparentizeHex(colors.white, 0.5)};
+  background-color: ${transparentizeHex(colors.white, 0.9)};
   border-radius: ${layout.borderRadius};
   padding: ${spacing.paddingDouble};
   margin: ${spacing.paddingDouble};
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  }
 `;

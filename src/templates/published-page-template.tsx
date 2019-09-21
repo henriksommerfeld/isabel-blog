@@ -17,6 +17,7 @@ export function PublishedPageTemplate({
   content,
   title,
   imageFile,
+  location,
 }: PublishedTemplate) {
   const PageContent = contentComponent;
 
