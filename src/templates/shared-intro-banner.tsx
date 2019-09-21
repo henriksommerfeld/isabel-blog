@@ -87,14 +87,10 @@ const IntroBannerWithFluidImage = styled(BackgroundImage)`
 const IntroBannerWidthConstrainer = styled('div')`
   max-width: ${layout.contentMaxWidth}px;
   text-align: center;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
     padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
-    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
-  }
-
-  @media (min-width: ${breakpoints.large}) {
     transform: translateY(${spacing.contentOffset});
   }
 `;
