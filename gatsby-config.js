@@ -170,7 +170,7 @@ module.exports = {
           },
         },
         // Optional filter to limit indexed nodes
-        filter: (node, getNode) => node.frontmatter.title !== 'Video-test',
+        filter: (node, getNode) => node.frontmatter.title !== 'Startsidan',
       },
     },
     'gatsby-plugin-styled-components',

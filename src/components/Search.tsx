@@ -32,7 +32,6 @@ export default function Search({ location }) {
     const response = index
       .search(enteredQuery, { expand: true })
       .map(({ ref }) => index.documentStore.getDoc(ref));
-    console.log('TCL: Search -> response', response);
 
     setResults(response || []);
   };
@@ -104,6 +103,7 @@ const SearchBox = styled('div')`
 
 const SearchBoxInput = styled('input')`
   width: 100%;
+  z-index: 2;
   background-color: transparent;
   border: none;
   caret-color: ${tailwindColors.red700};
