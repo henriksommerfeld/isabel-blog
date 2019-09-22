@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Index } from 'elasticlunr';
 import styled from 'styled-components';
 import { useGlobal } from 'reactn';
-import { colors, layout } from '../constants';
+import { colors, layout, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
@@ -110,7 +110,7 @@ const SearchBox = styled('div')`
 
 const SearchBoxInput = styled('input')`
   width: 100%;
-  z-index: 2;
+  z-index: ${zIndexes.searchBox};
   background-color: transparent;
   border: none;
   caret-color: ${tailwindColors.red700};

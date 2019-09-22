@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import useOnClickOutside from 'use-onclickoutside';
 import { headerHeight } from './Header';
-import { navLinks, colors } from '../constants';
+import { navLinks, colors, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
 
@@ -53,7 +53,7 @@ const MobileMenuStyled = styled(animated.div)`
   flex-direction: column;
   width: 100%;
   background: white;
-  z-index: 1;
+  z-index: ${zIndexes.mobileMenu};
   position: absolute;
   right: 0;
   top: 0;

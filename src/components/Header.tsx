@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { colors, breakpoints, fonts, layout } from '../constants';
+import { colors, breakpoints, fonts, layout, zIndexes } from '../constants';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
@@ -111,7 +111,7 @@ const NavStyled = styled('nav')`
   align-items: center;
   background: ${colors.headerBackground};
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: ${zIndexes.headerNav};
   height: ${headerHeight};
 `;
 

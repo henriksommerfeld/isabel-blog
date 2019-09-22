@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { colors, layout, spacing } from '../constants';
+import { colors, layout, spacing, breakpoints } from '../constants';
 import { transparentizeHex } from '../color-convertions';
 import { useGlobal } from 'reactn';
 import { SearchQuery, SearchRoute, SearchResults } from './Search';
 import CloseSvg from '../../static/img/close.svg';
+import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { useEscKey } from '../useEscKey';
 import { useTransition, animated, config } from 'react-spring';
 
@@ -27,15 +28,11 @@ export function SearchResult({ location }) {
 
   useEscKey(closeSearch);
 
-  const closeButtonClicked = () => {
-    closeSearch();
-  };
-
   return containerTransitions.map(
     ({ item, key, props }) =>
       item && (
         <SearchResultsContainer key={key} style={props}>
-          <CloseButtonStyled onClick={closeButtonClicked}>
+          <CloseButtonStyled onClick={closeSearch}>
             <CloseIcon src={CloseSvg} />
           </CloseButtonStyled>
           <SearchResultsStyled className="search-results">
@@ -45,9 +42,10 @@ export function SearchResult({ location }) {
             </h2>
             <ul>
               {results.map(page => (
-                <li key={page.id}>
+                <LinkContainer key={page.id}>
+                  <LinkIconSvg src={BlogPostSvg} alt="" />
                   <Link to={page.path}>{page.title}</Link>
-                </li>
+                </LinkContainer>
               ))}
             </ul>
           </SearchResultsStyled>
@@ -73,12 +71,22 @@ function shouldShowResults(
   return true;
 }
 
+const LinkIconSvg = styled('img')`
+  margin: 0 0.5em 0 0;
+  min-width: 1rem;
+`;
+
+const LinkContainer = styled('li')`
+  display: flex;
+  align-items: center;
+`;
+
 const CloseButtonStyled = styled('button')`
   background: ${colors.white};
   border: none;
   position: absolute;
-  top: ${spacing.paddingDouble};
-  right: ${spacing.paddingDouble};
+  top: ${spacing.paddingDefault};
+  right: ${spacing.paddingDefault};
   margin: 0;
   padding: 5px;
   cursor: pointer;
@@ -86,11 +94,17 @@ const CloseButtonStyled = styled('button')`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-  transition: transform 500ms ease;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  transition: transform 500ms ease, box-shadow 200ms ease;
 
   &:hover {
     transform: rotate(180deg) scale(1.1);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: ${breakpoints.medium}) {
+    top: ${spacing.paddingDouble};
+    right: ${spacing.paddingDouble};
   }
 `;
 
@@ -109,8 +123,6 @@ const SearchResultsContainer = styled(animated.div)`
   top: ${156}px;
   left: 0;
   right: 0;
-  /* bottom: 0; */
-  /* max-width: ${layout.contentMaxWidth}px; */
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5);
   background-color: ${colors.white};
 
