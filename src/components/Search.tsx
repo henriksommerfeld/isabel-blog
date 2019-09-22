@@ -16,6 +16,7 @@ export default function Search({ location }) {
   const [, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
+  const getPreviousQuery = path => (route === path ? query : '');
 
   const searchClicked = () => {
     console.log('Search clicked', query);
@@ -40,8 +41,6 @@ export default function Search({ location }) {
     setHasFocus(false);
   };
 
-  const getPreviousQuery = path => (route === path ? query : '');
-
   return (
     <>
       <SearchArea>
@@ -54,7 +53,7 @@ export default function Search({ location }) {
             type="search"
             role="entry"
             placeholder="Ange dina sökord här..."
-            value={getPreviousQuery(location.pathname)}
+            defaultValue={getPreviousQuery(location.pathname)}
             onChange={queryInputChanged}
             onFocus={() => setHasFocus(true)}
             onBlur={onBlur}

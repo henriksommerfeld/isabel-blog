@@ -20,8 +20,8 @@ export function SearchResult({ location }) {
   );
 
   const closeSearch = () => {
-    setRoute(null);
-    setQuery(null);
+    setRoute('');
+    setQuery('');
     setResults([]);
   };
 
