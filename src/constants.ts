@@ -49,7 +49,7 @@ export const colors = {
   buttonHover: tailwindColors.red700,
   buttonActive: tailwindColors.red800,
   lighterTextForWhiteBackground: tailwindColors.gray700,
-  selectionBackground: tailwindColors.red600,
+  selectionBackground: tailwindColors.red700,
 };
 
 export const fonts = {

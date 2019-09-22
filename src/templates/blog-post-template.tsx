@@ -3,6 +3,7 @@ import Content from '../components/Content';
 import styled from 'styled-components';
 import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
+import Search from '../components/Search';
 
 interface BlogPostTemplate {
   content: string;
@@ -29,6 +30,7 @@ export default function BlogPostTemplate({
       {helmet || ''}
       <PageStyled>
         <IntroBanner>
+          <Search location={location} />
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>
@@ -69,7 +71,8 @@ const IntroBannerWidthConstrainer = styled('div')`
   padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
+    padding: ${spacing.introBannerExtraPadding} ${spacing.paddingDouble}
+      ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
   }
 `;
 
