@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Index } from 'elasticlunr';
 import styled from 'styled-components';
@@ -17,6 +17,11 @@ export default function Search({ location }) {
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
   const getPreviousQuery = path => (route === path ? query : '');
+  const searchBoxRef = useRef(null);
+
+  useEffect(() => {
+    if (!route) searchBoxRef.current.value = '';
+  }, [route]);
 
   const searchClicked = () => {
     console.log('Search clicked', query);
@@ -24,9 +29,11 @@ export default function Search({ location }) {
 
   const queryInputChanged = evt => {
     const newQuery = evt.target.value;
-    setQuery(newQuery);
-    setRoute(location.pathname);
-    search(newQuery);
+    if (newQuery.length > 2) {
+      setQuery(newQuery);
+      setRoute(location.pathname);
+      search(newQuery);
+    }
   };
 
   const search = enteredQuery => {
@@ -50,6 +57,7 @@ export default function Search({ location }) {
           </label>
           <SearchBoxInput
             id="searchbox"
+            ref={searchBoxRef}
             type="search"
             role="entry"
             placeholder="Ange dina sökord här..."

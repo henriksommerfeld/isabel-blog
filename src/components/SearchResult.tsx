@@ -74,33 +74,24 @@ function shouldShowResults(
 }
 
 const CloseButtonStyled = styled('button')`
-  /* background: none;
+  background: ${colors.white};
   border: none;
   position: absolute;
   top: ${spacing.paddingDouble};
   right: ${spacing.paddingDouble};
   margin: 0;
-  padding: 0;
-  cursor: pointer; */
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  transition: transform 500ms ease;
 
-    background: ${colors.white};
-    border: none;
-    position: absolute;
-    top: ${spacing.paddingDouble};
-  right: ${spacing.paddingDouble};
-    margin: 0;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-    transition: transform 500ms ease;
-
-    &:hover {
-      transform: rotate(180deg) scale(1.1);
-    }
+  &:hover {
+    transform: rotate(180deg) scale(1.1);
+  }
 `;
 
 const CloseIcon = styled('img')`
