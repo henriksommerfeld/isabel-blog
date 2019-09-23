@@ -38,7 +38,7 @@ export default function BlogRoll(): ReactElement {
     return posts.slice(0, postsShown);
   }
 
-  function loadMorePostsClicked() {
+  function loadMorePostsClicked(): void {
     setTimeout(() => {
       const newPostCount = postsShown + postsPerPage;
       setPostsShown(newPostCount);
