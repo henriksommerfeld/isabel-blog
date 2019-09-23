@@ -7,16 +7,21 @@ import useSiteMetadata from '../../components/SiteMetadata';
 import { TagsTemplate } from '../../templates/tags-template';
 import tagSvg from '../../../static/img/tag-grey500.svg';
 import { getTagRouteUrl } from '../../tags-parser';
+import { WindowLocation } from '@reach/router';
 
-export default function TagsPage({ location }) {
+interface TagsPageProps {
+  location: WindowLocation;
+}
+
+export default function TagsPage({ location }: TagsPageProps) {
   const data = useStaticQuery(tagPageQuery);
-  const { title } = useSiteMetadata();
   const group = data.allMarkdownRemark.group;
+  const { title } = useSiteMetadata();
 
   return (
     <Layout location={location}>
       <Helmet title={`Taggar | ${title}`} />
-      <TagsTemplate>
+      <TagsTemplate location={location}>
         <h1>Taggar</h1>
         <ul className="taglist">
           {group.map(tag => (

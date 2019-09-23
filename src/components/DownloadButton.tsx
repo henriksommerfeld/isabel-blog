@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { spacing, buttonStyles } from '../constants';
 import DownloadSvg from '../../static/img/download-filled.svg';
@@ -8,7 +8,7 @@ import { ButtonText } from './ButtonText';
 interface DownloadButton {
   url: string;
   downloadedFilename?: string;
-  children?: any;
+  children?: ReactNode;
 }
 
 export default function DownloadButton({

@@ -9,6 +9,15 @@ import { TagsTemplate } from './tags-template';
 import TagSvg from '../../static/img/tag-grey500.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { tagsUrl } from '../constants';
+import { WindowLocation } from '@reach/router';
+
+interface TagRouteProps {
+  data: TagPageQuery;
+  pageContext: {
+    tag: string;
+  };
+  location: WindowLocation;
+}
 
 export default function TagRoute({
   data,
@@ -30,8 +39,7 @@ export default function TagRoute({
   return (
     <Layout location={location} editLink="">
       <Helmet title={`${tag} | ${title}`} />
-
-      <TagsTemplate>
+      <TagsTemplate location={location}>
         <h1>{tag}</h1>
         <p>{tagHeader}</p>
         <ul>{postLinks}</ul>
@@ -91,11 +99,3 @@ export const tagPageQuery = graphql`
     }
   }
 `;
-
-interface TagRouteProps {
-  data: TagPageQuery;
-  pageContext: {
-    tag: string;
-  };
-  location: any;
-}

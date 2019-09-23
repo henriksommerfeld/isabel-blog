@@ -9,8 +9,13 @@ import CloseSvg from '../../static/img/close.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { useEscKey } from '../useEscKey';
 import { useTransition, animated, config } from 'react-spring';
+import { WindowLocation } from '@reach/router';
 
-export function SearchResult({ location }) {
+interface SearchResultProps {
+  location: WindowLocation;
+}
+
+export function SearchResult({ location }: SearchResultProps) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
@@ -32,22 +37,22 @@ export function SearchResult({ location }) {
     ({ item, key, props }) =>
       item && (
         <SearchResultsContainer key={key} style={props}>
-          <CloseButtonStyled onClick={closeSearch}>
-            <CloseIcon src={CloseSvg} />
-          </CloseButtonStyled>
           <SearchResultsStyled className="search-results">
+            <CloseButtonStyled onClick={closeSearch}>
+              <CloseIcon src={CloseSvg} />
+            </CloseButtonStyled>
             <h2>
               {results.length ? results.length : 'Inga'} träffar för{' '}
               <em>{query}</em>
             </h2>
-            <ul>
+            <LinksContainer>
               {results.map(page => (
                 <LinkContainer key={page.id}>
                   <LinkIconSvg src={BlogPostSvg} alt="" />
                   <Link to={page.path}>{page.title}</Link>
                 </LinkContainer>
               ))}
-            </ul>
+            </LinksContainer>
           </SearchResultsStyled>
         </SearchResultsContainer>
       )
@@ -74,6 +79,7 @@ function shouldShowResults(
 const LinkIconSvg = styled('img')`
   margin: 0 0.5em 0 0;
   min-width: 1rem;
+  cursor: pointer;
 `;
 
 const LinkContainer = styled('li')`
@@ -81,12 +87,16 @@ const LinkContainer = styled('li')`
   align-items: center;
 `;
 
+const LinksContainer = styled('ul')`
+  margin: 0;
+`;
+
 const CloseButtonStyled = styled('button')`
   background: ${colors.white};
   border: none;
   position: absolute;
-  top: ${spacing.paddingDefault};
-  right: ${spacing.paddingDefault};
+  top: -${spacing.paddingDefault};
+  right: -${spacing.paddingDefault};
   margin: 0;
   padding: 5px;
   cursor: pointer;
@@ -95,17 +105,17 @@ const CloseButtonStyled = styled('button')`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
-  transition: transform 500ms ease, box-shadow 200ms ease;
+  transition: transform 400ms ease, box-shadow 200ms ease;
 
   &:hover {
     transform: rotate(180deg) scale(1.1);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
 
-  @media (min-width: ${breakpoints.medium}) {
+  /* @media (min-width: ${breakpoints.medium}) {
     top: ${spacing.paddingDouble};
     right: ${spacing.paddingDouble};
-  }
+  } */
 `;
 
 const CloseIcon = styled('img')`
@@ -137,6 +147,7 @@ const SearchResultsStyled = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   background-color: ${transparentizeHex(colors.white, 0.9)};
   border-radius: ${layout.borderRadius};
   padding: ${spacing.paddingDouble};

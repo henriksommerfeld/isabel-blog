@@ -8,10 +8,11 @@ import { colors, breakpoints } from '../constants';
 import Header from './Header';
 import { tailwindColors } from '../tailwind-colors';
 import { SearchResult } from './SearchResult';
+import { WindowLocation } from '@reach/router';
 
 interface TemplateWrapperProps {
   children: ReactNode;
-  location: string;
+  location: WindowLocation;
   editLink?: string;
   language?: string;
 }

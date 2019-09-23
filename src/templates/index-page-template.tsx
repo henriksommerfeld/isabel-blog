@@ -4,8 +4,17 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BlogRoll from '../components/BlogRoll';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import { tailwindColors } from '../tailwind-colors';
 import Search from '../components/Search';
+import { WindowLocation } from '@reach/router';
+
+interface IndexPageTemplateProps {
+  image: any;
+  heading: string;
+  subheading: string;
+  description: string;
+  isPreview?: boolean;
+  location: WindowLocation;
+}
 
 export const IndexPageTemplate = ({
   image,
@@ -14,7 +23,7 @@ export const IndexPageTemplate = ({
   description,
   isPreview = false,
   location,
-}) => (
+}: IndexPageTemplateProps) => (
   <PageStyled>
     <IntroBanner>
       <Search location={location} />

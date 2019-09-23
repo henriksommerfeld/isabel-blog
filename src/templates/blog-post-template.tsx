@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
 import Search from '../components/Search';
+import { WindowLocation } from '@reach/router';
 
 interface BlogPostTemplate {
   content: string;
@@ -12,6 +13,7 @@ interface BlogPostTemplate {
   tags: string[] | undefined;
   title: string;
   helmet: any;
+  location: WindowLocation;
 }
 
 export default function BlogPostTemplate({
@@ -21,6 +23,7 @@ export default function BlogPostTemplate({
   tags,
   title,
   helmet,
+  location,
 }: BlogPostTemplate) {
   const PostContent = contentComponent || Content;
   const dateString = date ? `Publicerat ${date}` : '';

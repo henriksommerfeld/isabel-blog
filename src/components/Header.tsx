@@ -6,8 +6,13 @@ import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
+import { WindowLocation } from '@reach/router';
 
-export default function Header({ location }: any) {
+interface HeaderProps {
+  location: WindowLocation;
+}
+
+export default function Header({ location }: HeaderProps) {
   const data = useStaticQuery(pageQuery);
   const { heading, image } = data.markdownRemark.frontmatter;
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);

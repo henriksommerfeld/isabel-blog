@@ -5,11 +5,12 @@ import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import { getFluid } from '../images';
 import Search from '../components/Search';
+import { WindowLocation } from '@reach/router';
 
 interface SharedIntroBanner {
   title: string;
   backgroundImage: FluidObject | undefined;
-  location: any;
+  location: WindowLocation;
 }
 
 export function SharedIntroBanner({

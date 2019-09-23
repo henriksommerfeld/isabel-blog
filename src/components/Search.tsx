@@ -8,8 +8,13 @@ import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
+import { WindowLocation } from '@reach/router';
 
-export default function Search({ location }) {
+interface SearchProps {
+  location: WindowLocation;
+}
+
+export default function Search({ location }: SearchProps) {
   const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
