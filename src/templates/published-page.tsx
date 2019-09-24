@@ -36,7 +36,7 @@ const publishedPageQuery = graphql`
       relativePath: { eq: "hidden/roman-kraft-_Zua2hyvTBk-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 5000, maxHeight: 3000, quality: 80) {
+        fluid(maxWidth: 5000) {
           src
           srcSet
           aspectRatio

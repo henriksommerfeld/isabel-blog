@@ -29,7 +29,7 @@ const pageQuery = graphql`
       frontmatter {
         image {
           childImageSharp {
-            fluid(maxWidth: 300, quality: 100) {
+            fluid(maxWidth: 300) {
               src
               srcSet
               aspectRatio
