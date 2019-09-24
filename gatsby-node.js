@@ -21,28 +21,7 @@ exports.onCreateDevServer = ({ app }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  return graphql(`
-    {
-      allMarkdownRemark(
-        limit: 1000
-        filter: { frontmatter: { hidden: { ne: true } } }
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              tags
-              templateKey
-              url
-            }
-          }
-        }
-      }
-    }
-  `).then(result => {
+  function createPagesFromContent(result) {
     if (result.errors) {
       result.errors.forEach(e => console.error(e.toString()));
       return Promise.reject(result.errors);
@@ -91,7 +70,34 @@ exports.createPages = ({ actions, graphql }) => {
         },
       });
     });
-  });
+  }
+
+  function getContent() {
+    return graphql(`
+      {
+        allMarkdownRemark(
+          limit: 1000
+          filter: { frontmatter: { hidden: { ne: true } } }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                tags
+                templateKey
+                url
+              }
+            }
+          }
+        }
+      }
+    `);
+  }
+
+  return getContent().then(createPagesFromContent);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
