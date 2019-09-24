@@ -1,5 +1,5 @@
 import React from 'react';
-import Image, { FluidObject, GatsbyImageProps } from 'gatsby-image';
+import Image, { GatsbyImageProps } from 'gatsby-image';
 import { isImageUrl, getFluid } from '../images';
 
 export interface ImageProps {
