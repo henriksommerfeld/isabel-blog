@@ -93,7 +93,6 @@ const IntroBannerWidthConstrainer = styled('div')`
 
   @media (min-width: ${breakpoints.medium}) {
     min-height: ${bannerMinHeightMedium};
-    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
   }
 `;
 

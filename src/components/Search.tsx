@@ -109,6 +109,11 @@ const SearchBox = styled('div')`
 
   background-color: ${({ hasFocus }) =>
     transparentizeHex(colors.white, hasFocus ? 0.7 : 0.6)};
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
 `;
 
 const SearchBoxInput = styled('input')`
