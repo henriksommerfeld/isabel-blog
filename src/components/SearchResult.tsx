@@ -79,12 +79,11 @@ function shouldShowResults(
 const LinkIconSvg = styled('img')`
   margin: 0 0.5em 0 0;
   min-width: 1rem;
-  cursor: pointer;
+  vertical-align: sub;
 `;
 
 const LinkContainer = styled('li')`
-  display: flex;
-  align-items: center;
+  list-style: none;
 `;
 
 const LinksContainer = styled('ul')`
@@ -111,11 +110,6 @@ const CloseButtonStyled = styled('button')`
     transform: rotate(180deg) scale(1.1);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
-
-  /* @media (min-width: ${breakpoints.medium}) {
-    top: ${spacing.paddingDouble};
-    right: ${spacing.paddingDouble};
-  } */
 `;
 
 const CloseIcon = styled('img')`
