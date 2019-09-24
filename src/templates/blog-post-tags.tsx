@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { spacing } from '../constants';
-import tagSvg from '../../static/img/tag-grey500.svg';
+import TagSvg from '../../static/img/tag-grey500.svg';
 import { getTagRouteUrl } from '../tags-parser';
 
 interface BlogPostTags {
@@ -15,35 +15,28 @@ export default function BlogPostTags({ tags = [] }: BlogPostTags) {
 
   return (
     <LinksContainer>
-      <LinkIconSvg src={tagSvg} alt="" />
+      <LinkIconSvg />
 
       {tags.map((tag, index) => (
         <React.Fragment key={tag + index}>
           <Link to={getTagRouteUrl(tag)}>{tag}</Link>
-          {GetCommaSeparator(index, numberOfTags)}
+          {index + 1 < numberOfTags ? ', ' : null}
         </React.Fragment>
       ))}
     </LinksContainer>
   );
 }
 
-function GetCommaSeparator(index: number, numberOfTags: number) {
-  if (numberOfTags <= index + 1) return null;
+const LinkIconSvg = styled('span')`
+  padding-right: 0.5em;
+  vertical-align: middle;
 
-  return <CommaWithSpace>,</CommaWithSpace>;
-}
-
-const CommaWithSpace = styled('span')`
-  padding-right: 0.4em;
+  &::before {
+    content: url(${TagSvg});
+    width: 1rem;
+  }
 `;
 
-const LinkIconSvg = styled('img')`
-  margin: 0 0.5em 0 0;
-  min-width: 1rem;
-`;
-
-const LinksContainer = styled('li')`
-  display: flex;
-  align-items: center;
+const LinksContainer = styled('span')`
   margin-top: ${spacing.paddingDouble};
 `;
