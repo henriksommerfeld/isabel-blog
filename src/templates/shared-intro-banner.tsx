@@ -65,6 +65,8 @@ const IntroBannerDarkOverlay = styled('div')`
   height: 100%;
 `;
 
+const bannerMinHeight = '150px';
+const bannerMinHeightMedium = '300px';
 const IntroBannerWithFluidImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
@@ -73,30 +75,25 @@ const IntroBannerWithFluidImage = styled(BackgroundImage)`
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
-  height: 20vh;
+  min-height: ${bannerMinHeight};
 
   @media (min-width: ${breakpoints.medium}) {
-    height: 28vh;
-  }
-
-  @media (min-width: ${breakpoints.large}) {
-    background-size: 70vw;
-    height: 32vh;
+    min-height: ${bannerMinHeightMedium};
   }
 `;
 
 const IntroBannerWidthConstrainer = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: ${bannerMinHeight};
   max-width: ${layout.contentMaxWidth}px;
-  text-align: center;
-  padding: ${spacing.paddingDefault};
-  margin-top: 2rem;
 
   @media (min-width: ${breakpoints.medium}) {
-    margin-top: 3rem;
-  }
-
-  @media (min-width: ${breakpoints.large}) {
-    margin-top: 4rem;
+    min-height: ${bannerMinHeightMedium};
+    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
   }
 `;
 
