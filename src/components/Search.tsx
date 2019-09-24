@@ -57,14 +57,12 @@ export default function Search({ location }: SearchProps) {
     <>
       <SearchArea>
         <SearchBox hasFocus={hasFocus}>
-          <label htmlFor="searchbox" className="screen-reader-text">
-            {`Ange dina sökord här... ${hasFocus}`}
-          </label>
           <SearchBoxInput
             id="searchbox"
             ref={searchBoxRef}
             type="search"
-            role="entry"
+            role="search"
+            aria-label="Ange dina sökord här..."
             placeholder="Ange dina sökord här..."
             defaultValue={getPreviousQuery(location.pathname)}
             onChange={queryInputChanged}

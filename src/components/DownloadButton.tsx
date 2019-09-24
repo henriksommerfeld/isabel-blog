@@ -8,19 +8,25 @@ import { ButtonText } from './ButtonText';
 interface DownloadButton {
   url: string;
   downloadedFilename?: string;
+  ariaLabel: string;
   children?: ReactNode;
 }
 
 export default function DownloadButton({
   url,
   downloadedFilename,
+  ariaLabel,
   children,
 }: DownloadButton) {
   return (
     <ButtonContainer>
       <RipplesButton>
-        <DownloadButtonStyled href={url} download={downloadedFilename}>
-          <Icon src={DownloadSvg} />
+        <DownloadButtonStyled
+          href={url}
+          download={downloadedFilename}
+          aria-label={ariaLabel}
+        >
+          <Icon src={DownloadSvg} alt="" />
           <ButtonText>{children}</ButtonText>
         </DownloadButtonStyled>
       </RipplesButton>

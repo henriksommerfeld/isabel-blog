@@ -12,7 +12,7 @@ export default function HamburgerMenuIcon({
     to: isOpen ? crossStyle : hamburgerStyle,
   });
   return (
-    <ButtonStyled onClick={clickAction}>
+    <ButtonStyled onClick={clickAction} aria-label="Hamburger menu button">
       <MobileIconStyled
         width="44"
         height="44"
