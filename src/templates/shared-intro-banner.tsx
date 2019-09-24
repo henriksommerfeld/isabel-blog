@@ -89,14 +89,18 @@ const IntroBannerWidthConstrainer = styled('div')`
   max-width: ${layout.contentMaxWidth}px;
   text-align: center;
   padding: ${spacing.paddingDefault};
+  margin-top: 2rem;
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
-    transform: translateY(${spacing.contentOffset});
+    margin-top: 3rem;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    margin-top: 4rem;
   }
 `;
 
-const Heading = styled.h1`
+const Heading = styled('h1')`
   color: ${colors.white};
   line-height: 1.4em;
   word-break: break-word;
