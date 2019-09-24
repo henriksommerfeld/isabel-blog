@@ -79,6 +79,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
+  body:not(.keyboard-navigation) * {
+    outline: none;
+  }
   ::selection {
     background-color: ${colors.selectionBackground};
     color: ${colors.white};

@@ -29,7 +29,7 @@ export default function BlogPostTags({ tags = [] }: BlogPostTags) {
 
 const LinkIconSvg = styled('span')`
   padding-right: 0.5em;
-  vertical-align: middle;
+  vertical-align: top;
 
   &::before {
     content: url(${TagSvg});
