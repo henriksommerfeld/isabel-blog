@@ -43,7 +43,7 @@ export default function Search({ location }: SearchProps) {
 
   const search = enteredQuery => {
     const response = index
-      .search(enteredQuery, { expand: true })
+      .search(enteredQuery, { expand: true, bool: 'AND' })
       .map(({ ref }) => index.documentStore.getDoc(ref));
 
     setResults(response || []);
