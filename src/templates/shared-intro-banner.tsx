@@ -100,4 +100,8 @@ const Heading = styled('h1')`
   color: ${colors.white};
   line-height: 1.4em;
   word-break: break-word;
+
+  @media (min-width: ${breakpoints.medium}) {
+    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
+  }
 `;
