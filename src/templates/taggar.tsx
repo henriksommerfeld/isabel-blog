@@ -6,9 +6,18 @@ import Layout from '../components/Layout';
 import { TagPageQuery } from '../../auto-generated/graphql';
 import useSiteMetadata from '../components/SiteMetadata';
 import { TagsTemplate } from './tags-template';
-import tagSvg from '../../static/img/tag-grey500.svg';
-import blogPostSvg from '../../static/img/blog-post-grey500.svg';
+import TagSvg from '../../static/img/tag-grey500.svg';
+import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { tagsUrl } from '../constants';
+import { WindowLocation } from '@reach/router';
+
+interface TagRouteProps {
+  data: TagPageQuery;
+  pageContext: {
+    tag: string;
+  };
+  location: WindowLocation;
+}
 
 export default function TagRoute({
   data,
@@ -19,31 +28,36 @@ export default function TagRoute({
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <LinkContainer key={post.node.fields.slug}>
-      <LinkIconSvg src={blogPostSvg} alt="" />
+      <LinkIconSvg src={BlogPostSvg} alt="" />
       <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
     </LinkContainer>
   ));
   const tag = pageContext.tag;
   const totalCount = data.allMarkdownRemark.totalCount;
-  const tagHeader = `${totalCount} inlägg tagg${
-    totalCount === 1 ? 'at' : 'ade'
-  } med “${tag}”`;
+  const tagHeader = getHeader(tag, totalCount);
 
   return (
     <Layout location={location} editLink="">
       <Helmet title={`${tag} | ${title}`} />
-
-      <TagsTemplate>
+      <TagsTemplate location={location}>
         <h1>{tag}</h1>
         <p>{tagHeader}</p>
         <ul>{postLinks}</ul>
         <br />
         <SeAllTagsLinkContainer>
-          <LinkIconSvg src={tagSvg} alt="" />
+          <LinkIconSvg src={TagSvg} alt="" />
           <Link to={tagsUrl}>Se alla taggar</Link>
         </SeAllTagsLinkContainer>
       </TagsTemplate>
     </Layout>
+  );
+}
+
+function getHeader(tag: string, count: number) {
+  return (
+    <>
+      {count} inlägg tagg{count === 1 ? 'at' : 'de'} med <q>{tag}</q>
+    </>
   );
 }
 
@@ -85,11 +99,3 @@ export const tagPageQuery = graphql`
     }
   }
 `;
-
-interface TagRouteProps {
-  data: TagPageQuery;
-  pageContext: {
-    tag: string;
-  };
-  location: any;
-}

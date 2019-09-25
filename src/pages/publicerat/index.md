@@ -1,6 +1,8 @@
 ---
 templateKey: published-page
+title: Publicerat
 ---
+
 ## 2019
 
 [**Reportage och intervju i Expressen**](https://www.expressen.se/nyheter/polisen-isabel-32-sluta-skicka-bilder-pa-din-penis/) – Intervjuad efter ett facebook-inlägg jag skrivit i min roll som utredare hos Polisen (angående sexuella ofredanden och så kallade dick pics), 2019-08-15.
@@ -83,7 +85,7 @@ Blogginlägg på den tyska webbsidan Jewdyssee.com ang. min senaste resa till Be
 Debattartikel ang. dödsstraffet i Belarus, Newsmill, 2011-11-28.
 
 **Intervjuad i Ordfront Magasin (Omline Magasin)**\
-http://omlinemagasin.se/2011/05/11/stamningen-ar-obehaglig/  2011-05-11.
+http://omlinemagasin.se/2011/05/11/stamningen-ar-obehaglig/ 2011-05-11.
 
 [**Glöm inte bort frihetskämparna i Europas sista diktatur**](http://www.europaportalen.se/2011/05/glom-inte-bort-frihetskamparna-i-europas-sista-diktatur)\
 Debattartikel, Europaportalen, av Isabel Sommerfeld och riksdagsledamot Caroline Szyber, 2011-05-09.

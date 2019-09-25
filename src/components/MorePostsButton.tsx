@@ -5,7 +5,13 @@ import ArrowsDownSvg from '../../static/img/arrows-down.svg';
 import { RipplesButton } from './RipplesButton';
 import { ButtonText } from './ButtonText';
 
-export default function MorePostsButton({ clickedHandler }) {
+interface MorePostsButtonProps {
+  clickedHandler: Function;
+}
+
+export default function MorePostsButton({
+  clickedHandler,
+}: MorePostsButtonProps) {
   return (
     <ButtonContainer>
       <RipplesButtonWithBreakpoints>

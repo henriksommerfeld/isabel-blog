@@ -7,10 +7,12 @@ import { withPrefix } from 'gatsby';
 import { colors, breakpoints } from '../constants';
 import Header from './Header';
 import { tailwindColors } from '../tailwind-colors';
+import { SearchResult } from './SearchResult';
+import { WindowLocation } from '@reach/router';
 
 interface TemplateWrapperProps {
   children: ReactNode;
-  location: string;
+  location: WindowLocation;
   editLink?: string;
   language?: string;
 }
@@ -68,6 +70,7 @@ export default function TemplateWrapper({
         <Body className="Body">{children}</Body>
         <Footer editLink={editLink} />
       </Page>
+      <SearchResult location={location} />
     </>
   );
 }
@@ -75,6 +78,13 @@ export default function TemplateWrapper({
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+  }
+  body:not(.keyboard-navigation) * {
+    outline: none;
+  }
+  ::selection {
+    background-color: ${colors.selectionBackground};
+    color: ${colors.white};
   }
   a {
     color: ${colors.link};
@@ -99,6 +109,9 @@ export const GlobalStyle = createGlobalStyle`
     color: ${colors.linkFocus};
     background-size: 100% 2px;
 
+  }
+  .screen-reader-text {
+    display: none;
   }
   .gatsby-resp-image-background-image, .gatsby-resp-image-image, .featured-thumbnail {
     margin: 0;

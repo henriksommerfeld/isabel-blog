@@ -18,6 +18,7 @@ export default function PressImagesPage({ location }) {
         content={content}
         headerImageFile={data.fileName}
         pressImages={pressImages}
+        location={location}
       />
     </Layout>
   );
@@ -30,7 +31,7 @@ const pressImagesPageQuery = graphql`
       frontmatter {
         downloadableimages {
           childImageSharp {
-            fluid(maxWidth: 5000, quality: 80) {
+            fluid(maxWidth: 500) {
               src
               srcSet
               aspectRatio
@@ -51,7 +52,7 @@ const pressImagesPageQuery = graphql`
       relativePath: { eq: "hidden/alexander-dummer-aS4Duj2j7r4-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 5000, quality: 80) {
+        fluid(maxWidth: 5000) {
           src
           srcSet
           aspectRatio

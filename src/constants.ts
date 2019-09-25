@@ -10,6 +10,13 @@ export const spacing = {
   notFoundBannerExtraPadding: '5rem',
   contentOffset: `-3rem`,
   postHeadingOffset: `-1rem`,
+  postHeadingOffsetWithSearchbox: `-2rem`,
+};
+
+export const zIndexes = {
+  searchBox: 1,
+  mobileMenu: 2,
+  headerNav: 3,
 };
 
 export const layout = {
@@ -37,11 +44,13 @@ export const colors = {
   link: tailwindColors.red600,
   linkVisited: tailwindColors.red600,
   linkFocus: tailwindColors.red700,
-  postDate: tailwindColors.gray400,
+  postDate: tailwindColors.gray500,
+  postDateRoll: tailwindColors.gray700,
   buttonBackground: tailwindColors.red600,
   buttonHover: tailwindColors.red700,
   buttonActive: tailwindColors.red800,
   lighterTextForWhiteBackground: tailwindColors.gray700,
+  selectionBackground: tailwindColors.red700,
 };
 
 export const fonts = {
@@ -54,7 +63,6 @@ export const navLinks: NavLink[] = [
   { url: '/publicerat', title: 'Publicerat' },
   { url: '/om', title: 'Om mig' },
   { url: '/pressbilder', title: 'Pressbilder' },
-  { url: '/sok', title: 'Sök' },
 ];
 
 export const tagsUrl = '/taggar';

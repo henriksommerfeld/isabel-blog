@@ -3,6 +3,8 @@ import Content from '../components/Content';
 import styled from 'styled-components';
 import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
+import Search from '../components/Search';
+import { WindowLocation } from '@reach/router';
 
 interface BlogPostTemplate {
   content: string;
@@ -11,6 +13,7 @@ interface BlogPostTemplate {
   tags: string[] | undefined;
   title: string;
   helmet: any;
+  location: WindowLocation;
 }
 
 export default function BlogPostTemplate({
@@ -20,6 +23,7 @@ export default function BlogPostTemplate({
   tags,
   title,
   helmet,
+  location,
 }: BlogPostTemplate) {
   const PostContent = contentComponent || Content;
   const dateString = date ? `Publicerat ${date}` : '';
@@ -29,6 +33,7 @@ export default function BlogPostTemplate({
       {helmet || ''}
       <PageStyled>
         <IntroBanner>
+          <Search location={location} />
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>
@@ -55,7 +60,7 @@ const PageStyled = styled('div')`
   }
 `;
 
-const PostDate = styled.div`
+const PostDate = styled('div')`
   color: ${colors.postDate};
 
   @media (min-width: ${breakpoints.medium}) {
@@ -69,7 +74,8 @@ const IntroBannerWidthConstrainer = styled('div')`
   padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
+    padding: ${spacing.introBannerExtraPadding} ${spacing.paddingDouble}
+      ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
   }
 `;
 

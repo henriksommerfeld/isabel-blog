@@ -1,26 +1,32 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { spacing, buttonStyles } from '../constants';
-import DownloadSvg from '../../static/img/download.svg';
+import DownloadSvg from '../../static/img/download-filled.svg';
 import { RipplesButton } from './RipplesButton';
 import { ButtonText } from './ButtonText';
 
 interface DownloadButton {
   url: string;
   downloadedFilename?: string;
-  children?: any;
+  ariaLabel: string;
+  children?: ReactNode;
 }
 
 export default function DownloadButton({
   url,
   downloadedFilename,
+  ariaLabel,
   children,
 }: DownloadButton) {
   return (
     <ButtonContainer>
       <RipplesButton>
-        <DownloadButtonStyled href={url} download={downloadedFilename}>
-          <Icon src={DownloadSvg} />
+        <DownloadButtonStyled
+          href={url}
+          download={downloadedFilename}
+          aria-label={ariaLabel}
+        >
+          <Icon src={DownloadSvg} alt="" />
           <ButtonText>{children}</ButtonText>
         </DownloadButtonStyled>
       </RipplesButton>

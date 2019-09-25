@@ -38,7 +38,7 @@ export default function BlogRoll(): ReactElement {
     return posts.slice(0, postsShown);
   }
 
-  function loadMorePostsClicked() {
+  function loadMorePostsClicked(): void {
     setTimeout(() => {
       const newPostCount = postsShown + postsPerPage;
       setPostsShown(newPostCount);
@@ -96,7 +96,7 @@ const blogRollQuery = graphql`
             date(formatString: "DD MMMM, YYYY", locale: "sv")
             featuredimage {
               childImageSharp {
-                fluid(maxWidth: 1000, quality: 80) {
+                fluid(maxWidth: 1000) {
                   src
                   srcSet
                   aspectRatio

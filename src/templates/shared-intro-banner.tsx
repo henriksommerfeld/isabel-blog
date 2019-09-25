@@ -4,20 +4,25 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import { getFluid } from '../images';
+import Search from '../components/Search';
+import { WindowLocation } from '@reach/router';
 
 interface SharedIntroBanner {
   title: string;
   backgroundImage: FluidObject | undefined;
+  location: WindowLocation;
 }
 
 export function SharedIntroBanner({
   title,
   backgroundImage,
+  location,
 }: SharedIntroBanner) {
   if (!title) return null;
 
   return (
     <IntroBanner backgroundImage={backgroundImage}>
+      <Search location={location} />
       <IntroBannerWidthConstrainer>
         <Heading>{title}</Heading>
       </IntroBannerWidthConstrainer>
@@ -53,13 +58,15 @@ const IntroBannerSolidBackground = styled('div')`
 const IntroBannerDarkOverlay = styled('div')`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
 `;
 
+const bannerMinHeight = '150px';
+const bannerMinHeightMedium = '300px';
 const IntroBannerWithFluidImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
@@ -68,30 +75,33 @@ const IntroBannerWithFluidImage = styled(BackgroundImage)`
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
-  height: 20vh;
+  min-height: ${bannerMinHeight};
 
-  @media (min-width: ${breakpoints.large}) {
-    background-size: 70vw;
-    height: 400px;
+  @media (min-width: ${breakpoints.medium}) {
+    min-height: ${bannerMinHeightMedium};
   }
 `;
 
 const IntroBannerWidthConstrainer = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: ${bannerMinHeight};
   max-width: ${layout.contentMaxWidth}px;
-  text-align: center;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
+    min-height: ${bannerMinHeightMedium};
   }
 `;
 
-const Heading = styled.h1`
+const Heading = styled('h1')`
   color: ${colors.white};
   line-height: 1.4em;
   word-break: break-word;
 
   @media (min-width: ${breakpoints.medium}) {
-    transform: translateY(${spacing.postHeadingOffset});
+    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
   }
 `;

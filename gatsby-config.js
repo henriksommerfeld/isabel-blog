@@ -1,4 +1,6 @@
 const { transformerRemarkParser } = require('./src/transformerRemarkParser');
+const remark = require('remark');
+const stripMarkdown = require('strip-markdown');
 
 module.exports = {
   siteMetadata: {
@@ -35,7 +37,12 @@ module.exports = {
         paths: ['/', '/20**', '/om', '/publicerat'],
       },
     },
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        toFormat: 'WEBP',
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
@@ -59,7 +66,7 @@ module.exports = {
               maxWidth: 1000,
               linkImagesToOriginal: false,
               showCaptions: ['title'],
-              quality: 80,
+              withWebp: true,
             },
           },
           {
@@ -141,6 +148,36 @@ module.exports = {
             variants: ['400', '400i', '700', '700i'],
           },
         ],
+      },
+    },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `date`, `tags`, `body`, `excerpt`],
+        resolvers: {
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            date: node => node.frontmatter.date,
+            tags: node => node.frontmatter.tags,
+            path: node => node.fields.slug,
+            body: node =>
+              remark()
+                .use(stripMarkdown)
+                .processSync(node.rawMarkdownBody).contents,
+            excerpt: node => {
+              const text = remark()
+                .use(stripMarkdown)
+                .processSync(node.rawMarkdownBody).contents;
+
+              const excerptLength = 140;
+              return String(text).substring(0, excerptLength) + '...';
+            },
+          },
+        },
+        // Optional filter to limit indexed nodes
+        filter: (node, getNode) =>
+          node.frontmatter.hidden !== true &&
+          node.frontmatter.title !== 'Startsidan',
       },
     },
     'gatsby-plugin-styled-components',

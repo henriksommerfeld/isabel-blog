@@ -33,7 +33,7 @@ const LinkStyled = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />
 ))`
   font-size: 1.1em;
-  padding: 1em;
+  padding: 0.5em 1em;
   text-align: center;
   transition: color, text-shadow, background 200ms ease-out, outline 60ms;
   display: inline;

@@ -16,6 +16,7 @@ interface PressImagesTemplate {
   headerImageFile: FluidObject | undefined;
   pressImages: ImageProps[] | undefined;
   isPreview?: boolean;
+  location: any;
 }
 
 export function PressImagesPageTemplate({
@@ -25,12 +26,17 @@ export function PressImagesPageTemplate({
   headerImageFile,
   pressImages = [],
   isPreview = false,
+  location,
 }: PressImagesTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <SharedIntroBanner title={title} backgroundImage={headerImageFile} />
+      <SharedIntroBanner
+        title={title}
+        backgroundImage={headerImageFile}
+        location={location}
+      />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />
@@ -62,9 +68,13 @@ function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
         if (!originalImage.src && !isPreview) return null;
 
         return (
-          <DownloadableImage portrait={isTallerThanWide}>
+          <DownloadableImage portrait={isTallerThanWide} key={index}>
             <ImageBorder className="featured-thumbnail">
-              <PreviewCompatibleImage key={index} image={pressImage} />
+              <PreviewCompatibleImage
+                key={index}
+                image={pressImage}
+                altText={`Pressbild ${index + 1}`}
+              />
             </ImageBorder>
             <ImageMetadata>
               {originalImage.width} x {originalImage.height} px
@@ -72,6 +82,7 @@ function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
             <DownloadButton
               url={urlToDownload}
               downloadedFilename={suggestedFileName}
+              ariLabel={`Ladda ner pressbild ${index + 1}`}
             >
               Ladda ner
             </DownloadButton>

@@ -5,8 +5,14 @@ import Layout from '../components/Layout';
 import { colors, breakpoints, spacing } from '../constants';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getFluid } from '../images';
+import Search from '../components/Search';
+import { WindowLocation } from '@reach/router';
 
-export default function NotFoundPage({ location }) {
+interface NotFoundPageProps {
+  location: WindowLocation;
+}
+
+export default function NotFoundPage({ location }: NotFoundPageProps) {
   const data = useStaticQuery(backgroundImageQuery);
   const fluidImage = getImageFrom(data);
 
@@ -18,13 +24,18 @@ export default function NotFoundPage({ location }) {
         Tag="div"
         className="lost-background"
       >
-        <Text>
-          <h1>Gått vilse?</h1>
-          <Description>
-            Det finns inget på den här adressen, men använd menyn så hittar du
-            säkert rätt.
-          </Description>
-        </Text>
+        <PageContent>
+          <Banner>
+            <Search location={location} />
+          </Banner>
+          <Text>
+            <h1>Gått vilse?</h1>
+            <Description>
+              Det finns inget på den här adressen, men använd menyn så hittar du
+              säkert rätt.
+            </Description>
+          </Text>
+        </PageContent>
       </Page>
     </Layout>
   );
@@ -44,7 +55,7 @@ const backgroundImageQuery = graphql`
       relativePath: { eq: "hidden/martin-reisch-pEb-Xf_qM0s-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 5000, maxHeight: 3000, quality: 80) {
+        fluid(maxWidth: 5000, maxHeight: 3000) {
           src
           srcSet
           aspectRatio
@@ -54,6 +65,12 @@ const backgroundImageQuery = graphql`
       }
     }
   }
+`;
+
+const Banner = styled('div')`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;
 
 const Description = styled('p')`
@@ -68,12 +85,6 @@ const Text = styled('div')`
   justify-content: center;
   align-items: center;
   padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.5) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
 
   @media (min-width: ${breakpoints.small}) {
     padding: ${spacing.paddingDouble};
@@ -116,10 +127,20 @@ const Text = styled('div')`
   }
 `;
 
+const PageContent = styled('div')`
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+`;
+
 const Page = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
   color: ${colors.white};

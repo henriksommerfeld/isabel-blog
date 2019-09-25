@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { colors, breakpoints, fonts, layout } from '../constants';
+import { colors, breakpoints, fonts, layout, zIndexes } from '../constants';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
+import { WindowLocation } from '@reach/router';
 
-export default function Header({ location }: any) {
+interface HeaderProps {
+  location: WindowLocation;
+}
+
+export default function Header({ location }: HeaderProps) {
   const data = useStaticQuery(pageQuery);
   const { heading, image } = data.markdownRemark.frontmatter;
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
@@ -18,7 +23,7 @@ export default function Header({ location }: any) {
   return (
     <>
       <NavStyled>
-        <NavWidthConstrainer centered={isStartPage}>
+        <NavWidthConstrainer>
           {isStartPage ? (
             <EmptyDiv />
           ) : (
@@ -57,7 +62,7 @@ const pageQuery = graphql`
         heading
         image {
           childImageSharp {
-            fluid(maxWidth: 50, quality: 80) {
+            fluid(maxWidth: 50) {
               src
               srcSet
               aspectRatio
@@ -71,9 +76,10 @@ const pageQuery = graphql`
   }
 `;
 
-export const headerHeight = '80px';
+export const headerHeight = '70px';
+export const headerHeightNumber = 70;
 
-const EmptyDiv = styled.div`
+const EmptyDiv = styled('div')`
   @media (min-width: ${breakpoints.medium}) {
     display: none;
   }
@@ -110,13 +116,11 @@ const NavStyled = styled('nav')`
   align-items: center;
   background: ${colors.headerBackground};
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: ${zIndexes.headerNav};
   height: ${headerHeight};
 `;
 
-const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
-  <div {...restProps} />
-))`
+const NavWidthConstrainer = styled('div')`
   width: 100%;
   max-width: ${layout.contentMaxWidth}px;
   display: flex;
@@ -126,6 +130,7 @@ const NavWidthConstrainer = styled(({ centered, ...restProps }) => (
   padding: 1rem;
 
   @media (min-width: ${breakpoints.medium}) {
-    justify-content: ${props => (props.centered ? 'center' : 'space-between')};
+    justify-content: 'space-between';
+    padding: initial 1rem;
   }
 `;
