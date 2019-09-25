@@ -131,11 +131,13 @@ const SearchButton = styled('button')`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const SearchIcon = styled('img')`
   margin: 0;
   width: 1.5em;
+  cursor: pointer;
 `;
 
 export interface SearchRoute {

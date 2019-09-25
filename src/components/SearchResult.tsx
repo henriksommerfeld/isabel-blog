@@ -50,6 +50,7 @@ export function SearchResult({ location }: SearchResultProps) {
                 <LinkContainer key={page.id}>
                   <LinkIconSvg src={BlogPostSvg} alt="" />
                   <Link to={page.path}>{page.title}</Link>
+                  <Excerpt>{page.excerpt}</Excerpt>
                 </LinkContainer>
               ))}
             </LinksContainer>
@@ -76,14 +77,19 @@ function shouldShowResults(
   return true;
 }
 
+const Excerpt = styled('div')`
+  margin-left: 30px;
+`;
+
 const LinkIconSvg = styled('img')`
   margin: 0 0.5em 0 0;
   min-width: 1rem;
-  vertical-align: sub;
+  vertical-align: text-top;
 `;
 
 const LinkContainer = styled('li')`
   list-style: none;
+  margin-bottom: ${spacing.paddingDefault};
 `;
 
 const LinksContainer = styled('ul')`
