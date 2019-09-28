@@ -4,8 +4,9 @@ import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
 import Layout from '../components/Layout';
 import { PressImagesPageTemplate } from './pressimages-page-template';
+import { LocationProp } from '../interfaces/LocationProp';
 
-export default function PressImagesPage({ location }) {
+export default function PressImagesPage({ location }: LocationProp) {
   const data = useStaticQuery(pressImagesPageQuery);
   const content = data.markdownRemark.html;
   const pressImages = data.markdownRemark.frontmatter.downloadableimages;
@@ -18,7 +19,6 @@ export default function PressImagesPage({ location }) {
         content={content}
         headerImageFile={data.fileName}
         pressImages={pressImages}
-        location={location}
       />
     </Layout>
   );

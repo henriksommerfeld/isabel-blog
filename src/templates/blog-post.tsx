@@ -19,7 +19,6 @@ export default function BlogPost({ data, ...props }) {
       editLink={editBlogUrlFromAbsolutePath(post.fileAbsolutePath)}
     >
       <BlogPostTemplate
-        location={props.location}
         content={post.html}
         contentComponent={HTMLContent}
         date={frontmatter.date}

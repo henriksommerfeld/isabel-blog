@@ -7,21 +7,21 @@ import { headerHeight } from './Header';
 import { navLinks, colors, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
-import { WindowLocation } from '@reach/router';
+import { useGlobal } from 'reactn';
+import { LocationState } from './Layout';
 
 interface MobileMenuProps {
   isVisible: boolean;
   setIsVisible: Function;
   ignoreClickClassName: string;
-  location: WindowLocation;
 }
 
 export default function MobileMenu({
   isVisible,
   setIsVisible,
   ignoreClickClassName,
-  location,
 }: MobileMenuProps) {
+  const [location] = useGlobal<LocationState>('location');
   const menuRef = useRef(null);
   const pullDownAnimation = useSpring({
     to: {

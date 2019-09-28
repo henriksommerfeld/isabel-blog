@@ -6,17 +6,15 @@ import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
-import { WindowLocation } from '@reach/router';
+import { useGlobal } from 'reactn';
+import { LocationState } from './Layout';
 
-interface HeaderProps {
-  location: WindowLocation;
-}
-
-export default function Header({ location }: HeaderProps) {
+export default function Header() {
   const data = useStaticQuery(pageQuery);
   const { heading, image } = data.markdownRemark.frontmatter;
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
+  const [location] = useGlobal<LocationState>('location');
   const isStartPage = location && location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
 
@@ -41,7 +39,7 @@ export default function Header({ location }: HeaderProps) {
             className={ignoreClickClassName}
           />
 
-          <DesktopMenu location={location} />
+          <DesktopMenu />
         </NavWidthConstrainer>
       </NavStyled>
 
@@ -49,7 +47,6 @@ export default function Header({ location }: HeaderProps) {
         isVisible={mobileMenuIsVisible}
         setIsVisible={setMobileMenuIsVisible}
         ignoreClickClassName={ignoreClickClassName}
-        location={location}
       />
     </>
   );

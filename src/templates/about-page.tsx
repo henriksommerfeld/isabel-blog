@@ -4,8 +4,9 @@ import Layout from '../components/Layout';
 import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
 import { AboutPageTemplate } from './about-page-template';
+import { LocationProp } from '../interfaces/LocationProp';
 
-export default function AboutPage({ location }: AboutPageData) {
+export default function AboutPage({ location }: LocationProp) {
   const { markdownRemark: post } = useStaticQuery(aboutPageQuery);
 
   return (
@@ -28,7 +29,6 @@ interface AboutPageData {
       };
     };
   };
-  location: any;
 }
 
 const aboutPageQuery = graphql`

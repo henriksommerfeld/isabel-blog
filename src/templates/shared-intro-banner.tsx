@@ -10,19 +10,17 @@ import { WindowLocation } from '@reach/router';
 interface SharedIntroBanner {
   title: string;
   backgroundImage: FluidObject | undefined;
-  location: WindowLocation;
 }
 
 export function SharedIntroBanner({
   title,
   backgroundImage,
-  location,
 }: SharedIntroBanner) {
   if (!title) return null;
 
   return (
     <IntroBanner backgroundImage={backgroundImage}>
-      <Search location={location} />
+      <Search />
       <IntroBannerWidthConstrainer>
         <Heading>{title}</Heading>
       </IntroBannerWidthConstrainer>

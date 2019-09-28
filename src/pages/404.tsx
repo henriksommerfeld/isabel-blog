@@ -7,12 +7,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { getFluid } from '../images';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
+import { LocationProp } from '../interfaces/LocationProp';
 
-interface NotFoundPageProps {
-  location: WindowLocation;
-}
-
-export default function NotFoundPage({ location }: NotFoundPageProps) {
+export default function NotFoundPage({ location }: LocationProp) {
   const data = useStaticQuery(backgroundImageQuery);
   const fluidImage = getImageFrom(data);
 
@@ -26,7 +23,7 @@ export default function NotFoundPage({ location }: NotFoundPageProps) {
       >
         <PageContent>
           <Banner>
-            <Search location={location} />
+            <Search />
           </Banner>
           <Text>
             <h1>Gått vilse?</h1>

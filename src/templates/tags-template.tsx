@@ -9,14 +9,13 @@ import { tailwindColors } from '../tailwind-colors';
 
 interface TagsTemplateProps {
   children: ReactNode;
-  location: WindowLocation;
 }
 
-export function TagsTemplate({ children, location }: TagsTemplateProps) {
+export function TagsTemplate({ children }: TagsTemplateProps) {
   return (
     <Page>
       <Banner>
-        <Search location={location} />
+        <Search />
       </Banner>
       <Text>
         <ContentBox>{children}</ContentBox>
