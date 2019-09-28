@@ -17,7 +17,6 @@ export default function IndexPage({ location }) {
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         description={html}
-        location={location}
       />
     </Layout>
   );

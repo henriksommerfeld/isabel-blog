@@ -6,8 +6,9 @@ import Layout from '../components/Layout';
 import { PublishedPageTemplate } from './published-page-template';
 import Helmet from 'react-helmet';
 import useSiteMetadata from '../components/SiteMetadata';
+import { LocationProp } from '../interfaces/LocationProp';
 
-export default function PublishedPage({ location }) {
+export default function PublishedPage({ location }: LocationProp) {
   const data = useStaticQuery(publishedPageQuery);
   const content = data.markdownRemark.html;
   const pageName = 'Publicerat';
@@ -21,7 +22,6 @@ export default function PublishedPage({ location }) {
         title={pageName}
         content={content}
         imageFile={data.fileName}
-        location={location}
       />
     </Layout>
   );

@@ -1,4 +1,6 @@
-export function matchesRoute(location: any, path: string): boolean {
+import { WindowLocation } from '@reach/router';
+
+export function matchesRoute(location: WindowLocation, path: string): boolean {
   if (!location) return false;
   const currentPath = location.pathname;
   if (!currentPath || !path) return false;

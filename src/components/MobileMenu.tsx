@@ -7,13 +7,15 @@ import { headerHeight } from './Header';
 import { navLinks, colors, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
+import { useGlobal } from 'reactn';
+import { LocationState } from './Layout';
 
 export default function MobileMenu({
   isVisible,
   setIsVisible,
   ignoreClickClassName,
-  location,
 }) {
+  const [location] = useGlobal<LocationState>('location');
   const menuRef = useRef(null);
   const pullDownAnimation = useSpring({
     to: {

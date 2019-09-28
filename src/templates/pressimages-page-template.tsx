@@ -16,7 +16,6 @@ interface PressImagesTemplate {
   headerImageFile: FluidObject | undefined;
   pressImages: ImageProps[] | undefined;
   isPreview?: boolean;
-  location: any;
 }
 
 export function PressImagesPageTemplate({
@@ -26,17 +25,12 @@ export function PressImagesPageTemplate({
   headerImageFile,
   pressImages = [],
   isPreview = false,
-  location,
 }: PressImagesTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <SharedIntroBanner
-        title={title}
-        backgroundImage={headerImageFile}
-        location={location}
-      />
+      <SharedIntroBanner title={title} backgroundImage={headerImageFile} />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />

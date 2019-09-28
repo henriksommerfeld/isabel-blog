@@ -39,7 +39,7 @@ export default function TagRoute({
   return (
     <Layout location={location} editLink="">
       <Helmet title={`${tag} | ${title}`} />
-      <TagsTemplate location={location}>
+      <TagsTemplate>
         <h1>{tag}</h1>
         <p>{tagHeader}</p>
         <ul>{postLinks}</ul>

@@ -4,8 +4,12 @@ import { Link } from 'gatsby';
 import { navLinks, colors, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
+import { useGlobal } from 'reactn';
+import { LocationState } from 'history';
 
-export default function DesktopMenu({ location }: any) {
+export default function DesktopMenu() {
+  const [location] = useGlobal<LocationState>('location');
+
   return (
     <MenuStyled>
       {navLinks.map(link => (
