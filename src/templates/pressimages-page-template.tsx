@@ -64,7 +64,11 @@ function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
         return (
           <DownloadableImage portrait={isTallerThanWide} key={index}>
             <ImageBorder className="featured-thumbnail">
-              <PreviewCompatibleImage key={index} image={pressImage} />
+              <PreviewCompatibleImage
+                key={index}
+                image={pressImage}
+                altText={`Pressbild ${index + 1}`}
+              />
             </ImageBorder>
             <ImageMetadata>
               {originalImage.width} x {originalImage.height} px
@@ -72,6 +76,7 @@ function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
             <DownloadButton
               url={urlToDownload}
               downloadedFilename={suggestedFileName}
+              ariLabel={`Ladda ner pressbild ${index + 1}`}
             >
               Ladda ner
             </DownloadButton>

@@ -58,7 +58,7 @@ const PageStyled = styled('div')`
   }
 `;
 
-const PostDate = styled.div`
+const PostDate = styled('div')`
   color: ${colors.postDate};
 
   @media (min-width: ${breakpoints.medium}) {

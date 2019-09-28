@@ -24,7 +24,7 @@ export default function BlogPost({ data, ...props }) {
         date={frontmatter.date}
         helmet={
           <Helmet titleTemplate={`%s | ${siteTitle}`}>
-            <html lang={frontmatter.language} />
+            <html lang={frontmatter.language || 'sv'} />
             <title>{`${frontmatter.title}`}</title>
             <meta name="description" content={`${frontmatter.description}`} />
           </Helmet>

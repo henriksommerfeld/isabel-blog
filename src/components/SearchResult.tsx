@@ -48,6 +48,7 @@ export function SearchResult() {
                 <LinkContainer key={page.id}>
                   <LinkIconSvg src={BlogPostSvg} alt="" />
                   <Link to={page.path}>{page.title}</Link>
+                  <Excerpt>{page.excerpt}</Excerpt>
                 </LinkContainer>
               ))}
             </LinksContainer>
@@ -74,15 +75,19 @@ function shouldShowResults(
   return true;
 }
 
+const Excerpt = styled('div')`
+  margin-left: 30px;
+`;
+
 const LinkIconSvg = styled('img')`
   margin: 0 0.5em 0 0;
   min-width: 1rem;
-  cursor: pointer;
+  vertical-align: text-top;
 `;
 
 const LinkContainer = styled('li')`
-  display: flex;
-  align-items: center;
+  list-style: none;
+  margin-bottom: ${spacing.paddingDefault};
 `;
 
 const LinksContainer = styled('ul')`
@@ -93,8 +98,8 @@ const CloseButtonStyled = styled('button')`
   background: ${colors.white};
   border: none;
   position: absolute;
-  top: -${spacing.paddingDefault};
-  right: -${spacing.paddingDefault};
+  top: ${spacing.paddingDefault};
+  right: ${spacing.paddingDefault};
   margin: 0;
   padding: 5px;
   cursor: pointer;
@@ -105,15 +110,14 @@ const CloseButtonStyled = styled('button')`
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
   transition: transform 400ms ease, box-shadow 200ms ease;
 
+  @media (min-width: ${breakpoints.small}) {
+    top: -${spacing.paddingDefault};
+    right: -${spacing.paddingDefault};
+  }
   &:hover {
     transform: rotate(180deg) scale(1.1);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
-
-  /* @media (min-width: ${breakpoints.medium}) {
-    top: ${spacing.paddingDouble};
-    right: ${spacing.paddingDouble};
-  } */
 `;
 
 const CloseIcon = styled('img')`
@@ -148,8 +152,14 @@ const SearchResultsStyled = styled('div')`
   position: relative;
   background-color: ${transparentizeHex(colors.white, 0.9)};
   border-radius: ${layout.borderRadius};
-  padding: ${spacing.paddingDouble};
-  margin: ${spacing.paddingDouble};
+  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  width: 100%;
+
+  @media (min-width: ${breakpoints.small}) {
+    margin: ${spacing.paddingDouble};
+    padding: ${spacing.paddingDouble};
+    width: auto;
+  }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);

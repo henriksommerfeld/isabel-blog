@@ -59,7 +59,7 @@ const pageQuery = graphql`
         heading
         image {
           childImageSharp {
-            fluid(maxWidth: 50, quality: 80) {
+            fluid(maxWidth: 50) {
               src
               srcSet
               aspectRatio

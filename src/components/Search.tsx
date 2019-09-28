@@ -40,7 +40,7 @@ export default function Search() {
 
   const search = enteredQuery => {
     const response = index
-      .search(enteredQuery, { expand: true })
+      .search(enteredQuery, { expand: true, bool: 'AND' })
       .map(({ ref }) => index.documentStore.getDoc(ref));
 
     setResults(response || []);
@@ -54,14 +54,12 @@ export default function Search() {
     <>
       <SearchArea>
         <SearchBox hasFocus={hasFocus}>
-          <label htmlFor="searchbox" className="screen-reader-text">
-            {`Ange dina sökord här... ${hasFocus}`}
-          </label>
           <SearchBoxInput
             id="searchbox"
             ref={searchBoxRef}
             type="search"
-            role="entry"
+            role="search"
+            aria-label="Ange dina sökord här..."
             placeholder="Ange dina sökord här..."
             defaultValue={getPreviousQuery(location.pathname)}
             onChange={queryInputChanged}
@@ -108,6 +106,11 @@ const SearchBox = styled('div')`
 
   background-color: ${({ hasFocus }) =>
     transparentizeHex(colors.white, hasFocus ? 0.7 : 0.6)};
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
 `;
 
 const SearchBoxInput = styled('input')`
@@ -125,11 +128,13 @@ const SearchButton = styled('button')`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const SearchIcon = styled('img')`
   margin: 0;
   width: 1.5em;
+  cursor: pointer;
 `;
 
 export interface SearchRoute {

@@ -10,11 +10,17 @@ import { matchesRoute } from '../active-node';
 import { useGlobal } from 'reactn';
 import { LocationState } from './Layout';
 
+interface MobileMenuProps {
+  isVisible: boolean;
+  setIsVisible: Function;
+  ignoreClickClassName: string;
+}
+
 export default function MobileMenu({
   isVisible,
   setIsVisible,
   ignoreClickClassName,
-}) {
+}: MobileMenuProps) {
   const [location] = useGlobal<LocationState>('location');
   const menuRef = useRef(null);
   const pullDownAnimation = useSpring({

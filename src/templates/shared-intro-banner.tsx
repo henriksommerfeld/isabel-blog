@@ -63,6 +63,8 @@ const IntroBannerDarkOverlay = styled('div')`
   height: 100%;
 `;
 
+const bannerMinHeight = '150px';
+const bannerMinHeightMedium = '300px';
 const IntroBannerWithFluidImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
@@ -71,31 +73,33 @@ const IntroBannerWithFluidImage = styled(BackgroundImage)`
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
-  height: 20vh;
+  min-height: ${bannerMinHeight};
 
   @media (min-width: ${breakpoints.medium}) {
-    height: 28vh;
-  }
-
-  @media (min-width: ${breakpoints.large}) {
-    background-size: 70vw;
-    height: 32vh;
+    min-height: ${bannerMinHeightMedium};
   }
 `;
 
 const IntroBannerWidthConstrainer = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: ${bannerMinHeight};
   max-width: ${layout.contentMaxWidth}px;
-  text-align: center;
-  padding: ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
-    transform: translateY(${spacing.contentOffset});
+    min-height: ${bannerMinHeightMedium};
   }
 `;
 
-const Heading = styled.h1`
+const Heading = styled('h1')`
   color: ${colors.white};
   line-height: 1.4em;
   word-break: break-word;
+
+  @media (min-width: ${breakpoints.medium}) {
+    transform: translateY(${spacing.postHeadingOffsetWithSearchbox});
+  }
 `;

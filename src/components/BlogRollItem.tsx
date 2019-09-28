@@ -50,7 +50,7 @@ const HeadingLink = styled(Link)`
 
 const Date = styled('div')`
   text-align: center;
-  color: gray;
+  color: ${colors.postDateRoll};
   font-size: 0.8em;
 `;
 

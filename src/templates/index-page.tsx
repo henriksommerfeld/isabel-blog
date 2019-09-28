@@ -4,7 +4,6 @@ import { editPageUrl } from '../url-replacer';
 
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
-import { useGlobal } from 'reactn';
 
 export default function IndexPage({ location }) {
   const data = useStaticQuery(pageQuery);
@@ -29,7 +28,7 @@ const pageQuery = graphql`
       frontmatter {
         image {
           childImageSharp {
-            fluid(maxWidth: 300, quality: 100) {
+            fluid(maxWidth: 300) {
               src
               srcSet
               aspectRatio

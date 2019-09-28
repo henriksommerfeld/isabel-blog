@@ -37,7 +37,12 @@ module.exports = {
         paths: ['/', '/20**', '/om', '/publicerat'],
       },
     },
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        toFormat: 'WEBP',
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
@@ -61,7 +66,7 @@ module.exports = {
               maxWidth: 1000,
               linkImagesToOriginal: false,
               showCaptions: ['title'],
-              quality: 80,
+              withWebp: true,
             },
           },
           {
