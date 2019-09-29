@@ -58,6 +58,7 @@
     "gatsby-remark-responsive-iframe": "^2.2.15",
     "gatsby-remark-video": "^1.2.3",
     "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-source-twitter": "^3.0.0",
     "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "^2.2.14",
     "intersection-observer": "^0.7.0",
