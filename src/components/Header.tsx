@@ -6,7 +6,6 @@ import HamburgerMenuIcon from './HamburgerMenuIcon';
 import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
-import { useGlobal } from 'reactn';
 import { LocationProp } from 'interfaces/LocationProp';
 
 export default function Header({ location }: LocationProp) {
