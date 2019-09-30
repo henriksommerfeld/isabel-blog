@@ -9,6 +9,7 @@ import twitter from '../img/social/twitter.svg';
 import vimeo from '../img/social/vimeo.svg';
 import { spacing, colors, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
+import Tweets from './Tweets';
 
 interface Footer {
   editLink?: string;
@@ -16,14 +17,23 @@ interface Footer {
 
 export default function Footer({ editLink = '/admin' }: Footer) {
   return (
-    <InnerFooter>
-      FOOTER 🧁.{' '}
-      <a href={editLink || '/admin'} target="_blank" rel="noopener noreferrer">
-        Redigera sidan
-      </a>
-    </InnerFooter>
+    <FooterWrapper>
+      <Tweets />
+      <InnerFooter>
+        FOOTER 🧁.{' '}
+        <a
+          href={editLink || '/admin'}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Redigera sidan
+        </a>
+      </InnerFooter>
+    </FooterWrapper>
   );
 }
+
+const FooterWrapper = styled('div')``;
 
 const InnerFooter = styled('footer')`
   display: flex;

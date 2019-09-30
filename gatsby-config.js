@@ -4,37 +4,6 @@ const { transformerRemarkParser } = require('./src/transformerRemarkParser');
 const remark = require('remark');
 const stripMarkdown = require('strip-markdown');
 
-function getTwitterPlugin() {
-  const TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY;
-  const TWITTER_SECRET = process.env.TWITTER_SECRET;
-  const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
-
-  if (!TWITTER_CONSUMER_KEY || !TWITTER_SECRET || !TWITTER_BEARER_TOKEN)
-    return null;
-
-  return {
-    resolve: `gatsby-source-twitter`,
-    options: {
-      credentials: {
-        consumer_key: `${TWITTER_CONSUMER_KEY}`,
-        consumer_secret: `${TWITTER_SECRET}`,
-        bearer_token: `${TWITTER_BEARER_TOKEN}`,
-      },
-      queries: {
-        isabel: {
-          endpoint: 'statuses/user_timeline',
-          params: {
-            screen_name: 'isommerfeld',
-            include_rts: true,
-            exclude_replies: true,
-            tweet_mode: 'extended',
-          },
-        },
-      },
-    },
-  };
-}
-
 const mostPlugins = [
   {
     // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -215,6 +184,37 @@ const mostPlugins = [
   },
   'gatsby-plugin-netlify', // make sure to keep it last in the array
 ];
+
+function getTwitterPlugin() {
+  const TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY;
+  const TWITTER_SECRET = process.env.TWITTER_SECRET;
+  const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
+
+  if (!TWITTER_CONSUMER_KEY || !TWITTER_SECRET || !TWITTER_BEARER_TOKEN)
+    return null;
+
+  return {
+    resolve: `gatsby-source-twitter`,
+    options: {
+      credentials: {
+        consumer_key: `${TWITTER_CONSUMER_KEY}`,
+        consumer_secret: `${TWITTER_SECRET}`,
+        bearer_token: `${TWITTER_BEARER_TOKEN}`,
+      },
+      queries: {
+        isabel: {
+          endpoint: 'statuses/user_timeline',
+          params: {
+            screen_name: 'isommerfeld',
+            include_rts: true,
+            exclude_replies: true,
+            tweet_mode: 'extended',
+          },
+        },
+      },
+    },
+  };
+}
 
 function getPlugins() {
   const twitterPlugin = getTwitterPlugin();

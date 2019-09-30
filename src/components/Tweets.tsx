@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Tweets() {
+  const tweets = useStaticQuery<TweetsData>(isabelsTweetsQuery);
+  console.log('TCL: Tweets -> tweets', tweets);
+
   return null;
 }
 
@@ -130,6 +133,36 @@ const sampleData = {
   },
 };
 
+interface TweetData {
+  full_text: string;
+  retweet_count: number;
+  favorite_count: number;
+  created_at: string;
+  entities?: {
+    hashtags: {
+      text: string;
+    };
+    user_mentions?: {
+      screen_name: string;
+    };
+    urls?: {
+      url: string;
+      expanded_url: string;
+    };
+    media?: {
+      media_url_https: string;
+      url: string;
+      expanded_url: string;
+    };
+  };
+}
+
+interface TweetsData {
+  allTwitterStatusesUserTimelineIsabel: {
+    nodes: TweetData[];
+  };
+}
+
 const isabelsTweetsQuery = graphql`
   query {
     allTwitterStatusesUserTimelineIsabel(limit: 5) {
@@ -148,12 +181,10 @@ const isabelsTweetsQuery = graphql`
           urls {
             url
             expanded_url
-            display_url
           }
           media {
             media_url_https
             url
-            display_url
             expanded_url
           }
         }
