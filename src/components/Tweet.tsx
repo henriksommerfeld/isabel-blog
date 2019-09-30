@@ -21,7 +21,7 @@ export default function Tweet({ tweet }: TweetProps) {
 }
 
 const TweetStyled = styled('div')`
-  background-color: ${transparentizeHex(tailwindColors.gray900, 0.3)};
+  background-color: ${transparentizeHex(tailwindColors.gray900, 0.6)};
   padding: ${spacing.paddingDefault};
   border-radius: ${layout.borderRadius};
   color: ${colors.white};

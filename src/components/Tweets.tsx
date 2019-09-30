@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { tailwindColors } from '../tailwind-colors';
 import Tweet from './Tweet';
+import TwitterSvg from '../img/social/twitter-gray500.svg';
 import { breakpoints, spacing, colors, fonts } from '../constants';
 
 export default function Tweets() {
@@ -34,7 +35,11 @@ const Tweeter = styled('div')`
 `;
 
 const TweetsStyled = styled('section')`
-  background-color: ${tailwindColors.gray600};
+  background-color: ${tailwindColors.gray700};
+  background-image: url(${TwitterSvg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: 25%;
   padding-top: ${spacing.paddingDefault};
 
   @media (min-width: ${breakpoints.medium}) {
