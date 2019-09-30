@@ -13,6 +13,7 @@ interface IndexPageTemplateProps {
   subheading: string;
   description: string;
   isPreview?: boolean;
+  location: WindowLocation;
 }
 
 export const IndexPageTemplate = ({
@@ -21,10 +22,11 @@ export const IndexPageTemplate = ({
   subheading,
   description,
   isPreview = false,
+  location,
 }: IndexPageTemplateProps) => (
   <PageStyled>
     <IntroBanner>
-      <Search />
+      <Search location={location} />
       <IntroBannerWidthConstrainer>
         <PortraitLarge image={image} style={portraitStyles} />
         <IntroText>

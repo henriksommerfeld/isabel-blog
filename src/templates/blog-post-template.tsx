@@ -13,6 +13,7 @@ interface BlogPostTemplate {
   tags: string[] | undefined;
   title: string;
   helmet: any;
+  location: WindowLocation;
 }
 
 export default function BlogPostTemplate({
@@ -22,6 +23,7 @@ export default function BlogPostTemplate({
   tags,
   title,
   helmet,
+  location,
 }: BlogPostTemplate) {
   const PostContent = contentComponent || Content;
   const dateString = date ? `Publicerat ${date}` : '';
@@ -31,7 +33,7 @@ export default function BlogPostTemplate({
       {helmet || ''}
       <PageStyled>
         <IntroBanner>
-          <Search />
+          <Search location={location} />
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>

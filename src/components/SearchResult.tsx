@@ -9,13 +9,12 @@ import CloseSvg from '../../static/img/close.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { useEscKey } from '../useEscKey';
 import { useTransition, animated, config } from 'react-spring';
-import { LocationState } from './Layout';
+import { LocationProp } from 'interfaces/LocationProp';
 
-export function SearchResult() {
+export function SearchResult({ location }: LocationProp) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
-  const [location] = useGlobal<LocationState>('location');
 
   const containerTransitions = useTransition(
     shouldShowResults(results, route, location.pathname),

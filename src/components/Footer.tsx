@@ -33,7 +33,9 @@ export default function Footer({ editLink = '/admin' }: Footer) {
   );
 }
 
-const FooterWrapper = styled('div')``;
+const FooterWrapper = styled('div')`
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
+`;
 
 const InnerFooter = styled('footer')`
   display: flex;
@@ -42,5 +44,4 @@ const InnerFooter = styled('footer')`
   padding: ${spacing.paddingDefault};
   background-color: ${colors.footerBackground};
   color: ${tailwindColors.blue100};
-  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
 `;

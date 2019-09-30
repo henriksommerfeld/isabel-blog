@@ -7,14 +7,13 @@ import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
 import { useGlobal } from 'reactn';
-import { LocationState } from './Layout';
+import { LocationProp } from 'interfaces/LocationProp';
 
-export default function Header() {
+export default function Header({ location }: LocationProp) {
   const data = useStaticQuery(pageQuery);
   const { heading, image } = data.markdownRemark.frontmatter;
   const [mobileMenuIsVisible, setMobileMenuIsVisible] = useState(false);
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
-  const [location] = useGlobal<LocationState>('location');
   const isStartPage = location && location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
 
@@ -39,7 +38,7 @@ export default function Header() {
             className={ignoreClickClassName}
           />
 
-          <DesktopMenu />
+          <DesktopMenu location={location} />
         </NavWidthConstrainer>
       </NavStyled>
 
@@ -47,6 +46,7 @@ export default function Header() {
         isVisible={mobileMenuIsVisible}
         setIsVisible={setMobileMenuIsVisible}
         ignoreClickClassName={ignoreClickClassName}
+        location={location}
       />
     </>
   );

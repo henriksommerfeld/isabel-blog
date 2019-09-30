@@ -31,6 +31,7 @@ export default function BlogPost({ data, ...props }) {
         }
         tags={tags}
         title={frontmatter.title}
+        location={props.location}
       />
     </Layout>
   );

@@ -6,7 +6,6 @@ import { colors, breakpoints, spacing } from '../constants';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getFluid } from '../images';
 import Search from '../components/Search';
-import { WindowLocation } from '@reach/router';
 import { LocationProp } from '../interfaces/LocationProp';
 
 export default function NotFoundPage({ location }: LocationProp) {
@@ -23,7 +22,7 @@ export default function NotFoundPage({ location }: LocationProp) {
       >
         <PageContent>
           <Banner>
-            <Search />
+            <Search location={location} />
           </Banner>
           <Text>
             <h1>Gått vilse?</h1>
@@ -125,6 +124,7 @@ const Text = styled('div')`
 `;
 
 const PageContent = styled('div')`
+  width: 100%;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.8) 0%,

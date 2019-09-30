@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
 import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
+import { WindowLocation } from '@reach/router';
 
 interface PublishedTemplate {
   contentComponent: any;
   content: any;
   title: string;
   imageFile: FluidObject | undefined;
+  location: WindowLocation;
 }
 
 export function PublishedPageTemplate({
@@ -16,12 +18,17 @@ export function PublishedPageTemplate({
   content,
   title,
   imageFile,
+  location,
 }: PublishedTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <SharedIntroBanner title={title} backgroundImage={imageFile} />
+      <SharedIntroBanner
+        title={title}
+        backgroundImage={imageFile}
+        location={location}
+      />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />

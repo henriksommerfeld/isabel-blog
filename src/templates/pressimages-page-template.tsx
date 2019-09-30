@@ -8,6 +8,7 @@ import PreviewCompatibleImage, {
   ImageProps,
 } from '../components/PreviewCompatibleImage';
 import DownloadButton from '../components/DownloadButton';
+import { WindowLocation } from '@reach/router';
 
 interface PressImagesTemplate {
   contentComponent: any;
@@ -16,6 +17,7 @@ interface PressImagesTemplate {
   headerImageFile: FluidObject | undefined;
   pressImages: ImageProps[] | undefined;
   isPreview?: boolean;
+  location: WindowLocation;
 }
 
 export function PressImagesPageTemplate({
@@ -25,12 +27,17 @@ export function PressImagesPageTemplate({
   headerImageFile,
   pressImages = [],
   isPreview = false,
+  location,
 }: PressImagesTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <SharedIntroBanner title={title} backgroundImage={headerImageFile} />
+      <SharedIntroBanner
+        title={title}
+        backgroundImage={headerImageFile}
+        location={location}
+      />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />

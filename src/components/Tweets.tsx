@@ -6,7 +6,6 @@ import { tailwindColors } from '../tailwind-colors';
 export default function Tweets() {
   const tweetsData = useStaticQuery<TweetsData>(isabelsTweetsQuery);
   const tweets = tweetsData.allTwitterStatusesUserTimelineIsabel.nodes;
-  console.log('TCL: Tweets -> tweets', tweets);
 
   const toRender = tweets.map(tweet => {
     return <div key={tweet.id}>{tweet.full_text}</div>;
