@@ -217,8 +217,7 @@ function getTwitterPlugin() {
 }
 
 function getPlugins() {
-  const twitterPlugin = getTwitterPlugin();
-
+  const twitterPlugin = null; //getTwitterPlugin();
   return twitterPlugin ? [twitterPlugin, ...mostPlugins] : mostPlugins;
 }
 

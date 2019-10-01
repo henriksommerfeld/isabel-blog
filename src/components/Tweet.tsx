@@ -5,6 +5,7 @@ import { TweetData } from './Tweets';
 import { transparentizeHex } from '../color-convertions';
 import { colors, spacing, layout } from '../constants';
 import TwitterSvg from '../img/social/twitter.svg';
+import { parseTwitterTime, formatTime } from '../time';
 
 interface TweetProps {
   tweet: TweetData;
@@ -13,15 +14,29 @@ interface TweetProps {
 export default function Tweet({ tweet }: TweetProps) {
   return (
     <TweetStyled key={tweet.id}>
-      {/* <TweeterStyled image={tweet.user.profile_image_url_https} /> */}
       <TwitterLogoStyled />
+      <TwitterTime tweetTime={tweet.created_at} />
       <div>{tweet.full_text}</div>
     </TweetStyled>
   );
 }
 
+interface TwitterTimeProps {
+  tweetTime: string;
+}
+function TwitterTime({ tweetTime }: TwitterTimeProps) {
+  const timestamp = parseTwitterTime(tweetTime);
+  const dateAndTime = formatTime(timestamp);
+
+  return <TimeStyled>{dateAndTime}</TimeStyled>;
+}
+
+const TimeStyled = styled('div')`
+  text-align: end;
+`;
+
 const TweetStyled = styled('div')`
-  background-color: ${transparentizeHex(tailwindColors.gray900, 0.6)};
+  background-color: ${transparentizeHex(tailwindColors.gray900, 0.7)};
   padding: ${spacing.paddingDefault};
   border-radius: ${layout.borderRadius};
   color: ${colors.white};
