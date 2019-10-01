@@ -33,10 +33,11 @@ export function formatTime(timestamp: number): string {
     const hours = ensureLeadingZeros(dateObject.getHours(), 2);
     const minutes = ensureLeadingZeros(dateObject.getMinutes(), 2);
 
+    const isToday =
+      currentYear === year && currentMonth === month && currentDay === day;
     const yearToShow = currentYear === year ? '' : `${year}`;
-    const monthToShow =
-      !yearToShow && currentMonth === month ? '' : months[month];
-    const dayToShow = !monthToShow && currentDay === day ? '' : `${day}`;
+    const monthToShow = isToday ? '' : months[month];
+    const dayToShow = isToday ? '' : `${day}`;
 
     return `${dayToShow} ${monthToShow} ${yearToShow} ${hours}:${minutes}`;
   } catch (error) {
