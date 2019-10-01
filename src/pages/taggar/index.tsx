@@ -17,7 +17,7 @@ export default function TagsPage({ location }: LocationProp) {
   return (
     <Layout location={location}>
       <Helmet title={`Taggar | ${title}`} />
-      <TagsTemplate>
+      <TagsTemplate location={location}>
         <h1>Taggar</h1>
         <ul className="taglist">
           {group.map(tag => (
