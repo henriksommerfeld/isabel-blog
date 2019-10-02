@@ -194,7 +194,7 @@ function getTwitterPlugin() {
     return null;
 
   return {
-    resolve: `gatsby-source-twitter`,
+    resolve: `gatsby-source-twitter-unfurl`,
     options: {
       credentials: {
         consumer_key: `${TWITTER_CONSUMER_KEY}`,
@@ -209,6 +209,7 @@ function getTwitterPlugin() {
             include_rts: true,
             exclude_replies: true,
             tweet_mode: 'extended',
+            count: 20,
           },
         },
       },
