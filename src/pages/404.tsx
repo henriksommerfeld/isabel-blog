@@ -13,7 +13,7 @@ export default function NotFoundPage({ location }: LocationProp) {
   const fluidImage = getImageFrom(data);
 
   return (
-    <Layout location={location}>
+    <Layout location={location} showTweets={false}>
       <Page
         fluid={fluidImage}
         backgroundColor={darkGreen}

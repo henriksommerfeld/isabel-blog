@@ -6,12 +6,16 @@ import Tweets from './Tweets';
 
 interface Footer {
   editLink?: string;
+  showTweets?: boolean;
 }
 
-export default function Footer({ editLink = '/admin' }: Footer) {
+export default function Footer({
+  editLink = '/admin',
+  showTweets = true,
+}: Footer) {
   return (
-    <FooterWrapper>
-      <Tweets />
+    <FooterWrapper useMarginTop={showTweets}>
+      {showTweets && <Tweets />}
       <InnerFooter>
         FOOTER 🧁.{' '}
         <a
@@ -28,7 +32,8 @@ export default function Footer({ editLink = '/admin' }: Footer) {
 
 const FooterWrapper = styled('div')`
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
-  margin-top: ${spacing.paddingDouble};
+  margin-top: ${({ useMarginTop }) =>
+    useMarginTop ? spacing.paddingDouble : 0};
 `;
 
 const InnerFooter = styled('footer')`

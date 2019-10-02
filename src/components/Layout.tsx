@@ -15,12 +15,14 @@ interface TemplateWrapperProps {
   location: WindowLocation;
   editLink?: string;
   language?: string;
+  showTweets?: boolean;
 }
 
 export default function TemplateWrapper({
   children,
   location,
   editLink,
+  showTweets,
 }: TemplateWrapperProps) {
   const { title, description } = useSiteMetadata();
 
@@ -69,7 +71,7 @@ export default function TemplateWrapper({
         <Header location={location} />
 
         <Body className="Body">{children}</Body>
-        <Footer editLink={editLink} />
+        <Footer editLink={editLink} showTweets={showTweets} />
       </Page>
       <SearchResult location={location} />
     </>
