@@ -6,7 +6,7 @@ import BlogPostTags from './blog-post-tags';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
 
-interface BlogPostTemplate {
+interface BlogPostTemplateProps {
   content: string;
   contentComponent: any;
   date: string;
@@ -14,6 +14,7 @@ interface BlogPostTemplate {
   title: string;
   helmet: any;
   location: WindowLocation;
+  isPreview?: boolean;
 }
 
 export default function BlogPostTemplate({
@@ -24,7 +25,8 @@ export default function BlogPostTemplate({
   title,
   helmet,
   location,
-}: BlogPostTemplate) {
+  isPreview = false,
+}: BlogPostTemplateProps) {
   const PostContent = contentComponent || Content;
   const dateString = date ? `Publicerat ${date}` : '';
 
@@ -33,7 +35,7 @@ export default function BlogPostTemplate({
       {helmet || ''}
       <PageStyled>
         <IntroBanner>
-          <Search location={location} />
+          {!isPreview && <Search location={location} />}
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>

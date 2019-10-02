@@ -26,7 +26,7 @@ export const IndexPageTemplate = ({
 }: IndexPageTemplateProps) => (
   <PageStyled>
     <IntroBanner>
-      <Search location={location} />
+      {!isPreview && <Search location={location} />}
       <IntroBannerWidthConstrainer>
         <PortraitLarge image={image} style={portraitStyles} />
         <IntroText>
