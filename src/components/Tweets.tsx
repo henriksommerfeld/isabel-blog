@@ -4,17 +4,19 @@ import styled from 'styled-components';
 import { tailwindColors } from '../tailwind-colors';
 import Tweet from './Tweet';
 import TwitterSvg from '../img/social/twitter-gray500.svg';
-import { breakpoints, spacing, colors, fonts } from '../constants';
+import { breakpoints, spacing, colors, fonts, urls } from '../constants';
 
 export default function Tweets() {
   const tweetsData = useStaticQuery<TweetsData>(isabelsTweetsQuery);
-  //const tweetsData = sampleTweets;
   const tweets = tweetsData.allTwitterStatusesUserTimelineIsabel.nodes;
 
   return (
     <TweetsStyled>
-      <Tweeter aria-label="Tweets av Isabel">
-        <HeadingLink href="https://twitter.com/isommerfeld" target="_blank">
+      <Tweeter>
+        <HeadingLink
+          href={`${urls.twitterBaseUrl}/isommerfeld`}
+          target="_blank"
+        >
           @isommerfeld på Twitter
         </HeadingLink>
       </Tweeter>
@@ -66,7 +68,7 @@ const TweetsInnerStyled = styled('div')`
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: ${breakpoints.xl}) {
+  @media (min-width: 3000px) {
     grid-template-columns: repeat(6, 1fr);
   }
 `;

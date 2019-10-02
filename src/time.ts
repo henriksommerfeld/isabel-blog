@@ -37,7 +37,7 @@ export function formatTime(timestamp: number): string {
       currentYear === year && currentMonth === month && currentDay === day;
     const yearToShow = currentYear === year ? '' : `${year}`;
     const monthToShow = isToday ? '' : months[month];
-    const dayToShow = isToday ? '' : `${day}`;
+    const dayToShow = isToday ? 'i dag' : `${day}`;
 
     return `${dayToShow} ${monthToShow} ${yearToShow} ${hours}:${minutes}`;
   } catch (error) {

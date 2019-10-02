@@ -75,7 +75,7 @@ const TweetStyled = styled('div')`
   a:visited,
   a:hover,
   a:focus {
-    /* color: ${colors.white}; */
+    color: ${colors.white};
     background: none;
   }
 `;

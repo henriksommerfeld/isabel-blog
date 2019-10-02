@@ -24,6 +24,10 @@ export const layout = {
   borderRadius: '0.25rem',
 };
 
+export const urls = {
+  twitterBaseUrl: 'https://twitter.com',
+};
+
 export const breakpoints = {
   small: '768px',
   mediumAsNumber: 1024,

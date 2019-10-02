@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { TweetData } from './Tweets';
 import { parseTwitterTime, formatTime } from '../time';
 import { isRetweet } from './Tweet';
+import { urls } from '../constants';
 
 interface TwitterTimeProps {
   tweet: TweetData;
@@ -24,7 +25,7 @@ export function TwitterTime({ tweet }: TwitterTimeProps) {
 }
 
 function GetPermaLink(tweet: TweetData): string {
-  return `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
+  return `${urls.twitterBaseUrl}/${tweet.user.screen_name}/status/${tweet.id_str}`;
 }
 
 const TimeStyled = styled('a')`

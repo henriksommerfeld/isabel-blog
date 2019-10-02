@@ -35,6 +35,7 @@ const TweeterStyled = styled('a')`
 const ProfileImage = styled('img')`
   border-radius: 50%;
   border: 2px solid ${colors.white};
+  margin: 0;
 `;
 
 const NameStyled = styled('div')``;
