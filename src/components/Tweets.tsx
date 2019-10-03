@@ -9,6 +9,10 @@ import { breakpoints, spacing, colors, fonts, urls } from '../constants';
 export default function Tweets() {
   const tweetsData = useStaticQuery<TweetsData>(isabelsTweetsQuery);
   const tweets = tweetsData.allTwitterStatusesUserTimelineIsabel.nodes;
+  const dummyTweetId = '848930551989915648';
+  const realTweets = tweets.filter(x => x.id_str !== dummyTweetId);
+
+  if (!realTweets.length) return null;
 
   return (
     <TweetsStyled>
@@ -21,7 +25,7 @@ export default function Tweets() {
         </HeadingLink>
       </Tweeter>
       <TweetsInnerStyled>
-        {tweets.map(tweet => (
+        {realTweets.map(tweet => (
           <Tweet key={tweet.id} tweet={tweet} />
         ))}
       </TweetsInnerStyled>
@@ -105,6 +109,7 @@ const HeadingLink = styled('a')`
 export interface TweetData {
   id: string;
   id_str: string;
+  text: string;
   full_text: string;
   retweet_count: number;
   favorite_count: number;
@@ -135,6 +140,7 @@ export interface TweetData {
   retweeted_status?: {
     id: string;
     id_str: string;
+    text: string;
     full_text: string;
     retweet_count: number;
     favorite_count: number;
@@ -173,10 +179,11 @@ interface TweetsData {
 
 const isabelsTweetsQuery = graphql`
   query {
-    allTwitterStatusesUserTimelineIsabel(limit: 6) {
+    allTwitterStatusesUserTimelineIsabel(limit: 7) {
       nodes {
         id
         id_str
+        text
         full_text
         retweet_count
         favorite_count
@@ -195,11 +202,12 @@ const isabelsTweetsQuery = graphql`
           media {
             media_url_https
             url
-            expanded_url
+            type
           }
         }
         retweeted_status {
           id_str
+          text
           full_text
           retweet_count
           favorite_count
@@ -212,6 +220,7 @@ const isabelsTweetsQuery = graphql`
             media {
               media_url_https
               url
+              type
             }
           }
           user {

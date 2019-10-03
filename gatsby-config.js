@@ -186,12 +186,9 @@ const mostPlugins = [
 ];
 
 function getTwitterPlugin() {
-  const TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY;
-  const TWITTER_SECRET = process.env.TWITTER_SECRET;
-  const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
-
-  if (!TWITTER_CONSUMER_KEY || !TWITTER_SECRET || !TWITTER_BEARER_TOKEN)
-    return null;
+  const TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY || '';
+  const TWITTER_SECRET = process.env.TWITTER_SECRET || '';
+  const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN || '';
 
   return {
     resolve: `gatsby-source-twitter-unfurl`,
@@ -209,7 +206,7 @@ function getTwitterPlugin() {
             include_rts: true,
             exclude_replies: true,
             tweet_mode: 'extended',
-            count: 20,
+            count: 10,
           },
         },
       },

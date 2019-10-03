@@ -2,6 +2,7 @@ const Twitter = require(`twitter`);
 const getTweets = require(`./twitter`);
 const { md5, camelCase } = require(`./utils`);
 const { saveResult } = require(`./debug`);
+const dummyTweet = require('./dummy-tweet.json');
 
 const nodeTypes = [];
 const DEBUG = process.env.DEBUG === `true`;
@@ -27,32 +28,62 @@ function generateNode(tweet, contentDigest, type) {
   return node;
 }
 
+function createNodes(
+  tweets,
+  nodeType,
+  boundActionCreators,
+  createContentDigest
+) {
+  const { createNode } = boundActionCreators;
+  tweets.forEach(tweet => {
+    createNode(generateNode(tweet, createContentDigest(tweet), nodeType));
+  });
+}
+
+function hasCredentials(credentials) {
+  return (
+    credentials &&
+    credentials.consumer_key &&
+    credentials.consumer_secret &&
+    credentials.bearer_token
+  );
+}
+
 exports.sourceNodes = async (
   { boundActionCreators, createContentDigest, reporter },
   { queries, credentials }
 ) => {
-  const { createNode } = boundActionCreators;
-
-  function createNodes(tweets, nodeType) {
-    tweets.forEach(tweet => {
-      createNode(generateNode(tweet, createContentDigest(tweet), nodeType));
-    });
-  }
-
   if (queries) {
-    var client = new Twitter(credentials);
     return Promise.all(
       Object.keys(queries)
         .map(async queryName => {
           const nodeType = camelCase(
             `twitter ${queries[queryName].endpoint} ${queryName}`
           );
-          const results = await getTweets(client, queries[queryName], reporter);
+
+          let results = [];
+
+          if (!hasCredentials(credentials)) {
+            reporter.warn(
+              `Twitter keys in .env file missing, only creating dummy tweet.`
+            );
+          } else {
+            reporter.warn(`credentials: `, credentials);
+            const twitterClient = new Twitter(credentials);
+            results = await getTweets(
+              twitterClient,
+              queries[queryName],
+              reporter
+            );
+          }
+
+          const resultsWithDummy = [dummyTweet, ...results];
           nodeTypes.push(nodeType);
+
           return {
             queryName,
             nodeType,
-            results,
+            results: resultsWithDummy,
           };
         })
         .map(async queryResults => {
@@ -64,10 +95,17 @@ exports.sourceNodes = async (
 
           if (results.length) {
             reporter.info(`Creating Twitter nodes ${nodeType} ...`);
-            createNodes(results, nodeType);
           } else {
-            reporter.warn(`No twitter results from ${queryName}`);
+            reporter.warn(
+              `No twitter results from ${queryName}, only creating dummy tweet.`
+            );
           }
+          createNodes(
+            results,
+            nodeType,
+            boundActionCreators,
+            createContentDigest
+          );
         })
     );
   } else {
