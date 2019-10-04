@@ -29,7 +29,6 @@ const ContentBox = styled('div')`
   font-size: 1.1em;
   border-radius: ${layout.borderRadius};
   max-width: ${layout.contentMaxWidth}px;
-  border: 1px solid ${tailwindColors.gray300};
 
   ul {
     list-style: none;
@@ -37,6 +36,7 @@ const ContentBox = styled('div')`
   }
 
   @media (min-width: ${breakpoints.small}) {
+    border: 1px solid ${tailwindColors.gray300};
     padding: 2rem;
     background: rgba(255, 255, 255, 0.7);
 
