@@ -179,6 +179,7 @@ export interface TweetData {
     title: string;
     description: string;
     image: string;
+    url: string;
   };
 }
 
@@ -245,6 +246,7 @@ const isabelsTweetsQuery = graphql`
           title
           description
           image
+          url
         }
       }
     }

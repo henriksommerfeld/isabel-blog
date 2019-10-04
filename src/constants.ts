@@ -5,6 +5,7 @@ export const spacing = {
   default: '1rem',
   double: '2rem',
   x3: '3rem',
+  half: '0.5rem',
   introBannerExtra: '3rem',
   postBannerExtra: '5rem',
   notFoundBannerExtra: '5rem',

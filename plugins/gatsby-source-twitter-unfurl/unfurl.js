@@ -38,17 +38,49 @@ async function fetchSiteData(url, tweet, reporter) {
   const siteMetadata = await unfurl(url, { oembed: false });
   if (!siteMetadata) return null;
 
-  const siteData = siteMetadata.twitter_card || siteMetadata.open_graph || null;
-
-  if (!siteData) return null;
+  if (!getSiteDataTitle(siteMetadata)) return null;
 
   return {
-    title: siteData.title,
-    description: siteData.description,
-    image:
-      (siteData.images && siteData.images.length && siteData.images[0].url) ||
-      '',
+    title: getSiteDataTitle(siteMetadata),
+    description: getSiteDataDescription(siteMetadata),
+    image: getSiteDataImage(siteMetadata),
+    url: url,
   };
+}
+
+function getSiteDataTitle(siteMetadata) {
+  const twitterTitle =
+    siteMetadata.twitter_card && siteMetadata.twitter_card.title;
+  if (twitterTitle) return twitterTitle;
+  const openGraphTitle =
+    siteMetadata.open_graph && siteMetadata.open_graph.title;
+  return openGraphTitle || '';
+}
+
+function getSiteDataDescription(siteMetadata) {
+  const twitterDescription =
+    siteMetadata.twitter_card && siteMetadata.twitter_card.description;
+  if (twitterDescription) return twitterDescription;
+  const openGraphDescription =
+    siteMetadata.open_graph && siteMetadata.open_graph.description;
+  return openGraphDescription || '';
+}
+
+function getSiteDataImage(siteMetadata) {
+  const twitterImage = getImage(siteMetadata.twitter_card);
+  if (twitterImage) return twitterImage;
+  const openGraphImage = getImage(siteMetadata.open_graph);
+  return openGraphImage || '';
+}
+
+function getImage(metadata) {
+  return (
+    (metadata &&
+      metadata.images &&
+      metadata.images.length &&
+      metadata.images[0].url) ||
+    ''
+  );
 }
 
 function getEntitiesExpandedUrl(tweet) {
