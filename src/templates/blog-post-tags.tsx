@@ -38,5 +38,5 @@ const LinkIconSvg = styled('span')`
 `;
 
 const LinksContainer = styled('span')`
-  margin-top: ${spacing.paddingDouble};
+  margin-top: ${spacing.double};
 `;

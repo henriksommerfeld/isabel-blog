@@ -59,7 +59,7 @@ const Text = styled('div')`
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.double} ${spacing.default};
   background: ${transparentizeHex(colors.white, 0.7)};
   height: 100%;
   width: 100%;

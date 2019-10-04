@@ -44,13 +44,17 @@ function LinkPreview({ tweet }: TweetProps) {
   if (!hasLinkPreview(tweet)) return null;
 
   return (
-    <div>
+    <LinkPreviewStyled>
       <img src={tweet.linked_site.image} alt="" />
       <div>{tweet.linked_site.title}</div>
       <div>{tweet.linked_site.description}</div>
-    </div>
+    </LinkPreviewStyled>
   );
 }
+
+const LinkPreviewStyled = styled('div')`
+  border-radius: ${layout.borderRadius};
+`;
 
 function getText(tweet: TweetData): string {
   return isRetweet(tweet) ? tweet.retweeted_status.full_text : tweet.full_text;
@@ -74,8 +78,8 @@ const Heading = styled('div')`
 `;
 
 const TweetContent = styled('div')`
-  padding-top: ${spacing.paddingDefault};
-  padding-bottom: ${spacing.paddingDefault};
+  padding-top: ${spacing.default};
+  padding-bottom: ${spacing.default};
 `;
 
 const TweetText = styled('div')`
@@ -85,7 +89,7 @@ const TweetText = styled('div')`
 const TweetStyled = styled('div')`
   display: grid;
   grid-template-rows: 0 auto 1fr auto;
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   border-radius: ${layout.borderRadius};
   color: ${colors.white};
   background-color: ${transparentizeHex(tailwindColors.gray900, 0.7)};
@@ -104,7 +108,7 @@ const TweetStyled = styled('div')`
 `;
 
 const MetaStyled = styled('div')`
-  padding-top: ${spacing.paddingDefault};
+  padding-top: ${spacing.default};
   background: linear-gradient(
     to right,
     transparent 0%,

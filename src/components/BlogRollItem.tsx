@@ -57,7 +57,7 @@ const Date = styled('div')`
 `;
 
 const Article = styled('article')`
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   border-bottom: 1px dashed gray;
 `;
 
@@ -77,7 +77,7 @@ function FeaturedImage({ image, title }) {
   if (!image) return null;
 
   const altText = title ? `Bild till artikeln ${title}` : '';
-  const marginBottom = { marginBottom: spacing.paddingDefault };
+  const marginBottom = { marginBottom: spacing.default };
 
   return (
     <div className="featured-thumbnail" style={marginBottom}>

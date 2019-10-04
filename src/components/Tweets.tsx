@@ -53,18 +53,18 @@ const TweetsStyled = styled('section')`
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: 25%;
-  padding-top: ${spacing.paddingDefault};
+  padding-top: ${spacing.default};
 
   @media (min-width: ${breakpoints.medium}) {
-    padding-top: ${spacing.paddingDouble};
+    padding-top: ${spacing.double};
   }
 `;
 
 const TweetsInnerStyled = styled('div')`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: ${spacing.paddingDefault};
-  padding: ${spacing.paddingDefault};
+  grid-gap: ${spacing.default};
+  padding: ${spacing.default};
   overflow-x: auto;
   word-break: break-word;
 
@@ -73,8 +73,8 @@ const TweetsInnerStyled = styled('div')`
   }
 
   @media (min-width: ${breakpoints.medium}) {
-    grid-gap: ${spacing.paddingDouble};
-    padding: ${spacing.paddingDouble};
+    grid-gap: ${spacing.double};
+    padding: ${spacing.double};
     grid-template-columns: repeat(3, 1fr);
   }
 

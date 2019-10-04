@@ -80,10 +80,10 @@ const Text = styled('div')`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.double} ${spacing.default};
 
   @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.paddingDouble};
+    padding: ${spacing.double};
 
     h1 {
       font-size: 2rem;
@@ -97,7 +97,7 @@ const Text = styled('div')`
   }
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.notFoundBannerExtraPadding};
+    padding: ${spacing.notFoundBannerExtra};
 
     h1 {
       font-size: 2.5rem;

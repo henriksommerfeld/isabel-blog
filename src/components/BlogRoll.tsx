@@ -71,7 +71,7 @@ const BlogRollStyled = styled('div')`
     transform: translateY(${spacing.contentOffset});
     border-radius: ${layout.borderRadius};
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-    padding: ${spacing.paddingDouble};
+    padding: ${spacing.double};
   }
 `;
 

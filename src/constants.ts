@@ -2,12 +2,12 @@ import { tailwindColors } from './tailwind-colors';
 import { css } from 'styled-components';
 
 export const spacing = {
-  paddingDefault: '1rem',
-  paddingDouble: '2rem',
-  paddingX3: '3rem',
-  introBannerExtraPadding: '3rem',
-  postBannerExtraPadding: '5rem',
-  notFoundBannerExtraPadding: '5rem',
+  default: '1rem',
+  double: '2rem',
+  x3: '3rem',
+  introBannerExtra: '3rem',
+  postBannerExtra: '5rem',
+  notFoundBannerExtra: '5rem',
   contentOffset: `-3rem`,
   postHeadingOffset: `-1rem`,
   postHeadingOffsetWithSearchbox: `-2rem`,

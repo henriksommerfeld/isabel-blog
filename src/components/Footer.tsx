@@ -32,15 +32,14 @@ export default function Footer({
 
 const FooterWrapper = styled('div')`
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
-  margin-top: ${({ useMarginTop }) =>
-    useMarginTop ? spacing.paddingDouble : 0};
+  margin-top: ${({ useMarginTop }) => (useMarginTop ? spacing.double : 0)};
 `;
 
 const InnerFooter = styled('footer')`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   background-color: ${colors.footerBackground};
   color: ${tailwindColors.blue100};
 `;

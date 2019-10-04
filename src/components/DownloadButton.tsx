@@ -46,5 +46,5 @@ const DownloadButtonStyled = styled('a')`
 
 const ButtonContainer = styled('div')`
   width: 100%;
-  padding: ${spacing.paddingDefault} 0 0 0;
+  padding: ${spacing.default} 0 0 0;
 `;

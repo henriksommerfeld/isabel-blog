@@ -29,7 +29,7 @@ function GetProfileUrl(screenName: string): string {
 const TweeterStyled = styled('a')`
   display: grid;
   grid-template-columns: auto auto;
-  grid-column-gap: ${spacing.paddingDefault};
+  grid-column-gap: ${spacing.default};
 `;
 
 const ProfileImage = styled('img')`

@@ -81,7 +81,7 @@ const IntroBannerWidthConstrainer = styled('div')`
   @media (min-width: ${breakpoints.medium}) {
     flex-direction: row-reverse;
     justify-content: space-evenly;
-    padding-bottom: ${spacing.introBannerExtraPadding};
+    padding-bottom: ${spacing.introBannerExtra};
     max-width: ${layout.contentMaxWidth}px;
   }
 `;
@@ -91,8 +91,8 @@ const IntroText = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: ${spacing.paddingDefault};
-  padding-right: ${spacing.paddingDefault};
+  padding-left: ${spacing.default};
+  padding-right: ${spacing.default};
   text-align: center;
 `;
 
