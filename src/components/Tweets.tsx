@@ -3,14 +3,20 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { tailwindColors } from '../tailwind-colors';
 import Tweet from './Tweet';
+import { dummyTweetId } from '../dummy-tweet';
 import TwitterSvg from '../img/social/twitter-gray500.svg';
 import { breakpoints, spacing, colors, fonts, urls } from '../constants';
 
 export default function Tweets() {
   const tweetsData = useStaticQuery<TweetsData>(isabelsTweetsQuery);
-  const tweets = tweetsData.allTwitterStatusesUserTimelineIsabel.nodes;
-  const dummyTweetId = '848930551989915648';
-  const realTweets = tweets.filter(x => x.id_str !== dummyTweetId);
+  const tweets = tweetsData.allTwitterStatusesUserTimeline.nodes;
+  /* The local plugin 'gatsby-source-twitter-unfurl' always returns the referenced
+     dummy tweet, that has all the possible properties that can be returned 
+     from the GraphQL query. This is to avoid that the query fails, and thus the 
+     entire build because none of the returned tweets have a property I'm querying 
+     for.
+  */
+  const realTweets = tweets.filter(x => x.id_str !== dummyTweetId && x.id_str);
 
   if (!realTweets.length) return null;
 
@@ -169,17 +175,22 @@ export interface TweetData {
       profile_image_url_https: string;
     };
   };
+  linked_site?: {
+    title: string;
+    description: string;
+    image: string;
+  };
 }
 
 interface TweetsData {
-  allTwitterStatusesUserTimelineIsabel: {
+  allTwitterStatusesUserTimeline: {
     nodes: TweetData[];
   };
 }
 
 const isabelsTweetsQuery = graphql`
   query {
-    allTwitterStatusesUserTimelineIsabel(limit: 7) {
+    allTwitterStatusesUserTimeline(limit: 7) {
       nodes {
         id
         id_str
@@ -229,6 +240,11 @@ const isabelsTweetsQuery = graphql`
             name
             profile_image_url_https
           }
+        }
+        linked_site {
+          title
+          description
+          image
         }
       }
     }

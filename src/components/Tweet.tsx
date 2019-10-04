@@ -21,7 +21,10 @@ export default function Tweet({ tweet }: TweetProps) {
         <Tweeter tweet={tweet} />
         <TwitterTime tweet={tweet} />
       </Heading>
-      <TweetText>{getText(tweet)}</TweetText>
+      <TweetContent>
+        <TweetText>{getText(tweet)}</TweetText>
+        <LinkPreview tweet={tweet} />
+      </TweetContent>
       <MetaStyled>
         {getRetweetCount(tweet)} retweets, {getLikesCount(tweet)} likes
       </MetaStyled>
@@ -31,6 +34,22 @@ export default function Tweet({ tweet }: TweetProps) {
 
 export function isRetweet(tweet: TweetData): boolean {
   return !!tweet.retweeted_status;
+}
+
+function hasLinkPreview(tweet: TweetData): boolean {
+  return !!tweet.linked_site && !!tweet.linked_site.title;
+}
+
+function LinkPreview({ tweet }: TweetProps) {
+  if (!hasLinkPreview(tweet)) return null;
+
+  return (
+    <div>
+      <img src={tweet.linked_site.image} alt="" />
+      <div>{tweet.linked_site.title}</div>
+      <div>{tweet.linked_site.description}</div>
+    </div>
+  );
 }
 
 function getText(tweet: TweetData): string {
@@ -54,9 +73,13 @@ const Heading = styled('div')`
   justify-content: space-between;
 `;
 
-const TweetText = styled('div')`
+const TweetContent = styled('div')`
   padding-top: ${spacing.paddingDefault};
   padding-bottom: ${spacing.paddingDefault};
+`;
+
+const TweetText = styled('div')`
+  white-space: pre-wrap;
 `;
 
 const TweetStyled = styled('div')`

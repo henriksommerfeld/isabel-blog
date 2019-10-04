@@ -1,8 +1,11 @@
+require('source-map-support').install();
+
 const Twitter = require(`twitter`);
-const getTweets = require(`./twitter`);
+const fetchTweets = require(`./twitter`);
+const { fetchMetadataFromLinkedSites } = require('./unfurl');
 const { md5, camelCase } = require(`./utils`);
 const { saveResult } = require(`./debug`);
-const dummyTweet = require('./dummy-tweet.json');
+const { dummyTweet } = require('../../src/dummy-tweet');
 
 const nodeTypes = [];
 const DEBUG = process.env.DEBUG === `true`;
@@ -28,13 +31,8 @@ function generateNode(tweet, contentDigest, type) {
   return node;
 }
 
-function createNodes(
-  tweets,
-  nodeType,
-  boundActionCreators,
-  createContentDigest
-) {
-  const { createNode } = boundActionCreators;
+function createNodes(tweets, nodeType, actions, createContentDigest) {
+  const { createNode } = actions;
   tweets.forEach(tweet => {
     createNode(generateNode(tweet, createContentDigest(tweet), nodeType));
   });
@@ -49,68 +47,73 @@ function hasCredentials(credentials) {
   );
 }
 
-exports.sourceNodes = async (
-  { boundActionCreators, createContentDigest, reporter },
-  { queries, credentials }
-) => {
-  if (queries) {
-    return Promise.all(
-      Object.keys(queries)
-        .map(async queryName => {
-          const nodeType = camelCase(
-            `twitter ${queries[queryName].endpoint} ${queryName}`
-          );
+async function getTweets(query, credentials, reporter) {
+  const nodeType = camelCase(`twitter ${query.endpoint}`);
 
-          let results = [];
+  let results = [];
 
-          if (!hasCredentials(credentials)) {
-            reporter.warn(
-              `Twitter keys in .env file missing, only creating dummy tweet.`
-            );
-          } else {
-            reporter.warn(`credentials: `, credentials);
-            const twitterClient = new Twitter(credentials);
-            results = await getTweets(
-              twitterClient,
-              queries[queryName],
-              reporter
-            );
-          }
-
-          const resultsWithDummy = [dummyTweet, ...results];
-          nodeTypes.push(nodeType);
-
-          return {
-            queryName,
-            nodeType,
-            results: resultsWithDummy,
-          };
-        })
-        .map(async queryResults => {
-          const { queryName, results, nodeType } = await queryResults;
-
-          if (DEBUG === true) {
-            saveResult(queryName, results);
-          }
-
-          if (results.length) {
-            reporter.info(`Creating Twitter nodes ${nodeType} ...`);
-          } else {
-            reporter.warn(
-              `No twitter results from ${queryName}, only creating dummy tweet.`
-            );
-          }
-          createNodes(
-            results,
-            nodeType,
-            boundActionCreators,
-            createContentDigest
-          );
-        })
+  if (!hasCredentials(credentials)) {
+    reporter.warn(
+      `Twitter keys in .env file missing, only creating dummy tweet.`
     );
   } else {
-    reporter.warn(`No Twitter query found. Please check your configuration`);
+    const twitterClient = new Twitter(credentials);
+    results = await fetchTweets(twitterClient, query, reporter);
   }
+
+  const resultsWithDummy = [dummyTweet, ...results];
+  nodeTypes.push(nodeType);
+
+  return {
+    nodeType,
+    results: resultsWithDummy,
+  };
+}
+
+function createNodesForTweets(
+  queryResults,
+  actions,
+  createContentDigest,
+  reporter
+) {
+  const { results, nodeType } = queryResults;
+
+  if (DEBUG === true) {
+    saveResult('', results);
+  }
+
+  if (results.length) {
+    reporter.info(`Creating Twitter nodes ${nodeType} ...`);
+    createNodes(results, nodeType, actions, createContentDigest);
+  } else {
+    reporter.warn(`No twitter results from query, only creating dummy tweet.`);
+  }
+}
+
+exports.sourceNodes = async (
+  { actions, createContentDigest, reporter },
+  { query, credentials }
+) => {
+  if (!query) {
+    reporter.warn(`No Twitter query found. Please check your configuration`);
+    return Promise.resolve();
+  }
+
+  const tweetsQueryResult = await getTweets(query, credentials, reporter);
+
+  const enrichedTweets = await fetchMetadataFromLinkedSites(
+    tweetsQueryResult.results,
+    reporter
+  );
+
+  if (enrichedTweets) tweetsQueryResult.results = enrichedTweets;
+
+  createNodesForTweets(
+    tweetsQueryResult,
+    actions,
+    createContentDigest,
+    reporter
+  );
 
   return Promise.resolve();
 };

@@ -4,7 +4,7 @@ const { transformerRemarkParser } = require('./src/transformerRemarkParser');
 const remark = require('remark');
 const stripMarkdown = require('strip-markdown');
 
-const mostPlugins = [
+const plugins = [
   {
     // keep as first gatsby-source-filesystem plugin for gatsby image support
     resolve: 'gatsby-source-filesystem',
@@ -32,6 +32,26 @@ const mostPlugins = [
     options: {
       color: '#C53030',
       paths: ['/', '/20**', '/om', '/publicerat'],
+    },
+  },
+  {
+    resolve: `gatsby-source-twitter-unfurl`,
+    options: {
+      credentials: {
+        consumer_key: `${process.env.TWITTER_CONSUMER_KEY || ''}`,
+        consumer_secret: `${process.env.TWITTER_SECRET || ''}`,
+        bearer_token: `${process.env.TWITTER_BEARER_TOKEN || ''}`,
+      },
+      query: {
+        endpoint: 'statuses/user_timeline',
+        params: {
+          screen_name: 'isommerfeld',
+          include_rts: true,
+          exclude_replies: true,
+          tweet_mode: 'extended',
+          count: 10,
+        },
+      },
     },
   },
   {
@@ -185,40 +205,6 @@ const mostPlugins = [
   'gatsby-plugin-netlify', // make sure to keep it last in the array
 ];
 
-function getTwitterPlugin() {
-  const TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY || '';
-  const TWITTER_SECRET = process.env.TWITTER_SECRET || '';
-  const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN || '';
-
-  return {
-    resolve: `gatsby-source-twitter-unfurl`,
-    options: {
-      credentials: {
-        consumer_key: `${TWITTER_CONSUMER_KEY}`,
-        consumer_secret: `${TWITTER_SECRET}`,
-        bearer_token: `${TWITTER_BEARER_TOKEN}`,
-      },
-      queries: {
-        isabel: {
-          endpoint: 'statuses/user_timeline',
-          params: {
-            screen_name: 'isommerfeld',
-            include_rts: true,
-            exclude_replies: true,
-            tweet_mode: 'extended',
-            count: 10,
-          },
-        },
-      },
-    },
-  };
-}
-
-function getPlugins() {
-  const twitterPlugin = getTwitterPlugin();
-  return twitterPlugin ? [twitterPlugin, ...mostPlugins] : mostPlugins;
-}
-
 module.exports = {
-  plugins: getPlugins(),
+  plugins: plugins,
 };
