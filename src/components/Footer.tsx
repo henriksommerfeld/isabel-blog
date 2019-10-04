@@ -14,7 +14,7 @@ export default function Footer({
   showTweets = true,
 }: Footer) {
   return (
-    <FooterWrapper useMarginTop={showTweets}>
+    <FooterWrapper>
       {showTweets && <Tweets />}
       <InnerFooter>
         FOOTER 🧁.{' '}
@@ -32,7 +32,6 @@ export default function Footer({
 
 const FooterWrapper = styled('div')`
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
-  margin-top: ${({ useMarginTop }) => (useMarginTop ? spacing.double : 0)};
 `;
 
 const InnerFooter = styled('footer')`
