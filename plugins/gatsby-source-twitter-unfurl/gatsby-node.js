@@ -79,7 +79,7 @@ function createNodesForTweets(
   const { results, nodeType } = queryResults;
 
   if (DEBUG === true) {
-    saveResult('', results);
+    saveResult(results);
   }
 
   if (results.length) {
