@@ -72,7 +72,7 @@ const TweetsInnerStyled = styled('div')`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: ${breakpoints.medium}) {
+  @media (min-width: ${breakpoints.large}) {
     grid-gap: ${spacing.double};
     padding: ${spacing.double};
     grid-template-columns: repeat(3, 1fr);
