@@ -8,16 +8,15 @@ import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
-import { LocationState } from './Layout';
+import { LocationProp } from 'interfaces/LocationProp';
 
-export default function Search() {
+export default function Search({ location }: LocationProp) {
   const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
   const [, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
-  const [location] = useGlobal<LocationState>('location');
   const getPreviousQuery = path => (route === path ? query : '');
   const searchBoxRef = useRef(null);
 

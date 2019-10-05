@@ -6,7 +6,6 @@ import { colors, breakpoints, spacing } from '../constants';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getFluid } from '../images';
 import Search from '../components/Search';
-import { WindowLocation } from '@reach/router';
 import { LocationProp } from '../interfaces/LocationProp';
 
 export default function NotFoundPage({ location }: LocationProp) {
@@ -14,7 +13,7 @@ export default function NotFoundPage({ location }: LocationProp) {
   const fluidImage = getImageFrom(data);
 
   return (
-    <Layout location={location}>
+    <Layout location={location} showTweets={false}>
       <Page
         fluid={fluidImage}
         backgroundColor={darkGreen}
@@ -23,7 +22,7 @@ export default function NotFoundPage({ location }: LocationProp) {
       >
         <PageContent>
           <Banner>
-            <Search />
+            <Search location={location} />
           </Banner>
           <Text>
             <h1>Gått vilse?</h1>
@@ -81,10 +80,10 @@ const Text = styled('div')`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.double} ${spacing.default};
 
   @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.paddingDouble};
+    padding: ${spacing.double};
 
     h1 {
       font-size: 2rem;
@@ -98,7 +97,7 @@ const Text = styled('div')`
   }
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.notFoundBannerExtraPadding};
+    padding: ${spacing.notFoundBannerExtra};
 
     h1 {
       font-size: 2.5rem;
@@ -125,6 +124,7 @@ const Text = styled('div')`
 `;
 
 const PageContent = styled('div')`
+  width: 100%;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.8) 0%,

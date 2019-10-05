@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
 import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
+import { WindowLocation } from '@reach/router';
 
 interface PublishedTemplate {
   contentComponent: any;
   content: any;
   title: string;
   imageFile: FluidObject | undefined;
+  location: WindowLocation;
 }
 
 export function PublishedPageTemplate({
@@ -16,12 +18,17 @@ export function PublishedPageTemplate({
   content,
   title,
   imageFile,
+  location,
 }: PublishedTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <SharedIntroBanner title={title} backgroundImage={imageFile} />
+      <SharedIntroBanner
+        title={title}
+        backgroundImage={imageFile}
+        location={location}
+      />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />
@@ -51,17 +58,17 @@ const PostContainer = styled('div')`
 `;
 
 const PostStyled = styled.div`
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   background-color: ${colors.white};
 
   @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.paddingDouble};
+    padding: ${spacing.double};
   }
 
   @media (min-width: ${breakpoints.medium}) {
     transform: translateY(${spacing.contentOffset});
     border-radius: 4px;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-    padding: ${spacing.paddingX3};
+    padding: ${spacing.x3};
   }
 `;

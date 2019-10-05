@@ -22,6 +22,7 @@ export default function PublishedPage({ location }: LocationProp) {
         title={pageName}
         content={content}
         imageFile={data.fileName}
+        location={location}
       />
     </Layout>
   );

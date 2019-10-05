@@ -12,6 +12,7 @@ const BlogPostPreview = ({ entry, widgetFor }) => {
       date={formattedDate}
       tags={entry.getIn(['data', 'tags'])}
       title={entry.getIn(['data', 'title'])}
+      isPreview={true}
     />
   );
 };

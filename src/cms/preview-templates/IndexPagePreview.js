@@ -6,11 +6,9 @@ const IndexPagePreview = ({ entry, widgetFor }) => {
 
   if (!data) return <div>Loading...</div>;
 
-  const imageInfo = { image: data.image };
-
   return (
     <IndexPageTemplate
-      image={imageInfo}
+      image={data.image}
       heading={data.heading}
       subheading={data.subheading}
       description={widgetFor('body')}

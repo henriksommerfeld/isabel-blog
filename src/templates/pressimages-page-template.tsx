@@ -8,6 +8,7 @@ import PreviewCompatibleImage, {
   ImageProps,
 } from '../components/PreviewCompatibleImage';
 import DownloadButton from '../components/DownloadButton';
+import { WindowLocation } from '@reach/router';
 
 interface PressImagesTemplate {
   contentComponent: any;
@@ -16,6 +17,7 @@ interface PressImagesTemplate {
   headerImageFile: FluidObject | undefined;
   pressImages: ImageProps[] | undefined;
   isPreview?: boolean;
+  location: WindowLocation;
 }
 
 export function PressImagesPageTemplate({
@@ -25,12 +27,17 @@ export function PressImagesPageTemplate({
   headerImageFile,
   pressImages = [],
   isPreview = false,
+  location,
 }: PressImagesTemplate) {
   const PageContent = contentComponent;
 
   return (
     <PageStyled>
-      <SharedIntroBanner title={title} backgroundImage={headerImageFile} />
+      <SharedIntroBanner
+        title={title}
+        backgroundImage={headerImageFile}
+        location={location}
+      />
       <PostContainer>
         <PostStyled>
           <PageContent content={content} />
@@ -101,16 +108,16 @@ const ImageBorder = styled('div')`
 const DownloadableImages = styled('div')`
   display: grid;
   grid-template-columns: ${({ images }) => GetGridColumns(images, 1)};
-  grid-gap: ${spacing.paddingDefault};
+  grid-gap: ${spacing.default};
   grid-auto-flow: row dense;
 
   @media (min-width: ${breakpoints.small}) {
-    grid-gap: ${spacing.paddingDouble};
+    grid-gap: ${spacing.double};
   }
 
   @media (min-width: ${breakpoints.medium}) {
     grid-template-columns: ${({ images }) => GetGridColumns(images, 2)};
-    grid-gap: ${spacing.paddingX3};
+    grid-gap: ${spacing.x3};
   }
 `;
 
@@ -162,17 +169,17 @@ const PostContainer = styled('div')`
 `;
 
 const PostStyled = styled.div`
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   background-color: ${colors.white};
 
   @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.paddingDouble};
+    padding: ${spacing.double};
   }
 
   @media (min-width: ${breakpoints.medium}) {
     transform: translateY(${spacing.contentOffset});
     border-radius: 4px;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-    padding: ${spacing.paddingX3};
+    padding: ${spacing.x3};
   }
 `;

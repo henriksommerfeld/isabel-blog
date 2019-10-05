@@ -15,6 +15,7 @@ export default function AboutPage({ location }: LocationProp) {
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
+        location={location}
       />
     </Layout>
   );

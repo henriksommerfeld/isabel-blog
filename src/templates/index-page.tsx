@@ -4,8 +4,9 @@ import { editPageUrl } from '../url-replacer';
 
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
+import { LocationProp } from 'interfaces/LocationProp';
 
-export default function IndexPage({ location }) {
+export default function IndexPage({ location }: LocationProp) {
   const data = useStaticQuery(pageQuery);
   const { frontmatter, html } = data.markdownRemark;
 
@@ -16,6 +17,7 @@ export default function IndexPage({ location }) {
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         description={html}
+        location={location}
       />
     </Layout>
   );

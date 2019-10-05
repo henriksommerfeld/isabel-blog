@@ -19,6 +19,7 @@ export default function PressImagesPage({ location }: LocationProp) {
         content={content}
         headerImageFile={data.fileName}
         pressImages={pressImages}
+        location={location}
       />
     </Layout>
   );

@@ -6,13 +6,15 @@ import BlogPostTags from './blog-post-tags';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
 
-interface BlogPostTemplate {
+interface BlogPostTemplateProps {
   content: string;
   contentComponent: any;
   date: string;
   tags: string[] | undefined;
   title: string;
   helmet: any;
+  location: WindowLocation;
+  isPreview?: boolean;
 }
 
 export default function BlogPostTemplate({
@@ -22,7 +24,9 @@ export default function BlogPostTemplate({
   tags,
   title,
   helmet,
-}: BlogPostTemplate) {
+  location,
+  isPreview = false,
+}: BlogPostTemplateProps) {
   const PostContent = contentComponent || Content;
   const dateString = date ? `Publicerat ${date}` : '';
 
@@ -31,7 +35,7 @@ export default function BlogPostTemplate({
       {helmet || ''}
       <PageStyled>
         <IntroBanner>
-          <Search />
+          {!isPreview && <Search location={location} />}
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>
@@ -69,11 +73,11 @@ const PostDate = styled('div')`
 const IntroBannerWidthConstrainer = styled('div')`
   max-width: ${layout.contentMaxWidth}px;
   text-align: center;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.double} ${spacing.default};
 
   @media (min-width: ${breakpoints.medium}) {
-    padding: ${spacing.introBannerExtraPadding} ${spacing.paddingDouble}
-      ${spacing.postBannerExtraPadding} ${spacing.paddingDouble};
+    padding: ${spacing.introBannerExtra} ${spacing.double}
+      ${spacing.postBannerExtra} ${spacing.double};
   }
 `;
 
@@ -105,17 +109,17 @@ const PostContainer = styled('div')`
 `;
 
 const PostStyled = styled.div`
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   background-color: ${colors.white};
 
   @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.paddingDouble};
+    padding: ${spacing.double};
   }
 
   @media (min-width: ${breakpoints.medium}) {
     transform: translateY(${spacing.contentOffset});
     border-radius: 4px;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-    padding: ${spacing.paddingX3};
+    padding: ${spacing.x3};
   }
 `;

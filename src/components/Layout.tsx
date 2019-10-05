@@ -9,27 +9,22 @@ import Header from './Header';
 import { tailwindColors } from '../tailwind-colors';
 import { SearchResult } from './SearchResult';
 import { WindowLocation } from '@reach/router';
-import { useGlobal } from 'reactn';
 
 interface TemplateWrapperProps {
   children: ReactNode;
   location: WindowLocation;
   editLink?: string;
   language?: string;
-}
-
-export interface LocationState {
-  location: WindowLocation;
+  showTweets?: boolean;
 }
 
 export default function TemplateWrapper({
   children,
   location,
   editLink,
+  showTweets,
 }: TemplateWrapperProps) {
   const { title, description } = useSiteMetadata();
-  const [, setLoction] = useGlobal<LocationState>('location');
-  setLoction(location);
 
   return (
     <>
@@ -73,12 +68,12 @@ export default function TemplateWrapper({
       </Helmet>
       <GlobalStyle />
       <Page>
-        <Header />
+        <Header location={location} />
 
         <Body className="Body">{children}</Body>
-        <Footer editLink={editLink} />
+        <Footer editLink={editLink} showTweets={showTweets} />
       </Page>
-      <SearchResult />
+      <SearchResult location={location} />
     </>
   );
 }

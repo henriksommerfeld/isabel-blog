@@ -1,0 +1,13 @@
+{
+  "name": "gatsby-source-twitter-unfurl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twitter": "^1.7.1",
+    "unfurl.js": "^4.0.1"
+  }
+}

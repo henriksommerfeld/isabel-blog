@@ -1,6 +1,18 @@
 import React from 'react';
+import { WindowLocation } from '@reach/router';
 
-export function AboutPageTemplate({ title, content, contentComponent }: any) {
+interface AboutPageTemplateProps {
+  title: string;
+  content: any;
+  contentComponent: any;
+  location: WindowLocation;
+}
+
+export function AboutPageTemplate({
+  title,
+  content,
+  contentComponent,
+}: AboutPageTemplateProps) {
   const PageContent = contentComponent;
 
   return (

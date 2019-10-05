@@ -25,7 +25,9 @@ export default function BlogRollItem(post: MarkdownRemark) {
         <p>{post.excerpt}</p>
         <FeaturedImage title={title} image={featuredImage} />
         <ReadMoreWrapper>
-          <ReadMoreLink to={slug}>Läs vidare →</ReadMoreLink>
+          <ReadMoreLink to={slug} aria-label={`Läs hela artikeln ${title}`}>
+            Läs vidare →
+          </ReadMoreLink>
         </ReadMoreWrapper>
       </div>
     </Article>
@@ -55,7 +57,7 @@ const Date = styled('div')`
 `;
 
 const Article = styled('article')`
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
   border-bottom: 1px dashed gray;
 `;
 
@@ -69,15 +71,13 @@ const ReadMoreWrapper = styled('div')`
   justify-content: flex-end;
 `;
 
-const ReadMoreLink = styled(Link)`
-  color: orangered;
-`;
+const ReadMoreLink = styled(Link)``;
 
 function FeaturedImage({ image, title }) {
   if (!image) return null;
 
   const altText = title ? `Bild till artikeln ${title}` : '';
-  const marginBottom = { marginBottom: spacing.paddingDefault };
+  const marginBottom = { marginBottom: spacing.default };
 
   return (
     <div className="featured-thumbnail" style={marginBottom}>

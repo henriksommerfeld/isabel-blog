@@ -9,13 +9,12 @@ import CloseSvg from '../../static/img/close.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { useEscKey } from '../useEscKey';
 import { useTransition, animated, config } from 'react-spring';
-import { LocationState } from './Layout';
+import { LocationProp } from 'interfaces/LocationProp';
 
-export function SearchResult() {
+export function SearchResult({ location }: LocationProp) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
-  const [location] = useGlobal<LocationState>('location');
 
   const containerTransitions = useTransition(
     shouldShowResults(results, route, location.pathname),
@@ -87,7 +86,7 @@ const LinkIconSvg = styled('img')`
 
 const LinkContainer = styled('li')`
   list-style: none;
-  margin-bottom: ${spacing.paddingDefault};
+  margin-bottom: ${spacing.default};
 `;
 
 const LinksContainer = styled('ul')`
@@ -98,8 +97,8 @@ const CloseButtonStyled = styled('button')`
   background: ${colors.white};
   border: none;
   position: absolute;
-  top: ${spacing.paddingDefault};
-  right: ${spacing.paddingDefault};
+  top: ${spacing.default};
+  right: ${spacing.default};
   margin: 0;
   padding: 5px;
   cursor: pointer;
@@ -111,8 +110,8 @@ const CloseButtonStyled = styled('button')`
   transition: transform 400ms ease, box-shadow 200ms ease;
 
   @media (min-width: ${breakpoints.small}) {
-    top: -${spacing.paddingDefault};
-    right: -${spacing.paddingDefault};
+    top: -${spacing.default};
+    right: -${spacing.default};
   }
   &:hover {
     transform: rotate(180deg) scale(1.1);
@@ -152,12 +151,12 @@ const SearchResultsStyled = styled('div')`
   position: relative;
   background-color: ${transparentizeHex(colors.white, 0.9)};
   border-radius: ${layout.borderRadius};
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.double} ${spacing.default};
   width: 100%;
 
   @media (min-width: ${breakpoints.small}) {
-    margin: ${spacing.paddingDouble};
-    padding: ${spacing.paddingDouble};
+    margin: ${spacing.double};
+    padding: ${spacing.double};
     width: auto;
   }
 

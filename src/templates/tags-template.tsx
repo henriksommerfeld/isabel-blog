@@ -9,13 +9,14 @@ import { tailwindColors } from '../tailwind-colors';
 
 interface TagsTemplateProps {
   children: ReactNode;
+  location: WindowLocation;
 }
 
-export function TagsTemplate({ children }: TagsTemplateProps) {
+export function TagsTemplate({ children, location }: TagsTemplateProps) {
   return (
     <Page>
       <Banner>
-        <Search />
+        <Search location={location} />
       </Banner>
       <Text>
         <ContentBox>{children}</ContentBox>
@@ -28,7 +29,6 @@ const ContentBox = styled('div')`
   font-size: 1.1em;
   border-radius: ${layout.borderRadius};
   max-width: ${layout.contentMaxWidth}px;
-  border: 1px solid ${tailwindColors.gray300};
 
   ul {
     list-style: none;
@@ -36,6 +36,7 @@ const ContentBox = styled('div')`
   }
 
   @media (min-width: ${breakpoints.small}) {
+    border: 1px solid ${tailwindColors.gray300};
     padding: 2rem;
     background: rgba(255, 255, 255, 0.7);
 
@@ -58,7 +59,7 @@ const Text = styled('div')`
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
-  padding: ${spacing.paddingDouble} ${spacing.paddingDefault};
+  padding: ${spacing.double} ${spacing.default};
   background: ${transparentizeHex(colors.white, 0.7)};
   height: 100%;
   width: 100%;

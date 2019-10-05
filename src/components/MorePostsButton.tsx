@@ -43,7 +43,7 @@ const MorePostsButtonStyled = styled('button')`
 
 const ButtonContainer = styled('div')`
   width: 100%;
-  padding: ${spacing.paddingDefault};
+  padding: ${spacing.default};
 
   @media (min-width: ${breakpoints.small}) {
     display: flex;
