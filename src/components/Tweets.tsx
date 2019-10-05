@@ -53,6 +53,7 @@ const TweetsStyled = styled('section')`
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: 25%;
+  background-position-y: center;
   padding-top: ${spacing.default};
 
   @media (min-width: ${breakpoints.medium}) {
