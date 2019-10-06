@@ -6,6 +6,7 @@ import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
+import { PageStyled } from './page-styled';
 
 interface IndexPageTemplateProps {
   image: any;
@@ -58,10 +59,6 @@ const portraitStyles = {
   width: '280px',
   margin: '2rem 0',
 };
-
-const PageStyled = styled('div')`
-  width: 100%;
-`;
 
 const IntroBanner = styled('div')`
   background: ${colors.headerBackground};

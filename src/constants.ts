@@ -12,6 +12,7 @@ export const spacing = {
   contentOffset: `-3rem`,
   postHeadingOffset: `-1rem`,
   postHeadingOffsetWithSearchbox: `-2rem`,
+  contentGapToFooter: '5rem',
 };
 
 export const zIndexes = {

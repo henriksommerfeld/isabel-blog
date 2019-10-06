@@ -1,5 +1,6 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
+import { PageStyled } from './page-styled';
 
 interface AboutPageTemplateProps {
   title: string;
@@ -16,11 +17,11 @@ export function AboutPageTemplate({
   const PageContent = contentComponent;
 
   return (
-    <section style={{ background: 'cyan' }}>
+    <PageStyled style={{ background: 'cyan' }}>
       <div>
         <h2>{title}</h2>
         <PageContent className="content" content={content} />
       </div>
-    </section>
+    </PageStyled>
   );
 }

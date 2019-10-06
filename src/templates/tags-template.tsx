@@ -78,6 +78,7 @@ const Page = styled('div')`
   min-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
+  padding-bottom: ${spacing.contentGapToFooter};
   background-image: url(${tagBackground});
   background-repeat: no-repeat;
   background-attachment: fixed;

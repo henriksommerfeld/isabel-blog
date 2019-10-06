@@ -5,6 +5,7 @@ import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
+import { PageStyled } from './page-styled';
 
 interface BlogPostTemplateProps {
   content: string;
@@ -51,16 +52,6 @@ export default function BlogPostTemplate({
     </>
   );
 }
-
-const PageStyled = styled('div')`
-  width: 100%;
-
-  .gatsby-resp-image-figcaption {
-    text-align: center;
-    font-style: italic;
-    padding-top: 0.5rem;
-  }
-`;
 
 const PostDate = styled('div')`
   color: ${colors.postDate};

@@ -1,24 +1,13 @@
 ---
 templateKey: about-page
-title: About our values!???
+title: Om mig
 ---
+Jag är jurist med bakgrund som frilansjournalist och arbetar nu mera som civil utredare på Polismyndigheten. Inom juristutbildningen inriktade jag mig på mänskliga rättigheter (folkrätt) och terapeutisk juridik. Vid sidan av studierna var jag bland annat uppsats-trainee på Hannes Snellman advokatbyrå, inom verksamhetsområdet Corporate Responsibility & Compliance, samt praktikant på demokratistiftelsen Silc.
 
-### Shade-grown coffee ☕
 
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
 
-### Single origin
+Genom åren har jag engagerat mig inom människorättsfrågor och opinionsbildning. År 2009 grundade jag MR-och informationskampanjen Info Belarus, som blev särskilt uppmärksammad i och med min medverkan i SVT:s granskning av TeliaSonera (Uppdrag Granskning: De svarta lådorna), där stora brister i bl.a. bolagets människorätts- och anti-korruptions-due diligence avslöjades.
 
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
 
-### Sustainable farming
 
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
-
-### Direct sourcing
-
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Vid sidan av mina studier har jag i drygt 8 år drivit en enskild firma som frilansjournalist, med särskild fokus på mänskliga rättigheter. Jag har bl.a. skrivit rapporter där jag granskat idrotten, stora världsmästerskap, olympiska spel och dess påverkan på mänskliga rättigheter, miljön m.m. Mänskliga rättigheter på hal is, publicerades av Swedwatch 2014 och Emiren, Putin och VM-festen, om kommande fotbolls-VM i Ryssland och Qatar, publicerades 2016 av Silc. Är även krönikör på kriminal- och rättsmagasinet Para§raf.

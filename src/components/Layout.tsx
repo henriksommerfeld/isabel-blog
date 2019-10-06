@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Footer from './Footer';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
-import { colors, breakpoints } from '../constants';
+import { colors, breakpoints, spacing } from '../constants';
 import Header from './Header';
 import { tailwindColors } from '../tailwind-colors';
 import { SearchResult } from './SearchResult';
@@ -70,7 +70,7 @@ export default function TemplateWrapper({
       <Page>
         <Header location={location} />
 
-        <Body className="Body">{children}</Body>
+        <Body>{children}</Body>
         <Footer editLink={editLink} showTweets={showTweets} />
       </Page>
       <SearchResult location={location} />
