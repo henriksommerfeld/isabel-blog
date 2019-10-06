@@ -13,6 +13,7 @@ const dummyTweet = {
     title: 'Twitter card title',
     description: 'Twitter card description',
     image: 'https://pbs.twimg.com/media/C_UdnvPUwAE3Dnn.jpg',
+    url: 'https://cards.twitter.com/cards/5wzucr/3x700',
   },
   entities: {
     hashtags: [],
