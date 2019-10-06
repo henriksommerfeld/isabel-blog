@@ -1,6 +1,6 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
-import { PageStyled } from './page-styled';
+import { PageStyled } from './PageStyled';
 
 interface AboutPageTemplateProps {
   title: string;

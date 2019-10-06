@@ -5,7 +5,9 @@ import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
-import { PageStyled } from './page-styled';
+import { PageStyled } from './PageStyled';
+import { PostContainer } from './PostContainer';
+import { PostStyled } from './PostStyled';
 
 interface BlogPostTemplateProps {
   content: string;
@@ -90,27 +92,4 @@ const Heading = styled.h1`
   }
 `;
 
-const PostContainer = styled('div')`
-  width: '100%';
-  margin: 0 auto;
 
-  @media (min-width: ${breakpoints.medium}) {
-    max-width: ${layout.contentMaxWidth}px;
-  }
-`;
-
-const PostStyled = styled.div`
-  padding: ${spacing.default};
-  background-color: ${colors.white};
-
-  @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.double};
-  }
-
-  @media (min-width: ${breakpoints.medium}) {
-    transform: translateY(${spacing.contentOffset});
-    border-radius: 4px;
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-    padding: ${spacing.x3};
-  }
-`;

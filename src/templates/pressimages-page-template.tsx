@@ -9,7 +9,7 @@ import PreviewCompatibleImage, {
 } from '../components/PreviewCompatibleImage';
 import DownloadButton from '../components/DownloadButton';
 import { WindowLocation } from '@reach/router';
-import { PageStyled } from './page-styled';
+import { PageStyled } from './PageStyled';
 
 interface PressImagesTemplate {
   contentComponent: any;

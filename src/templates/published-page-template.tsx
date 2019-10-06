@@ -4,7 +4,7 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
 import { WindowLocation } from '@reach/router';
-import { PageStyled } from './page-styled';
+import { PageStyled } from './PageStyled';
 
 interface PublishedTemplate {
   contentComponent: any;
