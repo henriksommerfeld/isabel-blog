@@ -31,7 +31,7 @@ const plugins = [
     resolve: `gatsby-plugin-scroll-indicator`,
     options: {
       color: '#C53030',
-      paths: ['/', '/20**', '/om', '/publicerat'],
+      paths: ['/', '/20*/**', '/om', '/publicerat'],
     },
   },
   {
