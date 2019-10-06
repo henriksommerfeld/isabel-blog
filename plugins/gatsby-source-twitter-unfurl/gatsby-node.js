@@ -61,12 +61,11 @@ async function getTweets(query, credentials, reporter) {
     results = await fetchTweets(twitterClient, query, reporter);
   }
 
-  const resultsWithDummy = [dummyTweet, ...results];
   nodeTypes.push(nodeType);
 
   return {
     nodeType,
-    results: resultsWithDummy,
+    results,
   };
 }
 
@@ -106,7 +105,8 @@ exports.sourceNodes = async (
     reporter
   );
 
-  if (enrichedTweets) tweetsQueryResult.results = enrichedTweets;
+  const resultsWithDummy = [dummyTweet, ...enrichedTweets];
+  tweetsQueryResult.results = resultsWithDummy;
 
   createNodesForTweets(
     tweetsQueryResult,
