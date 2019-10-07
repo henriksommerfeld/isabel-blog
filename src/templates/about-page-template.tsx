@@ -72,7 +72,7 @@ const portraitStyles = {
   border: '0.5em solid white',
   boxShadow: `0 1px 5px ${tailwindColors.gray600}`,
   width: '300px',
-  margin: '1rem 0 2rem 0',
+  margin: '0 0 2rem 0',
 };
 
 const AboutPageContent = styled('div')``;
