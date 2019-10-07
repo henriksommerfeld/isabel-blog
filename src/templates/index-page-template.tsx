@@ -6,7 +6,7 @@ import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
-import { PageStyled } from './PageStyled';
+import { PageStyled } from '../components/PageStyled';
 
 interface IndexPageTemplateProps {
   image: any;

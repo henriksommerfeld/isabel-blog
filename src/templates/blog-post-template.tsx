@@ -5,9 +5,9 @@ import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
 import Search from '../components/Search';
 import { WindowLocation } from '@reach/router';
-import { PageStyled } from './PageStyled';
-import { PostContainer } from './PostContainer';
-import { PostStyled } from './PostStyled';
+import { PageStyled } from '../components/PageStyled';
+import { PostContainer } from '../components/PostContainer';
+import { PostStyled } from '../components/PostStyled';
 
 interface BlogPostTemplateProps {
   content: string;
@@ -91,5 +91,3 @@ const Heading = styled.h1`
     transform: translateY(${spacing.postHeadingOffset});
   }
 `;
-
-

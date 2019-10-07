@@ -102,7 +102,7 @@ collections:
               widget: 'hidden',
               default: 'about-page',
             }
-          - { label: 'Titel', name: 'title', widget: 'string' }
+          - { label: 'Bild', name: 'image', widget: 'image' }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
       - file: 'src/pages/publicerat/index.md'

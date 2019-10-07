@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { spacing } from '../constants';
+import { breakpoints, layout } from '../constants';
 
 export const PostContainer = styled('div')`
   width: '100%';
