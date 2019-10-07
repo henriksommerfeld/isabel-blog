@@ -4,14 +4,16 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import { tailwindColors } from '../tailwind-colors';
 import Confetti from 'react-dom-confetti';
 import { useSpring, animated, config } from 'react-spring';
+import { useSwipeable } from 'react-swipeable';
 
 export function AboutPortrait({ image }) {
   const [rotate, setRotate] = useState(false);
   const confettiActive = !rotate;
   const rotatableRef = useRef(null);
+  const handlers = useSwipeable({ onSwipedLeft, onSwipedRight, ...config });
   const rotateAnimation = useSpring({
     to: {
-      transform: rotate ? `rotateY(180deg)` : `rotateY(0deg)`,
+      transform: rotate ? `rotateY(-180deg)` : `rotateY(0deg)`,
     },
     config: config.wobbly,
   });
@@ -29,6 +31,16 @@ export function AboutPortrait({ image }) {
     setRotate(x => !x);
   }
 
+  function onSwipedRight(e) {
+    if (!rotate) return;
+    setRotate(false);
+  }
+
+  function onSwipedLeft(e) {
+    if (rotate) return;
+    setRotate(true);
+  }
+
   return (
     <Perspective>
       <Confetti active={confettiActive} config={confettiConfig} />
@@ -37,6 +49,7 @@ export function AboutPortrait({ image }) {
         ref={rotatableRef}
         style={rotateAnimation}
         onClick={clickEffect}
+        {...handlers}
       >
         <PreviewCompatibleImage image={image} style={portraitStyles} />
       </Rotatable>
