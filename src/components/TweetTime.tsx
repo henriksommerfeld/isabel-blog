@@ -18,7 +18,7 @@ export function TwitterTime({ tweet }: TwitterTimeProps) {
   const permalink = GetPermaLink(tweet);
 
   return (
-    <TimeStyled href={permalink} target="_blank">
+    <TimeStyled href={permalink} target="_blank" rel="noopener noreferrer">
       {dateAndTime}
     </TimeStyled>
   );

@@ -26,6 +26,7 @@ export default function Tweets() {
         <HeadingLink
           href={`${urls.twitterBaseUrl}/isommerfeld`}
           target="_blank"
+          rel="noopener noreferrer"
         >
           @isommerfeld på Twitter
         </HeadingLink>

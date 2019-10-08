@@ -12,7 +12,11 @@ export function Tweeter({ tweet }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
 
   return (
-    <TweeterStyled href={GetProfileUrl(user.screen_name)} target="_blank">
+    <TweeterStyled
+      href={GetProfileUrl(user.screen_name)}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <ProfileImage src={user.profile_image_url_https} alt="" />
       <NameStyled>
         <RealNameStyled>{user.name}</RealNameStyled>

@@ -45,7 +45,11 @@ function LinkPreview({ tweet }: TweetProps) {
   if (!hasLinkPreview(tweet)) return null;
 
   return (
-    <LinkPreviewStyled href={tweet.linked_site.url} target="_blank">
+    <LinkPreviewStyled
+      href={tweet.linked_site.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <LinkPreviewImg src={tweet.linked_site.image} alt="" />
       <LinkPreviewText>
         <div>{tweet.linked_site.title}</div>
