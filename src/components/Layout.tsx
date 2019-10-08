@@ -79,6 +79,48 @@ export default function TemplateWrapper({
 }
 
 export const GlobalStyle = createGlobalStyle`
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Remove default padding */
+  ul[class],
+  ol[class] {
+    padding: 0;
+  }
+
+
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+  }
+
+  /* Remove list styles on ul, ol elements with a class attribute */
+  ul[class],
+  ol[class] {
+    list-style: none;
+  }
+
+  /* Make images easier to work with */
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+
   body {
     margin: 0;
     overflow-x: hidden;
@@ -92,6 +134,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   img {
     pointer-events: none;
+    margin-bottom: 0;
   }
   a {
     color: ${colors.link};
