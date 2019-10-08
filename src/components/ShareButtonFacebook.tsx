@@ -1,6 +1,7 @@
 import React from 'react';
-import FacebookLogoSvg from '../../static/img/facebook.svg';
+import FacebookLogoSvg from '../../static/img/facebook-color.svg';
 import ShareButton from './ShareButton';
+import { colors } from '../constants';
 
 interface ShareLinkFacebookProps {
   url: string;
@@ -14,7 +15,7 @@ export default function ShareButtonFacebook({ url }: ShareLinkFacebookProps) {
   )}`;
 
   return (
-    <ShareButton url={shareLink} icon={FacebookLogoSvg}>
+    <ShareButton url={shareLink} icon={FacebookLogoSvg} color={colors.facebook}>
       Dela på Facebook
     </ShareButton>
   );

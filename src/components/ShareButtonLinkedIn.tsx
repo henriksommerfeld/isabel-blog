@@ -1,6 +1,7 @@
 import React from 'react';
-import LinkedInLogoSvg from '../../static/img/linkedin.svg';
+import LinkedInLogoSvg from '../../static/img/linkedin-color.svg';
 import ShareButton from './ShareButton';
+import { colors } from '../constants';
 
 interface ShareButtonLinkedInProps {
   url: string;
@@ -14,7 +15,7 @@ export default function ShareButtonLinkedIn({ url }: ShareButtonLinkedInProps) {
   )}`;
 
   return (
-    <ShareButton url={shareLink} icon={LinkedInLogoSvg}>
+    <ShareButton url={shareLink} icon={LinkedInLogoSvg} color={colors.linkedIn}>
       Dela på LinkedIn
     </ShareButton>
   );

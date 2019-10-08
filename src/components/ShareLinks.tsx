@@ -23,5 +23,5 @@ const ButtonContainer = styled('div')`
   display: grid;
   grid-row-gap: ${spacing.default};
   width: 100%;
-  padding: ${spacing.default} 0 0 0;
+  padding: ${spacing.double} 0 0 0;
 `;
