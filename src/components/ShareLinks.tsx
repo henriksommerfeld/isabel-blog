@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { spacing } from '../constants';
+import { spacing, breakpoints } from '../constants';
 import ShareButtonFacebook from './ShareButtonFacebook';
 import ShareButtonTwitter from './ShareButtonTwitter';
 import ShareButtonLinkedIn from './ShareButtonLinkedIn';
@@ -21,7 +21,11 @@ export default function ShareLinks({ url }: ShareLinksProps) {
 
 const ButtonContainer = styled('div')`
   display: grid;
-  grid-row-gap: ${spacing.default};
+  grid-gap: ${spacing.default};
   width: 100%;
   padding: ${spacing.double} 0 0 0;
+
+  @media (min-width: ${breakpoints.medium}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
