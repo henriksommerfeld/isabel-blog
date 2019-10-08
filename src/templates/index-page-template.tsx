@@ -4,7 +4,7 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BlogRoll from '../components/BlogRoll';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
 import { PageStyled } from '../components/PageStyled';
 
@@ -27,7 +27,7 @@ export const IndexPageTemplate = ({
 }: IndexPageTemplateProps) => (
   <PageStyled>
     <IntroBanner>
-      {!isPreview && <Search location={location} />}
+      {!isPreview && <Searchbox location={location} />}
       <IntroBannerWidthConstrainer>
         <PortraitLarge image={image} style={portraitStyles} />
         <IntroText>

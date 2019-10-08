@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
 import tagBackground from '../../static/img/tag-bg.svg';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
 import { transparentizeHex } from '../color-convertions';
 import { tailwindColors } from '../tailwind-colors';
@@ -16,7 +16,7 @@ export function TagsTemplate({ children, location }: TagsTemplateProps) {
   return (
     <Page>
       <Banner>
-        <Search location={location} />
+        <Searchbox location={location} />
       </Banner>
       <Text>
         <ContentBox>{children}</ContentBox>

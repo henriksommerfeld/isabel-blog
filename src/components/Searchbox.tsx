@@ -10,7 +10,7 @@ import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
 import { LocationProp } from 'interfaces/LocationProp';
 
-export default function Search({ location }: LocationProp) {
+export default function Searchbox({ location }: LocationProp) {
   const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);

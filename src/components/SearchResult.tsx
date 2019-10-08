@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { colors, layout, spacing, breakpoints } from '../constants';
 import { transparentizeHex } from '../color-convertions';
 import { useGlobal } from 'reactn';
-import { SearchQuery, SearchRoute, SearchResults } from './Search';
+import { SearchQuery, SearchRoute, SearchResults } from './Searchbox';
 import CloseSvg from '../../static/img/close.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { useEscKey } from '../useEscKey';

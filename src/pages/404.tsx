@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import { colors, breakpoints, spacing } from '../constants';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getFluid } from '../images';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { LocationProp } from '../interfaces/LocationProp';
 
 export default function NotFoundPage({ location }: LocationProp) {
@@ -22,7 +22,7 @@ export default function NotFoundPage({ location }: LocationProp) {
       >
         <PageContent>
           <Banner>
-            <Search location={location} />
+            <Searchbox location={location} />
           </Banner>
           <Text>
             <h1>Gått vilse?</h1>

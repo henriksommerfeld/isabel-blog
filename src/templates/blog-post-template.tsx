@@ -3,7 +3,7 @@ import Content from '../components/Content';
 import styled from 'styled-components';
 import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
 import { PageStyled } from '../components/PageStyled';
 import { PostContainer } from '../components/PostContainer';
@@ -38,7 +38,7 @@ export default function BlogPostTemplate({
       {helmet || ''}
       <PageStyled>
         <IntroBanner>
-          {!isPreview && <Search location={location} />}
+          {!isPreview && <Searchbox location={location} />}
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>

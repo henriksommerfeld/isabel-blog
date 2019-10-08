@@ -4,7 +4,7 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import { getFluid } from '../images';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
 
 interface SharedIntroBannerProps {
@@ -27,7 +27,7 @@ export function SharedIntroBanner({
       backgroundImage={backgroundImage}
       overlayOpacity={overlayOpacity}
     >
-      <Search location={location} />
+      <Searchbox location={location} />
       <IntroBannerWidthConstrainer>
         <Heading>{title}</Heading>
       </IntroBannerWidthConstrainer>
