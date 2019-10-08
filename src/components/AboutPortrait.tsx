@@ -4,6 +4,7 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import { tailwindColors } from '../tailwind-colors';
 import { useSpring, animated, config } from 'react-spring';
 import { useSwipeable } from 'react-swipeable';
+import { spacing } from '../constants';
 
 export function AboutPortrait({ image }) {
   const [rotate, setRotate] = useState(false);
@@ -60,5 +61,5 @@ const portraitStyles = {
   border: '0.5em solid white',
   boxShadow: `0 1px 5px ${tailwindColors.gray600}`,
   width: '300px',
-  margin: '0 0 2rem 0',
+  margin: `0 0 ${spacing.double} 0`,
 };

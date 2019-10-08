@@ -81,6 +81,7 @@ export default function TemplateWrapper({
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    overflow-x: hidden;
   }
   body:not(.keyboard-navigation) * {
     outline: none;
@@ -88,6 +89,9 @@ export const GlobalStyle = createGlobalStyle`
   ::selection {
     background-color: ${colors.selectionBackground};
     color: ${colors.white};
+  }
+  img {
+    pointer-events: none;
   }
   a {
     color: ${colors.link};
