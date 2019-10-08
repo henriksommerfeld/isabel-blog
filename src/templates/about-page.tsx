@@ -8,6 +8,7 @@ import { LocationProp } from '../interfaces/LocationProp';
 import useSiteMetadata from '../components/SiteMetadata';
 import Helmet from 'react-helmet';
 import { FluidObject } from 'gatsby-image';
+import { ImageProps } from 'components/PreviewCompatibleImage';
 
 export default function AboutPage({ location }: LocationProp) {
   const data = useStaticQuery<AboutPageData>(aboutPageQuery);
@@ -36,7 +37,7 @@ interface AboutPageData {
     html: string;
     frontmatter: {
       title: string;
-      image: FluidObject | null;
+      image: ImageProps;
     };
   };
   fileName: FluidObject;
