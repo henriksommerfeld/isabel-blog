@@ -93,18 +93,6 @@ const plugins = [
           },
         },
         {
-          resolve: 'gatsby-remark-video',
-          options: {
-            width: '100%',
-            height: 'auto',
-            preload: 'auto',
-            muted: true,
-            autoplay: false,
-            loop: false,
-            controls: true,
-          },
-        },
-        {
           resolve: `@raae/gatsby-remark-oembed`,
           options: {
             // usePrefix defaults to false
