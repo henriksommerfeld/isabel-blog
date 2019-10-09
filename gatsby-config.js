@@ -179,6 +179,18 @@ const plugins = [
     },
   },
   'gatsby-plugin-styled-components',
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Isabel Sommerfelds personliga sajt`,
+      short_name: `Isabel`,
+      start_url: `/`,
+      background_color: `#2D3748`,
+      theme_color: `#2D3748`,
+      display: `standalone`,
+      icon: `static/img/favimage.jpg`,
+    },
+  },
   'gatsby-plugin-netlify-cache',
   {
     resolve: 'gatsby-plugin-netlify-cms',

@@ -31,32 +31,7 @@ export default function TemplateWrapper({
       <Helmet>
         <html lang="sv" />
         <title>{title}</title>
-        <meta name="description" content={description} />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={`${withPrefix('/')}img/apple-touch-icon.png`}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-32x32.png`}
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-16x16.png`}
-          sizes="16x16"
-        />
-
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
-        />
-        <meta name="theme-color" content="#fff" />
+        <meta name="description" content={description || ''} />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title || ''} />
@@ -77,6 +52,30 @@ export default function TemplateWrapper({
     </>
   );
 }
+
+const Body = styled('div')`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+`;
+
+const Page = styled('div')`
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: ${colors.white};
+
+  @media (min-width: ${breakpoints.medium}) {
+    background-color: ${colors.pageBackground};
+  }
+
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: top center;
+  background-size: cover;
+`;
 
 export const GlobalStyle = createGlobalStyle`
   /* Box sizing rules */
@@ -169,28 +168,4 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px !important;
     background-color: #fff;
   }
-`;
-
-const Body = styled('div')`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
-`;
-
-const Page = styled('div')`
-  display: flex;
-  height: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  background-color: ${colors.white};
-
-  @media (min-width: ${breakpoints.medium}) {
-    background-color: ${colors.pageBackground};
-  }
-
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  background-position: top center;
-  background-size: cover;
 `;
