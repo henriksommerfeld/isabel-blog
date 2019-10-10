@@ -13,6 +13,10 @@ import { GlobalStyles } from '../global-styles';
 interface TemplateWrapperProps {
   children: ReactNode;
   location: WindowLocation;
+  pageTitle: string;
+  pageDescription?: string;
+  pageImageUrl?: string;
+  pageLanguage?: string;
   editLink?: string;
   language?: string;
   showTweets?: boolean;
@@ -21,29 +25,32 @@ interface TemplateWrapperProps {
 export default function TemplateWrapper({
   children,
   location,
+  pageTitle,
+  pageDescription = '',
+  pageImageUrl = '',
+  pageLanguage = 'sv',
   editLink,
   showTweets,
 }: TemplateWrapperProps) {
   const { title, description } = useSiteMetadata();
+  const finalTitle = pageTitle ? `${pageTitle} | ${title}` : title;
+  const canonical = `http://www.isabelsommerfeld.com/${location.pathname}`;
 
   return (
     <>
       <Helmet defer={false}>
-        <html lang="sv" />
-        <title>{title}</title>
-        <meta name="description" content={description || ''} />
+        <html lang={pageLanguage} />
+        <title>{finalTitle}</title>
+        <meta name="description" content={pageDescription} />
 
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title || ''} />
-        <meta property="og:url" content="/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={finalTitle} />
+        <meta property="og:url" content={canonical} />
         <meta
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
-        <link
-          rel="canonical"
-          href={`http://www.isabelsommerfeld.com/${location.pathname}`}
-        />
+        <link rel="canonical" href={canonical} />
       </Helmet>
       <GlobalStyles />
       <Page>
