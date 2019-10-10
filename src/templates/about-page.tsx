@@ -5,8 +5,6 @@ import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
 import { AboutPageTemplate } from './about-page-template';
 import { LocationProp } from '../interfaces/LocationProp';
-import useSiteMetadata from '../components/SiteMetadata';
-import Helmet from 'react-helmet';
 import { FluidObject } from 'gatsby-image';
 import { ImageProps } from 'components/PreviewCompatibleImage';
 
@@ -15,11 +13,13 @@ export default function AboutPage({ location }: LocationProp) {
   const content = data.markdownRemark.html;
   const portraitImage = data.markdownRemark.frontmatter.image;
   const pageName = 'Om mig';
-  const { title } = useSiteMetadata();
 
   return (
-    <Layout location={location} editLink={editPageUrl('about')}>
-      <Helmet title={`${pageName} | ${title}`} />
+    <Layout
+      location={location}
+      editLink={editPageUrl('about')}
+      pageTitle={pageName}
+    >
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={pageName}

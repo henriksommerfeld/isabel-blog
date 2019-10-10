@@ -16,7 +16,6 @@ interface BlogPostTemplateProps {
   date: string;
   tags: string[] | undefined;
   title: string;
-  helmet: any;
   location: WindowLocation;
   isPreview?: boolean;
 }
@@ -27,7 +26,6 @@ export default function BlogPostTemplate({
   date,
   tags,
   title,
-  helmet,
   location,
   isPreview = false,
 }: BlogPostTemplateProps) {
@@ -36,7 +34,6 @@ export default function BlogPostTemplate({
 
   return (
     <>
-      {helmet || ''}
       <PageStyled>
         <IntroBanner>
           {!isPreview && <Searchbox location={location} />}

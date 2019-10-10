@@ -14,7 +14,6 @@ interface AboutPageTemplateProps {
   title: string;
   content: string;
   contentComponent: any;
-  contactInfo: string;
   backgroundImageFile: FluidObject | undefined;
   portraitImageFile: ImageProps;
   location: WindowLocation;

@@ -15,7 +15,6 @@ interface TemplateWrapperProps {
   location: WindowLocation;
   pageTitle: string;
   pageDescription?: string;
-  pageImageUrl?: string;
   pageLanguage?: string;
   editLink?: string;
   language?: string;
@@ -27,14 +26,15 @@ export default function TemplateWrapper({
   location,
   pageTitle,
   pageDescription = '',
-  pageImageUrl = '',
   pageLanguage = 'sv',
   editLink,
   showTweets,
 }: TemplateWrapperProps) {
-  const { title, description } = useSiteMetadata();
+  const { title } = useSiteMetadata();
   const finalTitle = pageTitle ? `${pageTitle} | ${title}` : title;
-  const canonical = `http://www.isabelsommerfeld.com/${location.pathname}`;
+  const baseUrl = 'http://www.isabelsommerfeld.com';
+  const canonical = `${baseUrl}/${location.pathname}`;
+  const locale = pageLanguage === 'en' ? 'en_US' : 'sv_SE';
 
   return (
     <>
@@ -46,10 +46,16 @@ export default function TemplateWrapper({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={finalTitle} />
         <meta property="og:url" content={canonical} />
-        <meta
-          property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
-        />
+        <meta property="og:locale" content={locale} />
+
+        {pageDescription && (
+          <meta property="og:description" content={pageDescription} />
+        )}
+
+        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:site" content="@isommerfeld"></meta>
+
+        <meta property="og:image" content={`${baseUrl}/img/favimage.jpg`} />
         <link rel="canonical" href={canonical} />
       </Helmet>
       <GlobalStyles />

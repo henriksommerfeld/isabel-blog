@@ -15,8 +15,12 @@ export default function PublishedPage({ location }: LocationProp) {
   const { title } = useSiteMetadata();
 
   return (
-    <Layout location={location} editLink={editPageUrl('published')}>
-      <Helmet title={`${pageName} | ${title}`} />
+    <Layout
+      location={location}
+      editLink={editPageUrl('published')}
+      pageTitle={pageName}
+      pageDescription="Länkar till sådant som publicerats i annan media av/om mig"
+    >
       <PublishedPageTemplate
         contentComponent={HTMLContent}
         title={pageName}
