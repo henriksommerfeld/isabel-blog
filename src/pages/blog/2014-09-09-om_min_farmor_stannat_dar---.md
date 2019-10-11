@@ -2,7 +2,8 @@
 templateKey: blog-post
 url: ''
 title: Om min farmor stannat där...
-hidden: true
+description: 'Om min farmor stannat där, då hade jag inte funnits här'
+hidden: false
 language: sv
 date: 2014-09-09T09:00:31.100Z
 tags:
