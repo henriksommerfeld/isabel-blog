@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Index } from 'elasticlunr';
 import styled from 'styled-components';
 import { useGlobal } from 'reactn';
+import useWindowSize from 'react-use/lib/useWindowSize';
+import Confetti from 'react-confetti';
 import { colors, layout, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
@@ -10,7 +12,7 @@ import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
 import { LocationProp } from 'interfaces/LocationProp';
 
-export default function Search({ location }: LocationProp) {
+export default function Searchbox({ location }: LocationProp) {
   const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
@@ -19,21 +21,26 @@ export default function Search({ location }: LocationProp) {
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
   const getPreviousQuery = path => (route === path ? query : '');
   const searchBoxRef = useRef(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const { width, height } = useWindowSize();
+  const confettiTriggers = ['🎉', '🎊', '🥳'];
 
   useEffect(() => {
-    if (!route) searchBoxRef.current.value = '';
+    if (!route) {
+      searchBoxRef.current.value = '';
+      setShowConfetti(false);
+    }
   }, [route]);
 
-  const searchClicked = () => {
-    console.log('Search clicked', query);
-  };
-
   const queryInputChanged = evt => {
-    const newQuery = evt.target.value;
+    setShowConfetti(false);
+    const newQuery = evt.target.value.trim();
     if (newQuery.length > 2) {
       setQuery(newQuery);
       setRoute(location.pathname);
       search(newQuery);
+    } else if (confettiTriggers.includes(newQuery.trim())) {
+      setShowConfetti(true);
     }
   };
 
@@ -65,18 +72,12 @@ export default function Search({ location }: LocationProp) {
             onFocus={() => setHasFocus(true)}
             onBlur={onBlur}
           />
-          <SearchButton
-            onClick={searchClicked}
-            aria-label="Sök"
-            onFocus={() => setHasFocus(true)}
-            onBlur={onBlur}
-          >
-            <SearchIcon
-              src={hasFocus ? SearchWhiteSvg : SearchGreySvg}
-              aria-hidden
-            />
-          </SearchButton>
+          <SearchIcon
+            src={hasFocus ? SearchWhiteSvg : SearchGreySvg}
+            aria-hidden
+          />
         </SearchBox>
+        {showConfetti ? <Confetti width={width} height={height} /> : null}
       </SearchArea>
     </>
   );
@@ -121,19 +122,9 @@ const SearchBoxInput = styled('input')`
   color: ${colors.black};
 `;
 
-const SearchButton = styled('button')`
-  background: none;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
-
 const SearchIcon = styled('img')`
   margin: 0;
   width: 1.5em;
-  cursor: pointer;
 `;
 
 export interface SearchRoute {

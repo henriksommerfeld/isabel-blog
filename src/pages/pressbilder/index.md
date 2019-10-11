@@ -1,5 +1,6 @@
 ---
 templateKey: pressimages-page
+title: Pressbilder
 downloadableimages:
   - /uploads/pressbild-2.jpg
   - /uploads/pressbild-9.jpg
@@ -10,5 +11,6 @@ downloadableimages:
   - /uploads/pressbild-7.jpg
   - /uploads/pressbild-8.jpg
 ---
+
 Pressbilder för fri publicering. \
 Ange alltid: _**Foto av Felicia Margineanu**_.

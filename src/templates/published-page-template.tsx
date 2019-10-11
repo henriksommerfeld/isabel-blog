@@ -4,6 +4,7 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
 import { WindowLocation } from '@reach/router';
+import { PageStyled } from '../components/PageStyled';
 
 interface PublishedTemplate {
   contentComponent: any;
@@ -37,16 +38,6 @@ export function PublishedPageTemplate({
     </PageStyled>
   );
 }
-
-const PageStyled = styled('div')`
-  width: 100%;
-
-  .gatsby-resp-image-figcaption {
-    text-align: center;
-    font-style: italic;
-    padding-top: 0.5rem;
-  }
-`;
 
 const PostContainer = styled('div')`
   width: '100%';

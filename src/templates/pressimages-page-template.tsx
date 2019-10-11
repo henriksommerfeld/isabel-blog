@@ -9,6 +9,7 @@ import PreviewCompatibleImage, {
 } from '../components/PreviewCompatibleImage';
 import DownloadButton from '../components/DownloadButton';
 import { WindowLocation } from '@reach/router';
+import { PageStyled } from '../components/PageStyled';
 
 interface PressImagesTemplate {
   contentComponent: any;
@@ -83,7 +84,7 @@ function PressImagesList({ pressImages, isPreview }: PressImagesListProps) {
             <DownloadButton
               url={urlToDownload}
               downloadedFilename={suggestedFileName}
-              ariLabel={`Ladda ner pressbild ${index + 1}`}
+              ariaLabel={`Ladda ner pressbild ${index + 1}`}
             >
               Ladda ner
             </DownloadButton>
@@ -148,16 +149,6 @@ function GetImagesWidth(images: ImageProps[]): number {
 function GetImageWidth(image: ImageProps): number {
   return isPortrait(image) ? 1 : 2;
 }
-
-const PageStyled = styled('div')`
-  width: 100%;
-
-  .gatsby-resp-image-figcaption {
-    text-align: center;
-    font-style: italic;
-    padding-top: 0.5rem;
-  }
-`;
 
 const PostContainer = styled('div')`
   width: '100%';

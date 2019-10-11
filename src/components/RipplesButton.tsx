@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 import Ripples from 'react-ripples';
-import { colors, spacing, breakpoints, layout } from '../constants';
+import { layout } from '../constants';
 
 export const RipplesButton = styled(Ripples)`
   width: 100%;

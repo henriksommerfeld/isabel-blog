@@ -15,8 +15,7 @@ export default function TagsPage({ location }: LocationProp) {
   const { title } = useSiteMetadata();
 
   return (
-    <Layout location={location}>
-      <Helmet title={`Taggar | ${title}`} />
+    <Layout location={location} pageTitle="Taggar">
       <TagsTemplate location={location}>
         <h1>Taggar</h1>
         <ul className="taglist">

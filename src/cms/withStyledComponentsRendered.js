@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheetManager } from 'styled-components';
-import { GlobalStyle } from '../components/Layout';
+import { GlobalStyles } from '../global-styles';
 
 function StyleInjector({ children }) {
   const [iframeRef, setIframeRef] = useState(null);
@@ -25,7 +25,7 @@ export default function withStyledComponents(Comp) {
   const renderWithStyle = props => (
     <StyleInjector>
       <>
-        <GlobalStyle />
+        <GlobalStyles />
         <Comp {...props} />
       </>
     </StyleInjector>

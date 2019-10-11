@@ -31,27 +31,32 @@ collections:
           widget: 'hidden',
           default: 'blog-post',
         }
-      - {
-          label: 'URL',
-          name: 'url',
-          widget: 'hidden',
-          default: '',
-        }
+      - { label: 'URL', name: 'url', widget: 'hidden', default: '' }
       - { label: 'Titel', name: 'title', widget: 'string' }
-      - { 
+      - {
+          label: 'Beskrivning',
+          name: description,
+          widget: string,
+          hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+        }
+      - {
           label: 'Dold',
           name: 'hidden',
           widget: 'boolean',
           default: false,
           hint: 'Om du vill spara utan att publicera kan du göra artikeln dold här.',
-      }
-      - { 
+        }
+      - {
           label: 'Språk',
           name: 'language',
           widget: 'select',
           default: 'sv',
-          options: [{ label: "Svenska", value: "sv" }, { label: "Engelska", value: "en" }],
-      }
+          options:
+            [
+              { label: 'Svenska', value: 'sv' },
+              { label: 'Engelska', value: 'en' },
+            ],
+        }
       - {
           label: 'Datum',
           name: 'date',
@@ -66,10 +71,16 @@ collections:
           widget: image,
           required: false,
           default: null,
-          hint: 'Bild som visas i listningar, ex. på startsidan.'
+          hint: 'Bild som visas i listningar, ex. på startsidan.',
         }
       - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
-      - { label: 'Taggar', label_singular: 'Tagg', name: 'tags', widget: 'list', required: false }
+      - {
+          label: 'Taggar',
+          label_singular: 'Tagg',
+          name: 'tags',
+          widget: 'list',
+          required: false,
+        }
 
   - name: 'pages'
     label: 'Sidor'
@@ -87,11 +98,21 @@ collections:
               default: 'index-page',
             }
           - { label: Bild, name: image, widget: image }
-          - { label: Rubrik, name: heading, widget: string, hint: 'Används också som titel på hela sajten' }
+          - {
+              label: Rubrik,
+              name: heading,
+              widget: string,
+              hint: 'Används också som titel på hela sajten',
+            }
           - { label: Underrrubrik, name: subheading, widget: string }
           - { label: Beskrivning, name: body, widget: markdown }
-          - { label: Sajtbeskrivning, name: description, widget: string, hint: 'Syns inte på landningssidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.'}
-          
+          - {
+              label: Sajtbeskrivning,
+              name: description,
+              widget: string,
+              hint: 'Syns inte på landningssidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.',
+            }
+
       - file: 'src/pages/om/index.md'
         label: 'Om mig'
         name: 'about'
@@ -102,7 +123,7 @@ collections:
               widget: 'hidden',
               default: 'about-page',
             }
-          - { label: 'Titel', name: 'title', widget: 'string' }
+          - { label: 'Bild', name: 'image', widget: 'image' }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
       - file: 'src/pages/publicerat/index.md'
@@ -115,6 +136,12 @@ collections:
               widget: 'hidden',
               default: 'published-page',
             }
+          - {
+              label: 'Beskrivning',
+              name: description,
+              widget: string,
+              hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+            }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
       - file: 'src/pages/pressbilder/index.md'
@@ -126,7 +153,13 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'pressimages-page',
-            }          
+            }
+          - {
+              label: 'Beskrivning',
+              name: description,
+              widget: string,
+              hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+            }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
           - label: 'Nerladdningsbara bilder'
             label_singular: 'Nerladdningsbar bild'

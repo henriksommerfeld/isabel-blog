@@ -4,25 +4,30 @@ import { colors, breakpoints, spacing, layout } from '../constants';
 import BackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import { getFluid } from '../images';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
 
-interface SharedIntroBanner {
+interface SharedIntroBannerProps {
   title: string;
   backgroundImage: FluidObject | undefined;
+  overlayOpacity?: number;
   location: WindowLocation;
 }
 
 export function SharedIntroBanner({
   title,
   backgroundImage,
+  overlayOpacity = 0.6,
   location,
-}: SharedIntroBanner) {
+}: SharedIntroBannerProps) {
   if (!title) return null;
 
   return (
-    <IntroBanner backgroundImage={backgroundImage}>
-      <Search location={location} />
+    <IntroBanner
+      backgroundImage={backgroundImage}
+      overlayOpacity={overlayOpacity}
+    >
+      <Searchbox location={location} />
       <IntroBannerWidthConstrainer>
         <Heading>{title}</Heading>
       </IntroBannerWidthConstrainer>
@@ -30,7 +35,7 @@ export function SharedIntroBanner({
   );
 }
 
-function IntroBanner({ backgroundImage, children }) {
+function IntroBanner({ backgroundImage, overlayOpacity, children }) {
   const fluidImage = getFluid(backgroundImage);
 
   if (!fluidImage) {
@@ -42,7 +47,9 @@ function IntroBanner({ backgroundImage, children }) {
       fluid={fluidImage}
       backgroundColor={colors.black}
     >
-      <IntroBannerDarkOverlay>{children}</IntroBannerDarkOverlay>
+      <IntroBannerDarkOverlay opacity={overlayOpacity}>
+        {children}
+      </IntroBannerDarkOverlay>
     </IntroBannerWithFluidImage>
   );
 }
@@ -60,7 +67,7 @@ const IntroBannerDarkOverlay = styled('div')`
   flex-direction: column;
   justify-content: stretch;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, ${({ opacity }) => opacity});
   width: 100%;
   height: 100%;
 `;

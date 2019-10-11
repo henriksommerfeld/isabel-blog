@@ -12,6 +12,7 @@ export const spacing = {
   contentOffset: `-3rem`,
   postHeadingOffset: `-1rem`,
   postHeadingOffsetWithSearchbox: `-2rem`,
+  contentGapToFooter: '5rem',
 };
 
 export const zIndexes = {
@@ -56,6 +57,9 @@ export const colors = {
   buttonActive: tailwindColors.red800,
   lighterTextForWhiteBackground: tailwindColors.gray700,
   selectionBackground: tailwindColors.red700,
+  facebook: '#3C5A99',
+  linkedIn: '#0077B5',
+  twitter: '#1DA1F2',
 };
 
 export const fonts = {

@@ -13,6 +13,8 @@ export type Scalars = {
   Date: any,
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any,
+  /** Serialized elasticlunr search index */
+  SiteSearchIndex_Index: any,
 };
 
 
@@ -696,6 +698,10 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkId = 'childMarkdownRemark___id',
   ChildMarkdownRemarkFrontmatterTitle = 'childMarkdownRemark___frontmatter___title',
   ChildMarkdownRemarkFrontmatterTemplateKey = 'childMarkdownRemark___frontmatter___templateKey',
+  ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
+  ChildMarkdownRemarkFrontmatterHidden = 'childMarkdownRemark___frontmatter___hidden',
+  ChildMarkdownRemarkFrontmatterLanguage = 'childMarkdownRemark___frontmatter___language',
+  ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
   ChildMarkdownRemarkFrontmatterImageBirthtime = 'childMarkdownRemark___frontmatter___image___birthtime',
   ChildMarkdownRemarkFrontmatterImageBirthtimeMs = 'childMarkdownRemark___frontmatter___image___birthtimeMs',
   ChildMarkdownRemarkFrontmatterImageSourceInstanceName = 'childMarkdownRemark___frontmatter___image___sourceInstanceName',
@@ -733,9 +739,6 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterHeading = 'childMarkdownRemark___frontmatter___heading',
   ChildMarkdownRemarkFrontmatterSubheading = 'childMarkdownRemark___frontmatter___subheading',
   ChildMarkdownRemarkFrontmatterDescription = 'childMarkdownRemark___frontmatter___description',
-  ChildMarkdownRemarkFrontmatterUrl = 'childMarkdownRemark___frontmatter___url',
-  ChildMarkdownRemarkFrontmatterHidden = 'childMarkdownRemark___frontmatter___hidden',
-  ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
   ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
   ChildMarkdownRemarkFrontmatterFeaturedimageBirthtime = 'childMarkdownRemark___frontmatter___featuredimage___birthtime',
   ChildMarkdownRemarkFrontmatterFeaturedimageBirthtimeMs = 'childMarkdownRemark___frontmatter___featuredimage___birthtimeMs',
@@ -771,6 +774,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFeaturedimagePublicUrl = 'childMarkdownRemark___frontmatter___featuredimage___publicURL',
   ChildMarkdownRemarkFrontmatterFeaturedimageId = 'childMarkdownRemark___frontmatter___featuredimage___id',
   ChildMarkdownRemarkFrontmatterFeaturedimageChildren = 'childMarkdownRemark___frontmatter___featuredimage___children',
+  ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
   ChildMarkdownRemarkFrontmatterDownloadableimages = 'childMarkdownRemark___frontmatter___downloadableimages',
   ChildMarkdownRemarkFrontmatterDownloadableimagesBirthtime = 'childMarkdownRemark___frontmatter___downloadableimages___birthtime',
   ChildMarkdownRemarkFrontmatterDownloadableimagesBirthtimeMs = 'childMarkdownRemark___frontmatter___downloadableimages___birthtimeMs',
@@ -806,11 +810,11 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterDownloadableimagesPublicUrl = 'childMarkdownRemark___frontmatter___downloadableimages___publicURL',
   ChildMarkdownRemarkFrontmatterDownloadableimagesId = 'childMarkdownRemark___frontmatter___downloadableimages___id',
   ChildMarkdownRemarkFrontmatterDownloadableimagesChildren = 'childMarkdownRemark___frontmatter___downloadableimages___children',
-  ChildMarkdownRemarkFrontmatterFiles = 'childMarkdownRemark___frontmatter___files',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
   ChildMarkdownRemarkFieldsSlug = 'childMarkdownRemark___fields___slug',
+  ChildMarkdownRemarkFieldsLanguage = 'childMarkdownRemark___fields___language',
   ChildMarkdownRemarkHtml = 'childMarkdownRemark___html',
   ChildMarkdownRemarkHtmlAst = 'childMarkdownRemark___htmlAst',
   ChildMarkdownRemarkExcerptAst = 'childMarkdownRemark___excerptAst',
@@ -1575,12 +1579,17 @@ export type MarkdownRemarkEdge = {
 export type MarkdownRemarkFields = {
    __typename?: 'MarkdownRemarkFields',
   slug?: Maybe<Scalars['String']>,
+  language?: Maybe<Scalars['String']>,
 };
 
 export enum MarkdownRemarkFieldsEnum {
   Id = 'id',
   FrontmatterTitle = 'frontmatter___title',
   FrontmatterTemplateKey = 'frontmatter___templateKey',
+  FrontmatterUrl = 'frontmatter___url',
+  FrontmatterHidden = 'frontmatter___hidden',
+  FrontmatterLanguage = 'frontmatter___language',
+  FrontmatterDate = 'frontmatter___date',
   FrontmatterImageBirthtime = 'frontmatter___image___birthtime',
   FrontmatterImageBirthtimeMs = 'frontmatter___image___birthtimeMs',
   FrontmatterImageSourceInstanceName = 'frontmatter___image___sourceInstanceName',
@@ -1643,9 +1652,6 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterHeading = 'frontmatter___heading',
   FrontmatterSubheading = 'frontmatter___subheading',
   FrontmatterDescription = 'frontmatter___description',
-  FrontmatterUrl = 'frontmatter___url',
-  FrontmatterHidden = 'frontmatter___hidden',
-  FrontmatterDate = 'frontmatter___date',
   FrontmatterTags = 'frontmatter___tags',
   FrontmatterFeaturedimageBirthtime = 'frontmatter___featuredimage___birthtime',
   FrontmatterFeaturedimageBirthtimeMs = 'frontmatter___featuredimage___birthtimeMs',
@@ -1706,6 +1712,7 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedimageChildMarkdownRemarkTimeToRead = 'frontmatter___featuredimage___childMarkdownRemark___timeToRead',
   FrontmatterFeaturedimageChildMarkdownRemarkTableOfContents = 'frontmatter___featuredimage___childMarkdownRemark___tableOfContents',
   FrontmatterFeaturedimageChildMarkdownRemarkChildren = 'frontmatter___featuredimage___childMarkdownRemark___children',
+  FrontmatterFiles = 'frontmatter___files',
   FrontmatterDownloadableimages = 'frontmatter___downloadableimages',
   FrontmatterDownloadableimagesBirthtime = 'frontmatter___downloadableimages___birthtime',
   FrontmatterDownloadableimagesBirthtimeMs = 'frontmatter___downloadableimages___birthtimeMs',
@@ -1766,11 +1773,11 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterDownloadableimagesChildMarkdownRemarkTimeToRead = 'frontmatter___downloadableimages___childMarkdownRemark___timeToRead',
   FrontmatterDownloadableimagesChildMarkdownRemarkTableOfContents = 'frontmatter___downloadableimages___childMarkdownRemark___tableOfContents',
   FrontmatterDownloadableimagesChildMarkdownRemarkChildren = 'frontmatter___downloadableimages___childMarkdownRemark___children',
-  FrontmatterFiles = 'frontmatter___files',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
   FieldsSlug = 'fields___slug',
+  FieldsLanguage = 'fields___language',
   Html = 'html',
   HtmlAst = 'htmlAst',
   ExcerptAst = 'excerptAst',
@@ -1871,6 +1878,7 @@ export enum MarkdownRemarkFieldsEnum {
 
 export type MarkdownRemarkFieldsFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>,
+  language?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkFilterInput = {
@@ -1896,17 +1904,18 @@ export type MarkdownRemarkFrontmatter = {
    __typename?: 'MarkdownRemarkFrontmatter',
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  hidden?: Maybe<Scalars['Boolean']>,
+  language?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
   image?: Maybe<File>,
   heading?: Maybe<Scalars['String']>,
   subheading?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
-  url?: Maybe<Scalars['String']>,
-  hidden?: Maybe<Scalars['Boolean']>,
-  date?: Maybe<Scalars['Date']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   featuredimage?: Maybe<File>,
-  downloadableimages?: Maybe<Array<Maybe<File>>>,
   files?: Maybe<Array<Maybe<Scalars['String']>>>,
+  downloadableimages?: Maybe<Array<Maybe<File>>>,
 };
 
 
@@ -1920,17 +1929,18 @@ export type MarkdownRemarkFrontmatterDateArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  hidden?: Maybe<BooleanQueryOperatorInput>,
+  language?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
   image?: Maybe<FileFilterInput>,
   heading?: Maybe<StringQueryOperatorInput>,
   subheading?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
-  url?: Maybe<StringQueryOperatorInput>,
-  hidden?: Maybe<BooleanQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
   featuredimage?: Maybe<FileFilterInput>,
-  downloadableimages?: Maybe<FileFilterListInput>,
   files?: Maybe<StringQueryOperatorInput>,
+  downloadableimages?: Maybe<FileFilterListInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2027,6 +2037,10 @@ export type Query = {
   allSite: SiteConnection,
   directory?: Maybe<Directory>,
   allDirectory: DirectoryConnection,
+  siteSearchIndex?: Maybe<SiteSearchIndex>,
+  allSiteSearchIndex: SiteSearchIndexConnection,
+  twitterStatusesUserTimeline?: Maybe<TwitterStatusesUserTimeline>,
+  allTwitterStatusesUserTimeline: TwitterStatusesUserTimelineConnection,
 };
 
 
@@ -2185,7 +2199,6 @@ export type QuerySiteArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
@@ -2248,13 +2261,62 @@ export type QueryAllDirectoryArgs = {
   limit?: Maybe<Scalars['Int']>
 };
 
+
+export type QuerySiteSearchIndexArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  pages?: Maybe<StringQueryOperatorInput>,
+  index?: Maybe<SiteSearchIndex_IndexQueryOperatorInput>
+};
+
+
+export type QueryAllSiteSearchIndexArgs = {
+  filter?: Maybe<SiteSearchIndexFilterInput>,
+  sort?: Maybe<SiteSearchIndexSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryTwitterStatusesUserTimelineArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  created_at?: Maybe<StringQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  text?: Maybe<StringQueryOperatorInput>,
+  full_text?: Maybe<StringQueryOperatorInput>,
+  truncated?: Maybe<BooleanQueryOperatorInput>,
+  linked_site?: Maybe<TwitterStatusesUserTimelineLinked_SiteFilterInput>,
+  entities?: Maybe<TwitterStatusesUserTimelineEntitiesFilterInput>,
+  source?: Maybe<StringQueryOperatorInput>,
+  user?: Maybe<TwitterStatusesUserTimelineUserFilterInput>,
+  retweeted_status?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusFilterInput>,
+  is_quote_status?: Maybe<BooleanQueryOperatorInput>,
+  retweet_count?: Maybe<IntQueryOperatorInput>,
+  favorite_count?: Maybe<IntQueryOperatorInput>,
+  favorited?: Maybe<BooleanQueryOperatorInput>,
+  retweeted?: Maybe<BooleanQueryOperatorInput>,
+  lang?: Maybe<StringQueryOperatorInput>
+};
+
+
+export type QueryAllTwitterStatusesUserTimelineArgs = {
+  filter?: Maybe<TwitterStatusesUserTimelineFilterInput>,
+  sort?: Maybe<TwitterStatusesUserTimelineSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
 export type Site = Node & {
    __typename?: 'Site',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
@@ -2386,8 +2448,6 @@ export enum SiteFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  SiteMetadataTitle = 'siteMetadata___title',
-  SiteMetadataDescription = 'siteMetadata___description',
   Port = 'port',
   Host = 'host',
   Polyfill = 'polyfill',
@@ -2400,7 +2460,6 @@ export type SiteFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
@@ -2623,18 +2682,16 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsColor = 'pluginCreator___pluginOptions___color',
   PluginCreatorPluginOptionsPaths = 'pluginCreator___pluginOptions___paths',
+  PluginCreatorPluginOptionsCredentialsConsumerKey = 'pluginCreator___pluginOptions___credentials___consumer_key',
+  PluginCreatorPluginOptionsCredentialsConsumerSecret = 'pluginCreator___pluginOptions___credentials___consumer_secret',
+  PluginCreatorPluginOptionsCredentialsBearerToken = 'pluginCreator___pluginOptions___credentials___bearer_token',
+  PluginCreatorPluginOptionsQueryEndpoint = 'pluginCreator___pluginOptions___query___endpoint',
+  PluginCreatorPluginOptionsToFormat = 'pluginCreator___pluginOptions___toFormat',
   PluginCreatorPluginOptionsMaxWidth = 'pluginCreator___pluginOptions___maxWidth',
   PluginCreatorPluginOptionsLinkImagesToOriginal = 'pluginCreator___pluginOptions___linkImagesToOriginal',
   PluginCreatorPluginOptionsShowCaptions = 'pluginCreator___pluginOptions___showCaptions',
-  PluginCreatorPluginOptionsQuality = 'pluginCreator___pluginOptions___quality',
+  PluginCreatorPluginOptionsWithWebp = 'pluginCreator___pluginOptions___withWebp',
   PluginCreatorPluginOptionsDestinationDir = 'pluginCreator___pluginOptions___destinationDir',
-  PluginCreatorPluginOptionsWidth = 'pluginCreator___pluginOptions___width',
-  PluginCreatorPluginOptionsHeight = 'pluginCreator___pluginOptions___height',
-  PluginCreatorPluginOptionsPreload = 'pluginCreator___pluginOptions___preload',
-  PluginCreatorPluginOptionsMuted = 'pluginCreator___pluginOptions___muted',
-  PluginCreatorPluginOptionsAutoplay = 'pluginCreator___pluginOptions___autoplay',
-  PluginCreatorPluginOptionsLoop = 'pluginCreator___pluginOptions___loop',
-  PluginCreatorPluginOptionsControls = 'pluginCreator___pluginOptions___controls',
   PluginCreatorPluginOptionsUsePrefix = 'pluginCreator___pluginOptions___usePrefix',
   PluginCreatorPluginOptionsProvidersInclude = 'pluginCreator___pluginOptions___providers___include',
   PluginCreatorPluginOptionsProvidersExclude = 'pluginCreator___pluginOptions___providers___exclude',
@@ -2645,6 +2702,13 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsFontsFamily = 'pluginCreator___pluginOptions___fonts___family',
   PluginCreatorPluginOptionsFontsSubsets = 'pluginCreator___pluginOptions___fonts___subsets',
   PluginCreatorPluginOptionsFontsVariants = 'pluginCreator___pluginOptions___fonts___variants',
+  PluginCreatorPluginOptionsFields = 'pluginCreator___pluginOptions___fields',
+  PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
+  PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
+  PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___background_color',
+  PluginCreatorPluginOptionsThemeColor = 'pluginCreator___pluginOptions___theme_color',
+  PluginCreatorPluginOptionsDisplay = 'pluginCreator___pluginOptions___display',
+  PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
   PluginCreatorPluginOptionsModulePath = 'pluginCreator___pluginOptions___modulePath',
   PluginCreatorPluginOptionsManualInit = 'pluginCreator___pluginOptions___manualInit',
   PluginCreatorPluginOptionsEnableIdentityWidget = 'pluginCreator___pluginOptions___enableIdentityWidget',
@@ -2851,15 +2915,8 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsPluginOptionsMaxWidth = 'pluginOptions___plugins___pluginOptions___maxWidth',
   PluginOptionsPluginsPluginOptionsLinkImagesToOriginal = 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal',
   PluginOptionsPluginsPluginOptionsShowCaptions = 'pluginOptions___plugins___pluginOptions___showCaptions',
-  PluginOptionsPluginsPluginOptionsQuality = 'pluginOptions___plugins___pluginOptions___quality',
+  PluginOptionsPluginsPluginOptionsWithWebp = 'pluginOptions___plugins___pluginOptions___withWebp',
   PluginOptionsPluginsPluginOptionsDestinationDir = 'pluginOptions___plugins___pluginOptions___destinationDir',
-  PluginOptionsPluginsPluginOptionsWidth = 'pluginOptions___plugins___pluginOptions___width',
-  PluginOptionsPluginsPluginOptionsHeight = 'pluginOptions___plugins___pluginOptions___height',
-  PluginOptionsPluginsPluginOptionsPreload = 'pluginOptions___plugins___pluginOptions___preload',
-  PluginOptionsPluginsPluginOptionsMuted = 'pluginOptions___plugins___pluginOptions___muted',
-  PluginOptionsPluginsPluginOptionsAutoplay = 'pluginOptions___plugins___pluginOptions___autoplay',
-  PluginOptionsPluginsPluginOptionsLoop = 'pluginOptions___plugins___pluginOptions___loop',
-  PluginOptionsPluginsPluginOptionsControls = 'pluginOptions___plugins___pluginOptions___controls',
   PluginOptionsPluginsPluginOptionsUsePrefix = 'pluginOptions___plugins___pluginOptions___usePrefix',
   PluginOptionsPluginsPluginOptionsWrapperStyle = 'pluginOptions___plugins___pluginOptions___wrapperStyle',
   PluginOptionsPluginsNodeApIs = 'pluginOptions___plugins___nodeAPIs',
@@ -2870,18 +2927,21 @@ export enum SitePluginFieldsEnum {
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsColor = 'pluginOptions___color',
   PluginOptionsPaths = 'pluginOptions___paths',
+  PluginOptionsCredentialsConsumerKey = 'pluginOptions___credentials___consumer_key',
+  PluginOptionsCredentialsConsumerSecret = 'pluginOptions___credentials___consumer_secret',
+  PluginOptionsCredentialsBearerToken = 'pluginOptions___credentials___bearer_token',
+  PluginOptionsQueryEndpoint = 'pluginOptions___query___endpoint',
+  PluginOptionsQueryParamsScreenName = 'pluginOptions___query___params___screen_name',
+  PluginOptionsQueryParamsIncludeRts = 'pluginOptions___query___params___include_rts',
+  PluginOptionsQueryParamsExcludeReplies = 'pluginOptions___query___params___exclude_replies',
+  PluginOptionsQueryParamsTweetMode = 'pluginOptions___query___params___tweet_mode',
+  PluginOptionsQueryParamsCount = 'pluginOptions___query___params___count',
+  PluginOptionsToFormat = 'pluginOptions___toFormat',
   PluginOptionsMaxWidth = 'pluginOptions___maxWidth',
   PluginOptionsLinkImagesToOriginal = 'pluginOptions___linkImagesToOriginal',
   PluginOptionsShowCaptions = 'pluginOptions___showCaptions',
-  PluginOptionsQuality = 'pluginOptions___quality',
+  PluginOptionsWithWebp = 'pluginOptions___withWebp',
   PluginOptionsDestinationDir = 'pluginOptions___destinationDir',
-  PluginOptionsWidth = 'pluginOptions___width',
-  PluginOptionsHeight = 'pluginOptions___height',
-  PluginOptionsPreload = 'pluginOptions___preload',
-  PluginOptionsMuted = 'pluginOptions___muted',
-  PluginOptionsAutoplay = 'pluginOptions___autoplay',
-  PluginOptionsLoop = 'pluginOptions___loop',
-  PluginOptionsControls = 'pluginOptions___controls',
   PluginOptionsUsePrefix = 'pluginOptions___usePrefix',
   PluginOptionsProvidersInclude = 'pluginOptions___providers___include',
   PluginOptionsProvidersExclude = 'pluginOptions___providers___exclude',
@@ -2893,6 +2953,13 @@ export enum SitePluginFieldsEnum {
   PluginOptionsFontsFamily = 'pluginOptions___fonts___family',
   PluginOptionsFontsSubsets = 'pluginOptions___fonts___subsets',
   PluginOptionsFontsVariants = 'pluginOptions___fonts___variants',
+  PluginOptionsFields = 'pluginOptions___fields',
+  PluginOptionsShortName = 'pluginOptions___short_name',
+  PluginOptionsStartUrl = 'pluginOptions___start_url',
+  PluginOptionsBackgroundColor = 'pluginOptions___background_color',
+  PluginOptionsThemeColor = 'pluginOptions___theme_color',
+  PluginOptionsDisplay = 'pluginOptions___display',
+  PluginOptionsIcon = 'pluginOptions___icon',
   PluginOptionsModulePath = 'pluginOptions___modulePath',
   PluginOptionsManualInit = 'pluginOptions___manualInit',
   PluginOptionsEnableIdentityWidget = 'pluginOptions___enableIdentityWidget',
@@ -3026,18 +3093,14 @@ export type SitePluginPluginOptions = {
   name?: Maybe<Scalars['String']>,
   color?: Maybe<Scalars['String']>,
   paths?: Maybe<Array<Maybe<Scalars['String']>>>,
+  credentials?: Maybe<SitePluginPluginOptionsCredentials>,
+  query?: Maybe<SitePluginPluginOptionsQuery>,
+  toFormat?: Maybe<Scalars['String']>,
   maxWidth?: Maybe<Scalars['Int']>,
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
   showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>,
-  quality?: Maybe<Scalars['Int']>,
+  withWebp?: Maybe<Scalars['Boolean']>,
   destinationDir?: Maybe<Scalars['String']>,
-  width?: Maybe<Scalars['String']>,
-  height?: Maybe<Scalars['String']>,
-  preload?: Maybe<Scalars['String']>,
-  muted?: Maybe<Scalars['Boolean']>,
-  autoplay?: Maybe<Scalars['Boolean']>,
-  loop?: Maybe<Scalars['Boolean']>,
-  controls?: Maybe<Scalars['Boolean']>,
   usePrefix?: Maybe<Array<Maybe<Scalars['String']>>>,
   providers?: Maybe<SitePluginPluginOptionsProviders>,
   settings?: Maybe<SitePluginPluginOptionsSettings>,
@@ -3045,6 +3108,13 @@ export type SitePluginPluginOptions = {
   pathToConfigModule?: Maybe<Scalars['String']>,
   omitGoogleFont?: Maybe<Scalars['Boolean']>,
   fonts?: Maybe<Array<Maybe<SitePluginPluginOptionsFonts>>>,
+  fields?: Maybe<Array<Maybe<Scalars['String']>>>,
+  short_name?: Maybe<Scalars['String']>,
+  start_url?: Maybe<Scalars['String']>,
+  background_color?: Maybe<Scalars['String']>,
+  theme_color?: Maybe<Scalars['String']>,
+  display?: Maybe<Scalars['String']>,
+  icon?: Maybe<Scalars['String']>,
   modulePath?: Maybe<Scalars['String']>,
   manualInit?: Maybe<Scalars['Boolean']>,
   enableIdentityWidget?: Maybe<Scalars['Boolean']>,
@@ -3053,24 +3123,33 @@ export type SitePluginPluginOptions = {
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
+export type SitePluginPluginOptionsCredentials = {
+   __typename?: 'SitePluginPluginOptionsCredentials',
+  consumer_key?: Maybe<Scalars['String']>,
+  consumer_secret?: Maybe<Scalars['String']>,
+  bearer_token?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsCredentialsFilterInput = {
+  consumer_key?: Maybe<StringQueryOperatorInput>,
+  consumer_secret?: Maybe<StringQueryOperatorInput>,
+  bearer_token?: Maybe<StringQueryOperatorInput>,
+};
+
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>,
   path?: Maybe<StringQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   color?: Maybe<StringQueryOperatorInput>,
   paths?: Maybe<StringQueryOperatorInput>,
+  credentials?: Maybe<SitePluginPluginOptionsCredentialsFilterInput>,
+  query?: Maybe<SitePluginPluginOptionsQueryFilterInput>,
+  toFormat?: Maybe<StringQueryOperatorInput>,
   maxWidth?: Maybe<IntQueryOperatorInput>,
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
   showCaptions?: Maybe<StringQueryOperatorInput>,
-  quality?: Maybe<IntQueryOperatorInput>,
+  withWebp?: Maybe<BooleanQueryOperatorInput>,
   destinationDir?: Maybe<StringQueryOperatorInput>,
-  width?: Maybe<StringQueryOperatorInput>,
-  height?: Maybe<StringQueryOperatorInput>,
-  preload?: Maybe<StringQueryOperatorInput>,
-  muted?: Maybe<BooleanQueryOperatorInput>,
-  autoplay?: Maybe<BooleanQueryOperatorInput>,
-  loop?: Maybe<BooleanQueryOperatorInput>,
-  controls?: Maybe<BooleanQueryOperatorInput>,
   usePrefix?: Maybe<StringQueryOperatorInput>,
   providers?: Maybe<SitePluginPluginOptionsProvidersFilterInput>,
   settings?: Maybe<SitePluginPluginOptionsSettingsFilterInput>,
@@ -3078,6 +3157,13 @@ export type SitePluginPluginOptionsFilterInput = {
   pathToConfigModule?: Maybe<StringQueryOperatorInput>,
   omitGoogleFont?: Maybe<BooleanQueryOperatorInput>,
   fonts?: Maybe<SitePluginPluginOptionsFontsFilterListInput>,
+  fields?: Maybe<StringQueryOperatorInput>,
+  short_name?: Maybe<StringQueryOperatorInput>,
+  start_url?: Maybe<StringQueryOperatorInput>,
+  background_color?: Maybe<StringQueryOperatorInput>,
+  theme_color?: Maybe<StringQueryOperatorInput>,
+  display?: Maybe<StringQueryOperatorInput>,
+  icon?: Maybe<StringQueryOperatorInput>,
   modulePath?: Maybe<StringQueryOperatorInput>,
   manualInit?: Maybe<BooleanQueryOperatorInput>,
   enableIdentityWidget?: Maybe<BooleanQueryOperatorInput>,
@@ -3138,15 +3224,8 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   maxWidth?: Maybe<Scalars['Int']>,
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
   showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>,
-  quality?: Maybe<Scalars['Int']>,
+  withWebp?: Maybe<Scalars['Boolean']>,
   destinationDir?: Maybe<Scalars['String']>,
-  width?: Maybe<Scalars['String']>,
-  height?: Maybe<Scalars['String']>,
-  preload?: Maybe<Scalars['String']>,
-  muted?: Maybe<Scalars['Boolean']>,
-  autoplay?: Maybe<Scalars['Boolean']>,
-  loop?: Maybe<Scalars['Boolean']>,
-  controls?: Maybe<Scalars['Boolean']>,
   usePrefix?: Maybe<Array<Maybe<Scalars['String']>>>,
   providers?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsProviders>,
   settings?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsSettings>,
@@ -3158,15 +3237,8 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>,
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
   showCaptions?: Maybe<StringQueryOperatorInput>,
-  quality?: Maybe<IntQueryOperatorInput>,
+  withWebp?: Maybe<BooleanQueryOperatorInput>,
   destinationDir?: Maybe<StringQueryOperatorInput>,
-  width?: Maybe<StringQueryOperatorInput>,
-  height?: Maybe<StringQueryOperatorInput>,
-  preload?: Maybe<StringQueryOperatorInput>,
-  muted?: Maybe<BooleanQueryOperatorInput>,
-  autoplay?: Maybe<BooleanQueryOperatorInput>,
-  loop?: Maybe<BooleanQueryOperatorInput>,
-  controls?: Maybe<BooleanQueryOperatorInput>,
   usePrefix?: Maybe<StringQueryOperatorInput>,
   providers?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsProvidersFilterInput>,
   settings?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsSettingsFilterInput>,
@@ -3213,6 +3285,34 @@ export type SitePluginPluginOptionsProvidersFilterInput = {
   exclude?: Maybe<StringQueryOperatorInput>,
 };
 
+export type SitePluginPluginOptionsQuery = {
+   __typename?: 'SitePluginPluginOptionsQuery',
+  endpoint?: Maybe<Scalars['String']>,
+  params?: Maybe<SitePluginPluginOptionsQueryParams>,
+};
+
+export type SitePluginPluginOptionsQueryFilterInput = {
+  endpoint?: Maybe<StringQueryOperatorInput>,
+  params?: Maybe<SitePluginPluginOptionsQueryParamsFilterInput>,
+};
+
+export type SitePluginPluginOptionsQueryParams = {
+   __typename?: 'SitePluginPluginOptionsQueryParams',
+  screen_name?: Maybe<Scalars['String']>,
+  include_rts?: Maybe<Scalars['Boolean']>,
+  exclude_replies?: Maybe<Scalars['Boolean']>,
+  tweet_mode?: Maybe<Scalars['String']>,
+  count?: Maybe<Scalars['Int']>,
+};
+
+export type SitePluginPluginOptionsQueryParamsFilterInput = {
+  screen_name?: Maybe<StringQueryOperatorInput>,
+  include_rts?: Maybe<BooleanQueryOperatorInput>,
+  exclude_replies?: Maybe<BooleanQueryOperatorInput>,
+  tweet_mode?: Maybe<StringQueryOperatorInput>,
+  count?: Maybe<IntQueryOperatorInput>,
+};
+
 export type SitePluginPluginOptionsSettings = {
    __typename?: 'SitePluginPluginOptionsSettings',
   Instagram?: Maybe<SitePluginPluginOptionsSettingsInstagram>,
@@ -3236,15 +3336,166 @@ export type SitePluginSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
-export type SiteSiteMetadata = {
-   __typename?: 'SiteSiteMetadata',
-  title?: Maybe<Scalars['String']>,
-  description?: Maybe<Scalars['String']>,
+export type SiteSearchIndex = Node & {
+   __typename?: 'SiteSearchIndex',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  pages?: Maybe<Array<Maybe<Scalars['String']>>>,
+  index?: Maybe<Scalars['SiteSearchIndex_Index']>,
 };
 
-export type SiteSiteMetadataFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
+
+export type SiteSearchIndex_IndexQueryOperatorInput = {
+  eq?: Maybe<Scalars['SiteSearchIndex_Index']>,
+  ne?: Maybe<Scalars['SiteSearchIndex_Index']>,
+  in?: Maybe<Array<Maybe<Scalars['SiteSearchIndex_Index']>>>,
+  nin?: Maybe<Array<Maybe<Scalars['SiteSearchIndex_Index']>>>,
+};
+
+export type SiteSearchIndexConnection = {
+   __typename?: 'SiteSearchIndexConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SiteSearchIndexEdge>,
+  nodes: Array<SiteSearchIndex>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<SiteSearchIndexGroupConnection>,
+};
+
+
+export type SiteSearchIndexConnectionDistinctArgs = {
+  field: SiteSearchIndexFieldsEnum
+};
+
+
+export type SiteSearchIndexConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: SiteSearchIndexFieldsEnum
+};
+
+export type SiteSearchIndexEdge = {
+   __typename?: 'SiteSearchIndexEdge',
+  next?: Maybe<SiteSearchIndex>,
+  node: SiteSearchIndex,
+  previous?: Maybe<SiteSearchIndex>,
+};
+
+export enum SiteSearchIndexFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Pages = 'pages',
+  Index = 'index'
+}
+
+export type SiteSearchIndexFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  pages?: Maybe<StringQueryOperatorInput>,
+  index?: Maybe<SiteSearchIndex_IndexQueryOperatorInput>,
+};
+
+export type SiteSearchIndexGroupConnection = {
+   __typename?: 'SiteSearchIndexGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SiteSearchIndexEdge>,
+  nodes: Array<SiteSearchIndex>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type SiteSearchIndexSortInput = {
+  fields?: Maybe<Array<Maybe<SiteSearchIndexFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
 export type SiteSortInput = {
@@ -3264,6 +3515,932 @@ export type StringQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['String']>>>,
   regex?: Maybe<Scalars['String']>,
   glob?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimeline = Node & {
+   __typename?: 'twitterStatusesUserTimeline',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  created_at?: Maybe<Scalars['String']>,
+  id_str?: Maybe<Scalars['String']>,
+  text?: Maybe<Scalars['String']>,
+  full_text?: Maybe<Scalars['String']>,
+  truncated?: Maybe<Scalars['Boolean']>,
+  linked_site?: Maybe<TwitterStatusesUserTimelineLinked_Site>,
+  entities?: Maybe<TwitterStatusesUserTimelineEntities>,
+  source?: Maybe<Scalars['String']>,
+  user?: Maybe<TwitterStatusesUserTimelineUser>,
+  retweeted_status?: Maybe<TwitterStatusesUserTimelineRetweeted_Status>,
+  is_quote_status?: Maybe<Scalars['Boolean']>,
+  retweet_count?: Maybe<Scalars['Int']>,
+  favorite_count?: Maybe<Scalars['Int']>,
+  favorited?: Maybe<Scalars['Boolean']>,
+  retweeted?: Maybe<Scalars['Boolean']>,
+  lang?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineConnection = {
+   __typename?: 'twitterStatusesUserTimelineConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<TwitterStatusesUserTimelineEdge>,
+  nodes: Array<TwitterStatusesUserTimeline>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<TwitterStatusesUserTimelineGroupConnection>,
+};
+
+
+export type TwitterStatusesUserTimelineConnectionDistinctArgs = {
+  field: TwitterStatusesUserTimelineFieldsEnum
+};
+
+
+export type TwitterStatusesUserTimelineConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: TwitterStatusesUserTimelineFieldsEnum
+};
+
+export type TwitterStatusesUserTimelineEdge = {
+   __typename?: 'twitterStatusesUserTimelineEdge',
+  next?: Maybe<TwitterStatusesUserTimeline>,
+  node: TwitterStatusesUserTimeline,
+  previous?: Maybe<TwitterStatusesUserTimeline>,
+};
+
+export type TwitterStatusesUserTimelineEntities = {
+   __typename?: 'twitterStatusesUserTimelineEntities',
+  user_mentions?: Maybe<Array<Maybe<TwitterStatusesUserTimelineEntitiesUser_Mentions>>>,
+  urls?: Maybe<Array<Maybe<TwitterStatusesUserTimelineEntitiesUrls>>>,
+  media?: Maybe<Array<Maybe<TwitterStatusesUserTimelineEntitiesMedia>>>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesFilterInput = {
+  user_mentions?: Maybe<TwitterStatusesUserTimelineEntitiesUser_MentionsFilterListInput>,
+  urls?: Maybe<TwitterStatusesUserTimelineEntitiesUrlsFilterListInput>,
+  media?: Maybe<TwitterStatusesUserTimelineEntitiesMediaFilterListInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMedia = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesMedia',
+  id?: Maybe<Scalars['Float']>,
+  id_str?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+  media_url?: Maybe<Scalars['String']>,
+  media_url_https?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  display_url?: Maybe<Scalars['String']>,
+  expanded_url?: Maybe<Scalars['String']>,
+  type?: Maybe<Scalars['String']>,
+  sizes?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizes>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaFilterInput = {
+  id?: Maybe<FloatQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+  media_url?: Maybe<StringQueryOperatorInput>,
+  media_url_https?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  display_url?: Maybe<StringQueryOperatorInput>,
+  expanded_url?: Maybe<StringQueryOperatorInput>,
+  type?: Maybe<StringQueryOperatorInput>,
+  sizes?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineEntitiesMediaFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizes = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesMediaSizes',
+  medium?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesMedium>,
+  small?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesSmall>,
+  thumb?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesThumb>,
+  large?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesLarge>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesFilterInput = {
+  medium?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesMediumFilterInput>,
+  small?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesSmallFilterInput>,
+  thumb?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesThumbFilterInput>,
+  large?: Maybe<TwitterStatusesUserTimelineEntitiesMediaSizesLargeFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesLarge = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesMediaSizesLarge',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesLargeFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesMedium = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesMediaSizesMedium',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesMediumFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesSmall = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesMediaSizesSmall',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesSmallFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesThumb = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesMediaSizesThumb',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesMediaSizesThumbFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesUrls = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesUrls',
+  url?: Maybe<Scalars['String']>,
+  expanded_url?: Maybe<Scalars['String']>,
+  display_url?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesUrlsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  expanded_url?: Maybe<StringQueryOperatorInput>,
+  display_url?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesUrlsFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineEntitiesUrlsFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesUser_Mentions = {
+   __typename?: 'twitterStatusesUserTimelineEntitiesUser_mentions',
+  screen_name?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['Int']>,
+  id_str?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesUser_MentionsFilterInput = {
+  screen_name?: Maybe<StringQueryOperatorInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  id?: Maybe<IntQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineEntitiesUser_MentionsFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineEntitiesUser_MentionsFilterInput>,
+};
+
+export enum TwitterStatusesUserTimelineFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  CreatedAt = 'created_at',
+  IdStr = 'id_str',
+  Text = 'text',
+  FullText = 'full_text',
+  Truncated = 'truncated',
+  LinkedSiteTitle = 'linked_site___title',
+  LinkedSiteDescription = 'linked_site___description',
+  LinkedSiteImage = 'linked_site___image',
+  LinkedSiteUrl = 'linked_site___url',
+  EntitiesUserMentions = 'entities___user_mentions',
+  EntitiesUserMentionsScreenName = 'entities___user_mentions___screen_name',
+  EntitiesUserMentionsName = 'entities___user_mentions___name',
+  EntitiesUserMentionsId = 'entities___user_mentions___id',
+  EntitiesUserMentionsIdStr = 'entities___user_mentions___id_str',
+  EntitiesUserMentionsIndices = 'entities___user_mentions___indices',
+  EntitiesUrls = 'entities___urls',
+  EntitiesUrlsUrl = 'entities___urls___url',
+  EntitiesUrlsExpandedUrl = 'entities___urls___expanded_url',
+  EntitiesUrlsDisplayUrl = 'entities___urls___display_url',
+  EntitiesUrlsIndices = 'entities___urls___indices',
+  EntitiesMedia = 'entities___media',
+  EntitiesMediaId = 'entities___media___id',
+  EntitiesMediaIdStr = 'entities___media___id_str',
+  EntitiesMediaIndices = 'entities___media___indices',
+  EntitiesMediaMediaUrl = 'entities___media___media_url',
+  EntitiesMediaMediaUrlHttps = 'entities___media___media_url_https',
+  EntitiesMediaUrl = 'entities___media___url',
+  EntitiesMediaDisplayUrl = 'entities___media___display_url',
+  EntitiesMediaExpandedUrl = 'entities___media___expanded_url',
+  EntitiesMediaType = 'entities___media___type',
+  Source = 'source',
+  UserId = 'user___id',
+  UserIdStr = 'user___id_str',
+  UserName = 'user___name',
+  UserScreenName = 'user___screen_name',
+  UserLocation = 'user___location',
+  UserDescription = 'user___description',
+  UserUrl = 'user___url',
+  UserEntitiesUrlUrls = 'user___entities___url___urls',
+  UserProtected = 'user___protected',
+  UserFollowersCount = 'user___followers_count',
+  UserFriendsCount = 'user___friends_count',
+  UserListedCount = 'user___listed_count',
+  UserCreatedAt = 'user___created_at',
+  UserFavouritesCount = 'user___favourites_count',
+  UserUtcOffset = 'user___utc_offset',
+  UserTimeZone = 'user___time_zone',
+  UserGeoEnabled = 'user___geo_enabled',
+  UserVerified = 'user___verified',
+  UserStatusesCount = 'user___statuses_count',
+  UserLang = 'user___lang',
+  UserContributorsEnabled = 'user___contributors_enabled',
+  UserIsTranslator = 'user___is_translator',
+  UserIsTranslationEnabled = 'user___is_translation_enabled',
+  UserProfileBackgroundColor = 'user___profile_background_color',
+  UserProfileBackgroundImageUrl = 'user___profile_background_image_url',
+  UserProfileBackgroundImageUrlHttps = 'user___profile_background_image_url_https',
+  UserProfileBackgroundTile = 'user___profile_background_tile',
+  UserProfileImageUrl = 'user___profile_image_url',
+  UserProfileImageUrlHttps = 'user___profile_image_url_https',
+  UserProfileBannerUrl = 'user___profile_banner_url',
+  UserProfileLinkColor = 'user___profile_link_color',
+  UserProfileSidebarBorderColor = 'user___profile_sidebar_border_color',
+  UserProfileSidebarFillColor = 'user___profile_sidebar_fill_color',
+  UserProfileTextColor = 'user___profile_text_color',
+  UserProfileUseBackgroundImage = 'user___profile_use_background_image',
+  UserHasExtendedProfile = 'user___has_extended_profile',
+  UserDefaultProfile = 'user___default_profile',
+  UserDefaultProfileImage = 'user___default_profile_image',
+  UserFollowing = 'user___following',
+  UserFollowRequestSent = 'user___follow_request_sent',
+  UserNotifications = 'user___notifications',
+  UserTranslatorType = 'user___translator_type',
+  RetweetedStatusCreatedAt = 'retweeted_status___created_at',
+  RetweetedStatusId = 'retweeted_status___id',
+  RetweetedStatusIdStr = 'retweeted_status___id_str',
+  RetweetedStatusText = 'retweeted_status___text',
+  RetweetedStatusFullText = 'retweeted_status___full_text',
+  RetweetedStatusTruncated = 'retweeted_status___truncated',
+  RetweetedStatusEntitiesUrls = 'retweeted_status___entities___urls',
+  RetweetedStatusEntitiesUrlsUrl = 'retweeted_status___entities___urls___url',
+  RetweetedStatusEntitiesUrlsExpandedUrl = 'retweeted_status___entities___urls___expanded_url',
+  RetweetedStatusEntitiesUrlsDisplayUrl = 'retweeted_status___entities___urls___display_url',
+  RetweetedStatusEntitiesUrlsIndices = 'retweeted_status___entities___urls___indices',
+  RetweetedStatusEntitiesMedia = 'retweeted_status___entities___media',
+  RetweetedStatusEntitiesMediaId = 'retweeted_status___entities___media___id',
+  RetweetedStatusEntitiesMediaIdStr = 'retweeted_status___entities___media___id_str',
+  RetweetedStatusEntitiesMediaIndices = 'retweeted_status___entities___media___indices',
+  RetweetedStatusEntitiesMediaMediaUrl = 'retweeted_status___entities___media___media_url',
+  RetweetedStatusEntitiesMediaMediaUrlHttps = 'retweeted_status___entities___media___media_url_https',
+  RetweetedStatusEntitiesMediaUrl = 'retweeted_status___entities___media___url',
+  RetweetedStatusEntitiesMediaDisplayUrl = 'retweeted_status___entities___media___display_url',
+  RetweetedStatusEntitiesMediaExpandedUrl = 'retweeted_status___entities___media___expanded_url',
+  RetweetedStatusEntitiesMediaType = 'retweeted_status___entities___media___type',
+  RetweetedStatusSource = 'retweeted_status___source',
+  RetweetedStatusUserId = 'retweeted_status___user___id',
+  RetweetedStatusUserIdStr = 'retweeted_status___user___id_str',
+  RetweetedStatusUserName = 'retweeted_status___user___name',
+  RetweetedStatusUserScreenName = 'retweeted_status___user___screen_name',
+  RetweetedStatusUserLocation = 'retweeted_status___user___location',
+  RetweetedStatusUserDescription = 'retweeted_status___user___description',
+  RetweetedStatusUserUrl = 'retweeted_status___user___url',
+  RetweetedStatusUserProtected = 'retweeted_status___user___protected',
+  RetweetedStatusUserFollowersCount = 'retweeted_status___user___followers_count',
+  RetweetedStatusUserFriendsCount = 'retweeted_status___user___friends_count',
+  RetweetedStatusUserListedCount = 'retweeted_status___user___listed_count',
+  RetweetedStatusUserCreatedAt = 'retweeted_status___user___created_at',
+  RetweetedStatusUserFavouritesCount = 'retweeted_status___user___favourites_count',
+  RetweetedStatusUserUtcOffset = 'retweeted_status___user___utc_offset',
+  RetweetedStatusUserTimeZone = 'retweeted_status___user___time_zone',
+  RetweetedStatusUserGeoEnabled = 'retweeted_status___user___geo_enabled',
+  RetweetedStatusUserVerified = 'retweeted_status___user___verified',
+  RetweetedStatusUserStatusesCount = 'retweeted_status___user___statuses_count',
+  RetweetedStatusUserLang = 'retweeted_status___user___lang',
+  RetweetedStatusUserContributorsEnabled = 'retweeted_status___user___contributors_enabled',
+  RetweetedStatusUserIsTranslator = 'retweeted_status___user___is_translator',
+  RetweetedStatusUserIsTranslationEnabled = 'retweeted_status___user___is_translation_enabled',
+  RetweetedStatusUserProfileBackgroundColor = 'retweeted_status___user___profile_background_color',
+  RetweetedStatusUserProfileBackgroundImageUrl = 'retweeted_status___user___profile_background_image_url',
+  RetweetedStatusUserProfileBackgroundImageUrlHttps = 'retweeted_status___user___profile_background_image_url_https',
+  RetweetedStatusUserProfileBackgroundTile = 'retweeted_status___user___profile_background_tile',
+  RetweetedStatusUserProfileImageUrl = 'retweeted_status___user___profile_image_url',
+  RetweetedStatusUserProfileImageUrlHttps = 'retweeted_status___user___profile_image_url_https',
+  RetweetedStatusUserProfileBannerUrl = 'retweeted_status___user___profile_banner_url',
+  RetweetedStatusUserProfileLinkColor = 'retweeted_status___user___profile_link_color',
+  RetweetedStatusUserProfileSidebarBorderColor = 'retweeted_status___user___profile_sidebar_border_color',
+  RetweetedStatusUserProfileSidebarFillColor = 'retweeted_status___user___profile_sidebar_fill_color',
+  RetweetedStatusUserProfileTextColor = 'retweeted_status___user___profile_text_color',
+  RetweetedStatusUserProfileUseBackgroundImage = 'retweeted_status___user___profile_use_background_image',
+  RetweetedStatusUserHasExtendedProfile = 'retweeted_status___user___has_extended_profile',
+  RetweetedStatusUserDefaultProfile = 'retweeted_status___user___default_profile',
+  RetweetedStatusUserDefaultProfileImage = 'retweeted_status___user___default_profile_image',
+  RetweetedStatusUserFollowing = 'retweeted_status___user___following',
+  RetweetedStatusUserFollowRequestSent = 'retweeted_status___user___follow_request_sent',
+  RetweetedStatusUserNotifications = 'retweeted_status___user___notifications',
+  RetweetedStatusUserTranslatorType = 'retweeted_status___user___translator_type',
+  RetweetedStatusIsQuoteStatus = 'retweeted_status___is_quote_status',
+  RetweetedStatusRetweetCount = 'retweeted_status___retweet_count',
+  RetweetedStatusFavoriteCount = 'retweeted_status___favorite_count',
+  RetweetedStatusFavorited = 'retweeted_status___favorited',
+  RetweetedStatusRetweeted = 'retweeted_status___retweeted',
+  RetweetedStatusPossiblySensitive = 'retweeted_status___possibly_sensitive',
+  RetweetedStatusLang = 'retweeted_status___lang',
+  IsQuoteStatus = 'is_quote_status',
+  RetweetCount = 'retweet_count',
+  FavoriteCount = 'favorite_count',
+  Favorited = 'favorited',
+  Retweeted = 'retweeted',
+  Lang = 'lang'
+}
+
+export type TwitterStatusesUserTimelineFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  created_at?: Maybe<StringQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  text?: Maybe<StringQueryOperatorInput>,
+  full_text?: Maybe<StringQueryOperatorInput>,
+  truncated?: Maybe<BooleanQueryOperatorInput>,
+  linked_site?: Maybe<TwitterStatusesUserTimelineLinked_SiteFilterInput>,
+  entities?: Maybe<TwitterStatusesUserTimelineEntitiesFilterInput>,
+  source?: Maybe<StringQueryOperatorInput>,
+  user?: Maybe<TwitterStatusesUserTimelineUserFilterInput>,
+  retweeted_status?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusFilterInput>,
+  is_quote_status?: Maybe<BooleanQueryOperatorInput>,
+  retweet_count?: Maybe<IntQueryOperatorInput>,
+  favorite_count?: Maybe<IntQueryOperatorInput>,
+  favorited?: Maybe<BooleanQueryOperatorInput>,
+  retweeted?: Maybe<BooleanQueryOperatorInput>,
+  lang?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineGroupConnection = {
+   __typename?: 'twitterStatusesUserTimelineGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<TwitterStatusesUserTimelineEdge>,
+  nodes: Array<TwitterStatusesUserTimeline>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineLinked_Site = {
+   __typename?: 'twitterStatusesUserTimelineLinked_site',
+  title?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  image?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineLinked_SiteFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_Status = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_status',
+  created_at?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['Float']>,
+  id_str?: Maybe<Scalars['String']>,
+  text?: Maybe<Scalars['String']>,
+  full_text?: Maybe<Scalars['String']>,
+  truncated?: Maybe<Scalars['Boolean']>,
+  entities?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntities>,
+  source?: Maybe<Scalars['String']>,
+  user?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUser>,
+  is_quote_status?: Maybe<Scalars['Boolean']>,
+  retweet_count?: Maybe<Scalars['Int']>,
+  favorite_count?: Maybe<Scalars['Int']>,
+  favorited?: Maybe<Scalars['Boolean']>,
+  retweeted?: Maybe<Scalars['Boolean']>,
+  possibly_sensitive?: Maybe<Scalars['Boolean']>,
+  lang?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntities = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntities',
+  urls?: Maybe<Array<Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrls>>>,
+  media?: Maybe<Array<Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMedia>>>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesFilterInput = {
+  urls?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrlsFilterListInput>,
+  media?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaFilterListInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMedia = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMedia',
+  id?: Maybe<Scalars['Float']>,
+  id_str?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+  media_url?: Maybe<Scalars['String']>,
+  media_url_https?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  display_url?: Maybe<Scalars['String']>,
+  expanded_url?: Maybe<Scalars['String']>,
+  type?: Maybe<Scalars['String']>,
+  sizes?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizes>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaFilterInput = {
+  id?: Maybe<FloatQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+  media_url?: Maybe<StringQueryOperatorInput>,
+  media_url_https?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  display_url?: Maybe<StringQueryOperatorInput>,
+  expanded_url?: Maybe<StringQueryOperatorInput>,
+  type?: Maybe<StringQueryOperatorInput>,
+  sizes?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizes = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMediaSizes',
+  medium?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesMedium>,
+  small?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesSmall>,
+  thumb?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesThumb>,
+  large?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesLarge>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesFilterInput = {
+  medium?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesMediumFilterInput>,
+  small?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesSmallFilterInput>,
+  thumb?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesThumbFilterInput>,
+  large?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesLargeFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesLarge = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMediaSizesLarge',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesLargeFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesMedium = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMediaSizesMedium',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesMediumFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesSmall = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMediaSizesSmall',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesSmallFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesThumb = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMediaSizesThumb',
+  w?: Maybe<Scalars['Int']>,
+  h?: Maybe<Scalars['Int']>,
+  resize?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesMediaSizesThumbFilterInput = {
+  w?: Maybe<IntQueryOperatorInput>,
+  h?: Maybe<IntQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrls = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesUrls',
+  url?: Maybe<Scalars['String']>,
+  expanded_url?: Maybe<Scalars['String']>,
+  display_url?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrlsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  expanded_url?: Maybe<StringQueryOperatorInput>,
+  display_url?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrlsFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrlsFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusFilterInput = {
+  created_at?: Maybe<StringQueryOperatorInput>,
+  id?: Maybe<FloatQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  text?: Maybe<StringQueryOperatorInput>,
+  full_text?: Maybe<StringQueryOperatorInput>,
+  truncated?: Maybe<BooleanQueryOperatorInput>,
+  entities?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusEntitiesFilterInput>,
+  source?: Maybe<StringQueryOperatorInput>,
+  user?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserFilterInput>,
+  is_quote_status?: Maybe<BooleanQueryOperatorInput>,
+  retweet_count?: Maybe<IntQueryOperatorInput>,
+  favorite_count?: Maybe<IntQueryOperatorInput>,
+  favorited?: Maybe<BooleanQueryOperatorInput>,
+  retweeted?: Maybe<BooleanQueryOperatorInput>,
+  possibly_sensitive?: Maybe<BooleanQueryOperatorInput>,
+  lang?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUser = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusUser',
+  id?: Maybe<Scalars['Int']>,
+  id_str?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  screen_name?: Maybe<Scalars['String']>,
+  location?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  entities?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntities>,
+  protected?: Maybe<Scalars['Boolean']>,
+  followers_count?: Maybe<Scalars['Int']>,
+  friends_count?: Maybe<Scalars['Int']>,
+  listed_count?: Maybe<Scalars['Int']>,
+  created_at?: Maybe<Scalars['String']>,
+  favourites_count?: Maybe<Scalars['Int']>,
+  utc_offset?: Maybe<Scalars['Int']>,
+  time_zone?: Maybe<Scalars['String']>,
+  geo_enabled?: Maybe<Scalars['Boolean']>,
+  verified?: Maybe<Scalars['Boolean']>,
+  statuses_count?: Maybe<Scalars['Int']>,
+  lang?: Maybe<Scalars['String']>,
+  contributors_enabled?: Maybe<Scalars['Boolean']>,
+  is_translator?: Maybe<Scalars['Boolean']>,
+  is_translation_enabled?: Maybe<Scalars['Boolean']>,
+  profile_background_color?: Maybe<Scalars['String']>,
+  profile_background_image_url?: Maybe<Scalars['String']>,
+  profile_background_image_url_https?: Maybe<Scalars['String']>,
+  profile_background_tile?: Maybe<Scalars['Boolean']>,
+  profile_image_url?: Maybe<Scalars['String']>,
+  profile_image_url_https?: Maybe<Scalars['String']>,
+  profile_banner_url?: Maybe<Scalars['String']>,
+  profile_link_color?: Maybe<Scalars['String']>,
+  profile_sidebar_border_color?: Maybe<Scalars['String']>,
+  profile_sidebar_fill_color?: Maybe<Scalars['String']>,
+  profile_text_color?: Maybe<Scalars['String']>,
+  profile_use_background_image?: Maybe<Scalars['Boolean']>,
+  has_extended_profile?: Maybe<Scalars['Boolean']>,
+  default_profile?: Maybe<Scalars['Boolean']>,
+  default_profile_image?: Maybe<Scalars['Boolean']>,
+  following?: Maybe<Scalars['Boolean']>,
+  follow_request_sent?: Maybe<Scalars['Boolean']>,
+  notifications?: Maybe<Scalars['Boolean']>,
+  translator_type?: Maybe<Scalars['String']>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntities = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusUserEntities',
+  url?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrl>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesFilterInput = {
+  url?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrl = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusUserEntitiesUrl',
+  urls?: Maybe<Array<Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlUrls>>>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlFilterInput = {
+  urls?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlUrlsFilterListInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlUrls = {
+   __typename?: 'twitterStatusesUserTimelineRetweeted_statusUserEntitiesUrlUrls',
+  url?: Maybe<Scalars['String']>,
+  expanded_url?: Maybe<Scalars['String']>,
+  display_url?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlUrlsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  expanded_url?: Maybe<StringQueryOperatorInput>,
+  display_url?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlUrlsFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesUrlUrlsFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineRetweeted_StatusUserFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>,
+  id_str?: Maybe<StringQueryOperatorInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  screen_name?: Maybe<StringQueryOperatorInput>,
+  location?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  entities?: Maybe<TwitterStatusesUserTimelineRetweeted_StatusUserEntitiesFilterInput>,
+  protected?: Maybe<BooleanQueryOperatorInput>,
+  followers_count?: Maybe<IntQueryOperatorInput>,
+  friends_count?: Maybe<IntQueryOperatorInput>,
+  listed_count?: Maybe<IntQueryOperatorInput>,
+  created_at?: Maybe<StringQueryOperatorInput>,
+  favourites_count?: Maybe<IntQueryOperatorInput>,
+  utc_offset?: Maybe<IntQueryOperatorInput>,
+  time_zone?: Maybe<StringQueryOperatorInput>,
+  geo_enabled?: Maybe<BooleanQueryOperatorInput>,
+  verified?: Maybe<BooleanQueryOperatorInput>,
+  statuses_count?: Maybe<IntQueryOperatorInput>,
+  lang?: Maybe<StringQueryOperatorInput>,
+  contributors_enabled?: Maybe<BooleanQueryOperatorInput>,
+  is_translator?: Maybe<BooleanQueryOperatorInput>,
+  is_translation_enabled?: Maybe<BooleanQueryOperatorInput>,
+  profile_background_color?: Maybe<StringQueryOperatorInput>,
+  profile_background_image_url?: Maybe<StringQueryOperatorInput>,
+  profile_background_image_url_https?: Maybe<StringQueryOperatorInput>,
+  profile_background_tile?: Maybe<BooleanQueryOperatorInput>,
+  profile_image_url?: Maybe<StringQueryOperatorInput>,
+  profile_image_url_https?: Maybe<StringQueryOperatorInput>,
+  profile_banner_url?: Maybe<StringQueryOperatorInput>,
+  profile_link_color?: Maybe<StringQueryOperatorInput>,
+  profile_sidebar_border_color?: Maybe<StringQueryOperatorInput>,
+  profile_sidebar_fill_color?: Maybe<StringQueryOperatorInput>,
+  profile_text_color?: Maybe<StringQueryOperatorInput>,
+  profile_use_background_image?: Maybe<BooleanQueryOperatorInput>,
+  has_extended_profile?: Maybe<BooleanQueryOperatorInput>,
+  default_profile?: Maybe<BooleanQueryOperatorInput>,
+  default_profile_image?: Maybe<BooleanQueryOperatorInput>,
+  following?: Maybe<BooleanQueryOperatorInput>,
+  follow_request_sent?: Maybe<BooleanQueryOperatorInput>,
+  notifications?: Maybe<BooleanQueryOperatorInput>,
+  translator_type?: Maybe<StringQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineSortInput = {
+  fields?: Maybe<Array<Maybe<TwitterStatusesUserTimelineFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type TwitterStatusesUserTimelineUser = {
+   __typename?: 'twitterStatusesUserTimelineUser',
+  id?: Maybe<Scalars['Int']>,
+  id_str?: Maybe<Scalars['Date']>,
+  name?: Maybe<Scalars['String']>,
+  screen_name?: Maybe<Scalars['String']>,
+  location?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  entities?: Maybe<TwitterStatusesUserTimelineUserEntities>,
+  protected?: Maybe<Scalars['Boolean']>,
+  followers_count?: Maybe<Scalars['Int']>,
+  friends_count?: Maybe<Scalars['Int']>,
+  listed_count?: Maybe<Scalars['Int']>,
+  created_at?: Maybe<Scalars['String']>,
+  favourites_count?: Maybe<Scalars['Int']>,
+  utc_offset?: Maybe<Scalars['Int']>,
+  time_zone?: Maybe<Scalars['String']>,
+  geo_enabled?: Maybe<Scalars['Boolean']>,
+  verified?: Maybe<Scalars['Boolean']>,
+  statuses_count?: Maybe<Scalars['Int']>,
+  lang?: Maybe<Scalars['String']>,
+  contributors_enabled?: Maybe<Scalars['Boolean']>,
+  is_translator?: Maybe<Scalars['Boolean']>,
+  is_translation_enabled?: Maybe<Scalars['Boolean']>,
+  profile_background_color?: Maybe<Scalars['String']>,
+  profile_background_image_url?: Maybe<Scalars['String']>,
+  profile_background_image_url_https?: Maybe<Scalars['String']>,
+  profile_background_tile?: Maybe<Scalars['Boolean']>,
+  profile_image_url?: Maybe<Scalars['String']>,
+  profile_image_url_https?: Maybe<Scalars['String']>,
+  profile_banner_url?: Maybe<Scalars['String']>,
+  profile_link_color?: Maybe<Scalars['String']>,
+  profile_sidebar_border_color?: Maybe<Scalars['String']>,
+  profile_sidebar_fill_color?: Maybe<Scalars['String']>,
+  profile_text_color?: Maybe<Scalars['String']>,
+  profile_use_background_image?: Maybe<Scalars['Boolean']>,
+  has_extended_profile?: Maybe<Scalars['Boolean']>,
+  default_profile?: Maybe<Scalars['Boolean']>,
+  default_profile_image?: Maybe<Scalars['Boolean']>,
+  following?: Maybe<Scalars['Boolean']>,
+  follow_request_sent?: Maybe<Scalars['Boolean']>,
+  notifications?: Maybe<Scalars['Boolean']>,
+  translator_type?: Maybe<Scalars['String']>,
+};
+
+
+export type TwitterStatusesUserTimelineUserId_StrArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+export type TwitterStatusesUserTimelineUserEntities = {
+   __typename?: 'twitterStatusesUserTimelineUserEntities',
+  url?: Maybe<TwitterStatusesUserTimelineUserEntitiesUrl>,
+};
+
+export type TwitterStatusesUserTimelineUserEntitiesFilterInput = {
+  url?: Maybe<TwitterStatusesUserTimelineUserEntitiesUrlFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineUserEntitiesUrl = {
+   __typename?: 'twitterStatusesUserTimelineUserEntitiesUrl',
+  urls?: Maybe<Array<Maybe<TwitterStatusesUserTimelineUserEntitiesUrlUrls>>>,
+};
+
+export type TwitterStatusesUserTimelineUserEntitiesUrlFilterInput = {
+  urls?: Maybe<TwitterStatusesUserTimelineUserEntitiesUrlUrlsFilterListInput>,
+};
+
+export type TwitterStatusesUserTimelineUserEntitiesUrlUrls = {
+   __typename?: 'twitterStatusesUserTimelineUserEntitiesUrlUrls',
+  url?: Maybe<Scalars['String']>,
+  expanded_url?: Maybe<Scalars['String']>,
+  display_url?: Maybe<Scalars['String']>,
+  indices?: Maybe<Array<Maybe<Scalars['Int']>>>,
+};
+
+export type TwitterStatusesUserTimelineUserEntitiesUrlUrlsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  expanded_url?: Maybe<StringQueryOperatorInput>,
+  display_url?: Maybe<StringQueryOperatorInput>,
+  indices?: Maybe<IntQueryOperatorInput>,
+};
+
+export type TwitterStatusesUserTimelineUserEntitiesUrlUrlsFilterListInput = {
+  elemMatch?: Maybe<TwitterStatusesUserTimelineUserEntitiesUrlUrlsFilterInput>,
+};
+
+export type TwitterStatusesUserTimelineUserFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>,
+  id_str?: Maybe<DateQueryOperatorInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  screen_name?: Maybe<StringQueryOperatorInput>,
+  location?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  entities?: Maybe<TwitterStatusesUserTimelineUserEntitiesFilterInput>,
+  protected?: Maybe<BooleanQueryOperatorInput>,
+  followers_count?: Maybe<IntQueryOperatorInput>,
+  friends_count?: Maybe<IntQueryOperatorInput>,
+  listed_count?: Maybe<IntQueryOperatorInput>,
+  created_at?: Maybe<StringQueryOperatorInput>,
+  favourites_count?: Maybe<IntQueryOperatorInput>,
+  utc_offset?: Maybe<IntQueryOperatorInput>,
+  time_zone?: Maybe<StringQueryOperatorInput>,
+  geo_enabled?: Maybe<BooleanQueryOperatorInput>,
+  verified?: Maybe<BooleanQueryOperatorInput>,
+  statuses_count?: Maybe<IntQueryOperatorInput>,
+  lang?: Maybe<StringQueryOperatorInput>,
+  contributors_enabled?: Maybe<BooleanQueryOperatorInput>,
+  is_translator?: Maybe<BooleanQueryOperatorInput>,
+  is_translation_enabled?: Maybe<BooleanQueryOperatorInput>,
+  profile_background_color?: Maybe<StringQueryOperatorInput>,
+  profile_background_image_url?: Maybe<StringQueryOperatorInput>,
+  profile_background_image_url_https?: Maybe<StringQueryOperatorInput>,
+  profile_background_tile?: Maybe<BooleanQueryOperatorInput>,
+  profile_image_url?: Maybe<StringQueryOperatorInput>,
+  profile_image_url_https?: Maybe<StringQueryOperatorInput>,
+  profile_banner_url?: Maybe<StringQueryOperatorInput>,
+  profile_link_color?: Maybe<StringQueryOperatorInput>,
+  profile_sidebar_border_color?: Maybe<StringQueryOperatorInput>,
+  profile_sidebar_fill_color?: Maybe<StringQueryOperatorInput>,
+  profile_text_color?: Maybe<StringQueryOperatorInput>,
+  profile_use_background_image?: Maybe<BooleanQueryOperatorInput>,
+  has_extended_profile?: Maybe<BooleanQueryOperatorInput>,
+  default_profile?: Maybe<BooleanQueryOperatorInput>,
+  default_profile_image?: Maybe<BooleanQueryOperatorInput>,
+  following?: Maybe<BooleanQueryOperatorInput>,
+  follow_request_sent?: Maybe<BooleanQueryOperatorInput>,
+  notifications?: Maybe<BooleanQueryOperatorInput>,
+  translator_type?: Maybe<StringQueryOperatorInput>,
 };
 export type BlogRollQueryQueryVariables = {};
 
@@ -3323,10 +4500,67 @@ export type IndexPageDataQuery = (
   )> }
 );
 
+export type SearchIndexQueryQueryVariables = {};
+
+
+export type SearchIndexQueryQuery = (
+  { __typename?: 'Query' }
+  & { siteSearchIndex: Maybe<(
+    { __typename?: 'SiteSearchIndex' }
+    & Pick<SiteSearchIndex, 'index'>
+  )> }
+);
+
 export type Unnamed_1_QueryVariables = {};
 
 
 export type Unnamed_1_Query = (
+  { __typename?: 'Query' }
+  & { allTwitterStatusesUserTimeline: (
+    { __typename?: 'twitterStatusesUserTimelineConnection' }
+    & { nodes: Array<(
+      { __typename?: 'twitterStatusesUserTimeline' }
+      & Pick<TwitterStatusesUserTimeline, 'id' | 'id_str' | 'text' | 'full_text' | 'retweet_count' | 'favorite_count' | 'created_at'>
+      & { user: Maybe<(
+        { __typename?: 'twitterStatusesUserTimelineUser' }
+        & Pick<TwitterStatusesUserTimelineUser, 'screen_name' | 'url' | 'name' | 'profile_image_url_https'>
+      )>, entities: Maybe<(
+        { __typename?: 'twitterStatusesUserTimelineEntities' }
+        & { urls: Maybe<Array<Maybe<(
+          { __typename?: 'twitterStatusesUserTimelineEntitiesUrls' }
+          & Pick<TwitterStatusesUserTimelineEntitiesUrls, 'url' | 'expanded_url'>
+        )>>>, media: Maybe<Array<Maybe<(
+          { __typename?: 'twitterStatusesUserTimelineEntitiesMedia' }
+          & Pick<TwitterStatusesUserTimelineEntitiesMedia, 'media_url_https' | 'url' | 'type'>
+        )>>> }
+      )>, retweeted_status: Maybe<(
+        { __typename?: 'twitterStatusesUserTimelineRetweeted_status' }
+        & Pick<TwitterStatusesUserTimelineRetweeted_Status, 'id_str' | 'text' | 'full_text' | 'retweet_count' | 'favorite_count' | 'created_at'>
+        & { entities: Maybe<(
+          { __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntities' }
+          & { urls: Maybe<Array<Maybe<(
+            { __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesUrls' }
+            & Pick<TwitterStatusesUserTimelineRetweeted_StatusEntitiesUrls, 'url' | 'expanded_url'>
+          )>>>, media: Maybe<Array<Maybe<(
+            { __typename?: 'twitterStatusesUserTimelineRetweeted_statusEntitiesMedia' }
+            & Pick<TwitterStatusesUserTimelineRetweeted_StatusEntitiesMedia, 'media_url_https' | 'url' | 'type'>
+          )>>> }
+        )>, user: Maybe<(
+          { __typename?: 'twitterStatusesUserTimelineRetweeted_statusUser' }
+          & Pick<TwitterStatusesUserTimelineRetweeted_StatusUser, 'screen_name' | 'url' | 'name' | 'profile_image_url_https'>
+        )> }
+      )>, linked_site: Maybe<(
+        { __typename?: 'twitterStatusesUserTimelineLinked_site' }
+        & Pick<TwitterStatusesUserTimelineLinked_Site, 'title' | 'description' | 'image' | 'url'>
+      )> }
+    )> }
+  ) }
+);
+
+export type Unnamed_2_QueryVariables = {};
+
+
+export type Unnamed_2_Query = (
   { __typename?: 'Query' }
   & { fileName: Maybe<(
     { __typename?: 'File' }
@@ -3365,6 +4599,25 @@ export type AboutPageQuery = (
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
       & Pick<MarkdownRemarkFrontmatter, 'title'>
+      & { image: Maybe<(
+        { __typename?: 'File' }
+        & { childImageSharp: Maybe<(
+          { __typename?: 'ImageSharp' }
+          & { fluid: Maybe<(
+            { __typename?: 'ImageSharpFluid' }
+            & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+          )> }
+        )> }
+      )> }
+    )> }
+  )>, fileName: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+      )> }
     )> }
   )> }
 );
@@ -3381,7 +4634,7 @@ export type BlogPostByIdQuery = (
     & Pick<MarkdownRemark, 'id' | 'html' | 'fileAbsolutePath'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
-      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'tags'>
+      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'tags' | 'language'>
     )> }
   )> }
 );
@@ -3427,7 +4680,7 @@ export type PressImagesPageQuery = (
           { __typename?: 'ImageSharp' }
           & { fluid: Maybe<(
             { __typename?: 'ImageSharpFluid' }
-            & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64'>
+            & Pick<ImageSharpFluid, 'src' | 'srcSet' | 'aspectRatio' | 'sizes' | 'base64' | 'originalName'>
           )>, original: Maybe<(
             { __typename?: 'ImageSharpOriginal' }
             & Pick<ImageSharpOriginal, 'width' | 'height' | 'src'>

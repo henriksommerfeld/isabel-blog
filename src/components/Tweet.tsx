@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { tailwindColors } from '../tailwind-colors';
 import { TweetData } from './Tweets';
 import { transparentizeHex } from '../color-convertions';
-import { colors, spacing, layout, fonts } from '../constants';
+import { colors, spacing, layout } from '../constants';
 import TwitterSvg from '../img/social/twitter.svg';
 import RetweetSvg from '../img/social/retweet.svg';
 import LinkSvg from '../../static/img/link-twitter.svg';
@@ -45,7 +45,11 @@ function LinkPreview({ tweet }: TweetProps) {
   if (!hasLinkPreview(tweet)) return null;
 
   return (
-    <LinkPreviewStyled href={tweet.linked_site.url} target="_blank">
+    <LinkPreviewStyled
+      href={tweet.linked_site.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <LinkPreviewImg src={tweet.linked_site.image} alt="" />
       <LinkPreviewText>
         <div>{tweet.linked_site.title}</div>

@@ -31,7 +31,7 @@ const plugins = [
     resolve: `gatsby-plugin-scroll-indicator`,
     options: {
       color: '#C53030',
-      paths: ['/', '/20**', '/om', '/publicerat'],
+      paths: ['/', '/20*/**', '/om', '/publicerat'],
     },
   },
   {
@@ -90,18 +90,6 @@ const plugins = [
           resolve: 'gatsby-remark-copy-linked-files',
           options: {
             destinationDir: 'static',
-          },
-        },
-        {
-          resolve: 'gatsby-remark-video',
-          options: {
-            width: '100%',
-            height: 'auto',
-            preload: 'auto',
-            muted: true,
-            autoplay: false,
-            loop: false,
-            controls: true,
           },
         },
         {
@@ -191,6 +179,18 @@ const plugins = [
     },
   },
   'gatsby-plugin-styled-components',
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Isabel Sommerfelds personliga sajt`,
+      short_name: `Isabel`,
+      start_url: `/`,
+      background_color: `#2D3748`,
+      theme_color: `#2D3748`,
+      display: `standalone`,
+      icon: `static/img/favimage.jpg`,
+    },
+  },
   'gatsby-plugin-netlify-cache',
   {
     resolve: 'gatsby-plugin-netlify-cms',

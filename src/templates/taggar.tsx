@@ -1,10 +1,8 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import { TagPageQuery } from '../../auto-generated/graphql';
-import useSiteMetadata from '../components/SiteMetadata';
 import { TagsTemplate } from './tags-template';
 import TagSvg from '../../static/img/tag-grey500.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
@@ -24,7 +22,6 @@ export default function TagRoute({
   pageContext,
   location,
 }: TagRouteProps) {
-  const { title } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map(post => (
     <LinkContainer key={post.node.fields.slug}>
@@ -37,8 +34,7 @@ export default function TagRoute({
   const tagHeader = getHeader(tag, totalCount);
 
   return (
-    <Layout location={location} editLink="">
-      <Helmet title={`${tag} | ${title}`} />
+    <Layout location={location} editLink="" pageTitle={tag}>
       <TagsTemplate location={location}>
         <h1>{tag}</h1>
         <p>{tagHeader}</p>

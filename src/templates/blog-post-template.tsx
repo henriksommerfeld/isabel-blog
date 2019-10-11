@@ -3,8 +3,12 @@ import Content from '../components/Content';
 import styled from 'styled-components';
 import { colors, spacing, breakpoints, layout } from '../constants';
 import BlogPostTags from './blog-post-tags';
-import Search from '../components/Search';
+import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
+import { PageStyled } from '../components/PageStyled';
+import { PostContainer } from '../components/PostContainer';
+import { PostStyled } from '../components/PostStyled';
+import ShareLinks from '../components/ShareLinks';
 
 interface BlogPostTemplateProps {
   content: string;
@@ -12,7 +16,6 @@ interface BlogPostTemplateProps {
   date: string;
   tags: string[] | undefined;
   title: string;
-  helmet: any;
   location: WindowLocation;
   isPreview?: boolean;
 }
@@ -23,7 +26,6 @@ export default function BlogPostTemplate({
   date,
   tags,
   title,
-  helmet,
   location,
   isPreview = false,
 }: BlogPostTemplateProps) {
@@ -32,10 +34,9 @@ export default function BlogPostTemplate({
 
   return (
     <>
-      {helmet || ''}
       <PageStyled>
         <IntroBanner>
-          {!isPreview && <Search location={location} />}
+          {!isPreview && <Searchbox location={location} />}
           <IntroBannerWidthConstrainer>
             <Heading>{title}</Heading>
             <PostDate>{dateString}</PostDate>
@@ -45,22 +46,13 @@ export default function BlogPostTemplate({
           <PostStyled>
             <PostContent content={content} />
             <BlogPostTags tags={tags} />
+            {!isPreview && <ShareLinks url={location.href} />}
           </PostStyled>
         </PostContainer>
       </PageStyled>
     </>
   );
 }
-
-const PageStyled = styled('div')`
-  width: 100%;
-
-  .gatsby-resp-image-figcaption {
-    text-align: center;
-    font-style: italic;
-    padding-top: 0.5rem;
-  }
-`;
 
 const PostDate = styled('div')`
   color: ${colors.postDate};
@@ -96,30 +88,5 @@ const Heading = styled.h1`
 
   @media (min-width: ${breakpoints.medium}) {
     transform: translateY(${spacing.postHeadingOffset});
-  }
-`;
-
-const PostContainer = styled('div')`
-  width: '100%';
-  margin: 0 auto;
-
-  @media (min-width: ${breakpoints.medium}) {
-    max-width: ${layout.contentMaxWidth}px;
-  }
-`;
-
-const PostStyled = styled.div`
-  padding: ${spacing.default};
-  background-color: ${colors.white};
-
-  @media (min-width: ${breakpoints.small}) {
-    padding: ${spacing.double};
-  }
-
-  @media (min-width: ${breakpoints.medium}) {
-    transform: translateY(${spacing.contentOffset});
-    border-radius: 4px;
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-    padding: ${spacing.x3};
   }
 `;

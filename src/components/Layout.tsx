@@ -1,18 +1,20 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import Footer from './Footer';
 import useSiteMetadata from './SiteMetadata';
-import { withPrefix } from 'gatsby';
 import { colors, breakpoints } from '../constants';
 import Header from './Header';
-import { tailwindColors } from '../tailwind-colors';
-import { SearchResult } from './SearchResult';
+import SearchResult from './SearchResult';
 import { WindowLocation } from '@reach/router';
+import { GlobalStyles } from '../global-styles';
 
 interface TemplateWrapperProps {
   children: ReactNode;
   location: WindowLocation;
+  pageTitle: string;
+  pageDescription?: string;
+  pageLanguage?: string;
   editLink?: string;
   language?: string;
   showTweets?: boolean;
@@ -21,108 +23,51 @@ interface TemplateWrapperProps {
 export default function TemplateWrapper({
   children,
   location,
+  pageTitle,
+  pageDescription = '',
+  pageLanguage = 'sv',
   editLink,
   showTweets,
 }: TemplateWrapperProps) {
-  const { title, description } = useSiteMetadata();
+  const { title } = useSiteMetadata();
+  const finalTitle = pageTitle ? `${pageTitle} | ${title}` : title;
+  const baseUrl = 'https://www.isabelsommerfeld.com';
+  const canonical = `${baseUrl}${location.pathname}`;
+  const locale = pageLanguage === 'en' ? 'en_US' : 'sv_SE';
 
   return (
     <>
-      <Helmet>
-        <html lang="sv" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
+      <Helmet defer={false}>
+        <html lang={pageLanguage} />
+        <title>{finalTitle}</title>
+        <meta name="description" content={pageDescription} />
 
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={`${withPrefix('/')}img/apple-touch-icon.png`}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-32x32.png`}
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-16x16.png`}
-          sizes="16x16"
-        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={finalTitle} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:locale" content={locale} />
 
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
-        />
-        <meta name="theme-color" content="#fff" />
+        {pageDescription && (
+          <meta property="og:description" content={pageDescription} />
+        )}
 
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title || ''} />
-        <meta property="og:url" content="/" />
-        <meta
-          property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
-        />
+        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:site" content="@isommerfeld"></meta>
+
+        <meta property="og:image" content={`${baseUrl}/img/favimage.jpg`} />
+        <link rel="canonical" href={canonical} />
       </Helmet>
-      <GlobalStyle />
+      <GlobalStyles />
       <Page>
         <Header location={location} />
 
-        <Body className="Body">{children}</Body>
+        <Body>{children}</Body>
         <Footer editLink={editLink} showTweets={showTweets} />
       </Page>
       <SearchResult location={location} />
     </>
   );
 }
-
-export const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-  body:not(.keyboard-navigation) * {
-    outline: none;
-  }
-  ::selection {
-    background-color: ${colors.selectionBackground};
-    color: ${colors.white};
-  }
-  a {
-    color: ${colors.link};
-    transition: color, text-shadow, background 150ms ease-out, outline 60ms;
-    background: linear-gradient(
-    to right,
-    ${tailwindColors.red700} 0%,
-    ${tailwindColors.red400} 50%,
-    ${tailwindColors.red700} 100%
-    );
-    background-position-x: left;
-    background-position-y: 97%;
-    background-repeat: repeat;
-    background-size: auto;
-    background-size: 0px 2px;
-    background-repeat: no-repeat;
-  }
-  a:visited {
-    color: ${colors.linkVisited};
-  }
-  a:focus, a:active, a:hover {
-    color: ${colors.linkFocus};
-    background-size: 100% 2px;
-
-  }
-  .screen-reader-text {
-    display: none;
-  }
-  .gatsby-resp-image-background-image, .gatsby-resp-image-image, .featured-thumbnail {
-    margin: 0;
-    padding: 4px;
-    box-shadow: rgba(34, 25, 25, 0.4) 0 1px 3px !important;
-    background-color: #fff;
-  }
-`;
 
 const Body = styled('div')`
   display: flex;
