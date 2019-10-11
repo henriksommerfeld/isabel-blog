@@ -199,7 +199,7 @@ const plugins = [
       manualInit: true,
       enableIdentityWidget: true,
       htmlTitle: 'Redaktörsläge - Isabels sajt',
-      htmlFavicon: `${__dirname}/static/favicon.ico`,
+      htmlFavicon: `${__dirname}/static/img/edit-filled.ico`,
     },
   },
   'gatsby-plugin-netlify', // make sure to keep it last in the array
