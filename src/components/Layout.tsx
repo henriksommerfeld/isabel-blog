@@ -32,7 +32,7 @@ export default function TemplateWrapper({
   const { title } = useSiteMetadata();
   const finalTitle = pageTitle ? `${pageTitle} | ${title}` : title;
   const baseUrl = 'http://www.isabelsommerfeld.com';
-  const canonical = `${baseUrl}/${location.pathname}`;
+  const canonical = `${baseUrl}${location.pathname}`;
   const locale = pageLanguage === 'en' ? 'en_US' : 'sv_SE';
 
   return (
