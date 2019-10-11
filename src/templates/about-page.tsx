@@ -13,12 +13,14 @@ export default function AboutPage({ location }: LocationProp) {
   const content = data.markdownRemark.html;
   const portraitImage = data.markdownRemark.frontmatter.image;
   const pageName = 'Om mig';
+  const description = data.markdownRemark.frontmatter.description;
 
   return (
     <Layout
       location={location}
       editLink={editPageUrl('about')}
       pageTitle={pageName}
+      pageDescription={description}
     >
       <AboutPageTemplate
         contentComponent={HTMLContent}
@@ -37,6 +39,7 @@ interface AboutPageData {
     html: string;
     frontmatter: {
       title: string;
+      description: string;
       image: ImageProps;
     };
   };
@@ -49,6 +52,7 @@ const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        description
         image {
           childImageSharp {
             fluid(maxWidth: 300) {

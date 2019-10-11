@@ -46,7 +46,7 @@ export default function BlogPostTemplate({
           <PostStyled>
             <PostContent content={content} />
             <BlogPostTags tags={tags} />
-            <ShareLinks url={location.href} />
+            {!isPreview && <ShareLinks url={location.href} />}
           </PostStyled>
         </PostContainer>
       </PageStyled>

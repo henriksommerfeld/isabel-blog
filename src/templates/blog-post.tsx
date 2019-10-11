@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import { HTMLContent } from '../components/Content';
@@ -41,6 +40,7 @@ export const pageQuery = graphql`
         title
         tags
         language
+        description
       }
     }
   }
