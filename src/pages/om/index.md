@@ -1,7 +1,9 @@
 ---
 templateKey: about-page
+title: Om mig
 image: /uploads/portrait2_square_tight.jpg
 ---
+
 Jag är jurist med bakgrund som frilansjournalist och arbetar nu mera som civil utredare på Polismyndigheten. Inom juristutbildningen inriktade jag mig på mänskliga rättigheter (folkrätt) och terapeutisk juridik. Vid sidan av studierna var jag bland annat uppsats-trainee på Hannes Snellman advokatbyrå, inom verksamhetsområdet Corporate Responsibility & Compliance, samt praktikant på demokratistiftelsen Silc.
 
 Genom åren har jag engagerat mig inom människorättsfrågor och opinionsbildning. År 2009 grundade jag MR-och informationskampanjen Info Belarus, som blev särskilt uppmärksammad i och med min medverkan i SVT:s granskning av TeliaSonera ([Uppdrag Granskning: De svarta lådorna](https://www.svt.se/ug/teliasonera-i-hemligt-samarbete-med-diktaturer)), där stora brister i bl.a. bolagets människorätts- och anti-korruptions-due diligence avslöjades.
