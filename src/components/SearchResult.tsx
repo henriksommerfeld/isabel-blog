@@ -38,16 +38,18 @@ export default function SearchResult({ location }: LocationProp) {
             <CloseButtonStyled onClick={closeSearch}>
               <CloseIcon src={CloseSvg} />
             </CloseButtonStyled>
-            <h2>
+            <HitsHeading>
               {results.length ? results.length : 'Inga'} träffar för{' '}
               <em>{query}</em>
-            </h2>
+            </HitsHeading>
             <LinksContainer>
               {results.map(page => (
                 <LinkContainer key={page.id}>
                   <LinkIconSvg src={BlogPostSvg} alt="" />
-                  <Link to={page.path}>{page.title}</Link>
-                  <Excerpt>{page.excerpt}</Excerpt>
+                  <div>
+                    <Link to={page.path}>{page.title}</Link>
+                    <Excerpt>{page.excerpt}</Excerpt>
+                  </div>
                 </LinkContainer>
               ))}
             </LinksContainer>
@@ -76,9 +78,7 @@ function shouldShowResults(
   return true;
 }
 
-const Excerpt = styled('div')`
-  margin-left: 30px;
-`;
+const Excerpt = styled('div')``;
 
 const LinkIconSvg = styled('img')`
   margin: 0 0.5em 0 0;
@@ -87,12 +87,18 @@ const LinkIconSvg = styled('img')`
 `;
 
 const LinkContainer = styled('li')`
+  display: flex;
+  align-items: flex-start;
   list-style: none;
   margin-bottom: ${spacing.default};
 `;
 
 const LinksContainer = styled('ul')`
   margin: 0;
+`;
+
+const HitsHeading = styled('h2')`
+  padding-right: 3rem;
 `;
 
 const CloseButtonStyled = styled('button')`
