@@ -11,7 +11,7 @@ import { useEscKey } from '../useEscKey';
 import { useTransition, animated, config } from 'react-spring';
 import { LocationProp } from 'interfaces/LocationProp';
 
-export function SearchResult({ location }: LocationProp) {
+export default function SearchResult({ location }: LocationProp) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
@@ -30,7 +30,7 @@ export function SearchResult({ location }: LocationProp) {
 
   useEscKey(closeSearch);
 
-  return containerTransitions.map(
+  const container = containerTransitions.map(
     ({ item, key, props }) =>
       item && (
         <SearchResultsContainer key={key} style={props}>
@@ -55,6 +55,8 @@ export function SearchResult({ location }: LocationProp) {
         </SearchResultsContainer>
       )
   );
+
+  return <>{container}</>;
 }
 
 const opacityTransition = {

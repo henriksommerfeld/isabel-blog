@@ -3,10 +3,9 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import Footer from './Footer';
 import useSiteMetadata from './SiteMetadata';
-import { withPrefix } from 'gatsby';
 import { colors, breakpoints } from '../constants';
 import Header from './Header';
-import { SearchResult } from './SearchResult';
+import SearchResult from './SearchResult';
 import { WindowLocation } from '@reach/router';
 import { GlobalStyles } from '../global-styles';
 
