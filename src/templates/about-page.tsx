@@ -55,7 +55,7 @@ const aboutPageQuery = graphql`
         description
         image {
           childImageSharp {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 300, quality: 80) {
               src
               srcSet
               aspectRatio

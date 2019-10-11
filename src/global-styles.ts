@@ -33,7 +33,6 @@ export const GlobalStyles = createGlobalStyle`
   /* Make images easier to work with */
   img {
     max-width: 100%;
-    display: block;
   }
 
   /* Inherit fonts for inputs and buttons */

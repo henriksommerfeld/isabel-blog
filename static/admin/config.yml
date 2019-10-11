@@ -105,7 +105,13 @@ collections:
               hint: 'Används också som titel på hela sajten',
             }
           - { label: Underrrubrik, name: subheading, widget: string }
-          - { label: Beskrivning, name: body, widget: markdown }
+          - {
+              label: Beskrivning,
+              name: body,
+              widget: markdown,
+              required: false,
+              default: '',
+            }
           - {
               label: Sajtbeskrivning,
               name: description,
