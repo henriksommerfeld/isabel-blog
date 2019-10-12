@@ -38,6 +38,8 @@ collections:
           name: description,
           widget: string,
           hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+          default: '',
+          required: false,
         }
       - {
           label: 'Dold',
@@ -117,6 +119,8 @@ collections:
               name: description,
               widget: string,
               hint: 'Syns inte på landningssidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.',
+              default: '',
+              required: false,
             }
 
       - file: 'src/pages/om/index.md'
@@ -146,6 +150,8 @@ collections:
               label: 'Beskrivning',
               name: description,
               widget: string,
+              default: '',
+              required: false,
               hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
             }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
@@ -164,6 +170,8 @@ collections:
               label: 'Beskrivning',
               name: description,
               widget: string,
+              default: '',
+              required: false,
               hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
             }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
