@@ -11,7 +11,6 @@ const PressImagesPagePreview = ({ entry, widgetFor }) => {
 
   return (
     <PressImagesPageTemplate
-      title={data.title}
       content={widgetFor('body')}
       contentComponent={Content}
       pressImages={images}

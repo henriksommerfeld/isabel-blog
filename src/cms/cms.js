@@ -4,6 +4,7 @@ import BlogPostPreview from './preview-templates/BlogPostPreview';
 import IndexPagePreview from './preview-templates/IndexPagePreview';
 import PublishedPagePreview from './preview-templates/PublishedPagePreview';
 import PressImagesPagePreview from './preview-templates/PressImagesPagePreview';
+import CookiesPagePreview from './preview-templates/CookiesPagePreview';
 import EditorYoutube from './editors/editor-youtube';
 import EditorVimeo from './editors/editor-vimeo';
 import EditorSoundCloud from './editors/editor-soundcloud';
@@ -32,6 +33,10 @@ CMS.registerPreviewTemplate(
 CMS.registerPreviewTemplate(
   'pressimages',
   withStyledComponents(PressImagesPagePreview)
+);
+CMS.registerPreviewTemplate(
+  'cookies',
+  withStyledComponents(CookiesPagePreview)
 );
 
 CMS.init();

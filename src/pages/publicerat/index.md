@@ -1,7 +1,9 @@
 ---
 templateKey: published-page
+title: Publicerat
 description: Publicerat i media om och av Isabel Sommerfeld
 ---
+
 ## 2019
 
 [**Reportage och intervju i Expressen**](https://www.expressen.se/nyheter/polisen-isabel-32-sluta-skicka-bilder-pa-din-penis/)\

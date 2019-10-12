@@ -138,7 +138,7 @@ collections:
               name: 'title',
               widget: 'string',
               default: 'Om mig',
-              required: false,
+              hidden: true,
             }
           - { label: 'Bild', name: 'image', widget: 'image' }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
@@ -154,19 +154,18 @@ collections:
               default: 'published-page',
             }
           - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Publicerat',
+            }
+          - {
               label: 'Beskrivning',
               name: description,
               widget: string,
               default: '',
               required: false,
               hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
-            }
-          - {
-              label: 'Titel',
-              name: 'title',
-              widget: 'string',
-              default: 'Publicerat',
-              required: false,
             }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
@@ -183,9 +182,8 @@ collections:
           - {
               label: 'Titel',
               name: 'title',
-              widget: 'string',
+              widget: 'hidden',
               default: 'Pressbilder',
-              required: false,
             }
           - {
               label: 'Beskrivning',
@@ -202,3 +200,29 @@ collections:
             widget: 'list'
             hint: 'Bilder som besökaren kan ladda ner. OBS! Layouten och bildernas dimentioner är inte tillgängliga i förhandsgranskningen.'
             field: { label: Bild, name: downloadableimage, widget: image }
+
+      - file: 'src/pages/cookies/index.md'
+        label: 'Cookies'
+        name: 'cookies'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'cookies-page',
+            }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Cookies',
+            }
+          - {
+              label: 'Beskrivning',
+              name: description,
+              widget: string,
+              default: 'Beskrivning av hur jag använder cookies på min webbplats',
+              required: false,
+              hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+            }
+          - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
