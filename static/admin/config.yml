@@ -133,6 +133,13 @@ collections:
               widget: 'hidden',
               default: 'about-page',
             }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'string',
+              default: 'Om mig',
+              required: false,
+            }
           - { label: 'Bild', name: 'image', widget: 'image' }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
@@ -154,6 +161,13 @@ collections:
               required: false,
               hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
             }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'string',
+              default: 'Publicerat',
+              required: false,
+            }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
 
       - file: 'src/pages/pressbilder/index.md'
@@ -165,6 +179,13 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'pressimages-page',
+            }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'string',
+              default: 'Pressbilder',
+              required: false,
             }
           - {
               label: 'Beskrivning',
