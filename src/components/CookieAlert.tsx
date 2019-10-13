@@ -18,7 +18,7 @@ export function CookieAlert() {
   if (cookiesAccepted) return null;
 
   return (
-    <CookieContainer className="cookie-alert cookies ad advertisement banner">
+    <CookieContainer className="cookie-alert alert-cookies cookie_banner cookie-banner">
       <div>
         Genom att använda min webbplats samtycker du till min användning av
         cookies. Läs mer på sidan{' '}
