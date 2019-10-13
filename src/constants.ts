@@ -43,7 +43,7 @@ export const colors = {
   black: tailwindColors.black,
   pageBackground: tailwindColors.gray100,
   headerBackground: tailwindColors.gray800,
-  footerBackground: tailwindColors.blue900,
+  footerBackground: tailwindColors.gray900,
   mobileMenuIconOpen: tailwindColors.gray400,
   mobileMenuBackgroundHover: tailwindColors.gray200,
   mobileMenuTextHover: tailwindColors.red700,
