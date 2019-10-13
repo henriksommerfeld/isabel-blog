@@ -5,13 +5,20 @@ import { editPageUrl } from '../url-replacer';
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
 import { LocationProp } from 'interfaces/LocationProp';
+import useSiteMetadata from 'components/SiteMetadata';
 
 export default function IndexPage({ location }: LocationProp) {
   const data = useStaticQuery(pageQuery);
+  const metadata = useSiteMetadata();
   const { frontmatter, html } = data.markdownRemark;
 
   return (
-    <Layout location={location} editLink={editPageUrl('index')}>
+    <Layout
+      location={location}
+      editLink={editPageUrl('index')}
+      pageTitle={metadata.title}
+      pageDescription={metadata.description}
+    >
       <IndexPageTemplate
         image={frontmatter.image}
         heading={frontmatter.heading}
