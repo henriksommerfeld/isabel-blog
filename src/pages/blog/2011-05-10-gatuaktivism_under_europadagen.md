@@ -13,7 +13,7 @@ Under Europadagen igår genomförde vi med aktivisterna från [Info Belarus](htt
 
 ![](/uploads/stockholm.jpg "Två tappra aktivister utanför ABF-huset på Sveavägen i Stockholm...")
 
-![](/uploads/gc3b6teborg1.jpg "Kampanj i Göteborg. \\"Nej till hockey-VM i Belarus 2014.\\"")
+![](/uploads/gc3b6teborg1.jpg "Kampanj i Göteborg. \"Nej till hockey-VM i Belarus 2014\"")
 
 ![](/uploads/gc3b6teborg2.jpg "En aktivist pratar med nyfikna om situationen i Belarus. Göteborg.")
 

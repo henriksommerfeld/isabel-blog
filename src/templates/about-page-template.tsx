@@ -17,6 +17,7 @@ interface AboutPageTemplateProps {
   backgroundImageFile: FluidObject | undefined;
   portraitImageFile: ImageProps;
   location: WindowLocation;
+  isPreview?: boolean;
 }
 
 export function AboutPageTemplate({
@@ -26,6 +27,7 @@ export function AboutPageTemplate({
   backgroundImageFile,
   portraitImageFile,
   location,
+  isPreview = false,
 }: AboutPageTemplateProps) {
   const PageContent = contentComponent;
 

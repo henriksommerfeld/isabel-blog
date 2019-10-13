@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import { PublishedPageTemplate } from './published-page-template';
 import { LocationProp } from '../interfaces/LocationProp';
 
-export default function PublishedPage({ location }: LocationProp) {
+export default function CookiesPage({ location }: LocationProp) {
   const data = useStaticQuery(publishedPageQuery);
   const content = data.markdownRemark.html;
   const pageName = data.markdownRemark.frontmatter.title;
@@ -15,7 +15,7 @@ export default function PublishedPage({ location }: LocationProp) {
   return (
     <Layout
       location={location}
-      editLink={editPageUrl('published')}
+      editLink={editPageUrl('cookies')}
       pageTitle={pageName}
       pageDescription={description}
     >
@@ -31,8 +31,8 @@ export default function PublishedPage({ location }: LocationProp) {
 }
 
 const publishedPageQuery = graphql`
-  query PublishedPage {
-    markdownRemark(frontmatter: { templateKey: { eq: "published-page" } }) {
+  query CookiesPage {
+    markdownRemark(frontmatter: { templateKey: { eq: "cookies-page" } }) {
       html
       frontmatter {
         title
@@ -40,7 +40,7 @@ const publishedPageQuery = graphql`
       }
     }
     fileName: file(
-      relativePath: { eq: "hidden/roman-kraft-_Zua2hyvTBk-unsplash.jpg" }
+      relativePath: { eq: "hidden/mockaroon-bzLhhI3MpYY-unsplash.jpg" }
     ) {
       childImageSharp {
         fluid(maxWidth: 5000) {

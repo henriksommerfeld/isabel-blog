@@ -9,13 +9,20 @@ import { LocationProp } from '../interfaces/LocationProp';
 export default function PressImagesPage({ location }: LocationProp) {
   const data = useStaticQuery(pressImagesPageQuery);
   const content = data.markdownRemark.html;
+  const pageName = data.markdownRemark.frontmatter.title;
+  const description = data.markdownRemark.frontmatter.description;
   const pressImages = data.markdownRemark.frontmatter.downloadableimages;
 
   return (
-    <Layout location={location} editLink={editPageUrl('pressimages')}>
+    <Layout
+      location={location}
+      editLink={editPageUrl('pressimages')}
+      pageTitle={pageName}
+      pageDescription={description}
+    >
       <PressImagesPageTemplate
         contentComponent={HTMLContent}
-        title="Pressbilder"
+        title={pageName}
         content={content}
         headerImageFile={data.fileName}
         pressImages={pressImages}
@@ -30,6 +37,8 @@ const pressImagesPageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "pressimages-page" } }) {
       html
       frontmatter {
+        title
+        description
         downloadableimages {
           childImageSharp {
             fluid(maxWidth: 500) {

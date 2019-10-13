@@ -9,10 +9,11 @@ const AboutPagePreview = ({ entry, widgetFor }) => {
 
   return (
     <AboutPageTemplate
-      title={entry.getIn(['data', 'title'])}
+      title={data.title}
       content={widgetFor('body')}
       contentComponent={Content}
       portraitImageFile={data.image}
+      isPreview={true}
     />
   );
 };

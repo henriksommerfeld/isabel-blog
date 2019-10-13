@@ -33,5 +33,13 @@ CMS.registerPreviewTemplate(
   'pressimages',
   withStyledComponents(PressImagesPagePreview)
 );
+CMS.registerPreviewTemplate(
+  'cookies',
+  withStyledComponents(PublishedPagePreview)
+);
+CMS.registerPreviewTemplate(
+  'website',
+  withStyledComponents(PublishedPagePreview)
+);
 
 CMS.init();

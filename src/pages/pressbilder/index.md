@@ -1,6 +1,7 @@
 ---
 templateKey: pressimages-page
 title: Pressbilder
+description: Pressbilder för fri publicering
 downloadableimages:
   - /uploads/pressbild-2.jpg
   - /uploads/pressbild-9.jpg

@@ -5,8 +5,20 @@ import { navLinks, colors, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
 import { LocationProp } from 'interfaces/LocationProp';
+import { useGlobal } from 'reactn';
+import { SearchResults, SearchRoute, SearchQuery } from './Searchbox';
 
 export default function DesktopMenu({ location }: LocationProp) {
+  const [, setResults] = useGlobal<SearchResults>('searchResults');
+  const [, setRoute] = useGlobal<SearchRoute>('searchRoute');
+  const [, setQuery] = useGlobal<SearchQuery>('searchQuery');
+
+  const closeSearch = () => {
+    setRoute('');
+    setQuery('');
+    setResults([]);
+  };
+
   return (
     <MenuStyled>
       {navLinks.map(link => (
@@ -14,6 +26,7 @@ export default function DesktopMenu({ location }: LocationProp) {
           to={link.url}
           key={link.url}
           isActive={matchesRoute(location, link.url)}
+          onClick={closeSearch}
         >
           {link.title}
         </LinkStyled>

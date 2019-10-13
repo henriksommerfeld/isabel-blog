@@ -8,6 +8,8 @@ import { navLinks, colors, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
 import { WindowLocation } from '@reach/router';
+import { useGlobal } from 'reactn';
+import { SearchRoute, SearchQuery, SearchResults } from './Searchbox';
 
 interface MobileMenuProps {
   isVisible: boolean;
@@ -22,6 +24,9 @@ export default function MobileMenu({
   ignoreClickClassName,
   location,
 }: MobileMenuProps) {
+  const [, setResults] = useGlobal<SearchResults>('searchResults');
+  const [, setRoute] = useGlobal<SearchRoute>('searchRoute');
+  const [, setQuery] = useGlobal<SearchQuery>('searchQuery');
   const menuRef = useRef(null);
   const pullDownAnimation = useSpring({
     to: {
@@ -35,6 +40,12 @@ export default function MobileMenu({
     if (!hasClass(e, ignoreClickClassName)) setIsVisible(false);
   });
 
+  const closeSearch = () => {
+    setRoute('');
+    setQuery('');
+    setResults([]);
+  };
+
   return (
     <MobileMenuStyled
       ref={menuRef}
@@ -46,6 +57,7 @@ export default function MobileMenu({
           to={link.url}
           key={link.url}
           isActive={matchesRoute(location, link.url)}
+          onClick={closeSearch}
         >
           {link.title}
         </MobileLink>
