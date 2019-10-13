@@ -5,16 +5,16 @@ description: Beskrivning av hur jag använder cookies på min webbplats
 ---
 På min webbplats använder jag _cookies_ eller motsvarande teknik, för för viss funktionalitet. Den enda cookie jag själv sparar längre än under själva besöket (sessionen), är ironiskt nog en flagga som indikerar om du accepterat cookies i den informationsruta som visas längst ner på sidan.
 
-Men utöver detta använder jag några tjänster som också sätter (tredjeparts)cookies. Se information om respektive tjänst nedan. 
+Men utöver detta använder jag några tjänster som också sätter (tredjeparts)cookies. Se information om respektive tjänst nedan.
 
-Eftersom det inte är praktiskt möjligt att godkänna alla cookies innan de sätts, samtycker du till cookies som finns redovisade på den här sidan genom att använda webbplatsen.  Vill du inte tillåta cookies får du blockera dem genom inställningar/tillägg i din webbläsare.
+Eftersom det inte är praktiskt möjligt att godkänna alla cookies innan de sätts, samtycker du till cookies som finns redovisade på den här sidan genom att använda webbplatsen. Vill du inte tillåta cookies får du blockera dem genom inställningar/tillägg i din webbläsare.
 
 ## Egna cookies
 
-**cookie-alert**\
-cookie-alert används för att se om du accepterat cookies, dvs. om informationsrutan om cookies ska visas eller inte.\
-Typ: localStorage\
-Lagringstid: 24 månader.
+**cookies-accepted**\
+cookies-accepted används för att se om du accepterat cookies, dvs. om informationsrutan om cookies ska visas eller inte.\
+Typ: localStorage \
+Lagringstid: tills localStorage rensas (se [denna diskussion för fler detaljer](https://stackoverflow.com/questions/2326943/when-do-items-in-html5-local-storage-expire)).
 
 **blogroll**\
 blogroll används för att komma ihåg hur många artiklar du läst in (knappen _Visa äldre inlägg)_ på startsidan så att du behåller samma scrollposition när du backar tillbaka till startsidan efter att ha klickat på ett inlägg.\
@@ -32,7 +32,7 @@ Jag använder _Google Analytics_ för besöksstatistik. Mer information kan du h
 
 ## Disqus
 
-Jag använder _Disqus_ för kommentarer, men Disqus aktiveras endast när du klickar på knappen för att se kommentarer och det är endast då cookies sätts. Om du motsätter dig Disqus villkor kan du alltså avstå från att använda kommentarsfunktionen. 
+Jag använder _Disqus_ för kommentarer, men Disqus aktiveras endast när du klickar på knappen för att se kommentarer och det är endast då cookies sätts. Om du motsätter dig Disqus villkor kan du alltså avstå från att använda kommentarsfunktionen.
 
 * [Disqus _Privacy policy_ (på engelska)](https://help.disqus.com/en/articles/1717103-disqus-privacy-policy)
 * [Disqus _Use of cookies_ (på engelska)](https://help.disqus.com/en/articles/1717155-use-of-cookies)

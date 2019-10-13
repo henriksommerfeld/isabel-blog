@@ -9,7 +9,7 @@ import { useStateWithLocalStorage } from '../useStateWithLocalStorage';
 export function CookieAlert() {
   const [cookiesAccepted, setCookiesAccepted] = useStateWithLocalStorage<
     boolean
-  >('cookie-alert', false);
+  >('cookies-accepted', false);
 
   function okButtonClicked() {
     setCookiesAccepted(true);
@@ -18,7 +18,7 @@ export function CookieAlert() {
   if (cookiesAccepted) return null;
 
   return (
-    <CookieContainer>
+    <CookieContainer className="cookie-alert cookies ad advertisement banner">
       <div>
         Genom att använda min webbplats samtycker du till min användning av
         cookies. Läs mer på sidan{' '}
@@ -39,7 +39,7 @@ const CookieContainer = styled('div')`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: ${tailwindColors.yellow400};
+  background-color: ${tailwindColors.gray300};
   padding: ${spacing.default};
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
 

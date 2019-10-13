@@ -31,7 +31,8 @@ export default function TemplateWrapper({
   showTweets,
 }: TemplateWrapperProps) {
   const { title } = useSiteMetadata();
-  const finalTitle = pageTitle ? `${pageTitle} | ${title}` : title;
+  const finalTitle =
+    pageTitle && pageTitle !== title ? `${pageTitle} | ${title}` : title;
   const baseUrl = 'https://www.isabelsommerfeld.com';
   const canonical = `${baseUrl}${location.pathname}`;
   const locale = pageLanguage === 'en' ? 'en_US' : 'sv_SE';
