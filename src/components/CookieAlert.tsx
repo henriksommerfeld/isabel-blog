@@ -4,9 +4,13 @@ import { spacing, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { Link } from 'gatsby';
 import Button from './Button';
-import { useLocalStorageState } from '../useLocalStorageState';
+import {
+  useLocalStorageState,
+  localStorageIsAvailable,
+} from '../useLocalStorageState';
 
 export function CookieAlert() {
+  const hasLocalStorage = localStorageIsAvailable();
   const [cookiesAccepted, setCookiesAccepted] = useLocalStorageState<boolean>(
     'cookies-accepted',
     false
@@ -16,7 +20,7 @@ export function CookieAlert() {
     setCookiesAccepted(true);
   }
 
-  if (cookiesAccepted) return null;
+  if (!hasLocalStorage || cookiesAccepted) return null;
 
   return (
     <CookieContainer className="cookie-alert alert-cookies cookie_banner cookie-banner">
