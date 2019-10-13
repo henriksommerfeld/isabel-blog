@@ -8,6 +8,7 @@ import Header from './Header';
 import SearchResult from './SearchResult';
 import { WindowLocation } from '@reach/router';
 import { GlobalStyles } from '../global-styles';
+import { CookieAlert } from './CookieAlert';
 
 interface TemplateWrapperProps {
   children: ReactNode;
@@ -65,6 +66,7 @@ export default function TemplateWrapper({
         <Footer editLink={editLink} showTweets={showTweets} />
       </Page>
       <SearchResult location={location} />
+      <CookieAlert />
     </>
   );
 }

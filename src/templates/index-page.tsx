@@ -4,8 +4,8 @@ import { editPageUrl } from '../url-replacer';
 
 import Layout from '../components/Layout';
 import { IndexPageTemplate } from './index-page-template';
-import { LocationProp } from 'interfaces/LocationProp';
-import useSiteMetadata from 'components/SiteMetadata';
+import { LocationProp } from '../interfaces/LocationProp';
+import useSiteMetadata from '../components/SiteMetadata';
 
 export default function IndexPage({ location }: LocationProp) {
   const data = useStaticQuery(pageQuery);
