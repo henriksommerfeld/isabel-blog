@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Index } from 'elasticlunr';
 import styled from 'styled-components';
 import { useGlobal } from 'reactn';
-import useWindowSize from 'react-use/lib/useWindowSize';
 import { colors, layout, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
@@ -20,7 +19,6 @@ export default function Searchbox({ location }: LocationProp) {
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
   const getPreviousQuery = path => (route === path ? query : '');
   const searchBoxRef = useRef(null);
-  const { width, height } = useWindowSize();
 
   useEffect(() => {
     if (!route) {
