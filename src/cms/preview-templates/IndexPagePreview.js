@@ -1,8 +1,10 @@
 import React from 'react';
 import { IndexPageTemplate } from '../../templates/index-page-template';
+import { toJsSafe } from '../toJsSafe';
 
 const IndexPagePreview = ({ entry, widgetFor }) => {
-  const data = entry.getIn(['data']).toJS();
+  const dataRaw = entry.getIn(['data']);
+  const data = toJsSafe(dataRaw);
 
   if (!data) return <div>Loading...</div>;
 
