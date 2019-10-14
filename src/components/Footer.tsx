@@ -11,6 +11,7 @@ import { tailwindColors } from '../tailwind-colors';
 import Tweets from './Tweets';
 import EditSvg from '../../static/img/edit-filled.svg';
 import { Link } from 'gatsby';
+import ConfettiBomb from './ConfettiBomb';
 
 interface Footer {
   editLink?: string;
@@ -46,6 +47,7 @@ export default function Footer({
           </div>
         </div>
         <EditContainer>
+          <ConfettiBomb />
           <AnchorWithIcon
             href={editLink || '/admin'}
             target="_blank"
@@ -62,6 +64,7 @@ export default function Footer({
 
 const FooterWrapper = styled('div')`
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 `;
 
 const InnerFooter = styled('footer')`
@@ -82,7 +85,8 @@ const EditContainer = styled('div')`
 
   @media (min-width: ${breakpoints.small}) {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
   }
 `;

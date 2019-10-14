@@ -5,9 +5,11 @@ import { tailwindColors } from '../tailwind-colors';
 import { useSpring, animated, config } from 'react-spring';
 import { useSwipeable } from 'react-swipeable';
 import { spacing } from '../constants';
+import Confetti from 'react-dom-confetti';
 
 export function AboutPortrait({ image }) {
   const [rotate, setRotate] = useState(false);
+  const confettiActive = !rotate;
   const rotatableRef = useRef(null);
   const handlers = useSwipeable({ onSwipedLeft, onSwipedRight, ...config });
   const rotateAnimation = useSpring({
@@ -16,6 +18,14 @@ export function AboutPortrait({ image }) {
     },
     config: config.wobbly,
   });
+
+  const confettiConfig = {
+    angle: 90,
+    spread: 360,
+    startVelocity: 60,
+    elementCount: 150,
+    decay: 0.82,
+  };
 
   function clickEffect(e) {
     if (e.detail !== 3) return;
@@ -34,6 +44,7 @@ export function AboutPortrait({ image }) {
 
   return (
     <Perspective>
+      <Confetti active={confettiActive} config={confettiConfig} />
       <Rotatable
         ref={rotatableRef}
         style={rotateAnimation}

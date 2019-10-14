@@ -77,6 +77,7 @@ const Body = styled('div')`
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
+  overflow: hidden;
 `;
 
 const Page = styled('div')`
