@@ -30,6 +30,8 @@ export const urls = {
   twitterBaseUrl: 'https://twitter.com',
 };
 
+export const emailAddress = 'isabel@sommerfeld.nu';
+
 export const breakpoints = {
   small: '768px',
   mediumAsNumber: 1024,
@@ -74,7 +76,22 @@ export const navLinks: NavLink[] = [
   { url: '/pressbilder', title: 'Pressbilder' },
 ];
 
-export const tagsUrl = '/taggar';
+export const links = {
+  linkedin: {
+    url: 'https://www.linkedin.com/in/isabelsommerfeld',
+    title: 'LinkedIn',
+  },
+  cookies: { url: '/cookies', title: 'Om cookies (webbkakor)' },
+  website: { url: '/om-webbplatsen', title: 'Om webbplatsen' },
+  twitter: {
+    url: `${urls.twitterBaseUrl}/isommerfeld`,
+    title: '@isommerfeld på Twitter',
+  },
+  tags: {
+    url: '/taggar',
+    title: 'Se alla taggar',
+  },
+};
 
 export const imageBorderStyle = {
   margin: 0,

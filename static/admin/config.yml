@@ -136,9 +136,8 @@ collections:
           - {
               label: 'Titel',
               name: 'title',
-              widget: 'string',
+              widget: 'hidden',
               default: 'Om mig',
-              hidden: true,
             }
           - { label: 'Bild', name: 'image', widget: 'image' }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }

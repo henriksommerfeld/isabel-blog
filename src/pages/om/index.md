@@ -1,6 +1,7 @@
 ---
 templateKey: about-page
 image: /uploads/pressbild-1_square.jpg
+title: Om mig
 ---
 Jag är jurist med bakgrund som frilansjournalist och arbetar nu mera som civil utredare på Polismyndigheten. Inom juristutbildningen inriktade jag mig på mänskliga rättigheter (folkrätt) och terapeutisk juridik. Vid sidan av studierna var jag bland annat uppsats-trainee på Hannes Snellman advokatbyrå, inom verksamhetsområdet Corporate Responsibility & Compliance, samt praktikant på demokratistiftelsen Silc.
 

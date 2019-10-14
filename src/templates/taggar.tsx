@@ -6,7 +6,7 @@ import { TagPageQuery } from '../../auto-generated/graphql';
 import { TagsTemplate } from './tags-template';
 import TagSvg from '../../static/img/tag-grey500.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
-import { tagsUrl } from '../constants';
+import { links } from '../constants';
 import { WindowLocation } from '@reach/router';
 
 interface TagRouteProps {
@@ -42,7 +42,7 @@ export default function TagRoute({
         <br />
         <SeAllTagsLinkContainer>
           <LinkIconSvg src={TagSvg} alt="" />
-          <Link to={tagsUrl}>Se alla taggar</Link>
+          <Link to={links.tags.url}>{links.tags.title}</Link>
         </SeAllTagsLinkContainer>
       </TagsTemplate>
     </Layout>

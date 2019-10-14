@@ -8,7 +8,7 @@ import { FluidObject } from 'gatsby-image';
 import { PostStyled } from '../components/PostStyled';
 import { ImageProps } from '../components/PreviewCompatibleImage';
 import { AboutPortrait } from '../components/AboutPortrait';
-import { spacing } from '../constants';
+import { spacing, emailAddress } from '../constants';
 
 interface AboutPageTemplateProps {
   title: string;
@@ -17,7 +17,6 @@ interface AboutPageTemplateProps {
   backgroundImageFile: FluidObject | undefined;
   portraitImageFile: ImageProps;
   location: WindowLocation;
-  isPreview?: boolean;
 }
 
 export function AboutPageTemplate({
@@ -27,7 +26,6 @@ export function AboutPageTemplate({
   backgroundImageFile,
   portraitImageFile,
   location,
-  isPreview = false,
 }: AboutPageTemplateProps) {
   const PageContent = contentComponent;
 
@@ -47,7 +45,7 @@ export function AboutPageTemplate({
             </PortraitWrapper>
             <ContactInfo>
               <h2>Kontakta mig på</h2>
-              <div>isabel@sommerfeld.nu</div>
+              <div>{emailAddress}</div>
               <div>
                 <a href="https://www.linkedin.com/in/isabelsommerfeld">
                   LinkedIn
