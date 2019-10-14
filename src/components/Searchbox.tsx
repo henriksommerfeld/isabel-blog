@@ -4,7 +4,6 @@ import { Index } from 'elasticlunr';
 import styled from 'styled-components';
 import { useGlobal } from 'reactn';
 import useWindowSize from 'react-use/lib/useWindowSize';
-import Confetti from 'react-confetti';
 import { colors, layout, zIndexes } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { transparentizeHex } from '../color-convertions';
@@ -21,26 +20,20 @@ export default function Searchbox({ location }: LocationProp) {
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
   const getPreviousQuery = path => (route === path ? query : '');
   const searchBoxRef = useRef(null);
-  const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
-  const confettiTriggers = ['🎉', '🎊', '🥳'];
 
   useEffect(() => {
     if (!route) {
       searchBoxRef.current.value = '';
-      setShowConfetti(false);
     }
   }, [route]);
 
   const queryInputChanged = evt => {
-    setShowConfetti(false);
     const newQuery = evt.target.value.trim();
     if (newQuery.length > 2) {
       setQuery(newQuery);
       setRoute(location.pathname);
       search(newQuery);
-    } else if (confettiTriggers.includes(newQuery.trim())) {
-      setShowConfetti(true);
     }
   };
 
@@ -77,7 +70,6 @@ export default function Searchbox({ location }: LocationProp) {
             aria-hidden
           />
         </SearchBox>
-        {showConfetti ? <Confetti width={width} height={height} /> : null}
       </SearchArea>
     </>
   );
