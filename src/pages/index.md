@@ -1,15 +1,10 @@
 ---
 templateKey: index-page
-title: Startsidan
-image: /uploads/portrait3_square_tight.jpg
+image: /uploads/isabel_960x960.jpg
 heading: Isabel Sommerfeld
-subheading: Jurist
+subheading: 'Jurist - Mänskliga rättigheter, Terapeutisk juridik'
 description: >-
-  Juriststudent med inriktning mänskliga rättigheter och företagsansvar,
-  frilansjournalist, krönikör på Magasinet Para§raf. Skriver mestadels om
-  mänskliga rättigheter och friheter.
+  Jurist med inriktning mänskliga rättigheter och terapeutisk juridik. Civil
+  brottsutredare på Polismyndigheten.
 ---
 
-Mänskliga rättigheter, \
-Terapeutiskt juridik, \
-Corporate Social Responsibility

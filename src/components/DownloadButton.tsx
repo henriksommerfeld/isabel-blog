@@ -4,8 +4,9 @@ import { spacing, buttonStyles } from '../constants';
 import DownloadSvg from '../../static/img/download-filled.svg';
 import { RipplesButton } from './RipplesButton';
 import { ButtonText } from './ButtonText';
+import Button from './Button';
 
-interface DownloadButton {
+interface DownloadButtonProps {
   url: string;
   downloadedFilename?: string;
   ariaLabel: string;
@@ -17,32 +18,20 @@ export default function DownloadButton({
   downloadedFilename,
   ariaLabel,
   children,
-}: DownloadButton) {
+}: DownloadButtonProps) {
   return (
     <ButtonContainer>
-      <RipplesButton>
-        <DownloadButtonStyled
-          href={url}
-          download={downloadedFilename}
-          aria-label={ariaLabel}
-        >
-          <Icon src={DownloadSvg} alt="" />
-          <ButtonText>{children}</ButtonText>
-        </DownloadButtonStyled>
-      </RipplesButton>
+      <Button
+        url={url}
+        downloadedFilename={downloadedFilename}
+        icon={DownloadSvg}
+        ariaLabel={ariaLabel}
+      >
+        {children}
+      </Button>
     </ButtonContainer>
   );
 }
-
-const Icon = styled('img')`
-  width: 1.4em;
-  height: auto;
-  margin-bottom: 0;
-`;
-
-const DownloadButtonStyled = styled('a')`
-  ${buttonStyles}
-`;
 
 const ButtonContainer = styled('div')`
   width: 100%;

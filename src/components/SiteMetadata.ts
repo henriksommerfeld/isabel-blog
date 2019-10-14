@@ -1,7 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { SiteSiteMetadata } from '../../auto-generated/graphql';
 
-export default function useSiteMetadata(): SiteSiteMetadata {
+interface SiteMetadata {
+  title: string;
+  description: string;
+}
+
+export default function useSiteMetadata(): SiteMetadata {
   const data = useStaticQuery(metadataQuery);
   const metadata = data.markdownRemark.frontmatter;
   return { title: metadata.heading, description: metadata.description };

@@ -3,7 +3,9 @@ import BlogPostTemplate from '../../templates/blog-post-template';
 
 const BlogPostPreview = ({ entry, widgetFor }) => {
   const date = entry.getIn(['data', 'date']);
-  const tags = entry.getIn(['data', 'tags']).toJS();
+  const tagsRaw = entry.getIn(['data', 'tags']);
+
+  const tags = (tagsRaw && tagsRaw.toJS()) || [];
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = date.toLocaleDateString('sv', options);
 

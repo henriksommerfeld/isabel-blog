@@ -8,7 +8,7 @@ import { FluidObject } from 'gatsby-image';
 import { PostStyled } from '../components/PostStyled';
 import { ImageProps } from '../components/PreviewCompatibleImage';
 import { AboutPortrait } from '../components/AboutPortrait';
-import { spacing } from '../constants';
+import { spacing, emailAddress, links } from '../constants';
 
 interface AboutPageTemplateProps {
   title: string;
@@ -45,11 +45,9 @@ export function AboutPageTemplate({
             </PortraitWrapper>
             <ContactInfo>
               <h2>Kontakta mig på</h2>
-              <div>isabel@sommerfeld.nu</div>
+              <div>{emailAddress}</div>
               <div>
-                <a href="https://www.linkedin.com/in/isabelsommerfeld">
-                  LinkedIn
-                </a>
+                <a href={links.linkedin.url}>{links.linkedin.title}</a>
               </div>
             </ContactInfo>
             <PageContent content={content} />

@@ -1,5 +1,5 @@
 import { kebabCase } from 'lodash';
-import { tagsUrl } from './constants';
+import { links } from './constants';
 
 export function getUniqueTags(tags: string[] | undefined): string[] {
   if (!tags || !tags.length) return [];
@@ -12,5 +12,5 @@ export function getUniqueTags(tags: string[] | undefined): string[] {
 }
 
 export function getTagRouteUrl(tag: string): string {
-  return `${tagsUrl}/${kebabCase(tag)}`;
+  return `${links.tags.url}/${kebabCase(tag)}`;
 }

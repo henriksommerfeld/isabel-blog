@@ -38,6 +38,8 @@ collections:
           name: description,
           widget: string,
           hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+          default: '',
+          required: false,
         }
       - {
           label: 'Dold',
@@ -105,12 +107,20 @@ collections:
               hint: 'Används också som titel på hela sajten',
             }
           - { label: Underrrubrik, name: subheading, widget: string }
-          - { label: Beskrivning, name: body, widget: markdown }
+          - {
+              label: Beskrivning,
+              name: body,
+              widget: markdown,
+              required: false,
+              default: '',
+            }
           - {
               label: Sajtbeskrivning,
               name: description,
               widget: string,
               hint: 'Syns inte på landningssidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.',
+              default: '',
+              required: false,
             }
 
       - file: 'src/pages/om/index.md'
@@ -122,6 +132,12 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'about-page',
+            }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Om mig',
             }
           - { label: 'Bild', name: 'image', widget: 'image' }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
@@ -137,9 +153,17 @@ collections:
               default: 'published-page',
             }
           - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Publicerat',
+            }
+          - {
               label: 'Beskrivning',
               name: description,
               widget: string,
+              default: '',
+              required: false,
               hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
             }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
@@ -155,9 +179,17 @@ collections:
               default: 'pressimages-page',
             }
           - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Pressbilder',
+            }
+          - {
               label: 'Beskrivning',
               name: description,
               widget: string,
+              default: '',
+              required: false,
               hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
             }
           - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
@@ -167,3 +199,55 @@ collections:
             widget: 'list'
             hint: 'Bilder som besökaren kan ladda ner. OBS! Layouten och bildernas dimentioner är inte tillgängliga i förhandsgranskningen.'
             field: { label: Bild, name: downloadableimage, widget: image }
+
+      - file: 'src/pages/cookies/index.md'
+        label: 'Cookies'
+        name: 'cookies'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'cookies-page',
+            }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Om cookies (webbkakor)',
+            }
+          - {
+              label: 'Beskrivning',
+              name: description,
+              widget: string,
+              default: 'Beskrivning av hur jag använder cookies på min webbplats',
+              required: false,
+              hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+            }
+          - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
+
+      - file: 'src/pages/om-webbplatsen/index.md'
+        label: 'Om webbplatsen'
+        name: 'website'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'website-page',
+            }
+          - {
+              label: 'Titel',
+              name: 'title',
+              widget: 'hidden',
+              default: 'Om webbplatsen',
+            }
+          - {
+              label: 'Beskrivning',
+              name: description,
+              widget: string,
+              default: 'Beskrivning av webbplatsen, teknik och upphovsrättsinformation',
+              required: false,
+              hint: '1-2 meningar som beskriver sidan för sökmotorer och visas när man delar en länk till sidan.',
+            }
+          - { label: 'Huvudinnehåll', name: 'body', widget: 'markdown' }
