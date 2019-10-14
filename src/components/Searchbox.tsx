@@ -25,8 +25,6 @@ export default function Searchbox({ location }: LocationProp) {
   const { width, height } = useWindowSize();
   const confettiTriggers = ['🎉', '🎊', '🥳'];
 
-  console.warn('Varför renderas det här?!');
-
   useEffect(() => {
     if (!route) {
       searchBoxRef.current.value = '';
