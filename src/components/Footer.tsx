@@ -106,6 +106,5 @@ const AnchorWithIcon = styled('a')`
 `;
 
 const Svg = styled('img')`
-  height: 1em;
-  margin-right: 4px;
+  height: 1.3rem;
 `;

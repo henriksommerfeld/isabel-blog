@@ -38,5 +38,6 @@ const IconStyled = styled('img')`
   display: block;
   width: 2rem;
   pointer-events: auto;
+  cursor: pointer;
   transform: rotateY(180deg);
 `;
