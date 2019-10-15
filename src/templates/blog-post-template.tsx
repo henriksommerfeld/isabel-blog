@@ -9,6 +9,7 @@ import { PageStyled } from '../components/PageStyled';
 import { PostContainer } from '../components/PostContainer';
 import { PostStyled } from '../components/PostStyled';
 import ShareLinks from '../components/ShareLinks';
+import Comments from '../components/Comments';
 
 interface BlogPostTemplateProps {
   content: string;
@@ -47,6 +48,7 @@ export default function BlogPostTemplate({
             <PostContent content={content} />
             <BlogPostTags tags={tags} />
             {!isPreview && <ShareLinks url={location.href} />}
+            {!isPreview && <Comments location={location} postTitle={title} />}
           </PostStyled>
         </PostContainer>
       </PageStyled>

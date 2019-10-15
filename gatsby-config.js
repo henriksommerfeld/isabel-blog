@@ -191,6 +191,12 @@ const plugins = [
       icon: `static/img/favimage.jpg`,
     },
   },
+  {
+    resolve: `gatsby-plugin-disqus`,
+    options: {
+      shortname: `isabelswebb`,
+    },
+  },
   'gatsby-plugin-netlify-cache',
   {
     resolve: 'gatsby-plugin-netlify-cms',
