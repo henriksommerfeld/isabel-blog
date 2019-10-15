@@ -197,6 +197,15 @@ const plugins = [
       shortname: `isabelswebb`,
     },
   },
+  {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: 'UA-149938564-1',
+      head: false,
+      anonymize: true,
+      respectDNT: false,
+    },
+  },
   'gatsby-plugin-netlify-cache',
   {
     resolve: 'gatsby-plugin-netlify-cms',
