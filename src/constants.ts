@@ -27,6 +27,7 @@ export const layout = {
 };
 
 export const urls = {
+  siteBaseUrl: 'https://www.isabelsommerfeld.com',
   twitterBaseUrl: 'https://twitter.com',
 };
 

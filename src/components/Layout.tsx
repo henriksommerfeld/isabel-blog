@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import Footer from './Footer';
 import useSiteMetadata from './SiteMetadata';
-import { colors, breakpoints } from '../constants';
+import { colors, breakpoints, urls } from '../constants';
 import Header from './Header';
 import SearchResult from './SearchResult';
 import { WindowLocation } from '@reach/router';
@@ -33,8 +33,7 @@ export default function TemplateWrapper({
   const { title } = useSiteMetadata();
   const finalTitle =
     pageTitle && pageTitle !== title ? `${pageTitle} | ${title}` : title;
-  const baseUrl = 'https://www.isabelsommerfeld.com';
-  const canonical = `${baseUrl}${location.pathname}`;
+  const canonical = `${urls.siteBaseUrl}${location.pathname}`;
   const locale = pageLanguage === 'en' ? 'en_US' : 'sv_SE';
 
   return (
@@ -56,7 +55,10 @@ export default function TemplateWrapper({
         <meta name="twitter:card" content="summary"></meta>
         <meta name="twitter:site" content="@isommerfeld"></meta>
 
-        <meta property="og:image" content={`${baseUrl}/img/favimage.jpg`} />
+        <meta
+          property="og:image"
+          content={`${urls.siteBaseUrl}/img/favimage.jpg`}
+        />
         <link rel="canonical" href={canonical} />
       </Helmet>
       <GlobalStyles />
