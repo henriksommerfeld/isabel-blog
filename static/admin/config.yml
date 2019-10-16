@@ -89,7 +89,7 @@ collections:
     delete: false
     files:
       - file: 'src/pages/index.md'
-        label: 'Landningssida'
+        label: 'Startsida'
         name: 'index'
         fields:
           - {
@@ -117,7 +117,7 @@ collections:
               label: Sajtbeskrivning,
               name: description,
               widget: string,
-              hint: 'Syns inte på landningssidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.',
+              hint: 'Syns inte på startsidan, men används som beskrivning för hela sajten, exempelvis i Googles sökresultat.',
               default: '',
               required: false,
             }
