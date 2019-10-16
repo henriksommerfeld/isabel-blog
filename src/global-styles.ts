@@ -16,11 +16,13 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
 
   /* Set core body defaults */
   body {
     min-height: 100vh;
-    scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
   }
 
