@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
 
-export const useEscKey = action => {
+export const useEscKey = (action: { (): void }) => {
   const keyDownHandler = useCallback(
     keyboardEvent => {
       if (isEscape(keyboardEvent) && isFunction(action)) action();
@@ -17,5 +17,6 @@ export const useEscKey = action => {
   }, [keyDownHandler]);
 };
 
-const isFunction = f => typeof f === 'function';
-const isEscape = keyEvent => keyEvent && keyEvent.key === 'Escape';
+const isFunction = (f: any) => typeof f === 'function';
+const isEscape = (keyEvent: React.KeyboardEvent) =>
+  keyEvent && keyEvent.key === 'Escape';
