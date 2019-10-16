@@ -3,7 +3,8 @@ templateKey: cookies-page
 title: Om Cookies (webbkakor)
 description: Beskrivning av hur jag använder cookies på min webbplats
 ---
-På min webbplats använder jag _cookies_ eller motsvarande teknik, för för viss funktionalitet. Den enda cookie jag själv sparar längre än under själva besöket (sessionen), är ironiskt nog en flagga som indikerar om du accepterat cookies i den informationsruta som visas längst ner på sidan.
+
+På min webbplats använder jag _cookies_ eller motsvarande teknik, för viss funktionalitet. Den enda cookie jag själv sparar längre än under själva besöket (sessionen), är ironiskt nog en flagga som indikerar om du accepterat cookies i den informationsruta som visas längst ner på sidan.
 
 Men utöver detta använder jag några tjänster som också sätter (tredjeparts)cookies. Se information om respektive tjänst nedan.
 
@@ -34,12 +35,12 @@ Jag använder _Google Analytics_ för besöksstatistik. Mer information kan du h
 
 Jag använder _Disqus_ för kommentarer, men Disqus aktiveras endast när du klickar på knappen för att se kommentarer och det är endast då cookies sätts. Om du motsätter dig Disqus villkor kan du alltså avstå från att använda kommentarsfunktionen.
 
-* [Disqus _Privacy policy_ (på engelska)](https://help.disqus.com/en/articles/1717103-disqus-privacy-policy)
-* [Disqus _Use of cookies_ (på engelska)](https://help.disqus.com/en/articles/1717155-use-of-cookies)
+- [Disqus _Privacy policy_ (på engelska)](https://help.disqus.com/en/articles/1717103-disqus-privacy-policy)
+- [Disqus _Use of cookies_ (på engelska)](https://help.disqus.com/en/articles/1717155-use-of-cookies)
 
 ## YouTube
 
-Där jag har inbäddade videor från YouTube lagras de cookies som används ac den inbäddade videospelaren. YouTube omfattas av [Googles sekretesspolicy](https://policies.google.com/privacy?hl=sv-SE).
+Där jag har inbäddade videor från YouTube lagras de cookies som används av den inbäddade videospelaren. YouTube omfattas av [Googles sekretesspolicy](https://policies.google.com/privacy?hl=sv-SE).
 
 ## Vimeo
 
