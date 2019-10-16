@@ -191,6 +191,7 @@ const plugins = [
       icon: `static/img/favimage.jpg`,
     },
   },
+  'gatsby-plugin-offline',
   {
     resolve: `gatsby-plugin-disqus`,
     options: {
