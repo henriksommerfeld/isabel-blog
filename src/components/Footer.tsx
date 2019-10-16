@@ -64,7 +64,6 @@ export default function Footer({
 
 const FooterWrapper = styled('div')`
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
 `;
 
 const InnerFooter = styled('footer')`

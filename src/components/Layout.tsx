@@ -79,7 +79,6 @@ const Body = styled('div')`
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  overflow: hidden;
 `;
 
 const Page = styled('div')`
@@ -87,6 +86,7 @@ const Page = styled('div')`
   height: 100%;
   min-height: 100vh;
   flex-direction: column;
+  overflow: hidden;
   background-color: ${colors.white};
 
   @media (min-width: ${breakpoints.medium}) {
