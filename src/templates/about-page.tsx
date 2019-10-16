@@ -12,7 +12,7 @@ export default function AboutPage({ location }: LocationProp) {
   const data = useStaticQuery<AboutPageData>(aboutPageQuery);
   const content = data.markdownRemark.html;
   const portraitImage = data.markdownRemark.frontmatter.image;
-  const pageName = 'Om mig';
+  const pageName = data.markdownRemark.frontmatter.title;
   const description = data.markdownRemark.frontmatter.description;
 
   return (
