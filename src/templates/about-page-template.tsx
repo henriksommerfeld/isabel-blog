@@ -7,7 +7,7 @@ import { SharedIntroBanner } from './shared-intro-banner';
 import { FluidObject } from 'gatsby-image';
 import { PostStyled } from '../components/PostStyled';
 import { ImageProps } from '../components/PreviewCompatibleImage';
-import { AboutPortrait } from '../components/AboutPortrait';
+import { RoundPortrait } from '../components/RoundPortrait';
 import { spacing, emailAddress, links } from '../constants';
 
 interface AboutPageTemplateProps {
@@ -41,7 +41,7 @@ export function AboutPageTemplate({
         <PostStyled>
           <AboutPageContent>
             <PortraitWrapper>
-              <AboutPortrait image={portraitImageFile} />
+              <RoundPortrait image={portraitImageFile} />
             </PortraitWrapper>
             <ContactInfo>
               <h2>Kontakta mig på</h2>

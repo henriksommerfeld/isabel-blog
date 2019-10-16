@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
 import BlogRoll from '../components/BlogRoll';
 import Content, { HTMLContent } from '../components/Content';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
 import { PageStyled } from '../components/PageStyled';
+import { RoundPortrait } from '../components/RoundPortrait';
+import { tailwindColors } from '../tailwind-colors';
 
 interface IndexPageTemplateProps {
   image: any;
@@ -29,7 +30,12 @@ export const IndexPageTemplate = ({
     <IntroBanner>
       {!isPreview && <Searchbox location={location} />}
       <IntroBannerWidthConstrainer>
-        <PortraitLarge image={image} style={portraitStyles} />
+        <RoundPortrait
+          image={image}
+          additionalStyles={{
+            boxShadow: `0 4px 1rem ${tailwindColors.gray900}`,
+          }}
+        />
         <IntroText>
           <h1>{heading}</h1>
           <h2>{subheading}</h2>
@@ -44,21 +50,6 @@ export const IndexPageTemplate = ({
     <BlogRollContainer>{isPreview ? null : <BlogRoll />}</BlogRollContainer>
   </PageStyled>
 );
-
-const PortraitLarge = styled(PreviewCompatibleImage)`
-  border: 0.5em solid white;
-  border-radius: 100%;
-  width: 280px;
-  margin: 2rem 0;
-`;
-
-const portraitStyles = {
-  borderRadius: '100%',
-  border: '0.5em solid white',
-  boxShadow: '0 0 1em black',
-  width: '280px',
-  margin: '2rem 0',
-};
 
 const IntroBanner = styled('div')`
   background: ${colors.headerBackground};

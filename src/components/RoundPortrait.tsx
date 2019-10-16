@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { tailwindColors } from '../tailwind-colors';
 import { useSpring, animated, config } from 'react-spring';
 import { useSwipeable } from 'react-swipeable';
 import { spacing } from '../constants';
 import Confetti from 'react-dom-confetti';
 
-export function AboutPortrait({ image }) {
+export function RoundPortrait({ image, additionalStyles }) {
+  const imageStyles = { ...portraitStyles, ...additionalStyles };
   const [rotate, setRotate] = useState(false);
   const confettiActive = !rotate;
   const rotatableRef = useRef(null);
@@ -27,17 +28,17 @@ export function AboutPortrait({ image }) {
     decay: 0.82,
   };
 
-  function clickEffect(e) {
+  function clickEffect(e: MouseEvent) {
     if (e.detail !== 3) return;
     setRotate(x => !x);
   }
 
-  function onSwipedRight(e) {
+  function onSwipedRight() {
     if (!rotate) return;
     setRotate(false);
   }
 
-  function onSwipedLeft(e) {
+  function onSwipedLeft() {
     if (rotate) return;
     setRotate(true);
   }
@@ -51,7 +52,7 @@ export function AboutPortrait({ image }) {
         onClick={clickEffect}
         {...handlers}
       >
-        <PreviewCompatibleImage image={image} style={portraitStyles} />
+        <PreviewCompatibleImage image={image} style={imageStyles} />
       </Rotatable>
     </Perspective>
   );
