@@ -16,9 +16,9 @@ export default function MorePostsButton({
     <ButtonContainer>
       <RipplesButtonWithBreakpoints>
         <MorePostsButtonStyled onClick={clickedHandler}>
-          <ArrowsDown src={ArrowsDownSvg} />
+          <ArrowsDown src={ArrowsDownSvg} alt="" />
           <ButtonText>Visa äldre inlägg</ButtonText>
-          <ArrowsDown src={ArrowsDownSvg} />
+          <ArrowsDown src={ArrowsDownSvg} alt="" />
         </MorePostsButtonStyled>
       </RipplesButtonWithBreakpoints>
     </ButtonContainer>

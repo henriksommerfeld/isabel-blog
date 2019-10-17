@@ -33,9 +33,16 @@ export default function SearchResult({ location }: LocationProp) {
   const container = containerTransitions.map(
     ({ item, key, props }) =>
       item && (
-        <SearchResultsContainer key={key} style={props}>
+        <SearchResultsContainer
+          key={key}
+          style={props}
+          data-testid="search-results"
+        >
           <SearchResultsStyled className="search-results">
-            <CloseButtonStyled onClick={closeSearch}>
+            <CloseButtonStyled
+              onClick={closeSearch}
+              aria-label="Stäng sökresultatet"
+            >
               <CloseIcon src={CloseSvg} />
             </CloseButtonStyled>
             <HitsHeading>

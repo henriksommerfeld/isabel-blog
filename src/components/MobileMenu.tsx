@@ -89,7 +89,7 @@ const MobileLink = styled(({ isActive, ...restProps }) => (
   font-size: 1.2rem;
   text-align: center;
   display: inline;
-  font-weight: ${props => (props.isActive ? `bold` : `normal`)};
+  font-weight: ${({ isActive }) => (isActive ? `bold` : `normal`)};
 
   :hover {
     background: ${colors.mobileMenuBackgroundHover};

@@ -1,9 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { spacing, buttonStyles } from '../constants';
+import { spacing } from '../constants';
 import DownloadSvg from '../../static/img/download-filled.svg';
-import { RipplesButton } from './RipplesButton';
-import { ButtonText } from './ButtonText';
 import Button from './Button';
 
 interface DownloadButtonProps {

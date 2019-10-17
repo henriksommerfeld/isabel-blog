@@ -23,14 +23,22 @@ export function CookieAlert() {
   if (!hasLocalStorage || cookiesAccepted) return null;
 
   return (
-    <CookieContainer className="cookie-alert alert-cookies cookie_banner cookie-banner">
+    <CookieContainer
+      data-testid="cookie-alert"
+      className="cookie-alert alert-cookies cookie_banner cookie-banner"
+    >
       <div>
         Genom att använda min webbplats samtycker du till min användning av
         cookies. Läs mer på sidan{' '}
-        <Link to={'/cookies'}>Om cookies 🍪 (webbkakor)</Link>.
+        <Link to={'/cookies'} data-testid="about-cookies-link">
+          Om cookies 🍪 (webbkakor)
+        </Link>
+        .
       </div>
       <ButtonContainer>
-        <Button clickHandler={okButtonClicked}>Okej 🙄</Button>
+        <Button clickHandler={okButtonClicked} ariaLabel="Acceptera cookies">
+          Okej 🙄
+        </Button>
       </ButtonContainer>
     </CookieContainer>
   );

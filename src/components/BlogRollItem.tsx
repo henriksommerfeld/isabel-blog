@@ -16,7 +16,7 @@ export default function BlogRollItem(post: MarkdownRemark) {
   const dateString = date ? `Publicerat ${date}` : '';
 
   return (
-    <Article key={post.id}>
+    <Article key={post.id} role="article">
       <Header>
         <HeadingLink to={slug}>{title}</HeadingLink>
         <Date>{dateString}</Date>

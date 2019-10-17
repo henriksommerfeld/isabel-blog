@@ -11,7 +11,7 @@ interface ShareLinksProps {
 
 export default function ShareLinks({ url }: ShareLinksProps) {
   return (
-    <ButtonContainer>
+    <ButtonContainer data-testid="share-links">
       <ShareButtonFacebook url={url} />
       <ShareButtonTwitter url={url} />
       <ShareButtonLinkedIn url={url} />

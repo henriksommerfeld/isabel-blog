@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { spacing, breakpoints, buttonStyles } from '../constants';
+import { breakpoints, buttonStyles } from '../constants';
 import CommentSvg from '../../static/img/comment.svg';
 import { RipplesButton } from './RipplesButton';
 import { ButtonText } from './ButtonText';
@@ -14,7 +14,7 @@ export default function CommentsButton({
   clickedHandler,
 }: CommentsButtonProps) {
   return (
-    <ButtonContainer>
+    <ButtonContainer data-testid="comments-button">
       <RipplesButtonWithBreakpoints>
         <ButtonStyled onClick={clickedHandler}>
           <Icon src={CommentSvg} />

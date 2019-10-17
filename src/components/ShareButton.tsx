@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { buttonStyles, spacing, breakpoints } from '../constants';
+import { buttonStyles } from '../constants';
 import { RipplesButton } from './RipplesButton';
 import { ButtonText } from './ButtonText';
 import { darken } from '../color-convertions';

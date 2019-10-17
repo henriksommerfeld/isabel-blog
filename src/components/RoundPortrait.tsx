@@ -1,13 +1,18 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import PreviewCompatibleImage from './PreviewCompatibleImage';
+import PreviewCompatibleImage, { ImageProps } from './PreviewCompatibleImage';
 import { tailwindColors } from '../tailwind-colors';
 import { useSpring, animated, config } from 'react-spring';
 import { useSwipeable } from 'react-swipeable';
 import { spacing } from '../constants';
 import Confetti from 'react-dom-confetti';
 
-export function RoundPortrait({ image, additionalStyles }) {
+interface RoundPortraitProps {
+  image: ImageProps;
+  additionalStyles?: object;
+}
+
+export function RoundPortrait({ image, additionalStyles }: RoundPortraitProps) {
   const imageStyles = { ...portraitStyles, ...additionalStyles };
   const [rotate, setRotate] = useState(false);
   const confettiActive = !rotate;

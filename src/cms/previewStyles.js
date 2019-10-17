@@ -1,4 +1,4 @@
-import typography from '../typography';
+import typography from '../typography'
 
 export default `
   @import url('https://fonts.googleapis.com/css?family=Domine|Open+Sans&display=swap');
@@ -36,4 +36,4 @@ export default `
     left: 1rem;
     height: 2rem;
   }
-`;
+`

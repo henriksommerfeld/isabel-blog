@@ -29,7 +29,7 @@ export function SharedIntroBanner({
     >
       <Searchbox location={location} />
       <IntroBannerWidthConstrainer>
-        <Heading>{title}</Heading>
+        <Heading data-testid="page-title">{title}</Heading>
       </IntroBannerWidthConstrainer>
     </IntroBanner>
   );

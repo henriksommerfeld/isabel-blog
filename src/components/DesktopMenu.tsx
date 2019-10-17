@@ -20,7 +20,7 @@ export default function DesktopMenu({ location }: LocationProp) {
   };
 
   return (
-    <MenuStyled>
+    <MenuStyled data-testid="desktop-nav">
       {navLinks.map(link => (
         <LinkStyled
           to={link.url}
@@ -35,13 +35,7 @@ export default function DesktopMenu({ location }: LocationProp) {
   );
 }
 
-const MenuStyled = styled('div')`
-  display: none;
-
-  @media (min-width: ${breakpoints.medium}) {
-    display: block;
-  }
-`;
+const MenuStyled = styled('div')``;
 
 const LinkStyled = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />
@@ -68,8 +62,8 @@ const LinkStyled = styled(({ isActive, ...restProps }) => (
   &:visited {
     color: ${colors.white};
     text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-    background-size: ${props =>
-      props.isActive ? `calc(100% - 2em) 3px` : `0px 3px`};
+    background-size: ${({ isActive }) =>
+      isActive ? `calc(100% - 2em) 3px` : `0px 3px`};
   }
 
   &:hover {
