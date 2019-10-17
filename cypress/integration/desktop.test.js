@@ -29,7 +29,7 @@ context('Desktop', () => {
 
   it('Should open Published page', () => {
     const pageName = 'Publicerat';
-    cy.get('nav')
+    cy.findByTestId('desktop-nav')
       .findByText(pageName)
       .click()
       .url()
@@ -42,7 +42,7 @@ context('Desktop', () => {
 
   it('Should open About Me page', () => {
     const pageName = 'Om mig';
-    cy.get('nav')
+    cy.findByTestId('desktop-nav')
       .findByText(pageName)
       .click()
       .url()
@@ -57,7 +57,7 @@ context('Desktop', () => {
 
   it('Should open Press images page', () => {
     const pageName = 'Pressbilder';
-    cy.get('nav')
+    cy.findByTestId('desktop-nav')
       .findByText(pageName)
       .click()
       .url()

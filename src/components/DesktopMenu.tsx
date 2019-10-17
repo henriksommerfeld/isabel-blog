@@ -20,7 +20,7 @@ export default function DesktopMenu({ location }: LocationProp) {
   };
 
   return (
-    <MenuStyled>
+    <MenuStyled data-testid="desktop-nav">
       {navLinks.map(link => (
         <LinkStyled
           to={link.url}
