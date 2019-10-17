@@ -10,12 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: yarn install
+      - name: Install
         run: |
           yarn install
-      - name: unit tests
+      - name: Install plugin
+        run: |
+          npm run build:plugin
+      - name: Unit tests
         run: |
           npm run test:unit
-      - name: integration tests
+      - name: Integration tests
         run: |
           npm run test:cypress:ci
