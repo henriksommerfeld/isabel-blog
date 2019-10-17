@@ -7,6 +7,7 @@ import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
 import { LocationProp } from 'interfaces/LocationProp';
+import useWindowSize from '../useWindowSize';
 
 export default function Header({ location }: LocationProp) {
   const data = useStaticQuery(pageQuery);
@@ -15,13 +16,16 @@ export default function Header({ location }: LocationProp) {
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
   const isStartPage = location && location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
+  const windowSize = useWindowSize();
+  const renderDesktopNav = windowSize.width >= breakpoints.desktop;
+  const renderMobileNav = !renderDesktopNav;
 
   return (
     <>
       <NavStyled>
         <NavWidthConstrainer>
           {isStartPage ? (
-            <EmptyDiv />
+            <div />
           ) : (
             <SiteTitle>
               <PortraitLink to="/" aria-label="till startsidan">
@@ -31,22 +35,26 @@ export default function Header({ location }: LocationProp) {
             </SiteTitle>
           )}
 
-          <HamburgerMenuIcon
-            isOpen={mobileMenuIsVisible}
-            clickAction={toggleMenu}
-            className={ignoreClickClassName}
-          />
+          {renderMobileNav && (
+            <HamburgerMenuIcon
+              isOpen={mobileMenuIsVisible}
+              clickAction={toggleMenu}
+              className={ignoreClickClassName}
+            />
+          )}
 
-          <DesktopMenu location={location} />
+          {renderDesktopNav && <DesktopMenu location={location} />}
         </NavWidthConstrainer>
       </NavStyled>
 
-      <MobileMenu
-        isVisible={mobileMenuIsVisible}
-        setIsVisible={setMobileMenuIsVisible}
-        ignoreClickClassName={ignoreClickClassName}
-        location={location}
-      />
+      {renderMobileNav && (
+        <MobileMenu
+          isVisible={mobileMenuIsVisible}
+          setIsVisible={setMobileMenuIsVisible}
+          ignoreClickClassName={ignoreClickClassName}
+          location={location}
+        />
+      )}
     </>
   );
 }
@@ -74,12 +82,6 @@ const pageQuery = graphql`
 
 export const headerHeight = '70px';
 export const headerHeightNumber = 70;
-
-const EmptyDiv = styled('div')`
-  @media (min-width: ${breakpoints.medium}) {
-    display: none;
-  }
-`;
 
 const SiteTitle = styled('div')`
   display: flex;

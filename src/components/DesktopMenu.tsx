@@ -35,13 +35,7 @@ export default function DesktopMenu({ location }: LocationProp) {
   );
 }
 
-const MenuStyled = styled('div')`
-  display: none;
-
-  @media (min-width: ${breakpoints.medium}) {
-    display: block;
-  }
-`;
+const MenuStyled = styled('div')``;
 
 const LinkStyled = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />
