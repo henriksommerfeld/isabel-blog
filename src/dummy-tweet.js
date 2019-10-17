@@ -1,4 +1,4 @@
-const dummyTweetId = `848930551989915648`;
+const dummyTweetId = `848930551989915648`
 
 const dummyTweet = {
   created_at: 'Mon Apr 03 16:09:50 +0000 2017',
@@ -292,9 +292,9 @@ const dummyTweet = {
   favorited: false,
   retweeted: false,
   lang: 'en',
-};
+}
 
 module.exports = {
   dummyTweet,
   dummyTweetId,
-};
+}

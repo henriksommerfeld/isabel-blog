@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { spacing, breakpoints, buttonStyles } from '../constants';
+import { spacing } from '../constants';
 import CommentsButton from './CommentsButton';
 import DisqusComments from './DisqusComments';
 import { WindowLocation } from '@reach/router';

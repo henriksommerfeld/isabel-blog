@@ -1,13 +1,13 @@
-import React from 'react';
-import Content from '../../components/Content';
-import { AboutPageTemplate } from '../../templates/about-page-template';
-import { toJsSafe } from '../toJsSafe';
+import React from 'react'
+import Content from '../../components/Content'
+import { AboutPageTemplate } from '../../templates/about-page-template'
+import { toJsSafe } from '../toJsSafe'
 
 const AboutPagePreview = ({ entry, widgetFor }) => {
-  const dataRaw = entry.getIn(['data']);
-  const data = toJsSafe(dataRaw);
+  const dataRaw = entry.getIn(['data'])
+  const data = toJsSafe(dataRaw)
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <div>Loading...</div>
 
   return (
     <AboutPageTemplate
@@ -15,7 +15,7 @@ const AboutPagePreview = ({ entry, widgetFor }) => {
       contentComponent={Content}
       portraitImageFile={data.image}
     />
-  );
-};
+  )
+}
 
-export default AboutPagePreview;
+export default AboutPagePreview

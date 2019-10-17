@@ -1,8 +1,8 @@
-require('dotenv').config();
+require('dotenv').config()
 
-const { transformerRemarkParser } = require('./src/transformerRemarkParser');
-const remark = require('remark');
-const stripMarkdown = require('strip-markdown');
+const { transformerRemarkParser } = require('./src/transformerRemarkParser')
+const remark = require('remark')
+const stripMarkdown = require('strip-markdown')
 
 const plugins = [
   {
@@ -165,10 +165,10 @@ const plugins = [
           excerpt: node => {
             const text = remark()
               .use(stripMarkdown)
-              .processSync(node.rawMarkdownBody).contents;
+              .processSync(node.rawMarkdownBody).contents
 
-            const excerptLength = 140;
-            return String(text).substring(0, excerptLength) + '...';
+            const excerptLength = 140
+            return String(text).substring(0, excerptLength) + '...'
           },
         },
       },
@@ -219,8 +219,8 @@ const plugins = [
     },
   },
   'gatsby-plugin-netlify', // make sure to keep it last in the array
-];
+]
 
 module.exports = {
   plugins: plugins,
-};
+}

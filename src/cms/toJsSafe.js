@@ -1,3 +1,3 @@
 export function toJsSafe(rawData) {
-  return (rawData && rawData.toJS()) || {};
+  return (rawData && rawData.toJS()) || {}
 }
