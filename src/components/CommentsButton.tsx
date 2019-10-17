@@ -14,7 +14,7 @@ export default function CommentsButton({
   clickedHandler,
 }: CommentsButtonProps) {
   return (
-    <ButtonContainer>
+    <ButtonContainer data-testid="comments-button">
       <RipplesButtonWithBreakpoints>
         <ButtonStyled onClick={clickedHandler}>
           <Icon src={CommentSvg} />

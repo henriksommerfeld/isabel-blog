@@ -14,7 +14,7 @@ export default function BlogPostTags({ tags = [] }: BlogPostTags) {
   if (numberOfTags < 1) return null;
 
   return (
-    <LinksContainer>
+    <LinksContainer data-testid="tags">
       <LinkIconSvg />
 
       {tags.map((tag, index) => (
