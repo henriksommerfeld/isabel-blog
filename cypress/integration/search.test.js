@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-context('Mobile', () => {
+context('Search', () => {
   before(() => {
     cy.visit('/');
   });
