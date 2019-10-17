@@ -1,0 +1,21 @@
+name: Blog tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: yarn install
+        run: |
+          yarn install
+      - name: unit tests
+        run: |
+          npm run test:unit
+      - name: integration tests
+        run: |
+          npm run test:cypress:ci
