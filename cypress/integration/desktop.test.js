@@ -6,7 +6,9 @@ context('Desktop', () => {
   });
 
   beforeEach(() => {
-    cy.viewport('macbook-15');
+    cy.viewport('macbook-15')
+      .findByTestId('desktop-nav')
+      .should('be.visible');
   });
 
   const titlePostfix = ' | Isabel Sommerfeld';
@@ -21,7 +23,7 @@ context('Desktop', () => {
 
   it('Should remove cookies alert on OK click', () => {
     cy.findByTestId('cookie-alert')
-      .findByText('Okej 🙄')
+      .findByLabelText('Acceptera cookies')
       .click()
       .findByTestId('cookie-alert')
       .should('not.exist');

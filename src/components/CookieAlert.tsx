@@ -36,7 +36,9 @@ export function CookieAlert() {
         .
       </div>
       <ButtonContainer>
-        <Button clickHandler={okButtonClicked}>Okej 🙄</Button>
+        <Button clickHandler={okButtonClicked} ariaLabel="Acceptera cookies">
+          Okej 🙄
+        </Button>
       </ButtonContainer>
     </CookieContainer>
   );
