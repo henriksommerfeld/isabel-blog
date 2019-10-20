@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { useSpring, animated } from 'react-spring';
 import useOnClickOutside from 'use-onclickoutside';
 import { headerHeight } from './Header';
-import { navLinks, colors, zIndexes } from '../constants';
+import { navLinks, colors, zIndexes, breakpoints } from '../constants';
 import { tailwindColors } from '../tailwind-colors';
 import { matchesRoute } from '../active-node';
 import { WindowLocation } from '@reach/router';
@@ -80,6 +80,11 @@ const MobileMenuStyled = styled(animated.div)`
   transform: translateY(-${mobileMenuHeight});
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid ${tailwindColors.gray100};
+
+  @media (min-width: ${breakpoints.desktop}) {
+    display: none;
+    pointer-events: none;
+  }
 `;
 
 const MobileLink = styled(({ isActive, ...restProps }) => (

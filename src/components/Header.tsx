@@ -7,7 +7,6 @@ import PortraitSmall from './PortraitSmall';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
 import { LocationProp } from 'interfaces/LocationProp';
-import useWindowSize from '../useWindowSize';
 
 export default function Header({ location }: LocationProp) {
   const data = useStaticQuery(pageQuery);
@@ -16,9 +15,6 @@ export default function Header({ location }: LocationProp) {
   const toggleMenu = () => setMobileMenuIsVisible((x: boolean) => !x);
   const isStartPage = location && location.pathname === '/';
   const ignoreClickClassName = 'ignoreCloseHamburgerMenuClick';
-  const windowSize = useWindowSize();
-  const renderDesktopNav = windowSize.width >= breakpoints.desktop;
-  const renderMobileNav = !renderDesktopNav;
 
   return (
     <>
@@ -35,26 +31,22 @@ export default function Header({ location }: LocationProp) {
             </SiteTitle>
           )}
 
-          {renderMobileNav && (
-            <HamburgerMenuIcon
-              isOpen={mobileMenuIsVisible}
-              clickAction={toggleMenu}
-              className={ignoreClickClassName}
-            />
-          )}
+          <HamburgerMenuIcon
+            isOpen={mobileMenuIsVisible}
+            clickAction={toggleMenu}
+            className={ignoreClickClassName}
+          />
 
-          {renderDesktopNav && <DesktopMenu location={location} />}
+          <DesktopMenu location={location} />
         </NavWidthConstrainer>
       </NavStyled>
 
-      {renderMobileNav && (
-        <MobileMenu
-          isVisible={mobileMenuIsVisible}
-          setIsVisible={setMobileMenuIsVisible}
-          ignoreClickClassName={ignoreClickClassName}
-          location={location}
-        />
-      )}
+      <MobileMenu
+        isVisible={mobileMenuIsVisible}
+        setIsVisible={setMobileMenuIsVisible}
+        ignoreClickClassName={ignoreClickClassName}
+        location={location}
+      />
     </>
   );
 }

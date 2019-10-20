@@ -64,8 +64,9 @@ const ButtonStyled = styled.button`
 `;
 
 const MobileIconStyled = styled(animated.svg)`
-  @media (min-width: ${breakpoints.medium}) {
+  @media (min-width: ${breakpoints.desktop}) {
     display: none;
+    pointer-events: none;
   }
 `;
 

@@ -35,9 +35,8 @@ export const emailAddress = 'isabel@sommerfeld.nu';
 
 export const breakpoints = {
   small: '768px',
-  desktop: 1024,
-  mediumAsNumber: 1024,
   medium: '1024px',
+  desktop: '1024px',
   large: '1400px',
   xl: '2048px',
 };
