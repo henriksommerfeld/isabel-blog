@@ -29,7 +29,7 @@ export default function Searchbox({ location }: LocationProp) {
   }, [route]);
 
   const focusResults = (e: React.KeyboardEvent) => {
-    if (!hasFocus || !results.length) return;
+    if (!hasFocus || !results || !results.length) return;
 
     setFocus(!focusToggled);
     e.preventDefault();
