@@ -9,6 +9,7 @@ import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
 import { LocationProp } from 'interfaces/LocationProp';
+import { useKeys } from '../useKeys';
 
 export default function Searchbox({ location }: LocationProp) {
   const [hasFocus, setHasFocus] = useState(false);
@@ -17,6 +18,7 @@ export default function Searchbox({ location }: LocationProp) {
   const [, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
+  const [focusToggled, setFocus] = useGlobal<SearchFocus>('searchResultsFocus');
   const getPreviousQuery = path => (route === path ? query : '');
   const searchBoxRef = useRef(null);
 
@@ -25,6 +27,15 @@ export default function Searchbox({ location }: LocationProp) {
       searchBoxRef.current.value = '';
     }
   }, [route]);
+
+  const focusResults = (e: React.KeyboardEvent) => {
+    if (!hasFocus) return;
+
+    setFocus(!focusToggled);
+    e.preventDefault();
+  };
+
+  useKeys(['Tab', 'ArrowDown', 'Enter'], focusResults);
 
   const queryInputChanged = evt => {
     const newQuery = evt.target.value.trim();
@@ -125,6 +136,10 @@ export interface SearchQuery {
 }
 export interface SearchResults {
   searchResults: any[];
+}
+
+export interface SearchFocus {
+  searchResultsFocus: boolean;
 }
 
 const searchIndexQuery = graphql`

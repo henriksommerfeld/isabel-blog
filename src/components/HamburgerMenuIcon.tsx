@@ -54,13 +54,6 @@ const ButtonStyled = styled.button`
   border: 0;
   margin: 0;
   padding: 0;
-
-  /* TODO: Show when using keyboard navigation */
-  &:focus,
-  &:hover,
-  &:active {
-    outline-width: 0;
-  }
 `;
 
 const MobileIconStyled = styled(animated.svg)`
