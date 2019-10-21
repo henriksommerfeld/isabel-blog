@@ -15,7 +15,7 @@ export default function Searchbox({ location }: LocationProp) {
   const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
-  const [, setResults] = useGlobal<SearchResults>('searchResults');
+  const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
   const [focusToggled, setFocus] = useGlobal<SearchFocus>('searchResultsFocus');
@@ -29,7 +29,7 @@ export default function Searchbox({ location }: LocationProp) {
   }, [route]);
 
   const focusResults = (e: React.KeyboardEvent) => {
-    if (!hasFocus) return;
+    if (!hasFocus || !results.length) return;
 
     setFocus(!focusToggled);
     e.preventDefault();
