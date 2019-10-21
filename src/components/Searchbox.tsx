@@ -12,14 +12,14 @@ import { LocationProp } from 'interfaces/LocationProp';
 import { useKeys } from '../useKeys';
 
 export default function Searchbox({ location }: LocationProp) {
-  const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
+  const [hasFocus, setHasFocus] = useState(false);
   const [focusToggled, setFocus] = useGlobal<SearchFocus>('searchResultsFocus');
-  const getPreviousQuery = path => (route === path ? query : '');
+  const getPreviousQuery = (path: string) => (route === path ? query : '');
   const searchBoxRef = useRef(null);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function Searchbox({ location }: LocationProp) {
     }
   };
 
-  const search = enteredQuery => {
+  const search = (enteredQuery: string) => {
     const response = index
       .search(enteredQuery, { expand: true, bool: 'AND' })
       .map(({ ref }) => index.documentStore.getDoc(ref));
