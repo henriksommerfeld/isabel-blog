@@ -9,15 +9,17 @@ import { transparentizeHex } from '../color-convertions';
 import SearchWhiteSvg from '../../static/img/search-white.svg';
 import SearchGreySvg from '../../static/img/search-grey100.svg';
 import { LocationProp } from 'interfaces/LocationProp';
+import { useKeys } from '../useKeys';
 
 export default function Searchbox({ location }: LocationProp) {
-  const [hasFocus, setHasFocus] = useState(false);
   const data = useStaticQuery(searchIndexQuery);
   const index = Index.load(data.siteSearchIndex.index);
-  const [, setResults] = useGlobal<SearchResults>('searchResults');
+  const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
-  const getPreviousQuery = path => (route === path ? query : '');
+  const [hasFocus, setHasFocus] = useState(false);
+  const [focusToggled, setFocus] = useGlobal<SearchFocus>('searchResultsFocus');
+  const getPreviousQuery = (path: string) => (route === path ? query : '');
   const searchBoxRef = useRef(null);
 
   useEffect(() => {
@@ -25,6 +27,15 @@ export default function Searchbox({ location }: LocationProp) {
       searchBoxRef.current.value = '';
     }
   }, [route]);
+
+  const focusResults = (e: React.KeyboardEvent) => {
+    if (!hasFocus || !results || !results.length) return;
+
+    setFocus(!focusToggled);
+    e.preventDefault();
+  };
+
+  useKeys(['Tab', 'ArrowDown', 'Enter'], focusResults);
 
   const queryInputChanged = evt => {
     const newQuery = evt.target.value.trim();
@@ -35,7 +46,7 @@ export default function Searchbox({ location }: LocationProp) {
     }
   };
 
-  const search = enteredQuery => {
+  const search = (enteredQuery: string) => {
     const response = index
       .search(enteredQuery, { expand: true, bool: 'AND' })
       .map(({ ref }) => index.documentStore.getDoc(ref));
@@ -125,6 +136,10 @@ export interface SearchQuery {
 }
 export interface SearchResults {
   searchResults: any[];
+}
+
+export interface SearchFocus {
+  searchResultsFocus: boolean;
 }
 
 const searchIndexQuery = graphql`

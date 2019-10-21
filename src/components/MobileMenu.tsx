@@ -51,6 +51,7 @@ export default function MobileMenu({
       ref={menuRef}
       style={pullDownAnimation}
       aria-hidden="true"
+      data-testid="mobile-menu"
     >
       {navLinks.map(link => (
         <MobileLink

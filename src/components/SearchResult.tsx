@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { colors, layout, spacing, breakpoints } from '../constants';
 import { transparentizeHex } from '../color-convertions';
 import { useGlobal } from 'reactn';
-import { SearchQuery, SearchRoute, SearchResults } from './Searchbox';
+import {
+  SearchQuery,
+  SearchRoute,
+  SearchResults,
+  SearchFocus,
+} from './Searchbox';
 import CloseSvg from '../../static/img/close.svg';
 import BlogPostSvg from '../../static/img/blog-post-grey500.svg';
 import { useEscKey } from '../useEscKey';
@@ -15,12 +20,19 @@ export default function SearchResult({ location }: LocationProp) {
   const [results, setResults] = useGlobal<SearchResults>('searchResults');
   const [route, setRoute] = useGlobal<SearchRoute>('searchRoute');
   const [query, setQuery] = useGlobal<SearchQuery>('searchQuery');
+  const [focusToggled] = useGlobal<SearchFocus>('searchResultsFocus');
+  const searchResultsRef = useRef(null);
 
   const containerTransitions = useTransition(
     shouldShowResults(results, route, location.pathname),
     null,
     opacityTransition
   );
+
+  useEffect(() => {
+    if (searchResultsRef && searchResultsRef.current)
+      searchResultsRef.current.focus();
+  }, [focusToggled]);
 
   const closeSearch = () => {
     setRoute('');
@@ -50,11 +62,16 @@ export default function SearchResult({ location }: LocationProp) {
               <em>{query}</em>
             </HitsHeading>
             <LinksContainer>
-              {results.map(page => (
+              {results.map((page, index) => (
                 <LinkContainer key={page.id}>
                   <LinkIconSvg src={BlogPostSvg} alt="" />
                   <div>
-                    <Link to={page.path}>{page.title}</Link>
+                    <Link
+                      to={page.path}
+                      ref={index === 0 ? searchResultsRef : null}
+                    >
+                      {page.title}
+                    </Link>
                     <Excerpt>{page.excerpt}</Excerpt>
                   </div>
                 </LinkContainer>

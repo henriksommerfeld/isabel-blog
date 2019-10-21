@@ -32,7 +32,7 @@ context('Desktop', () => {
   it('Should open Published page', () => {
     const pageName = 'Publicerat';
     cy.findByTestId('desktop-nav')
-      .findByText(pageName)
+      .contains(pageName)
       .click()
       .url()
       .should('equal', Cypress.config().baseUrl + '/publicerat')
@@ -45,7 +45,7 @@ context('Desktop', () => {
   it('Should open About Me page', () => {
     const pageName = 'Om mig';
     cy.findByTestId('desktop-nav')
-      .findByText(pageName)
+      .contains(pageName)
       .click()
       .url()
       .should('equal', Cypress.config().baseUrl + '/om')
@@ -60,7 +60,7 @@ context('Desktop', () => {
   it('Should open Press images page', () => {
     const pageName = 'Pressbilder';
     cy.findByTestId('desktop-nav')
-      .findByText(pageName)
+      .contains(pageName)
       .click()
       .url()
       .should('equal', Cypress.config().baseUrl + '/pressbilder')

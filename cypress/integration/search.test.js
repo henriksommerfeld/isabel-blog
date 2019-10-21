@@ -64,4 +64,10 @@ context('Search', () => {
       .findByTestId('search-results')
       .should('not.exist');
   });
+
+  it('Searchbox should be cleared', () => {
+    cy.findByLabelText('Ange dina sökord här...').then(element => {
+      expect(element.text()).to.equal('');
+    });
+  });
 });
