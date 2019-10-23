@@ -18,7 +18,7 @@ export default function Tweets() {
      entire build because none of the returned tweets have a property I'm querying 
      for.
   */
-  const realTweets = tweets.filter(x => x.id_str === dummyTweetId && x.id_str);
+  const realTweets = tweets.filter(x => x.id_str !== dummyTweetId && x.id_str);
 
   if (!realTweets.length) return null;
 
