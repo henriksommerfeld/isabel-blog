@@ -48,10 +48,8 @@ function LinkPreview({ tweet, images = [] }: TweetProps) {
   if (!hasLinkPreview(tweet)) return null;
 
   const imageUrl = tweet.linked_site.image;
-  const imageFilename = getImageNameFromUrl(imageUrl);
-  const sharpImage = images.find(x => {
-    return x.name + x.ext === imageFilename;
-  });
+  const imageFilename = `${tweet.id_str}-preview`;
+  const sharpImage = images.find(x => x.name === imageFilename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (

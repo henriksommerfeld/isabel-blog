@@ -4,7 +4,7 @@ import { TweetData, TwitterImage } from './Tweets';
 import { isRetweet } from './Tweet';
 import { spacing, colors } from '../constants';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import { getImageNameFromUrl } from '../images';
+import { getImageNameFromUrl, getSharpImageOrDefault } from '../images';
 
 interface TweeterProps {
   tweet: TweetData;
@@ -13,13 +13,11 @@ interface TweeterProps {
 
 export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
-  const profileImageName = getImageNameFromUrl(user.profile_image_url_https);
-  const biggerImage = profileImageName.replace('_normal.', '_bigger.');
-  const sharpImage = images.find(x => x.name + x.ext === biggerImage);
-  const imageToUse =
-    sharpImage && sharpImage.childImageSharp
-      ? sharpImage
-      : user.profile_image_url_https;
+  const imageUrl = tweet.user.profile_image_url_https;
+  const suffix = tweet.retweeted_status ? 'retweeted-profile' : 'profile';
+  const imageFilename = `${tweet.id_str}-${suffix}`;
+  const sharpImage = images.find(x => x.name === imageFilename);
+  const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (
     <TweeterStyled

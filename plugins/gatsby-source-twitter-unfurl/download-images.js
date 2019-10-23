@@ -21,17 +21,21 @@ function getBiggerImageUrl(url) {
 
 async function fetchImagesFromTweet(tweet, reporter) {
   try {
-    const imageUrls = [];
     const profileImgUrl = get(tweet, 'user.profile_image_url_https', '');
     const profileImageUrl = getBiggerImageUrl(profileImgUrl);
-    imageUrls.push(profileImageUrl);
+
+    const retweetedImgUrl = get(
+      tweet,
+      'retweeted_status.user.profile_image_url_https',
+      ''
+    );
+    const retweetedImageUrl = getBiggerImageUrl(retweetedImgUrl);
 
     const linkedImgUrl = get(tweet, 'linked_site.image', '');
-    imageUrls.push(linkedImgUrl);
 
-    imageUrls.forEach(async image => {
-      await fetchImage(image, reporter);
-    });
+    await fetchImage(profileImageUrl, tweet, 'profile', reporter);
+    await fetchImage(retweetedImageUrl, tweet, 'retweeted-profile', reporter);
+    await fetchImage(linkedImgUrl, tweet, 'preview', reporter);
 
     return tweet;
   } catch (error) {
@@ -40,18 +44,14 @@ async function fetchImagesFromTweet(tweet, reporter) {
   }
 }
 
-function getFilenameFromPath(fullPath) {
-  return fullPath.replace(/^.*[\\\/]/, '');
-}
-
-async function fetchImage(imageUrl, reporter) {
+async function fetchImage(imageUrl, tweet, filenameSuffix, reporter) {
   try {
     if (!imageUrl) return false;
 
     const imageFolderPath = '/uploads/twitter';
     const relativeImageFolderPath = `../../static${imageFolderPath}`;
     const fullPath = path.join(__dirname, relativeImageFolderPath);
-    const imageFilename = getFilenameFromPath(imageUrl);
+    const imageFilename = `${tweet.id_str}-${filenameSuffix}.jpg`;
     const distinationPath = `${fullPath}/${imageFilename}`;
 
     if (fs.existsSync(distinationPath)) {
@@ -60,7 +60,8 @@ async function fetchImage(imageUrl, reporter) {
 
     const options = {
       url: imageUrl,
-      dest: fullPath,
+      dest: distinationPath,
+      extractFilename: false,
     };
 
     if (!fs.existsSync(fullPath)) {
