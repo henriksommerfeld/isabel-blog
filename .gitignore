@@ -13,4 +13,4 @@ yarn-error.log
 tweets*.json
 cypress/screenshots
 cypress/videos
-#static/uploads/twitter
+static/uploads/twitter
