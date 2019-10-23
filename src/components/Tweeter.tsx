@@ -14,8 +14,10 @@ export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
   const profileImageName = getImageNameFromUrl(user.profile_image_url_https);
   const sharpImage = images.find(x => x.name + x.ext === profileImageName);
-  const imageObject = (sharpImage && sharpImage.childImageSharp) || null;
-  const imageToUse = imageObject || user.profile_image_url_https;
+  const imageToUse =
+    sharpImage && sharpImage.childImageSharp
+      ? sharpImage
+      : user.profile_image_url_https;
 
   return (
     <TweeterStyled
@@ -23,7 +25,7 @@ export function Tweeter({ tweet, images = [] }: TweeterProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <PreviewCompatibleImage image={sharpImage} style={profileImageStyles} />
+      <PreviewCompatibleImage image={imageToUse} style={profileImageStyles} />
       <NameStyled>
         <RealNameStyled>{user.name}</RealNameStyled>
         <UserNameStyled>@{user.screen_name}</UserNameStyled>

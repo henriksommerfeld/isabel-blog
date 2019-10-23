@@ -1,6 +1,7 @@
 const download = require('image-downloader');
 const fs = require('fs');
 const path = require('path');
+const get = require('lodash.get');
 
 async function fetchImagesFromTweets(tweets, reporter) {
   try {
@@ -20,8 +21,13 @@ function getBiggerImageUrl(url) {
 
 async function fetchImagesFromTweet(tweet, reporter) {
   try {
-    const imgUrl = (tweet.user && tweet.user.profile_image_url_https) || '';
-    const profileImageUrl = getBiggerImageUrl(imgUrl);
+    const imageUrls = [];
+    const profileImgUrl = get(tweet, 'tweet.user.profile_image_url_https', '');
+    const profileImageUrl = getBiggerImageUrl(profileImgUrl);
+    imageUrls.push(profileImageUrl);
+
+    // const linkedImgUrl = get(tweet, 'tweet.linked_site.image', '');
+    // imageUrls.puslinkedImgUrl;
 
     await fetchImage(profileImageUrl, reporter);
 
