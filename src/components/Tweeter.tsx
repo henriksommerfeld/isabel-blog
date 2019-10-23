@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { TweetData, TwitterImage } from './Tweets';
 import { isRetweet } from './Tweet';
 import { spacing, colors } from '../constants';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import { getImageNameFromUrl } from '../images';
 
 interface TweeterProps {
   tweet: TweetData;
@@ -13,7 +14,8 @@ interface TweeterProps {
 export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
   const profileImageName = getImageNameFromUrl(user.profile_image_url_https);
-  const sharpImage = images.find(x => x.name + x.ext === profileImageName);
+  const biggerImage = profileImageName.replace('_normal.', '_bigger.');
+  const sharpImage = images.find(x => x.name + x.ext === biggerImage);
   const imageToUse =
     sharpImage && sharpImage.childImageSharp
       ? sharpImage
@@ -32,15 +34,6 @@ export function Tweeter({ tweet, images = [] }: TweeterProps) {
       </NameStyled>
     </TweeterStyled>
   );
-}
-
-function getImageNameFromUrl(url: string): string {
-  if (!url) return url;
-
-  const fileParts = url.split('/').filter(x => x);
-  const filename = fileParts[fileParts.length - 1];
-
-  return filename.replace('_normal.', '_bigger.');
 }
 
 function GetProfileUrl(screenName: string): string {

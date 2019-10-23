@@ -270,7 +270,7 @@ const isabelsTweetsQuery = graphql`
         ext
         publicURL
         childImageSharp {
-          fluid(maxWidth: 100) {
+          fluid(maxWidth: 1000) {
             src
             srcSet
             aspectRatio

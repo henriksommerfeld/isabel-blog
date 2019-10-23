@@ -22,14 +22,16 @@ function getBiggerImageUrl(url) {
 async function fetchImagesFromTweet(tweet, reporter) {
   try {
     const imageUrls = [];
-    const profileImgUrl = get(tweet, 'tweet.user.profile_image_url_https', '');
+    const profileImgUrl = get(tweet, 'user.profile_image_url_https', '');
     const profileImageUrl = getBiggerImageUrl(profileImgUrl);
     imageUrls.push(profileImageUrl);
 
-    // const linkedImgUrl = get(tweet, 'tweet.linked_site.image', '');
-    // imageUrls.puslinkedImgUrl;
+    const linkedImgUrl = get(tweet, 'linked_site.image', '');
+    imageUrls.push(linkedImgUrl);
 
-    await fetchImage(profileImageUrl, reporter);
+    imageUrls.forEach(async image => {
+      await fetchImage(image, reporter);
+    });
 
     return tweet;
   } catch (error) {
