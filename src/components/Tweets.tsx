@@ -125,6 +125,7 @@ export interface TweetData {
   favorite_count: number;
   created_at: string;
   user: {
+    id: number;
     screen_name: string;
     url: string;
     name: string;
@@ -173,6 +174,7 @@ export interface TweetData {
       };
     };
     user: {
+      id: number;
       screen_name: string;
       url: string;
       name: string;
@@ -215,6 +217,7 @@ const isabelsTweetsQuery = graphql`
         favorite_count
         created_at
         user {
+          id
           screen_name
           url
           name
@@ -250,6 +253,7 @@ const isabelsTweetsQuery = graphql`
             }
           }
           user {
+            id
             screen_name
             url
             name

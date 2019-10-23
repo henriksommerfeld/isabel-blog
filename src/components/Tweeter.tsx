@@ -14,8 +14,9 @@ interface TweeterProps {
 export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
   const imageUrl = tweet.user.profile_image_url_https;
-  const suffix = tweet.retweeted_status ? 'retweeted-profile' : 'profile';
-  const imageFilename = `${tweet.id_str}-${suffix}`;
+  const imageFilename = tweet.retweeted_status
+    ? `rt-profile-${tweet.retweeted_status.user.id}`
+    : `profile-${tweet.user.id}`;
   const sharpImage = images.find(x => x.name === imageFilename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
