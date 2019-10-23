@@ -1,8 +1,10 @@
 require('source-map-support').install();
+const path = require('path');
 
 const Twitter = require(`twitter`);
 const fetchTweets = require(`./twitter`);
 const { fetchMetadataFromLinkedSites } = require('./unfurl');
+const { fetchImagesFromTweets } = require('./download-images');
 const { md5, camelCase } = require(`./utils`);
 const { saveResult } = require(`./debug`);
 const { dummyTweet } = require('../../src/dummy-tweet');
@@ -10,15 +12,15 @@ const { dummyTweet } = require('../../src/dummy-tweet');
 const nodeTypes = [];
 const DEBUG = process.env.DEBUG === `true`;
 
-function generateNode(tweet, contentDigest, type) {
-  const id = md5(tweet.id_str || tweet.toString());
+function generateNode(tweet, createContentDigest, type) {
+  const id = createTweetNodeId(tweet);
   const nodeData = {
     id: id,
     children: [],
     parent: `__SOURCE__`,
     internal: {
       type,
-      contentDigest,
+      contentDigest: createContentDigest(tweet),
     },
   };
 
@@ -31,10 +33,16 @@ function generateNode(tweet, contentDigest, type) {
   return node;
 }
 
-function createNodes(tweets, nodeType, actions, createContentDigest) {
-  const { createNode } = actions;
-  tweets.forEach(tweet => {
-    createNode(generateNode(tweet, createContentDigest(tweet), nodeType));
+function createTweetNodeId(tweet) {
+  return md5(tweet.id_str || tweet.toString());
+}
+
+async function createNodes(tweets, nodeType, actions, createContentDigest) {
+  const { createNode, createParentChildLink } = actions;
+
+  tweets.forEach(async tweet => {
+    const nodeData = generateNode(tweet, createContentDigest, nodeType);
+    await createNode(nodeData);
   });
 }
 
@@ -69,7 +77,7 @@ async function getTweets(query, credentials, reporter) {
   };
 }
 
-function createNodesForTweets(
+async function createNodesForTweets(
   queryResults,
   actions,
   createContentDigest,
@@ -83,7 +91,7 @@ function createNodesForTweets(
 
   if (results.length) {
     reporter.info(`Creating Twitter nodes ${nodeType} ...`);
-    createNodes(results, nodeType, actions, createContentDigest);
+    await createNodes(results, nodeType, actions, createContentDigest);
   } else {
     reporter.warn(`No twitter results from query, only creating dummy tweet.`);
   }
@@ -105,10 +113,12 @@ exports.sourceNodes = async (
     reporter
   );
 
+  await fetchImagesFromTweets(enrichedTweets, reporter);
+
   const resultsWithDummy = [dummyTweet, ...enrichedTweets];
   tweetsQueryResult.results = resultsWithDummy;
 
-  createNodesForTweets(
+  await createNodesForTweets(
     tweetsQueryResult,
     actions,
     createContentDigest,

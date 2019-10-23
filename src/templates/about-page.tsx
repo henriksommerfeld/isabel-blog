@@ -5,8 +5,7 @@ import { HTMLContent } from '../components/Content';
 import { editPageUrl } from '../url-replacer';
 import { AboutPageTemplate } from './about-page-template';
 import { LocationProp } from '../interfaces/LocationProp';
-import { FluidObject } from 'gatsby-image';
-import { ImageProps } from 'components/PreviewCompatibleImage';
+import { BlogImage } from 'components/PreviewCompatibleImage';
 
 export default function AboutPage({ location }: LocationProp) {
   const data = useStaticQuery<AboutPageData>(aboutPageQuery);
@@ -40,10 +39,10 @@ interface AboutPageData {
     frontmatter: {
       title: string;
       description: string;
-      image: ImageProps;
+      image: BlogImage;
     };
   };
-  fileName: FluidObject;
+  fileName: BlogImage;
 }
 
 const aboutPageQuery = graphql`

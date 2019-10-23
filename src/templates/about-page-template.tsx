@@ -4,18 +4,17 @@ import styled from 'styled-components';
 import { PageStyled } from '../components/PageStyled';
 import { PostContainer } from '../components/PostContainer';
 import { SharedIntroBanner } from './shared-intro-banner';
-import { FluidObject } from 'gatsby-image';
 import { PostStyled } from '../components/PostStyled';
-import { ImageProps } from '../components/PreviewCompatibleImage';
 import { RoundPortrait } from '../components/RoundPortrait';
 import { spacing, emailAddress, links } from '../constants';
+import { BlogImage } from 'components/PreviewCompatibleImage';
 
 interface AboutPageTemplateProps {
   title: string;
   content: string;
   contentComponent: any;
-  backgroundImageFile: FluidObject | undefined;
-  portraitImageFile: ImageProps;
+  backgroundImageFile: BlogImage;
+  portraitImageFile: BlogImage;
   location: WindowLocation;
 }
 

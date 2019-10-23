@@ -1,15 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
-import { TweetData } from './Tweets';
+import styled, { css } from 'styled-components';
+import { TweetData, TwitterImage } from './Tweets';
 import { isRetweet } from './Tweet';
 import { spacing, colors } from '../constants';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 
 interface TweeterProps {
   tweet: TweetData;
+  images?: TwitterImage[];
 }
 
-export function Tweeter({ tweet }: TweeterProps) {
+export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
+  const profileImageName = getImageNameFromUrl(user.profile_image_url_https);
+  const sharpImage = images.find(x => x.name + x.ext === profileImageName);
+  const imageObject = (sharpImage && sharpImage.childImageSharp) || null;
+  const imageToUse = imageObject || user.profile_image_url_https;
 
   return (
     <TweeterStyled
@@ -17,13 +23,22 @@ export function Tweeter({ tweet }: TweeterProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ProfileImage src={user.profile_image_url_https} alt="" />
+      <PreviewCompatibleImage image={sharpImage} style={profileImageStyles} />
       <NameStyled>
         <RealNameStyled>{user.name}</RealNameStyled>
         <UserNameStyled>@{user.screen_name}</UserNameStyled>
       </NameStyled>
     </TweeterStyled>
   );
+}
+
+function getImageNameFromUrl(url: string): string {
+  if (!url) return url;
+
+  const fileParts = url.split('/').filter(x => x);
+  const filename = fileParts[fileParts.length - 1];
+
+  return filename.replace('_normal.', '_bigger.');
 }
 
 function GetProfileUrl(screenName: string): string {
@@ -36,11 +51,12 @@ const TweeterStyled = styled('a')`
   grid-column-gap: ${spacing.default};
 `;
 
-const ProfileImage = styled('img')`
-  border-radius: 50%;
-  border: 2px solid ${colors.white};
-  margin: 0;
-`;
+const profileImageStyles = {
+  borderRadius: '50%',
+  border: `2px solid ${colors.white}`,
+  margin: 0,
+  width: '50px',
+};
 
 const NameStyled = styled('div')``;
 

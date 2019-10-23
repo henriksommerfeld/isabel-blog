@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
 import BackgroundImage from 'gatsby-background-image';
-import { FluidObject } from 'gatsby-image';
 import { getFluid } from '../images';
 import Searchbox from '../components/Searchbox';
 import { WindowLocation } from '@reach/router';
+import { BlogImage } from 'components/PreviewCompatibleImage';
 
 interface SharedIntroBannerProps {
   title: string;
-  backgroundImage: FluidObject | undefined;
+  backgroundImage: BlogImage;
   overlayOpacity?: number;
   location: WindowLocation;
 }

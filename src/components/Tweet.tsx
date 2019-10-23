@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { tailwindColors } from '../tailwind-colors';
-import { TweetData } from './Tweets';
+import { TweetData, TwitterImage } from './Tweets';
 import { transparentizeHex } from '../color-convertions';
 import { colors, spacing, layout } from '../constants';
 import TwitterSvg from '../img/social/twitter.svg';
@@ -12,14 +12,15 @@ import { Tweeter } from './Tweeter';
 
 interface TweetProps {
   tweet: TweetData;
+  images?: TwitterImage[];
 }
 
-export default function Tweet({ tweet }: TweetProps) {
+export default function Tweet({ tweet, images = [] }: TweetProps) {
   return (
     <TweetStyled key={tweet.id} retweet={isRetweet(tweet)}>
       <TwitterLogoStyled />
       <Heading>
-        <Tweeter tweet={tweet} />
+        <Tweeter tweet={tweet} images={images} />
         <TwitterTime tweet={tweet} />
       </Heading>
       <TweetContent>
@@ -65,9 +66,9 @@ function LinkPreview({ tweet }: TweetProps) {
   );
 }
 
-function extractHostname(url) {
+function extractHostname(url: string): string {
   try {
-    let hostname;
+    let hostname: string;
 
     if (url.indexOf('//') > -1) {
       hostname = url.split('/')[2];

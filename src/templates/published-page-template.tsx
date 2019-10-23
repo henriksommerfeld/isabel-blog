@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
-import { FluidObject } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
 import { WindowLocation } from '@reach/router';
 import { PageStyled } from '../components/PageStyled';
+import { FancyImage } from 'components/PreviewCompatibleImage';
 
 interface PublishedTemplate {
   contentComponent: any;
   content: any;
   title: string;
-  imageFile: FluidObject | undefined;
+  imageFile: FancyImage;
   location: WindowLocation;
 }
 

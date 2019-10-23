@@ -6,17 +6,19 @@ import Tweet from './Tweet';
 import { dummyTweetId } from '../dummy-tweet';
 import TwitterSvg from '../img/social/twitter-gray500.svg';
 import { breakpoints, spacing, colors, fonts, urls } from '../constants';
+import { GatsbyImageProps } from 'gatsby-image';
 
 export default function Tweets() {
   const tweetsData = useStaticQuery<TweetsData>(isabelsTweetsQuery);
   const tweets = tweetsData.allTwitterStatusesUserTimeline.nodes;
+  const images = tweetsData.allFile.nodes;
   /* The local plugin 'gatsby-source-twitter-unfurl' always returns the referenced
      dummy tweet, that has all the possible properties that can be returned 
      from the GraphQL query. This is to avoid that the query fails, and thus the 
      entire build because none of the returned tweets have a property I'm querying 
      for.
   */
-  const realTweets = tweets.filter(x => x.id_str !== dummyTweetId && x.id_str);
+  const realTweets = tweets.filter(x => x.id_str === dummyTweetId && x.id_str);
 
   if (!realTweets.length) return null;
 
@@ -33,7 +35,7 @@ export default function Tweets() {
       </Tweeter>
       <TweetsInnerStyled>
         {realTweets.map(tweet => (
-          <Tweet key={tweet.id} tweet={tweet} />
+          <Tweet key={tweet.id} tweet={tweet} images={images} />
         ))}
       </TweetsInnerStyled>
     </TweetsStyled>
@@ -189,6 +191,16 @@ interface TweetsData {
   allTwitterStatusesUserTimeline: {
     nodes: TweetData[];
   };
+  allFile: {
+    nodes: TwitterImage[];
+  };
+}
+
+export interface TwitterImage {
+  name: string;
+  ext: string;
+  publicURL: string;
+  childImageSharp: GatsbyImageProps | null;
 }
 
 const isabelsTweetsQuery = graphql`
@@ -249,6 +261,22 @@ const isabelsTweetsQuery = graphql`
           description
           image
           url
+        }
+      }
+    }
+    allFile(filter: { relativeDirectory: { eq: "twitter" } }) {
+      nodes {
+        name
+        ext
+        publicURL
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            src
+            srcSet
+            aspectRatio
+            sizes
+            base64
+          }
         }
       }
     }

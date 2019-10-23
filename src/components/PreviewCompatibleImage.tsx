@@ -2,12 +2,14 @@ import React from 'react';
 import Image, { GatsbyImageProps } from 'gatsby-image';
 import { isImageUrl, getFluid } from '../images';
 
-export interface ImageProps {
-  image: GatsbyImageProps | string | undefined;
+export interface FancyImage {
+  childImageSharp: GatsbyImageProps;
 }
 
+export type BlogImage = FancyImage | string;
+
 export interface PreviewCompatibleImageProps {
-  image: ImageProps;
+  image: BlogImage;
   style?: any;
   imgStyle?: any;
   altText?: string;
