@@ -144,9 +144,8 @@ export interface TweetData {
     };
     media?: {
       media_url_https: string;
-      url: string;
-      expanded_url: string;
-    };
+      type: string;
+    }[];
   };
   retweeted_status?: {
     id: string;
@@ -169,9 +168,8 @@ export interface TweetData {
       };
       media?: {
         media_url_https: string;
-        url: string;
-        expanded_url: string;
-      };
+        type: string;
+      }[];
     };
     user: {
       id: number;

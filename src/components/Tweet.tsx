@@ -27,6 +27,7 @@ export default function Tweet({ tweet, images = [] }: TweetProps) {
       </Heading>
       <TweetContent>
         <TweetText tweet={tweet} />
+        <TweetPhoto tweet={tweet} images={images} />
         <LinkPreview tweet={tweet} images={images} />
       </TweetContent>
       <MetaStyled>
@@ -42,6 +43,29 @@ export function isRetweet(tweet: TweetData): boolean {
 
 function hasLinkPreview(tweet: TweetData): boolean {
   return !!tweet.linked_site && !!tweet.linked_site.title;
+}
+
+function hasPhoto(tweet: TweetData): boolean {
+  return (
+    tweet.entities &&
+    tweet.entities.media &&
+    tweet.entities.media.length &&
+    tweet.entities.media[0].type === 'photo' &&
+    !!tweet.entities.media[0].media_url_https
+  );
+}
+
+function TweetPhoto({ tweet, images = [] }: TweetProps) {
+  if (!hasPhoto(tweet) || hasLinkPreview(tweet)) return null;
+
+  const imageUrl = tweet.entities.media[0].media_url_https;
+  const imageFilename = `photo-${tweet.id_str}`;
+  const sharpImage = images.find(x => x.name === imageFilename);
+  const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
+
+  return (
+    <PreviewCompatibleImage image={imageToUse} style={linkPreviewImgStyles} />
+  );
 }
 
 function LinkPreview({ tweet, images = [] }: TweetProps) {

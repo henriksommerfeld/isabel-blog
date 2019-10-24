@@ -30,14 +30,17 @@ async function fetchImagesFromTweet(tweet, reporter) {
       ''
     );
     const rtUserId = get(tweet, 'retweeted_status.user.id', '');
-
     const retweetedImageUrl = getBiggerImageUrl(retweetedImgUrl);
-
     const linkedImgUrl = get(tweet, 'linked_site.image', '');
+    const hasPhoto = get(tweet, 'entities.media[0].type', '') === 'photo';
+    const photoUrl = hasPhoto
+      ? get(tweet, 'entities.media[0].media_url_https', '')
+      : '';
 
     await fetchImage(profileImageUrl, `profile-${tweet.user.id}`, reporter);
     await fetchImage(retweetedImageUrl, `rt-profile-${rtUserId}`, reporter);
     await fetchImage(linkedImgUrl, `preview-${tweet.id_str}`, reporter);
+    await fetchImage(photoUrl, `photo-${tweet.id_str}`, reporter);
 
     return tweet;
   } catch (error) {
