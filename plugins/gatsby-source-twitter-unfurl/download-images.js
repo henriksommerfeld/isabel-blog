@@ -30,7 +30,7 @@ async function fetchImagesFromTweet(tweet, reporter) {
   try {
     const templates = twitterDownloadsConfig.saveKeyTemplates;
     Object.keys(templates).forEach(async key => {
-      let imageUrl = twitterDownloadsConfig.getValueForProperty(key);
+      let imageUrl = twitterDownloadsConfig.getValueForProperty(tweet, key);
 
       if (isProfileImage(path.property)) {
         imageUrl = getBiggerImageUrl(imageUrl);
