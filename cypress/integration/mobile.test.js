@@ -71,7 +71,7 @@ context('Mobile', () => {
       .findAllByRole('article')
       .should('have.length', 5)
       .findByText('Visa äldre inlägg')
-      .click()
+      .click({ force: true })
       .findAllByRole('article')
       .its('length')
       .should('be.gte', 5);
