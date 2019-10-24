@@ -5,6 +5,12 @@ import { isRetweet } from './Tweet';
 import { spacing, colors } from '../constants';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { getImageNameFromUrl, getSharpImageOrDefault } from '../images';
+import {
+  twitterProperties,
+  saveKeyTemplates,
+  getSaveKey,
+  getValueForProperty,
+} from '../../plugins/gatsby-source-twitter-unfurl/download-config';
 
 interface TweeterProps {
   tweet: TweetData;
@@ -13,11 +19,14 @@ interface TweeterProps {
 
 export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const user = isRetweet(tweet) ? tweet.retweeted_status.user : tweet.user;
-  const imageUrl = tweet.user.profile_image_url_https;
-  const imageFilename = tweet.retweeted_status
-    ? `rt-profile-${tweet.retweeted_status.user.id}`
-    : `profile-${tweet.user.id}`;
-  const sharpImage = images.find(x => x.name === imageFilename);
+  const property = isRetweet(tweet)
+    ? twitterProperties.retweetedProfileImage
+    : twitterProperties.profileImage;
+
+  const filenameTemplate = saveKeyTemplates[property];
+  const filename = getSaveKey(tweet, filenameTemplate);
+  const imageUrl = getValueForProperty(tweet, property);
+  const sharpImage = images.find(x => x.name === filename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (

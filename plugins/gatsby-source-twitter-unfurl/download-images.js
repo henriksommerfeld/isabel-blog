@@ -1,7 +1,7 @@
 const download = require('image-downloader');
 const fs = require('fs');
 const path = require('path');
-const get = require('lodash.get');
+const twitterDownloadsConfig = require('./download-config');
 
 async function fetchImagesFromTweets(tweets, reporter) {
   try {
@@ -19,28 +19,27 @@ function getBiggerImageUrl(url) {
   return url.replace('_normal.', '_bigger.');
 }
 
+function isProfileImage(property) {
+  return (
+    property === twitterDownloadsConfig.profileImage ||
+    property === twitterDownloadsConfig.retweetedProfileImage
+  );
+}
+
 async function fetchImagesFromTweet(tweet, reporter) {
   try {
-    const profileImgUrl = get(tweet, 'user.profile_image_url_https', '');
-    const profileImageUrl = getBiggerImageUrl(profileImgUrl);
+    const templates = twitterDownloadsConfig.saveKeyTemplates;
+    Object.keys(templates).forEach(async key => {
+      let imageUrl = twitterDownloadsConfig.getValueForProperty(key);
 
-    const retweetedImgUrl = get(
-      tweet,
-      'retweeted_status.user.profile_image_url_https',
-      ''
-    );
-    const rtUserId = get(tweet, 'retweeted_status.user.id', '');
-    const retweetedImageUrl = getBiggerImageUrl(retweetedImgUrl);
-    const linkedImgUrl = get(tweet, 'linked_site.image', '');
-    const hasPhoto = get(tweet, 'entities.media[0].type', '') === 'photo';
-    const photoUrl = hasPhoto
-      ? get(tweet, 'entities.media[0].media_url_https', '')
-      : '';
+      if (isProfileImage(path.property)) {
+        imageUrl = getBiggerImageUrl(imageUrl);
+      }
 
-    await fetchImage(profileImageUrl, `profile-${tweet.user.id}`, reporter);
-    await fetchImage(retweetedImageUrl, `rt-profile-${rtUserId}`, reporter);
-    await fetchImage(linkedImgUrl, `preview-${tweet.id_str}`, reporter);
-    await fetchImage(photoUrl, `photo-${tweet.id_str}`, reporter);
+      const saveKey = twitterDownloadsConfig.getSaveKey(tweet, templates[key]);
+
+      await fetchImage(imageUrl, saveKey, reporter);
+    });
 
     return tweet;
   } catch (error) {

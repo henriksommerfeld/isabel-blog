@@ -9,8 +9,14 @@ import RetweetSvg from '../img/social/retweet.svg';
 import LinkSvg from '../../static/img/link-twitter.svg';
 import { TwitterTime } from './TweetTime';
 import { Tweeter } from './Tweeter';
-import { getSharpImageOrDefault, getImageNameFromUrl } from '../images';
+import { getSharpImageOrDefault } from '../images';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import {
+  twitterProperties,
+  saveKeyTemplates,
+  getSaveKey,
+  getValueForProperty,
+} from '../../plugins/gatsby-source-twitter-unfurl/download-config';
 
 interface TweetProps {
   tweet: TweetData;
@@ -45,22 +51,18 @@ function hasLinkPreview(tweet: TweetData): boolean {
   return !!tweet.linked_site && !!tweet.linked_site.title;
 }
 
-function hasPhoto(tweet: TweetData): boolean {
-  return (
-    tweet.entities &&
-    tweet.entities.media &&
-    tweet.entities.media.length &&
-    tweet.entities.media[0].type === 'photo' &&
-    !!tweet.entities.media[0].media_url_https
-  );
+function hasPhoto(tweet: TweetData, property: string): boolean {
+  return !!getValueForProperty(tweet, property);
 }
 
 function TweetPhoto({ tweet, images = [] }: TweetProps) {
-  if (!hasPhoto(tweet) || hasLinkPreview(tweet)) return null;
+  const property = twitterProperties.uploadedMedia;
+  if (!hasPhoto(tweet, property) || hasLinkPreview(tweet)) return null;
 
-  const imageUrl = tweet.entities.media[0].media_url_https;
-  const imageFilename = `photo-${tweet.id_str}`;
-  const sharpImage = images.find(x => x.name === imageFilename);
+  const filenameTemplate = saveKeyTemplates[property];
+  const filename = getSaveKey(tweet, filenameTemplate);
+  const imageUrl = getValueForProperty(tweet, property);
+  const sharpImage = images.find(x => x.name === filename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (
@@ -71,9 +73,11 @@ function TweetPhoto({ tweet, images = [] }: TweetProps) {
 function LinkPreview({ tweet, images = [] }: TweetProps) {
   if (!hasLinkPreview(tweet)) return null;
 
-  const imageUrl = tweet.linked_site.image;
-  const imageFilename = `preview-${tweet.id_str}`;
-  const sharpImage = images.find(x => x.name === imageFilename);
+  const property = twitterProperties.linkedSiteImage;
+  const filenameTemplate = saveKeyTemplates[property];
+  const filename = getSaveKey(tweet, filenameTemplate);
+  const imageUrl = getValueForProperty(tweet, property);
+  const sharpImage = images.find(x => x.name === filename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (
