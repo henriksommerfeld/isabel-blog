@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { tailwindColors } from '../tailwind-colors';
-import { TweetData } from './Tweets';
+import { TweetData, TwitterImage } from './Tweets';
 import { transparentizeHex } from '../color-convertions';
 import { colors, spacing, layout } from '../constants';
 import TwitterSvg from '../img/social/twitter.svg';
@@ -9,22 +9,32 @@ import RetweetSvg from '../img/social/retweet.svg';
 import LinkSvg from '../../static/img/link-twitter.svg';
 import { TwitterTime } from './TweetTime';
 import { Tweeter } from './Tweeter';
+import { getSharpImageOrDefault } from '../images';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
+import {
+  twitterProperties,
+  saveKeyTemplates,
+  getSaveKey,
+  getValueForProperty,
+} from '../../plugins/gatsby-source-twitter-unfurl/download-config';
 
 interface TweetProps {
   tweet: TweetData;
+  images?: TwitterImage[];
 }
 
-export default function Tweet({ tweet }: TweetProps) {
+export default function Tweet({ tweet, images = [] }: TweetProps) {
   return (
     <TweetStyled key={tweet.id} retweet={isRetweet(tweet)}>
       <TwitterLogoStyled />
       <Heading>
-        <Tweeter tweet={tweet} />
+        <Tweeter tweet={tweet} images={images} />
         <TwitterTime tweet={tweet} />
       </Heading>
       <TweetContent>
         <TweetText tweet={tweet} />
-        <LinkPreview tweet={tweet} />
+        <TweetPhoto tweet={tweet} images={images} />
+        <LinkPreview tweet={tweet} images={images} />
       </TweetContent>
       <MetaStyled>
         {getRetweetCount(tweet)} retweets, {getLikesCount(tweet)} likes
@@ -41,8 +51,34 @@ function hasLinkPreview(tweet: TweetData): boolean {
   return !!tweet.linked_site && !!tweet.linked_site.title;
 }
 
-function LinkPreview({ tweet }: TweetProps) {
+function hasPhoto(tweet: TweetData, property: string): boolean {
+  return !!getValueForProperty(tweet, property);
+}
+
+function TweetPhoto({ tweet, images = [] }: TweetProps) {
+  const property = twitterProperties.uploadedMedia;
+  if (!hasPhoto(tweet, property) || hasLinkPreview(tweet)) return null;
+
+  const filenameTemplate = saveKeyTemplates[property];
+  const filename = getSaveKey(tweet, filenameTemplate);
+  const imageUrl = getValueForProperty(tweet, property);
+  const sharpImage = images.find(x => x.name === filename);
+  const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
+
+  return (
+    <PreviewCompatibleImage image={imageToUse} style={linkPreviewImgStyles} />
+  );
+}
+
+function LinkPreview({ tweet, images = [] }: TweetProps) {
   if (!hasLinkPreview(tweet)) return null;
+
+  const property = twitterProperties.linkedSiteImage;
+  const filenameTemplate = saveKeyTemplates[property];
+  const filename = getSaveKey(tweet, filenameTemplate);
+  const imageUrl = getValueForProperty(tweet, property);
+  const sharpImage = images.find(x => x.name === filename);
+  const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (
     <LinkPreviewStyled
@@ -50,7 +86,7 @@ function LinkPreview({ tweet }: TweetProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <LinkPreviewImg src={tweet.linked_site.image} alt="" />
+      <PreviewCompatibleImage image={imageToUse} style={linkPreviewImgStyles} />
       <LinkPreviewText>
         <div>{tweet.linked_site.title}</div>
         <LinkPreviewDescription>
@@ -65,9 +101,9 @@ function LinkPreview({ tweet }: TweetProps) {
   );
 }
 
-function extractHostname(url) {
+function extractHostname(url: string): string {
   try {
-    let hostname;
+    let hostname: string;
 
     if (url.indexOf('//') > -1) {
       hostname = url.split('/')[2];
@@ -118,11 +154,11 @@ const LinkPreviewStyled = styled('a')`
   border: 2px solid ${tailwindColors.gray700};
 `;
 
-const LinkPreviewImg = styled('img')`
-  border-top-left-radius: ${layout.borderRadius};
-  border-top-right-radius: ${layout.borderRadius};
-  margin: 0;
-`;
+const linkPreviewImgStyles = {
+  borderTopLeftRadius: layout.borderRadius,
+  borderTopRightRadius: layout.borderRadius,
+  margin: 0,
+};
 
 function getText(tweet: TweetData): string {
   if (isRetweet(tweet) && hasLinkPreview(tweet)) return null;

@@ -1,4 +1,4 @@
-const dummyTweetId = `848930551989915648`
+const dummyTweetId = `848930551989915648`;
 
 const dummyTweet = {
   created_at: 'Mon Apr 03 16:09:50 +0000 2017',
@@ -256,9 +256,9 @@ const dummyTweet = {
         'https://pbs.twimg.com/profile_background_images/662767273/jvmxdpdrplhxcw8yvkv2.png',
       profile_background_tile: true,
       profile_image_url:
-        'http://pbs.twimg.com/profile_images/800953549697888256/UlXXL5h5_normal.jpg',
+        'http://pbs.twimg.com/profile_images/1008726624320118784/rKY9KsBd_bigger.jpg',
       profile_image_url_https:
-        'https://pbs.twimg.com/profile_images/800953549697888256/UlXXL5h5_normal.jpg',
+        'https://pbs.twimg.com/profile_images/1008726624320118784/rKY9KsBd_bigger.jpg',
       profile_banner_url:
         'https://pbs.twimg.com/profile_banners/357750891/1487188210',
       profile_link_color: '19CF86',
@@ -292,9 +292,9 @@ const dummyTweet = {
   favorited: false,
   retweeted: false,
   lang: 'en',
-}
+};
 
 module.exports = {
   dummyTweet,
   dummyTweetId,
-}
+};

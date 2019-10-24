@@ -14,9 +14,9 @@ export default function CommentsButton({
   clickedHandler,
 }: CommentsButtonProps) {
   return (
-    <ButtonContainer data-testid="comments-button">
+    <ButtonContainer>
       <RipplesButtonWithBreakpoints>
-        <ButtonStyled onClick={clickedHandler}>
+        <ButtonStyled onClick={clickedHandler} data-testid="comments-button">
           <Icon src={CommentSvg} />
           <ButtonText>Visa kommentarer</ButtonText>
         </ButtonStyled>

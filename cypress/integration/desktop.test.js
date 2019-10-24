@@ -79,7 +79,7 @@ context('Desktop', () => {
       .findAllByRole('article')
       .should('have.length', 5)
       .findByText('Visa äldre inlägg')
-      .click()
+      .click({ force: true })
       .findAllByRole('article')
       .its('length')
       .should('be.gte', 5);
@@ -104,8 +104,8 @@ context('Desktop', () => {
   it('Post should have comments button', () => {
     cy.visit(samplePost.url)
       .findByTestId('comments-button')
-      .findByText('Visa kommentarer')
-      .click()
+      .scrollIntoView()
+      .click({ force: true })
       .get('#disqus_thread')
       .should('be.visible')
       .findByTestId('comments-button')

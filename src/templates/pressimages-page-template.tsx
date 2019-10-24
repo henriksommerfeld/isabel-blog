@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, breakpoints, spacing, layout } from '../constants';
-import { FluidObject } from 'gatsby-image';
+import { GatsbyImageProps } from 'gatsby-image';
 import { SharedIntroBanner } from './shared-intro-banner';
 import { isPortrait, getOriginalImage } from '../images';
 import PreviewCompatibleImage, {
-  ImageProps,
+  FancyImage,
 } from '../components/PreviewCompatibleImage';
 import DownloadButton from '../components/DownloadButton';
 import { WindowLocation } from '@reach/router';
@@ -15,8 +15,8 @@ interface PressImagesTemplate {
   contentComponent: any;
   content: any;
   title: string;
-  headerImageFile: FluidObject | undefined;
-  pressImages: ImageProps[] | undefined;
+  headerImageFile: FancyImage;
+  pressImages: FancyImage[] | undefined;
   isPreview?: boolean;
   location: WindowLocation;
 }
@@ -50,7 +50,7 @@ export function PressImagesPageTemplate({
 }
 
 interface PressImagesListProps {
-  pressImages: ImageProps[];
+  pressImages: FancyImage[];
   isPreview?: boolean;
 }
 
@@ -130,7 +130,10 @@ const DownloadableImage = styled('div')`
   grid-column: ${({ portrait }) => (portrait ? 'span 1' : 'span 2')};
 `;
 
-function GetGridColumns(images: ImageProps[], breakpoint: number): string {
+function GetGridColumns(
+  images: GatsbyImageProps[],
+  breakpoint: number
+): string {
   if (breakpoint < 2 || images.length < 1) return `repeat(2, 1fr)`;
 
   const totalWidth = GetImagesWidth(images);
@@ -139,14 +142,14 @@ function GetGridColumns(images: ImageProps[], breakpoint: number): string {
   return `repeat(${columns}, 1fr)`;
 }
 
-function GetImagesWidth(images: ImageProps[]): number {
+function GetImagesWidth(images: GatsbyImageProps[]): number {
   return images.reduce(
     (count, currentImage) => count + GetImageWidth(currentImage),
     0
   );
 }
 
-function GetImageWidth(image: ImageProps): number {
+function GetImageWidth(image: GatsbyImageProps): number {
   return isPortrait(image) ? 1 : 2;
 }
 

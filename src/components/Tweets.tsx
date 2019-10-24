@@ -6,10 +6,12 @@ import Tweet from './Tweet';
 import { dummyTweetId } from '../dummy-tweet';
 import TwitterSvg from '../img/social/twitter-gray500.svg';
 import { breakpoints, spacing, colors, fonts, urls } from '../constants';
+import { GatsbyImageProps } from 'gatsby-image';
 
 export default function Tweets() {
   const tweetsData = useStaticQuery<TweetsData>(isabelsTweetsQuery);
   const tweets = tweetsData.allTwitterStatusesUserTimeline.nodes;
+  const images = tweetsData.allFile.nodes;
   /* The local plugin 'gatsby-source-twitter-unfurl' always returns the referenced
      dummy tweet, that has all the possible properties that can be returned 
      from the GraphQL query. This is to avoid that the query fails, and thus the 
@@ -33,7 +35,7 @@ export default function Tweets() {
       </Tweeter>
       <TweetsInnerStyled>
         {realTweets.map(tweet => (
-          <Tweet key={tweet.id} tweet={tweet} />
+          <Tweet key={tweet.id} tweet={tweet} images={images} />
         ))}
       </TweetsInnerStyled>
     </TweetsStyled>
@@ -123,6 +125,7 @@ export interface TweetData {
   favorite_count: number;
   created_at: string;
   user: {
+    id: number;
     screen_name: string;
     url: string;
     name: string;
@@ -141,9 +144,8 @@ export interface TweetData {
     };
     media?: {
       media_url_https: string;
-      url: string;
-      expanded_url: string;
-    };
+      type: string;
+    }[];
   };
   retweeted_status?: {
     id: string;
@@ -166,11 +168,11 @@ export interface TweetData {
       };
       media?: {
         media_url_https: string;
-        url: string;
-        expanded_url: string;
-      };
+        type: string;
+      }[];
     };
     user: {
+      id: number;
       screen_name: string;
       url: string;
       name: string;
@@ -189,6 +191,16 @@ interface TweetsData {
   allTwitterStatusesUserTimeline: {
     nodes: TweetData[];
   };
+  allFile: {
+    nodes: TwitterImage[];
+  };
+}
+
+export interface TwitterImage {
+  name: string;
+  ext: string;
+  publicURL: string;
+  childImageSharp: GatsbyImageProps | null;
 }
 
 const isabelsTweetsQuery = graphql`
@@ -203,6 +215,7 @@ const isabelsTweetsQuery = graphql`
         favorite_count
         created_at
         user {
+          id
           screen_name
           url
           name
@@ -238,6 +251,7 @@ const isabelsTweetsQuery = graphql`
             }
           }
           user {
+            id
             screen_name
             url
             name
@@ -249,6 +263,22 @@ const isabelsTweetsQuery = graphql`
           description
           image
           url
+        }
+      }
+    }
+    allFile(filter: { relativeDirectory: { eq: "twitter" } }) {
+      nodes {
+        name
+        ext
+        publicURL
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            src
+            srcSet
+            aspectRatio
+            sizes
+            base64
+          }
         }
       }
     }

@@ -25,7 +25,7 @@ context('Search', () => {
 
   it('Should find expected post', () => {
     cy.findByText(expectedPost.title)
-      .click()
+      .click({ force: true })
       .url()
       .should('equal', Cypress.config().baseUrl + expectedPost.url)
       .findByTestId('search-results')
@@ -40,7 +40,7 @@ context('Search', () => {
       .should('equal', Cypress.config().baseUrl + expectedPost.url)
       .findByTestId('tags')
       .findByText(keyword)
-      .click()
+      .click({ force: true })
       .url()
       .should('equal', tagsUrl)
       .findByText('Se alla taggar')
