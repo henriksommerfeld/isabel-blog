@@ -1,11 +1,11 @@
 {
   "name": "gatsby-source-twitter-unfurl",
   "version": "1.0.0",
-  "description": "",
+  "description": "Based on gatsby-source-twitter (https://github.com/G100g/gatsby-source-twitter) with some changes",
   "main": "index.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Henrik Sommerfeld",
+  "license": "MIT",
   "dependencies": {
     "image-downloader": "^3.5.0",
     "lodash.get": "^4.4.2",

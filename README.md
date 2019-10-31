@@ -1,6 +1,6 @@
 # Isabel Sommerfeld's Blog
 
-This is the personal blog of Isabel Sommerfeld based on [GatsbyJS][1] available at <https://www.isabelsommerfeld.com>
+This is the personal blog of Isabel Sommerfeld based on [GatsbyJS][1] available at <https://www.isabelsommerfeld.com>. The content is mostly in Swedish, so even if the code is generally in English, there are some hard-coded texts and filenamnes in Swedish.
 
 ## Current Deploy Status
 
