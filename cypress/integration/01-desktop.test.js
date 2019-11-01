@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { startPageTitle } from './8-cms-edit-start.test';
+import { startPageTitle } from './08-cms-edit-start.test';
 
 context('Desktop', () => {
   before(() => {
