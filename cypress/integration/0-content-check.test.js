@@ -1,5 +1,10 @@
 /// <reference types="Cypress" />
 
+/* When running the other tests, the markdown files are updated with test data.
+   To avoid accidentally committing those changes when running tests locally and trashing the content, 
+   the tests in this file exist to capture such a misstake when run in CI (GitHub Actions)
+*/
+
 context('Content check', () => {
   it(`Start page should contain Isabel's name`, () => {
     cy.visit('/')
