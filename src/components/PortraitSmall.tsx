@@ -1,7 +1,12 @@
 import React from 'react';
 import Image from 'gatsby-image';
+import { getFluid } from '../images';
 
 export default function PortraitSmall({ image }) {
+  const fluid = getFluid(image);
+
+  if (!fluid) return null;
+
   return <Image fluid={image.childImageSharp.fluid} style={ImageStyle} />;
 }
 
