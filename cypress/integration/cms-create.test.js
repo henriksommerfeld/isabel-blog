@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-context('CMS create/delete', () => {
+context('CMS create/delete blog post', () => {
   beforeEach(() => {
     cy.viewport('macbook-13');
     cy.clearCookies();

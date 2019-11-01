@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { startPageTitle } from './cms-edit-startpage.test';
+import { startPageTitle } from './cms-edit-start.test';
 
 context('Mobile', () => {
   before(() => {
