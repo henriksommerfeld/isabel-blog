@@ -32,7 +32,7 @@ export function PublishedPageTemplate({
       />
       <PostContainer>
         <PostStyled>
-          <PageContent content={content} />
+          <PageContent content={content} data-testid="published-text" />
         </PostStyled>
       </PostContainer>
     </PageStyled>
