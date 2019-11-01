@@ -1,10 +1,9 @@
 ---
 templateKey: index-page
 image: /uploads/isabel_960x960.jpg
-heading: "\U0001F3C6\U0001F3C6\U0001F3C6"
-subheading: "☕\U0001F382☕"
+heading: Isabel Sommerfeld
+subheading: 'Jurist - Mänskliga rättigheter, Terapeutisk juridik'
 description: >-
   Jurist med inriktning mänskliga rättigheter och terapeutisk juridik. Civil
   brottsutredare på Polismyndigheten.
 ---
-
