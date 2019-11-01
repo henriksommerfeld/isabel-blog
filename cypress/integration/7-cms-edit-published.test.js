@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { startPageTitle } from './cms-edit-start.test';
+import { startPageTitle } from './8-cms-edit-start.test';
 
 const samplePage = {
   url: '/publicerat',

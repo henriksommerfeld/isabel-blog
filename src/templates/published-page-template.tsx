@@ -48,7 +48,7 @@ const PostContainer = styled('div')`
   }
 `;
 
-const PostStyled = styled.div`
+const PostStyled = styled('main')`
   padding: ${spacing.default};
   background-color: ${colors.white};
 

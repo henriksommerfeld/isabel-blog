@@ -1,11 +1,11 @@
 /// <reference types="Cypress" />
-import { startPageTitle } from './cms-edit-start.test';
+import { startPageTitle } from './8-cms-edit-start.test';
 
 const samplePage = {
-  url: '/om',
+  url: '/pressbilder',
 };
 
-context('CMS About Page Edit', () => {
+context('CMS Press Images Page Edit', () => {
   before(() => {
     cy.visit(samplePage.url);
     window.localStorage.setItem('cookies-accepted', true);
@@ -23,8 +23,10 @@ context('CMS About Page Edit', () => {
       });
   });
 
+  const descriptionSelector = '#description-field-1';
+  const descriptionText = '🐱‍🐉';
   const mainTextSelector = '[contenteditable="true"]';
-  const mainText = 'Små grodorna, små grodorna är lustiga att se.';
+  const mainText = 'Imse vimse 🕷, klättrá uppför 🕸';
 
   it('Should login to CMS', () => {
     cy.findByText('Login to File System')
@@ -33,14 +35,19 @@ context('CMS About Page Edit', () => {
       .should('be.visible');
   });
 
-  const title = 'Om mig';
+  const title = 'Pressbilder';
   const pageTitle = `${title} | ${startPageTitle}`;
 
   it('Should edit page', () => {
-    cy.get(mainTextSelector)
+    cy.get(descriptionSelector)
+      .clear()
+      .type(descriptionText)
+      .get(mainTextSelector)
+      .click({ force: true })
       .should('be.visible')
       .clear()
       .type(mainText)
+      .root()
       .findByText('Publish')
       .click()
       .findByText('Publish now')
@@ -64,7 +71,13 @@ context('CMS About Page Edit', () => {
         pageTitle
       );
 
-      cy.findByTestId('about-me-text').should('have.text', mainText);
+      cy.get('meta[property="og:description"]').should(
+        'have.attr',
+        'content',
+        descriptionText
+      );
+
+      cy.get('main').contains(mainText);
     });
   });
 });
