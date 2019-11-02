@@ -32,7 +32,7 @@ export function PublishedPageTemplate({
       />
       <PostContainer>
         <PostStyled>
-          <PageContent content={content} />
+          <PageContent content={content} data-testid="published-text" />
         </PostStyled>
       </PostContainer>
     </PageStyled>
@@ -48,7 +48,7 @@ const PostContainer = styled('div')`
   }
 `;
 
-const PostStyled = styled.div`
+const PostStyled = styled('main')`
   padding: ${spacing.default};
   background-color: ${colors.white};
 

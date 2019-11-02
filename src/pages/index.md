@@ -7,4 +7,3 @@ description: >-
   Jurist med inriktning mänskliga rättigheter och terapeutisk juridik. Civil
   brottsutredare på Polismyndigheten.
 ---
-

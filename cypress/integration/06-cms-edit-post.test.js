@@ -5,7 +5,7 @@ const samplePost = {
   url: '/2012/04/18/isabel-sommerfeld-deltar-i-kvallens-uppdrag-granskning',
 };
 
-context('CMS edit', () => {
+context('CMS Blog Post Edit', () => {
   before(() => {
     cy.visit(samplePost.url);
     window.localStorage.setItem('cookies-accepted', true);

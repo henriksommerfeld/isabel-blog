@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import { startPageTitle } from './08-cms-edit-start.test';
 
 context('Desktop', () => {
   before(() => {
@@ -11,7 +12,7 @@ context('Desktop', () => {
       .should('be.visible');
   });
 
-  const titlePostfix = ' | Isabel Sommerfeld';
+  const titlePostfix = ` | ${startPageTitle}`;
 
   it('Should open cookies page', () => {
     cy.findByTestId('cookie-alert')

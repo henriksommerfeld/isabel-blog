@@ -49,7 +49,7 @@ export function AboutPageTemplate({
                 <a href={links.linkedin.url}>{links.linkedin.title}</a>
               </div>
             </ContactInfo>
-            <PageContent content={content} />
+            <PageContent content={content} data-testid="about-me-text" />
           </AboutPageContent>
         </PostStyled>
       </PostContainer>
@@ -57,7 +57,7 @@ export function AboutPageTemplate({
   );
 }
 
-const AboutPageContent = styled('div')``;
+const AboutPageContent = styled('main')``;
 
 const PortraitWrapper = styled('div')`
   display: flex;

@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import { startPageTitle } from './08-cms-edit-start.test';
 
 context('Mobile', () => {
   before(() => {
@@ -9,7 +10,7 @@ context('Mobile', () => {
     cy.viewport('iphone-6');
   });
 
-  const titlePostfix = ' | Isabel Sommerfeld';
+  const titlePostfix = ` | ${startPageTitle}`;
   const hamburgerMenuLabel = 'Hamburger menu button';
 
   it('Should open Published page', () => {
