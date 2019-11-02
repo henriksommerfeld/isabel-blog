@@ -24,6 +24,7 @@
     "test:cypress:record": "cypress run --record --key 098f2f3b-90f0-4a00-b668-7686f454b8cc",
     "test:cypress:ci": "start-server-and-test develop http://localhost:8000 test:cypress:record",
     "cy": "start-server-and-test develop http://localhost:8000 test:cypress:open",
+    "cy:cli": "start-server-and-test develop http://localhost:8000 test:cypress",
     "type-check": "npx tsc",
     "lint": "eslint --ignore-path .gitignore . --ext tsx",
     "lint:fix": "yarn lint --fix",
