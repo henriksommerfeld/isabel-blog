@@ -40,6 +40,10 @@
     ],
     "delay": "1500"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/henriksommerfeld/isabel-blog.git"
+  },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@raae/gatsby-remark-oembed": "^0.1.1",
