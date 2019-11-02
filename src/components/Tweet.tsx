@@ -25,7 +25,7 @@ interface TweetProps {
 
 export default function Tweet({ tweet, images = [] }: TweetProps) {
   return (
-    <TweetStyled key={tweet.id} retweet={isRetweet(tweet)}>
+    <TweetStyled key={tweet.id} retweet={isRetweet(tweet)} data-testid="tweet">
       <TwitterLogoStyled />
       <Heading>
         <Tweeter tweet={tweet} images={images} />

@@ -17,4 +17,12 @@ context('Twitter tests', () => {
       .should('be.visible')
       .should('have.attr', 'href', 'https://twitter.com/isommerfeld');
   });
+
+  it('There should be 6 tweets', () => {
+    if (!hasKeys()) return;
+
+    cy.visit('/om')
+      .findAllByTestId('tweet')
+      .should('have.length', 6);
+  });
 });
