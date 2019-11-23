@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function HTML(props) {
   return (
@@ -26,5 +26,5 @@ export default function HTML(props) {
         {props.postBodyComponents}
       </body>
     </html>
-  )
+  );
 }

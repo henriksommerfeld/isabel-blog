@@ -1,36 +1,36 @@
 // Add support for importing stuff written in TypeScript
-require('source-map-support').install()
-require('ts-node').register()
+require('source-map-support').install();
+require('ts-node').register();
 
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
-const { getUniqueTags, getTagRouteUrl } = require('./src/tags-parser')
-const { removeBlogFromUrl } = require('./src/url-replacer')
+const _ = require('lodash');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+const { getUniqueTags, getTagRouteUrl } = require('./src/tags-parser');
+const { removeBlogFromUrl } = require('./src/url-replacer');
 
 function getFileFrom(templateKey) {
-  return templateKey + '.tsx'
+  return templateKey + '.tsx';
 }
 
 exports.onCreateDevServer = ({ app }) => {
-  const fsMiddlewareAPI = require('netlify-cms-backend-fs/dist/fs')
-  fsMiddlewareAPI(app)
-}
+  const fsMiddlewareAPI = require('netlify-cms-backend-fs/dist/fs');
+  fsMiddlewareAPI(app);
+};
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   function createPagesFromContent(result) {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
-      return Promise.reject(result.errors)
+      result.errors.forEach(e => console.error(e.toString()));
+      return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach(edge => {
-      const id = edge.node.id
+      const id = edge.node.id;
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -43,24 +43,24 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
         },
-      })
-    })
+      });
+    });
 
     // Tag pages:
-    let tags = []
+    let tags = [];
     // Iterate through each post, putting all found tags into `tags`
     posts.forEach(edge => {
       if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
+        tags = tags.concat(edge.node.frontmatter.tags);
       }
-    })
+    });
 
     // Eliminate duplicate tags
-    const uniqueTags = getUniqueTags(tags)
+    const uniqueTags = getUniqueTags(tags);
 
     // Make tag pages
     uniqueTags.forEach(tag => {
-      const tagPath = getTagRouteUrl(tag)
+      const tagPath = getTagRouteUrl(tag);
 
       createPage({
         path: tagPath,
@@ -68,8 +68,8 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           tag,
         },
-      })
-    })
+      });
+    });
   }
 
   function getContent() {
@@ -94,31 +94,31 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-    `)
+    `);
   }
 
-  return getContent().then(createPagesFromContent)
-}
+  return getContent().then(createPagesFromContent);
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
+  const { createNodeField } = actions;
+  fmImagesToRelative(node); // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const filePath = node.frontmatter.url || createFilePath({ node, getNode })
-    const route = removeBlogFromUrl(filePath)
+    const filePath = node.frontmatter.url || createFilePath({ node, getNode });
+    const route = removeBlogFromUrl(filePath);
     createNodeField({
       name: `slug`,
       node,
       value: route,
-    })
+    });
 
     if (!node.frontmatter.language) {
       createNodeField({
         name: `language`,
         node,
         value: 'sv',
-      })
+      });
     }
   }
-}
+};
