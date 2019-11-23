@@ -1,15 +1,15 @@
-import React from 'react'
-import Content from '../../components/Content'
-import { toJsSafe } from '../toJsSafe'
-import { PressImagesPageTemplate } from '../../templates/pressimages-page-template'
+import React from 'react';
+import Content from '../../components/Content';
+import { toJsSafe } from '../toJsSafe';
+import { PressImagesPageTemplate } from '../../templates/pressimages-page-template';
 
 const PressImagesPagePreview = ({ entry, widgetFor }) => {
-  const dataRaw = entry.getIn(['data'])
-  const data = toJsSafe(dataRaw)
+  const dataRaw = entry.getIn(['data']);
+  const data = toJsSafe(dataRaw);
 
-  if (!data) return <div>Loading...</div>
+  if (!data) return <div>Loading...</div>;
 
-  const images = data.downloadableimages
+  const images = data.downloadableimages;
 
   return (
     <PressImagesPageTemplate
@@ -18,7 +18,7 @@ const PressImagesPagePreview = ({ entry, widgetFor }) => {
       pressImages={images}
       isPreview={true}
     />
-  )
-}
+  );
+};
 
-export default PressImagesPagePreview
+export default PressImagesPagePreview;

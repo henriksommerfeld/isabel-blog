@@ -1,12 +1,12 @@
-import React from 'react'
-import { IndexPageTemplate } from '../../templates/index-page-template'
-import { toJsSafe } from '../toJsSafe'
+import React from 'react';
+import { IndexPageTemplate } from '../../templates/index-page-template';
+import { toJsSafe } from '../toJsSafe';
 
 const IndexPagePreview = ({ entry, widgetFor }) => {
-  const dataRaw = entry.getIn(['data'])
-  const data = toJsSafe(dataRaw)
+  const dataRaw = entry.getIn(['data']);
+  const data = toJsSafe(dataRaw);
 
-  if (!data) return <div>Loading...</div>
+  if (!data) return <div>Loading...</div>;
 
   return (
     <IndexPageTemplate
@@ -16,7 +16,7 @@ const IndexPagePreview = ({ entry, widgetFor }) => {
       description={widgetFor('body')}
       isPreview={true}
     />
-  )
-}
+  );
+};
 
-export default IndexPagePreview
+export default IndexPagePreview;
