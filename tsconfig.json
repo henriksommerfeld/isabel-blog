@@ -19,7 +19,10 @@
     "**/src/**/*.tsx",
     "test/**/*.ts",
     "**/typings/**/*.ts",
-    "**/src/**/*.js"
+    "**/src/**/*.js",
+    "**/cypress/**/*.js",
+    "**/gatsby-source-twitter-unfurl/**/*.js",
+    "*.js"
   ],
   "exclude": ["node_modules", "public", ".cache", "auto-generated"]
 }

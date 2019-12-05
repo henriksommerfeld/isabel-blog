@@ -23,6 +23,7 @@ async function fetchMetadataFromLinkedSite(tweet, reporter) {
         return null;
       }
     );
+    /*eslint require-atomic-updates: off */
     tweet.linked_site = linkedSite || null;
     return tweet;
   } catch (error) {

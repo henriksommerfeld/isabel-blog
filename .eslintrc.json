@@ -5,7 +5,8 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended"
   ],
   "settings": {
     "react": {
@@ -18,7 +19,7 @@
     "es6": true,
     "jest": true
   },
-  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "plugins": ["@typescript-eslint", "react", "prettier", "cypress"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -27,7 +28,6 @@
     "sourceType": "module", // Allows for the use of imports
     "project": "./tsconfig.json"
   },
-  "semi": [2, "always"],
   "rules": {
     "react/prop-types": "off", // Disable prop-types as we use TypeScript for type checking
     "@typescript-eslint/explicit-function-return-type": 0,
@@ -35,7 +35,8 @@
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/member-delimiter-style": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/camelcase": "off"
   },
   "overrides": [
     // Override some TypeScript rules just for .js files

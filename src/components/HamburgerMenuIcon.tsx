@@ -10,7 +10,7 @@ export default function HamburgerMenuIcon({
 }: Hamburger) {
   const { top, center, bottom, color } = useSpring({
     to: isOpen ? crossStyle : hamburgerStyle,
-  });
+  }) as any;
   return (
     <ButtonStyled onClick={clickAction} aria-label="Hamburger menu button">
       <MobileIconStyled

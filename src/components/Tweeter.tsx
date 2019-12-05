@@ -4,7 +4,7 @@ import { TweetData, TwitterImage } from './Tweets';
 import { isRetweet } from './Tweet';
 import { spacing, colors } from '../constants';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import { getImageNameFromUrl, getSharpImageOrDefault } from '../images';
+import { getSharpImageOrDefault } from '../images';
 import {
   twitterProperties,
   saveKeyTemplates,

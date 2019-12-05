@@ -15,7 +15,7 @@ exports.onInitialClientRender = () => {
     }
   }
 
-  function clickHandler(evt) {
+  function clickHandler() {
     window.document.body.classList.remove(cssClass);
   }
 

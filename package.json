@@ -26,7 +26,7 @@
     "cy": "start-server-and-test develop http://localhost:8000 test:cypress:open",
     "cy:cli": "start-server-and-test develop http://localhost:8000 test:cypress",
     "type-check": "npx tsc",
-    "lint": "eslint --ignore-path .gitignore . --ext tsx",
+    "lint": "eslint . --ext js,ts,jsx,tsx",
     "lint:fix": "yarn lint --fix",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
     "upgrade-packages": "yarn upgrade-interactive && npx syncyarnlock"
@@ -117,6 +117,7 @@
     "cypress": "^3.7.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-cypress": "^2.7.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "http-proxy-middleware": "^0.20.0",

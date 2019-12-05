@@ -43,6 +43,7 @@ const MenuStyled = styled('div')`
   }
 `;
 
+/* eslint @typescript-eslint/no-unused-vars: off */
 const LinkStyled = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />
 ))`

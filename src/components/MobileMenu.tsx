@@ -88,6 +88,7 @@ const MobileMenuStyled = styled(animated.div)`
   }
 `;
 
+/* eslint @typescript-eslint/no-unused-vars: off */
 const MobileLink = styled(({ isActive, ...restProps }) => (
   <Link {...restProps} />
 ))`

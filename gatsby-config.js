@@ -173,7 +173,7 @@ const plugins = [
         },
       },
       // Optional filter to limit indexed nodes
-      filter: (node, getNode) =>
+      filter: node =>
         node.frontmatter.hidden !== true &&
         node.frontmatter.title !== 'Startsidan',
     },
