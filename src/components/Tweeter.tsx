@@ -4,7 +4,7 @@ import { TweetData, TwitterImage } from './Tweets';
 import { isRetweet } from './Tweet';
 import { spacing, colors } from '../constants';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import { getImageNameFromUrl, getSharpImageOrDefault } from '../images';
+import { getSharpImageOrDefault } from '../images';
 import {
   twitterProperties,
   saveKeyTemplates,
@@ -59,6 +59,7 @@ const profileImageStyles = {
   border: `2px solid ${colors.white}`,
   margin: 0,
   width: '50px',
+  height: '50px',
 };
 
 const NameStyled = styled('div')``;

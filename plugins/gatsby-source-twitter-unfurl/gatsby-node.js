@@ -1,5 +1,4 @@
 require('source-map-support').install();
-const path = require('path');
 
 const Twitter = require(`twitter`);
 const fetchTweets = require(`./twitter`);
@@ -38,7 +37,7 @@ function createTweetNodeId(tweet) {
 }
 
 async function createNodes(tweets, nodeType, actions, createContentDigest) {
-  const { createNode, createParentChildLink } = actions;
+  const { createNode } = actions;
 
   tweets.forEach(async tweet => {
     const nodeData = generateNode(tweet, createContentDigest, nodeType);

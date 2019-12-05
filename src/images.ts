@@ -1,10 +1,9 @@
 import { FluidObject } from 'gatsby-image';
-import { get } from 'lodash';
 import { BlogImage } from 'components/PreviewCompatibleImage';
 import { TwitterImage } from 'components/Tweets';
 
 export function getFluid(image: any): FluidObject | null {
-  return get(image, 'childImageSharp.fluid') || null;
+  return image?.childImageSharp?.fluid || null;
 }
 
 export function isImageUrl(image: any): boolean {
@@ -12,8 +11,7 @@ export function isImageUrl(image: any): boolean {
 }
 
 export function isPortrait(image: any): boolean {
-  const aspectRatio = get(image, 'childImageSharp.fluid.aspectRatio');
-
+  const aspectRatio = image?.childImageSharp?.fluid?.aspectRatio;
   return aspectRatio && aspectRatio < 1;
 }
 
@@ -41,10 +39,10 @@ export function getImageNameFromUrl(url: string): string {
 }
 
 export function getOriginalImage(image: any): OriginalImage {
-  const src = get(image, 'childImageSharp.original.src') || '';
-  const width = get(image, 'childImageSharp.original.width') || '';
-  const height = get(image, 'childImageSharp.original.height') || '';
-  const name = get(image, 'childImageSharp.fluid.originalName') || '';
+  const src = image?.childImageSharp?.original?.src || '';
+  const width = image?.childImageSharp?.original?.width || '';
+  const height = image?.childImageSharp?.original?.height || '';
+  const name = image?.childImageSharp?.fluid.originalName || '';
 
   return { src, width, height, name };
 }

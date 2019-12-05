@@ -1,4 +1,4 @@
-import { kebabCase } from 'lodash';
+import kebabCase from 'lodash/kebabCase';
 import { links } from './constants';
 
 export function getUniqueTags(tags: string[] | undefined): string[] {

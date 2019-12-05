@@ -1,5 +1,6 @@
-const handle = async function(client, endpoint, { params }) {
+const handle = async function(client, endpoint, options, reporter) {
   try {
+    const { params } = options;
     const results = await client.get(endpoint, params);
     return results.length ? results : [results];
   } catch (e) {
@@ -11,6 +12,6 @@ const handle = async function(client, endpoint, { params }) {
 
 module.exports = async (client, { endpoint, ...options }, reporter) => {
   reporter.info(`Fetching Twitter ${endpoint} content...`);
-  const results = await handle(client, endpoint, options);
+  const results = await handle(client, endpoint, options, reporter);
   return results;
 };
