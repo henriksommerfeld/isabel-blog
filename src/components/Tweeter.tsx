@@ -59,6 +59,7 @@ const profileImageStyles = {
   border: `2px solid ${colors.white}`,
   margin: 0,
   width: '50px',
+  height: '50px',
 };
 
 const NameStyled = styled('div')``;
