@@ -9,46 +9,45 @@ context('CMS create/delete blog post', () => {
 
   it('Should create post', () => {
     cy.fixture('bara-ben').then(article => {
-      cy.visit('/admin')
-        .findByText('Login to File System')
-        .click()
-        .findByText('New Bloggpost')
-        .click()
-        .get('#title-field-1')
+      cy.visit('/admin');
+
+      cy.findByText('Login to File System').click();
+
+      cy.findByText('New Bloggpost').click();
+
+      cy.get('#title-field-1')
         .clear()
         .type(article.title)
         .get('[data-slate-editor="true"]')
         .click()
-        .type(article.body)
-        .findByText('Publish')
-        .click()
-        .findByText('Publish now')
-        .click()
-        .findByText('Changes saved')
-        .click()
-        .findByText('New Bloggpost')
-        .should('be.visible');
+        .type(article.body);
+
+      cy.findByText('Publish').click();
+
+      cy.findByText('Publish now').click();
+
+      cy.findByText('Changes saved').click();
+
+      cy.findByText('New Bloggpost').should('be.visible');
     });
   });
 
   it('Should see created post', () => {
     cy.fixture('bara-ben').then(article => {
-      cy.visit('/')
-        .findByText(article.title)
-        .click()
-        .findByText(article.title);
+      cy.visit('/');
+      cy.findByText(article.title).click();
+      cy.findByText(article.title);
     });
   });
 
   it('Should delete created post', () => {
     cy.fixture('bara-ben').then(article => {
-      cy.visit('/admin')
-        .findByText('Login to File System')
-        .click()
-        .findByText(article.title)
-        .click()
-        .findByText('Delete entry')
-        .click();
+      cy.visit('/admin');
+      cy.findByText('Login to File System').click();
+
+      cy.findByText(article.title).click();
+
+      cy.findByText('Delete entry').click();
     });
   });
 });

@@ -43,12 +43,13 @@ context('CMS Start Page Edit', () => {
       .root()
       .get(subHeadingSelector)
       .clear()
-      .type(newSubHeading)
-      .findByText('Publish')
-      .click()
-      .findByText('Publish now')
-      .click()
-      .findByText('Changes saved')
+      .type(newSubHeading);
+
+    cy.findByText('Publish').click();
+
+    cy.findByText('Publish now').click();
+
+    cy.findByText('Changes saved')
       .click()
       .get('h1')
       .should('be.visible')

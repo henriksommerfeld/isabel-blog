@@ -47,12 +47,13 @@ context('CMS Published Page Edit', () => {
       .should('be.visible')
       .clear()
       .type(mainText)
-      .root()
-      .findByText('Publish')
-      .click()
-      .findByText('Publish now')
-      .click()
-      .findByText('Changes saved')
+      .root();
+
+    cy.findByText('Publish').click();
+
+    cy.findByText('Publish now').click();
+
+    cy.findByText('Changes saved')
       .click()
       .get('h1')
       .should('be.visible')

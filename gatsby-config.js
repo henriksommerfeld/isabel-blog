@@ -187,10 +187,11 @@ const plugins = [
       start_url: `/`,
       background_color: `#2D3748`,
       theme_color: `#2D3748`,
-      display: `standalone`,
+      display: `browser`,
       icon: `static/img/favimage.jpg`,
     },
   },
+  'gatsby-plugin-offline',
   {
     resolve: `gatsby-plugin-disqus`,
     options: {
