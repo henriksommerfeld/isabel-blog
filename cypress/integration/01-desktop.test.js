@@ -7,27 +7,22 @@ context('Desktop', () => {
   });
 
   beforeEach(() => {
-    cy.viewport('macbook-15')
-      .findByTestId('desktop-nav')
-      .should('be.visible');
+    cy.viewport('macbook-15');
+    cy.findByTestId('desktop-nav').should('be.visible');
   });
 
   const titlePostfix = ` | ${startPageTitle}`;
 
   it('Should open cookies page', () => {
-    cy.findByTestId('cookie-alert')
-      .findByTestId('about-cookies-link')
+    cy.findByTestId('about-cookies-link')
       .click()
       .url()
       .should('equal', Cypress.config().baseUrl + '/cookies');
   });
 
   it('Should remove cookies alert on OK click', () => {
-    cy.findByTestId('cookie-alert')
-      .findByLabelText('Acceptera cookies')
-      .click()
-      .findByTestId('cookie-alert')
-      .should('not.exist');
+    cy.findByLabelText('Acceptera cookies').click();
+    cy.findByTestId('cookie-alert').should('not.exist');
   });
 
   it('Should open Published page', () => {
@@ -36,8 +31,9 @@ context('Desktop', () => {
       .contains(pageName)
       .click()
       .url()
-      .should('equal', Cypress.config().baseUrl + '/publicerat')
-      .findByTestId('page-title')
+      .should('equal', Cypress.config().baseUrl + '/publicerat');
+
+    cy.findByTestId('page-title')
       .should('have.text', pageName)
       .title()
       .should('equal', pageName + titlePostfix);
@@ -49,10 +45,11 @@ context('Desktop', () => {
       .contains(pageName)
       .click()
       .url()
-      .should('equal', Cypress.config().baseUrl + '/om')
-      .findByTestId('page-title')
-      .should('have.text', pageName)
-      .findByText('Kontakta mig på')
+      .should('equal', Cypress.config().baseUrl + '/om');
+
+    cy.findByTestId('page-title').should('have.text', pageName);
+
+    cy.findByText('Kontakta mig på')
       .should('be.visible')
       .title()
       .should('equal', pageName + titlePostfix);
@@ -64,8 +61,9 @@ context('Desktop', () => {
       .contains(pageName)
       .click()
       .url()
-      .should('equal', Cypress.config().baseUrl + '/pressbilder')
-      .findByTestId('page-title')
+      .should('equal', Cypress.config().baseUrl + '/pressbilder');
+
+    cy.findByTestId('page-title')
       .should('have.text', pageName)
       .title()
       .should('equal', pageName + titlePostfix);
@@ -76,12 +74,13 @@ context('Desktop', () => {
       onBeforeLoad: win => {
         win.sessionStorage.clear();
       },
-    })
-      .findAllByRole('article')
-      .should('have.length', 5)
-      .findByText('Visa äldre inlägg')
-      .click({ force: true })
-      .findAllByRole('article')
+    });
+
+    cy.findAllByRole('article').should('have.length', 5);
+
+    cy.findByText('Visa äldre inlägg').click({ force: true });
+
+    cy.findAllByRole('article')
       .its('length')
       .should('be.gte', 5);
   });
@@ -92,24 +91,19 @@ context('Desktop', () => {
   };
 
   it('Post should have share links', () => {
-    cy.visit(samplePost.url)
-      .findByTestId('share-links')
-      .findByText('Dela på Facebook')
-      .should('be.visible')
-      .findByText('Dela på Twitter')
-      .should('be.visible')
-      .findByText('Dela på LinkedIn')
-      .should('be.visible');
+    cy.visit(samplePost.url);
+    cy.findByTestId('share-links');
+    cy.findByText('Dela på Facebook').should('be.visible');
+    cy.findByText('Dela på Twitter').should('be.visible');
+    cy.findByText('Dela på LinkedIn').should('be.visible');
   });
 
   it('Post should have comments button', () => {
-    cy.visit(samplePost.url)
-      .findByTestId('comments-button')
+    cy.visit(samplePost.url);
+    cy.findByTestId('comments-button')
       .scrollIntoView()
-      .click({ force: true })
-      .get('#disqus_thread')
-      .should('be.visible')
-      .findByTestId('comments-button')
-      .should('not.exist');
+      .click({ force: true });
+    cy.get('#disqus_thread').should('be.visible');
+    cy.findByTestId('comments-button').should('not.exist');
   });
 });

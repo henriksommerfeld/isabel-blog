@@ -33,15 +33,15 @@ context('CMS Blog Post Edit', () => {
   it('Should edit post', () => {
     cy.get('#title-field-1')
       .should('have.value', samplePost.title)
-      .type('🎈')
-      .findByText('Publish')
-      .click()
-      .findByText('Publish now')
-      .click()
-      .findByText('Changes saved')
-      .click()
-      .findByText('New Bloggpost')
-      .should('be.visible');
+      .type('🎈');
+
+    cy.findByText('Publish').click();
+
+    cy.findByText('Publish now').click();
+
+    cy.findByText('Changes saved').click();
+
+    cy.findByText('New Bloggpost').should('be.visible');
 
     cy.visit(samplePost.url).then(() => {
       cy.findByText(samplePost.title + '🎈').should('be.visible');

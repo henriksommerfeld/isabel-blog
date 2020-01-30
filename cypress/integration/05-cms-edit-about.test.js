@@ -40,12 +40,12 @@ context('CMS About Page Edit', () => {
     cy.get(mainTextSelector)
       .should('be.visible')
       .clear()
-      .type(mainText)
-      .findByText('Publish')
-      .click()
-      .findByText('Publish now')
-      .click()
-      .findByText('Changes saved')
+      .type(mainText);
+
+    cy.findByText('Publish').click();
+    cy.findByText('Publish now').click();
+
+    cy.findByText('Changes saved')
       .click()
       .get('h1')
       .should('be.visible')

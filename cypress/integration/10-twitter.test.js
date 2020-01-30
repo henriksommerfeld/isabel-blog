@@ -12,8 +12,9 @@ context('Twitter tests', () => {
   it(`Start page should show tweets`, () => {
     if (!hasKeys()) return;
 
-    cy.visit('/')
-      .findByText('@isommerfeld på Twitter')
+    cy.visit('/');
+
+    cy.findByText('@isommerfeld på Twitter')
       .should('be.visible')
       .should('have.attr', 'href', 'https://twitter.com/isommerfeld');
   });
@@ -21,8 +22,7 @@ context('Twitter tests', () => {
   it('There should be 6 tweets', () => {
     if (!hasKeys()) return;
 
-    cy.visit('/om')
-      .findAllByTestId('tweet')
-      .should('have.length', 6);
+    cy.visit('/om');
+    cy.findAllByTestId('tweet').should('have.length', 6);
   });
 });
