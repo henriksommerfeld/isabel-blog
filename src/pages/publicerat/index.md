@@ -10,6 +10,9 @@ Intervjuad om sexuella ofredanden på nätet och "dick pics".
 
 ## 2019
 
+[**Intervju i tidningen Morgonbris**](https://ebooks.exakta.se/morgonbris/2019/1904/page_12.html)\
+Om sexuella ofredanden på nätet. Tidning utgiven av S-kvinnor, nummer 4, 2019.
+
 [**Reportage och intervju i Expressen**](https://www.expressen.se/nyheter/polisen-isabel-32-sluta-skicka-bilder-pa-din-penis/)\
 Intervjuad efter ett facebook-inlägg jag skrivit i min roll som utredare hos Polisen (angående sexuella ofredanden och så kallade dick pics), 2019-08-15.
 
