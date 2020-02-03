@@ -5,7 +5,8 @@ description: Publicerat i media om och av Isabel Sommerfeld
 ---
 ## 2019
 
-****[**Intervju - Aftonbladet TV**](https://www.aftonbladet.se/tv/a/305895/utredaren-om-dick-pics-vanligare-i-och-med-sociala-medier)Intervjuad om sexuella ofredanden på nätet och "dick pics". 
+[**Intervju - Aftonbladet TV**](https://www.aftonbladet.se/tv/a/305895/utredaren-om-dick-pics-vanligare-i-och-med-sociala-medier)\
+Intervjuad om sexuella ofredanden på nätet och "dick pics". 
 
 [**Reportage och intervju i Expressen**](https://www.expressen.se/nyheter/polisen-isabel-32-sluta-skicka-bilder-pa-din-penis/)\
 Intervjuad efter ett facebook-inlägg jag skrivit i min roll som utredare hos Polisen (angående sexuella ofredanden och så kallade dick pics), 2019-08-15.
