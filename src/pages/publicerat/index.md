@@ -5,6 +5,9 @@ description: Publicerat i media om och av Isabel Sommerfeld
 ---
 ## 2020
 
+[**Intervju - Efterlyst**](https://www.viafree.se/program/samhalle/efterlyst/sasong-55/avsnitt-3)\
+Inslag om en brottsutredning där vi sökte vittnen. Säsong 55, avsnitt 3.
+
 [**Intervju - Aftonbladet TV**](https://www.aftonbladet.se/tv/a/305895/utredaren-om-dick-pics-vanligare-i-och-med-sociala-medier)\
 Intervjuad om sexuella ofredanden på nätet och "dick pics". 
 
