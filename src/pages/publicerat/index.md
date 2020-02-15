@@ -135,7 +135,7 @@ Debattartikel, Journalisten.se, 2010-12-28.
 [**Jag såg demonstranter misshandlas medan Robert Wells tonsatte diktatorns propaganda**](http://svtdebatt.se/2010/12/jag-sag-demonstranter-misshandlas-medan-robert-wells-tonsatte-diktatorns-propaganda/)\
 Debattartikel, SVT Debatt, 2010-12-20.
 
-****[**Vägra spela med i diktatorns rapsodi**](https://www.expressen.se/debatt/isabel-sommerfeld-vagra-spela-med-i-diktatorns-rapsodi/)\
+[**Vägra spela med i diktatorns rapsodi**](https://www.expressen.se/debatt/isabel-sommerfeld-vagra-spela-med-i-diktatorns-rapsodi/)\
 Debattartikel, Expressen Sidan 4, 2010-05-28.
 
 [**Rädda demokratisk radio!**](http://ekuriren.se/ledareasikter/debatt/1.437655)\
