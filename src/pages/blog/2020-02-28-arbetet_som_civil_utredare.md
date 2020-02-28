@@ -7,7 +7,12 @@ hidden: false
 language: sv
 date: 2020-02-28T20:27:31.872Z
 tags:
-  - ''
+  - utredare
+  - civil utredare
+  - brottsutredare
+  - Polisen
+  - Polismyndigheten
+  - Brottsjournalen
 ---
 Jag har nu arbetat som civil utredare inom Polismyndigheten sedan sommaren 2017 och jag ångrar inte för en sekund att jag valde just detta yrke efter att jag tagit min juristexamen. Det jag arbetar med är alltså brottsutredning. Kan för tillfället inte se något mer givande arbete, då jag dagligen får vara del i att påverka både vårt samhälle i stort och de människor jag möter i mitt arbete. Min grundinställning är att alla ska bli bemötta på rätt sätt, korrekt och med respekt. På så vis är min förhoppning att också nå större framgång med brottspreventiva samtal. Kanske finns det trots allt någon som går därifrån och kan känna ett pånyttfött förtroende för myndigheten, vare sig det är en målsägande (brottsoffer) eller misstänkt, vilket i sin tur kan leda till att fler känner att det faktiskt är värt att anmäla brott och att fler gärningsmän är beredda att söka hjälp för att ta sig ur en skadlig livsstil, istället för att fortsätta på fel bana. 
 
