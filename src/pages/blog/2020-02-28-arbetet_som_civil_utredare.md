@@ -6,6 +6,7 @@ description: Om arbetet som civil utredare på Polismyndigheten
 hidden: false
 language: sv
 date: 2020-02-28T20:27:31.872Z
+featuredimage: /uploads/bill-oxford-udxd2nrbxs8-unsplash.jpg
 tags:
   - utredare
   - civil utredare
