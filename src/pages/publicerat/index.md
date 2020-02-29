@@ -43,8 +43,8 @@ En rapport om kommande fotbolls-VM i Ryssland och Qatar, samt fotbollsrörelsens
 
 ## 2014
 
-**Ickemedborgarna**\
-Radiodokumentär om studentrevolten och den antisemitiska kampanjen i Polen 1968, av Isabel Sommerfeld & Daniela Auerbach (Stockholms dramatiska högskola). 2014-10-10. [Publicerad på Magasinet Paragraf](http://www.magasinetparagraf.se/pod/ickemedborgarna).
+[**Ickemedborgarna**](https://soundcloud.com/magasinetparagraf/ickemedborgarna-2014-10-05)\
+Radiodokumentär om studentrevolten och den antisemitiska kampanjen i Polen 1968, av Isabel Sommerfeld & Daniela Auerbach (Stockholms dramatiska högskola). 2014-10-10. Publiceras av Magasinet Paragraf. 
 
 **Aftonbladet TV, Partiprogrammet**\
 Deltog i en diskussion om antisemitism tillsammans med integrationsminister Erik Ullenhag och Jonathan Leman (Expo). Sändes live på aftonbladet.se från Scandic Grand Central. 2014-08-13.
