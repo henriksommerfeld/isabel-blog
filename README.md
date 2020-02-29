@@ -19,7 +19,7 @@ This is the personal blog of Isabel Sommerfeld based on [GatsbyJS][1] available 
 
 ## Integration tests
 
-`yarn test:cypress:ci`
+`yarn cy:cli`
 
 [1]: https://www.gatsbyjs.org/
 
