@@ -3,7 +3,7 @@ export function toJsSafe(rawData) {
 }
 
 export function toJsSafeArray(rawData) {
-  return (rawData && isFunction(rawData) && rawData.toJS()) || [];
+  return (rawData && isFunction(rawData.toJS) && rawData.toJS()) || [];
 }
 
 function isFunction(functionToCheck) {
