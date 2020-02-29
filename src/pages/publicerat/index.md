@@ -89,8 +89,8 @@ Deltog i en diskussion om svenska PR-byrån Studio Totals nallebjörns-aktion i 
 [**Var går diplomatins gräns?**](http://sverigesradio.se/sida/artikel.aspx?programid=1650&artikel=5219745) - **SR, P1 Morgon.**\
 Deltog i en diskussion angående utvecklingen i Belarus och svenska PR-byrån Studio Totals nallebjörns-aktion i Belarus, 2012-08-06.
 
-**De svarta lådorna (SVT:s Uppdrag Granskning)**\
-Följdes som människorättsaktivist av ett TV-team från Uppdrag Granskning till Belarus, i mars 2012. Resan var en del av granskningen av TeliaSoneras verksamhet i diktaturstater. SVT1 och SVT Play, 2012-04-18. 
+[**De svarta lådorna (SVT:s Uppdrag Granskning)**](https://vimeo.com/41248885)\
+Följdes som människorättsaktivist av ett TV-team från Uppdrag Granskning till Belarus, i mars 2012. Resan var en del av granskningen av TeliaSoneras verksamhet i diktaturstater. SVT1 och SVT Play, 2012-04-18. Dokumentären kan ses [här.](https://vimeo.com/41248885)
 
 **Акцыя салідарнасці ў Стакгольме за свабоду слова ў Беларусі**\
 Belarusian Association of Journalists (baj.by) uppmärksammade vår solidaritetsaktion i Stockholm för det fria ordet, samt arresten av mig och två journalister från SVT:s Uppdrag Granskning i Minsk. Mars 2012.
