@@ -90,13 +90,10 @@ Deltog i en diskussion om svenska PR-byrån Studio Totals nallebjörns-aktion i 
 Deltog i en diskussion angående utvecklingen i Belarus och svenska PR-byrån Studio Totals nallebjörns-aktion i Belarus, 2012-08-06.
 
 **De svarta lådorna (SVT:s Uppdrag Granskning)**\
-Följdes av ett TV-team från Uppdrag Granskning till Belarus, i mars 2012. Resan var en del av granskningen av TeliaSoneras verksamhet i diktaturstater. SVT1 och SVT Play, 2012-04-18. [**Programmet ”De svarta lådorna” kan ses här (obs – med engelsk textning).**](http://www.youtube.com/watch?v=q0NkGs0YYys)
+Följdes som människorättsaktivist av ett TV-team från Uppdrag Granskning till Belarus, i mars 2012. Resan var en del av granskningen av TeliaSoneras verksamhet i diktaturstater. SVT1 och SVT Play, 2012-04-18. 
 
 **Акцыя салідарнасці ў Стакгольме за свабоду слова ў Беларусі**\
 Belarusian Association of Journalists (baj.by) uppmärksammade vår solidaritetsaktion i Stockholm för det fria ordet, samt arresten av mig och två journalister från SVT:s Uppdrag Granskning i Minsk. Mars 2012.
-
-[**Arrested in the last dictatorship of Europe**](http://www.jewdyssee.com/2012/03/19/arrested-in-the-last-dictatorship-in-europe/)\
-Blogginlägg på den tyska webbsidan Jewdyssee.com ang. min senaste resa till Belarus, 2012-03-19.
 
 ## 2011
 
@@ -129,9 +126,6 @@ Debattartikel, Newsmill. 2011-01-05.
 
 ## 2010
 
-[**Kolleger misshandlas, kidnappas och fängslas – de behöver er hjälp!**](http://www.journalisten.se/debatt/25889/kolleger-misshandlas-kidnappas-och-faengslas-de-behoever-er-hjaelp)\
-Debattartikel, Journalisten.se, 2010-12-28.
-
 [**Jag såg demonstranter misshandlas medan Robert Wells tonsatte diktatorns propaganda**](http://svtdebatt.se/2010/12/jag-sag-demonstranter-misshandlas-medan-robert-wells-tonsatte-diktatorns-propaganda/)\
 Debattartikel, SVT Debatt, 2010-12-20.
 
@@ -154,7 +148,7 @@ Radiokrönika, i P1, programmet OBS. Ang. lokalvalet och unga engagerade i Belar
 Intervju om aktion utanför SR. 2009-08-29.
 
 **Intervjuades av den belarusiska nyhetsbyrån Belapan**\
-Ang. namninsamling/protest mot nedstängningen av de belarusiska sändningarna på Sveriges Radio, 2009.
+Ang. namninsamling/protest mot nedläggningen av de belarusiska sändningarna på Sveriges Radio, 2009.
 
 [**Svenska skattepengar investeras i diktaturers förtryck**](http://svt.se/svt/jsp/Crosslink.jsp?d=35188&a=1555587&from=tipsa)\
 SVT Debatt, ang. Telia Sonera i Belarus, 2009.
