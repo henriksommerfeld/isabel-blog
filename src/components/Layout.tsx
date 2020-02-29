@@ -16,6 +16,7 @@ interface TemplateWrapperProps {
   pageTitle: string;
   pageDescription?: string;
   pageLanguage?: string;
+  openGraphImage?: string | null;
   editLink?: string;
   language?: string;
   showTweets?: boolean;
@@ -27,6 +28,7 @@ export default function TemplateWrapper({
   pageTitle,
   pageDescription = '',
   pageLanguage = 'sv',
+  openGraphImage,
   editLink,
   showTweets,
 }: TemplateWrapperProps) {
@@ -35,6 +37,8 @@ export default function TemplateWrapper({
     pageTitle && pageTitle !== title ? `${pageTitle} | ${title}` : title;
   const canonical = `${urls.siteBaseUrl}${location.pathname}`;
   const locale = pageLanguage === 'en' ? 'en_US' : 'sv_SE';
+  const imageUrl = openGraphImage ?? '/img/favimage.jpg';
+  const ogImage = `${urls.siteBaseUrl}${imageUrl}`;
 
   return (
     <>
@@ -55,10 +59,7 @@ export default function TemplateWrapper({
         <meta name="twitter:card" content="summary"></meta>
         <meta name="twitter:site" content="@isommerfeld"></meta>
 
-        <meta
-          property="og:image"
-          content={`${urls.siteBaseUrl}/img/favimage.jpg`}
-        />
+        <meta property="og:image" content={ogImage} />
         <link rel="canonical" href={canonical} />
       </Helmet>
       <GlobalStyles />

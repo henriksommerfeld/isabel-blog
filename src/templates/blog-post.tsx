@@ -4,17 +4,21 @@ import Layout from '../components/Layout';
 import { HTMLContent } from '../components/Content';
 import BlogPostTemplate from './blog-post-template';
 import { editBlogUrlFromAbsolutePath } from '../url-replacer';
+import { getFluid } from '../images';
 
 export default function BlogPost({ data, ...props }) {
   const { markdownRemark: post } = data;
   const frontmatter = post.frontmatter;
   const tags: string[] = (frontmatter.tags || []) as string[];
+  const graphImage = getFluid(frontmatter.featuredimage);
+  const graphImageUrl = graphImage?.src || null;
 
   return (
     <Layout
       location={props.location}
       pageTitle={frontmatter.title}
       pageDescription={frontmatter.description}
+      openGraphImage={graphImageUrl}
       editLink={editBlogUrlFromAbsolutePath(post.fileAbsolutePath)}
     >
       <BlogPostTemplate
@@ -41,6 +45,13 @@ export const pageQuery = graphql`
         tags
         language
         description
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              src
+            }
+          }
+        }
       }
     }
   }

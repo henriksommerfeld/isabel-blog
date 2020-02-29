@@ -20,11 +20,6 @@ context('Desktop', () => {
       .should('equal', Cypress.config().baseUrl + '/cookies');
   });
 
-  it('Should remove cookies alert on OK click', () => {
-    cy.findByLabelText('Acceptera cookies').click();
-    cy.findByTestId('cookie-alert').should('not.exist');
-  });
-
   it('Should open Published page', () => {
     const pageName = 'Publicerat';
     cy.findByTestId('desktop-nav')
