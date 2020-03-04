@@ -5,6 +5,9 @@ description: Publicerat i media om och av Isabel Sommerfeld
 ---
 ## 2020
 
+[**Reportage - Brottsjournalen**](https://www.tv4play.se/program/brottsjournalen/12490385)\
+Deltog i ett reportage om arbetet som civil utredare. Del 9, säsong 4.
+
 [**Intervju - Efterlyst**](https://www.viafree.se/program/samhalle/efterlyst/sasong-55/avsnitt-3)\
 Inslag i Efterlyst (TV3) om en brottsutredning där vi sökte vittnen. Säsong 55, avsnitt 3.
 
