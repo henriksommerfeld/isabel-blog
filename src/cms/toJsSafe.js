@@ -1,8 +1,8 @@
-export function toJsSafe(rawData) {
+exports.toJsSafe = (rawData) => {
   return (rawData && rawData.toJS()) || {};
 }
 
-export function toJsSafeArray(rawData) {
+exports.toJsSafeArray = (rawData) => {
   return (rawData && isFunction(rawData.toJS) && rawData.toJS()) || [];
 }
 
