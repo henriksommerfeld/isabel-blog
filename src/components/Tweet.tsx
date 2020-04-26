@@ -62,7 +62,7 @@ function TweetPhoto({ tweet, images = [] }: TweetProps) {
   const filenameTemplate = saveKeyTemplates[property];
   const filename = getSaveKey(tweet, filenameTemplate);
   const imageUrl = getValueForProperty(tweet, property);
-  const sharpImage = images.find(x => x.name === filename);
+  const sharpImage = images.find((x) => x.name === filename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (
@@ -70,14 +70,37 @@ function TweetPhoto({ tweet, images = [] }: TweetProps) {
   );
 }
 
+function LinkPreviewFallback({ tweet }: { tweet: TweetData }) {
+  const urls = tweet.entities.urls;
+  if (urls?.length && urls[0].expanded_url) {
+    return (
+      <a href={urls[0].expanded_url}>
+        <LinkIcon src={LinkSvg} alt="" />
+        {urls[0].display_url}
+      </a>
+    );
+  }
+  const retweetUrls = tweet.retweeted_status.entities.urls;
+  if (retweetUrls?.length && retweetUrls[0].expanded_url) {
+    return (
+      <a href={retweetUrls[0].expanded_url}>
+        <LinkIcon src={LinkSvg} alt="" />
+        {retweetUrls[0].display_url}
+      </a>
+    );
+  }
+
+  return null;
+}
+
 function LinkPreview({ tweet, images = [] }: TweetProps) {
-  if (!hasLinkPreview(tweet)) return null;
+  if (!hasLinkPreview(tweet)) return <LinkPreviewFallback tweet={tweet} />;
 
   const property = twitterProperties.linkedSiteImage;
   const filenameTemplate = saveKeyTemplates[property];
   const filename = getSaveKey(tweet, filenameTemplate);
   const imageUrl = getValueForProperty(tweet, property);
-  const sharpImage = images.find(x => x.name === filename);
+  const sharpImage = images.find((x) => x.name === filename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (
@@ -161,8 +184,30 @@ const linkPreviewImgStyles = {
 };
 
 function getText(tweet: TweetData): string {
-  if (isRetweet(tweet) && hasLinkPreview(tweet)) return null;
-  return isRetweet(tweet) ? tweet.retweeted_status.full_text : tweet.full_text;
+  const text = isRetweet(tweet)
+    ? tweet.retweeted_status.full_text
+    : tweet.full_text;
+  const textWithoutLink = removeLinkFromText(text, tweet);
+  return textWithoutLink;
+}
+
+function removeLinkFromText(text: string, tweet: TweetData): string {
+  let urls = isNonEmptyArray(tweet.entities.urls)
+    ? tweet.entities.urls
+    : isNonEmptyArray(tweet.retweeted_status?.entities?.urls)
+    ? tweet.retweeted_status?.entities?.urls
+    : [];
+
+  const link = isNonEmptyArray(urls) ? urls[0]['url'] : '';
+  const textWithoutLink = text.replace(link, '');
+
+  let media = isNonEmptyArray(tweet.entities.media) ? tweet.entities.media : [];
+  const mediaUrl = isNonEmptyArray(media) ? media[0]['url'] : '';
+  return textWithoutLink.replace(mediaUrl, '');
+}
+
+function isNonEmptyArray(data: any): boolean {
+  return Array.isArray(data) && data.filter((u) => u).length > 0;
 }
 
 function getRetweetCount(tweet: TweetData): number {
@@ -207,7 +252,7 @@ const TweetStyled = styled('div')`
   border-radius: ${layout.borderRadius};
   color: ${colors.white};
   background-color: ${transparentizeHex(tailwindColors.gray900, 0.7)};
-  background-image: ${props => (props.retweet ? `url(${RetweetSvg})` : null)};
+  background-image: ${(props) => (props.retweet ? `url(${RetweetSvg})` : null)};
   background-repeat: no-repeat;
   background-size: 2.5rem;
   background-position: calc(100% - 1rem) calc(100% - 0.5rem);

@@ -18,7 +18,9 @@ export default function Tweets() {
      entire build because none of the returned tweets have a property I'm querying 
      for.
   */
-  const realTweets = tweets.filter(x => x.id_str !== dummyTweetId && x.id_str);
+  const realTweets = tweets.filter(
+    (x) => x.id_str !== dummyTweetId && x.id_str
+  );
 
   if (!realTweets.length) return null;
 
@@ -34,7 +36,7 @@ export default function Tweets() {
         </HeadingLink>
       </Tweeter>
       <TweetsInnerStyled>
-        {realTweets.map(tweet => (
+        {realTweets.map((tweet) => (
           <Tweet key={tweet.id} tweet={tweet} images={images} />
         ))}
       </TweetsInnerStyled>
@@ -141,7 +143,8 @@ export interface TweetData {
     urls?: {
       url: string;
       expanded_url: string;
-    };
+      display_url: string;
+    }[];
     media?: {
       media_url_https: string;
       type: string;
@@ -165,7 +168,8 @@ export interface TweetData {
       urls?: {
         url: string;
         expanded_url: string;
-      };
+        display_url: string;
+      }[];
       media?: {
         media_url_https: string;
         type: string;
@@ -243,6 +247,7 @@ const isabelsTweetsQuery = graphql`
             urls {
               url
               expanded_url
+              display_url
             }
             media {
               media_url_https
