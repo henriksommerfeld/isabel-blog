@@ -91,7 +91,16 @@ function getEntitiesExpandedUrl(tweet) {
       tweet.entities.urls.length &&
       tweet.entities.urls[0]) ||
     {};
-  return urls.expanded_url || null;
+  if (urls.expanded_url) return urls.expanded_url
+
+  const retweetedUrls =
+    (tweet.retweeted_status &&
+      tweet.retweeted_status.entities &&
+      tweet.retweeted_status.entities.urls &&
+      tweet.retweeted_status.entities.urls.length &&
+      tweet.retweeted_status.entities.urls[0]) ||
+    {};
+  return retweetedUrls.expanded_url || null;
 }
 
 module.exports = { fetchMetadataFromLinkedSites };
