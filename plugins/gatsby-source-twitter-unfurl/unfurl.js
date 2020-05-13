@@ -3,7 +3,7 @@ const { dummyTweetId } = require('../../src/dummy-tweet');
 
 async function fetchMetadataFromLinkedSites(tweets, reporter) {
   try {
-    const updatedTweetsPromises = tweets.map(async tweet =>
+    const updatedTweetsPromises = tweets.map(async (tweet) =>
       fetchMetadataFromLinkedSite(tweet, reporter)
     );
 
@@ -17,7 +17,7 @@ async function fetchMetadataFromLinkedSite(tweet, reporter) {
   try {
     const url = getEntitiesExpandedUrl(tweet);
     const linkedSite = await fetchSiteData(url, tweet, reporter).catch(
-      error => {
+      (error) => {
         const failMessage = `Failed to fetch Twitter card or Open Graph info from ${url}`;
         reporter.warn(failMessage, error);
         return null;
@@ -91,7 +91,7 @@ function getEntitiesExpandedUrl(tweet) {
       tweet.entities.urls.length &&
       tweet.entities.urls[0]) ||
     {};
-  if (urls.expanded_url) return urls.expanded_url
+  if (urls.expanded_url) return urls.expanded_url;
 
   const retweetedUrls =
     (tweet.retweeted_status &&

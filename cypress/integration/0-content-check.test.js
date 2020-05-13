@@ -7,17 +7,13 @@
 
 context('Content check', () => {
   it(`Start page should contain Isabel's name`, () => {
-    cy.visit('/')
-      .get('h1')
-      .should('have.text', 'Isabel Sommerfeld');
+    cy.visit('/').get('h1').should('have.text', 'Isabel Sommerfeld');
   });
 
   it(`Published page should contain sample link`, () => {
     cy.visit('/publicerat');
 
-    cy.findByTestId('published-text')
-      .get('h2')
-      .contains('2009');
+    cy.findByTestId('published-text').get('h2').contains('2009');
 
     cy.findByTestId('published-text').contains(
       'Protester mot nedläggningen av vitryska sändningar'

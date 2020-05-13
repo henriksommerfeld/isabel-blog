@@ -18,7 +18,7 @@ context('CMS About Page Edit', () => {
   it('Should be possible to enter edit mode', () => {
     cy.findByTitle('Redigera sidan')
       .invoke('attr', 'href')
-      .then(href => {
+      .then((href) => {
         cy.visit(href);
       });
   });
@@ -37,10 +37,7 @@ context('CMS About Page Edit', () => {
   const pageTitle = `${title} | ${startPageTitle}`;
 
   it('Should edit page', () => {
-    cy.get(mainTextSelector)
-      .should('be.visible')
-      .clear()
-      .type(mainText);
+    cy.get(mainTextSelector).should('be.visible').clear().type(mainText);
 
     cy.findByText('Publish').click();
     cy.findByText('Publish now').click();
@@ -52,9 +49,7 @@ context('CMS About Page Edit', () => {
       .should('have.text', 'Sidor');
 
     cy.visit(samplePage.url).then(() => {
-      cy.get('h1')
-        .should('have.text', title)
-        .should('be.visible');
+      cy.get('h1').should('have.text', title).should('be.visible');
 
       cy.get('title').should('have.text', pageTitle);
 

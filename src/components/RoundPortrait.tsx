@@ -35,7 +35,7 @@ export function RoundPortrait({ image, additionalStyles }: RoundPortraitProps) {
 
   function clickEffect(e: MouseEvent) {
     if (e.detail !== 3) return;
-    setRotate(x => !x);
+    setRotate((x) => !x);
   }
 
   function onSwipedRight() {

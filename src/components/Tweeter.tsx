@@ -26,7 +26,7 @@ export function Tweeter({ tweet, images = [] }: TweeterProps) {
   const filenameTemplate = saveKeyTemplates[property];
   const filename = getSaveKey(tweet, filenameTemplate);
   const imageUrl = getValueForProperty(tweet, property);
-  const sharpImage = images.find(x => x.name === filename);
+  const sharpImage = images.find((x) => x.name === filename);
   const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
 
   return (

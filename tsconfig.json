@@ -15,7 +15,7 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "noUnusedParameters": true,
-    "allowJs": false
+    "allowJs": true
   },
   "include": [
     "**/src/**/*.ts",

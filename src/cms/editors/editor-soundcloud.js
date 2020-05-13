@@ -11,15 +11,15 @@ export default {
     },
   ],
   pattern: /^`\s?soundcloud: (\S+)\s?`/,
-  fromBlock: match => {
+  fromBlock: (match) => {
     const url = match[1];
 
     return {
       url: url,
     };
   },
-  toBlock: obj => `\`soundcloud: ${obj.url}\``,
-  toPreview: obj => {
+  toBlock: (obj) => `\`soundcloud: ${obj.url}\``,
+  toPreview: (obj) => {
     const shouldRenderEmptyPreview = !obj || !obj.url || !obj.url.length;
     if (shouldRenderEmptyPreview) return '<div></div>';
 

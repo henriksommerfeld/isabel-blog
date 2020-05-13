@@ -18,7 +18,7 @@ context('CMS Published Page Edit', () => {
   it('Should be possible to enter edit mode', () => {
     cy.findByTitle('Redigera sidan')
       .invoke('attr', 'href')
-      .then(href => {
+      .then((href) => {
         cy.visit(href);
       });
   });
@@ -60,9 +60,7 @@ context('CMS Published Page Edit', () => {
       .should('have.text', 'Sidor');
 
     cy.visit(samplePage.url).then(() => {
-      cy.get('h1')
-        .should('have.text', title)
-        .should('be.visible');
+      cy.get('h1').should('have.text', title).should('be.visible');
 
       cy.get('title').should('have.text', pageTitle);
 

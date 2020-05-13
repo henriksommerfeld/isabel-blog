@@ -32,7 +32,7 @@ export function getSharpImageOrDefault(
 export function getImageNameFromUrl(url: string): string {
   if (!url) return url;
 
-  const fileParts = new URL(url).pathname.split('/').filter(x => x);
+  const fileParts = new URL(url).pathname.split('/').filter((x) => x);
   const filename = fileParts[fileParts.length - 1];
 
   return filename;
