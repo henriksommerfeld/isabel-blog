@@ -8,7 +8,7 @@ context('CMS create/delete blog post', () => {
   });
 
   it('Should create post', () => {
-    cy.fixture('bara-ben').then(article => {
+    cy.fixture('bara-ben').then((article) => {
       cy.visit('/admin');
 
       cy.findByText('Login to File System').click();
@@ -33,7 +33,7 @@ context('CMS create/delete blog post', () => {
   });
 
   it('Should see created post', () => {
-    cy.fixture('bara-ben').then(article => {
+    cy.fixture('bara-ben').then((article) => {
       cy.visit('/');
       cy.findByText(article.title).click();
       cy.findByText(article.title);
@@ -41,7 +41,7 @@ context('CMS create/delete blog post', () => {
   });
 
   it('Should delete created post', () => {
-    cy.fixture('bara-ben').then(article => {
+    cy.fixture('bara-ben').then((article) => {
       cy.visit('/admin');
       cy.findByText('Login to File System').click();
 

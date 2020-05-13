@@ -1,4 +1,4 @@
-exports.removeBlogFromUrl = url => {
+exports.removeBlogFromUrl = (url) => {
   const blogFragment = '/blog/';
   if (!url || !url.includes(blogFragment)) return url;
 
@@ -6,7 +6,7 @@ exports.removeBlogFromUrl = url => {
   return urlParts.length < 2 ? url : `/${urlParts[1]}`;
 };
 
-exports.editBlogUrlFromAbsolutePath = absolutePath => {
+exports.editBlogUrlFromAbsolutePath = (absolutePath) => {
   if (!absolutePath) return '';
 
   const pathParts = absolutePath.split('/');
@@ -18,7 +18,7 @@ exports.editBlogUrlFromAbsolutePath = absolutePath => {
   return `${blogEditBasePath}/${path}`;
 };
 
-exports.editPageUrl = slug => {
+exports.editPageUrl = (slug) => {
   if (!slug) return '';
 
   const baseUrl = '/admin/#/collections/pages/entries';

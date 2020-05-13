@@ -5,7 +5,7 @@ const twitterDownloadsConfig = require('./download-config');
 
 async function fetchImagesFromTweets(tweets, reporter) {
   try {
-    const updatedTweetsPromises = tweets.map(async tweet =>
+    const updatedTweetsPromises = tweets.map(async (tweet) =>
       fetchImagesFromTweet(tweet, reporter)
     );
 
@@ -29,7 +29,7 @@ function isProfileImage(property) {
 async function fetchImagesFromTweet(tweet, reporter) {
   try {
     const templates = twitterDownloadsConfig.saveKeyTemplates;
-    Object.keys(templates).forEach(async key => {
+    Object.keys(templates).forEach(async (key) => {
       let imageUrl = twitterDownloadsConfig.getValueForProperty(tweet, key);
 
       if (isProfileImage(path.property)) {

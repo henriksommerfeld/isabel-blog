@@ -21,7 +21,7 @@ export default function DesktopMenu({ location }: LocationProp) {
 
   return (
     <MenuStyled data-testid="desktop-nav">
-      {navLinks.map(link => (
+      {navLinks.map((link) => (
         <LinkStyled
           to={link.url}
           key={link.url}
@@ -45,6 +45,7 @@ const MenuStyled = styled('div')`
 
 /* eslint @typescript-eslint/no-unused-vars: off */
 const LinkStyled = styled(({ isActive, ...restProps }) => (
+  // eslint-disable-next-line
   <Link {...restProps} />
 ))`
   font-size: 1.1em;

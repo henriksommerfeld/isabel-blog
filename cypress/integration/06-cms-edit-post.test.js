@@ -18,7 +18,7 @@ context('CMS Blog Post Edit', () => {
   it('Should be possible to enter edit mode', () => {
     cy.findByTitle('Redigera sidan')
       .invoke('attr', 'href')
-      .then(href => {
+      .then((href) => {
         cy.visit(href);
       });
   });
@@ -31,9 +31,7 @@ context('CMS Blog Post Edit', () => {
   });
 
   it('Should edit post', () => {
-    cy.get('#title-field-1')
-      .should('have.value', samplePost.title)
-      .type('🎈');
+    cy.get('#title-field-1').should('have.value', samplePost.title).type('🎈');
 
     cy.findByText('Publish').click();
 

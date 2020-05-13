@@ -39,7 +39,7 @@ function createTweetNodeId(tweet) {
 async function createNodes(tweets, nodeType, actions, createContentDigest) {
   const { createNode } = actions;
 
-  tweets.forEach(async tweet => {
+  tweets.forEach(async (tweet) => {
     const nodeData = generateNode(tweet, createContentDigest, nodeType);
     await createNode(nodeData);
   });

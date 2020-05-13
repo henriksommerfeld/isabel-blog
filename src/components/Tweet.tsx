@@ -192,7 +192,7 @@ function getText(tweet: TweetData): string {
 }
 
 function removeLinkFromText(text: string, tweet: TweetData): string {
-  let urls = isNonEmptyArray(tweet.entities.urls)
+  const urls = isNonEmptyArray(tweet.entities.urls)
     ? tweet.entities.urls
     : isNonEmptyArray(tweet.retweeted_status?.entities?.urls)
     ? tweet.retweeted_status?.entities?.urls
@@ -201,7 +201,9 @@ function removeLinkFromText(text: string, tweet: TweetData): string {
   const link = isNonEmptyArray(urls) ? urls[0]['url'] : '';
   const textWithoutLink = text.replace(link, '');
 
-  let media = isNonEmptyArray(tweet.entities.media) ? tweet.entities.media : [];
+  const media = isNonEmptyArray(tweet.entities.media)
+    ? tweet.entities.media
+    : [];
   const mediaUrl = isNonEmptyArray(media) ? media[0]['url'] : '';
   return textWithoutLink.replace(mediaUrl, '');
 }

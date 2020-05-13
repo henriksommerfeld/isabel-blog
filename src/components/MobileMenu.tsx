@@ -36,7 +36,7 @@ export default function MobileMenu({
     },
   });
 
-  useOnClickOutside(menuRef, e => {
+  useOnClickOutside(menuRef, (e) => {
     if (!hasClass(e, ignoreClickClassName)) setIsVisible(false);
   });
 
@@ -53,7 +53,7 @@ export default function MobileMenu({
       aria-hidden="true"
       data-testid="mobile-menu"
     >
-      {navLinks.map(link => (
+      {navLinks.map((link) => (
         <MobileLink
           to={link.url}
           key={link.url}
@@ -90,6 +90,7 @@ const MobileMenuStyled = styled(animated.div)`
 
 /* eslint @typescript-eslint/no-unused-vars: off */
 const MobileLink = styled(({ isActive, ...restProps }) => (
+  // eslint-disable-next-line
   <Link {...restProps} />
 ))`
   padding: 1rem;

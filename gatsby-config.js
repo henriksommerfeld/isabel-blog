@@ -154,15 +154,14 @@ const plugins = [
       fields: [`title`, `date`, `tags`, `body`, `excerpt`],
       resolvers: {
         MarkdownRemark: {
-          title: node => node.frontmatter.title,
-          date: node => node.frontmatter.date,
-          tags: node => node.frontmatter.tags,
-          path: node => node.fields.slug,
-          body: node =>
-            remark()
-              .use(stripMarkdown)
-              .processSync(node.rawMarkdownBody).contents,
-          excerpt: node => {
+          title: (node) => node.frontmatter.title,
+          date: (node) => node.frontmatter.date,
+          tags: (node) => node.frontmatter.tags,
+          path: (node) => node.fields.slug,
+          body: (node) =>
+            remark().use(stripMarkdown).processSync(node.rawMarkdownBody)
+              .contents,
+          excerpt: (node) => {
             const text = remark()
               .use(stripMarkdown)
               .processSync(node.rawMarkdownBody).contents;
@@ -173,7 +172,7 @@ const plugins = [
         },
       },
       // Optional filter to limit indexed nodes
-      filter: node =>
+      filter: (node) =>
         node.frontmatter.hidden !== true &&
         node.frontmatter.title !== 'Startsidan',
     },

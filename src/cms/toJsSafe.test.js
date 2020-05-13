@@ -1,6 +1,4 @@
-const {
-  toJsSafeArray
-} = require('./toJsSafe');
+const { toJsSafeArray } = require('./toJsSafe');
 
 describe('toJsSafeArray', () => {
   it('should return empty array for null', () => {

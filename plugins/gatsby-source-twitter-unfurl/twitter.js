@@ -1,4 +1,4 @@
-const handle = async function(client, endpoint, options, reporter) {
+const handle = async function (client, endpoint, options, reporter) {
   try {
     const { params } = options;
     const results = await client.get(endpoint, params);

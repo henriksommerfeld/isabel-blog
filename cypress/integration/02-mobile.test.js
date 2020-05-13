@@ -70,7 +70,7 @@ context('Mobile', () => {
 
   it('Start page should show more posts', () => {
     cy.visit('/', {
-      onBeforeLoad: win => {
+      onBeforeLoad: (win) => {
         win.sessionStorage.clear();
       },
     });
@@ -79,8 +79,6 @@ context('Mobile', () => {
 
     cy.findByText('Visa äldre inlägg').click({ force: true });
 
-    cy.findAllByRole('article')
-      .its('length')
-      .should('be.gte', 5);
+    cy.findAllByRole('article').its('length').should('be.gte', 5);
   });
 });

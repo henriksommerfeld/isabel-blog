@@ -66,7 +66,7 @@ context('Desktop', () => {
 
   it('Start page should show more posts', () => {
     cy.visit('/', {
-      onBeforeLoad: win => {
+      onBeforeLoad: (win) => {
         win.sessionStorage.clear();
       },
     });
@@ -75,9 +75,7 @@ context('Desktop', () => {
 
     cy.findByText('Visa äldre inlägg').click({ force: true });
 
-    cy.findAllByRole('article')
-      .its('length')
-      .should('be.gte', 5);
+    cy.findAllByRole('article').its('length').should('be.gte', 5);
   });
 
   const samplePost = {
@@ -95,9 +93,7 @@ context('Desktop', () => {
 
   it('Post should have comments button', () => {
     cy.visit(samplePost.url);
-    cy.findByTestId('comments-button')
-      .scrollIntoView()
-      .click({ force: true });
+    cy.findByTestId('comments-button').scrollIntoView().click({ force: true });
     cy.get('#disqus_thread').should('be.visible');
     cy.findByTestId('comments-button').should('not.exist');
   });
