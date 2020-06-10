@@ -49,7 +49,7 @@ const plugins = [
           include_rts: true,
           exclude_replies: true,
           tweet_mode: 'extended',
-          count: 10,
+          count: 12,
         },
       },
     },
