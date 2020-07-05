@@ -46,6 +46,7 @@ const MenuStyled = styled('div')`
 /* eslint @typescript-eslint/no-unused-vars: off */
 const LinkStyled = styled(({ isActive, ...restProps }) => (
   // eslint-disable-next-line
+  // @ts-ignore
   <Link {...restProps} />
 ))`
   font-size: 1.1em;
