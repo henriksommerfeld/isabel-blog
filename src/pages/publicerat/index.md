@@ -5,6 +5,9 @@ description: Publicerat i media om och av Isabel Sommerfeld
 ---
 ## 2020
 
+[**Kan vi göra internet till en säkrare plats för våra barn?**](https://www.linkedin.com/pulse/kan-vi-g%C3%B6ra-internet-till-en-s%C3%A4krare-plats-f%C3%B6r-v%C3%A5ra-barn-sommerfeld/)\
+Artikel på LinkedIn om mina första insikter som brottsutredare på Gromninggruppen (där vi utreder sexualbrott mot barn över internet) och hur vi alla kan hjälpas åt att göra internet till en säkrare plats för våra barn.
+
 [**Reportage - Brottsjournalen**](https://www.tv4play.se/program/brottsjournalen/12490385)\
 Deltog i ett reportage om arbetet som civil utredare. Del 9, säsong 4.
 
