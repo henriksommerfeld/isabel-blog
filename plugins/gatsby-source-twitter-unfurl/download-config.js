@@ -5,6 +5,7 @@ const twitterProperties = {
   retweetedProfileImage: 'retweeted_status.user.profile_image_url_https',
   linkedSiteImage: 'linked_site.image',
   uploadedMedia: 'entities.media[0].media_url_https',
+  retweetedUploadedMedia: 'retweeted_status.entities.media[0].media_url_https',
 };
 
 const saveKeyTemplates = {};
@@ -13,6 +14,7 @@ saveKeyTemplates[twitterProperties.retweetedProfileImage] =
   'rt-profile-{retweeted_status.user.id}';
 saveKeyTemplates[twitterProperties.linkedSiteImage] = 'preview-{id_str}';
 saveKeyTemplates[twitterProperties.uploadedMedia] = 'photo-{id_str}';
+saveKeyTemplates[twitterProperties.retweetedUploadedMedia] = 'retweeted-photo-{id_str}';
 
 function getValueForProperty(tweet, property) {
   return get(tweet, property, '');

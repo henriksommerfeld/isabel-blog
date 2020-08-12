@@ -34,6 +34,7 @@ export default function Tweet({ tweet, images = [] }: TweetProps) {
       <TweetContent>
         <TweetText tweet={tweet} />
         <TweetPhoto tweet={tweet} images={images} />
+        <RetweetPhoto tweet={tweet} images={images} />
         <LinkPreview tweet={tweet} images={images} />
       </TweetContent>
       <MetaStyled>
@@ -57,6 +58,27 @@ function hasPhoto(tweet: TweetData, property: string): boolean {
 
 function TweetPhoto({ tweet, images = [] }: TweetProps) {
   const property = twitterProperties.uploadedMedia;
+  const retweetProperty = twitterProperties.retweetedUploadedMedia;
+  if (
+    !hasPhoto(tweet, property) ||
+    hasPhoto(tweet, retweetProperty) ||
+    hasLinkPreview(tweet)
+  )
+    return null;
+
+  const filenameTemplate = saveKeyTemplates[property];
+  const filename = getSaveKey(tweet, filenameTemplate);
+  const imageUrl = getValueForProperty(tweet, property);
+  const sharpImage = images.find((x) => x.name === filename);
+  const imageToUse = getSharpImageOrDefault(sharpImage, imageUrl);
+
+  return (
+    <PreviewCompatibleImage image={imageToUse} style={linkPreviewImgStyles} />
+  );
+}
+
+function RetweetPhoto({ tweet, images = [] }: TweetProps) {
+  const property = twitterProperties.retweetedUploadedMedia;
   if (!hasPhoto(tweet, property) || hasLinkPreview(tweet)) return null;
 
   const filenameTemplate = saveKeyTemplates[property];
