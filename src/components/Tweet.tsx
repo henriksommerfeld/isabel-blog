@@ -80,7 +80,7 @@ function LinkPreviewFallback({ tweet }: { tweet: TweetData }) {
       </a>
     );
   }
-  const retweetUrls = tweet.retweeted_status.entities.urls;
+  const retweetUrls = tweet.retweeted_status?.entities?.urls ?? [];
   if (retweetUrls?.length && retweetUrls[0].expanded_url) {
     return (
       <a href={retweetUrls[0].expanded_url}>
@@ -171,7 +171,7 @@ const LinkPreviewStyled = styled('a')`
   display: block;
   background-color: ${transparentizeHex(
     tailwindColors.gray100,
-    0.1
+    0.1,
   )} !important;
   border-radius: 6px;
   border: 2px solid ${tailwindColors.gray700};
