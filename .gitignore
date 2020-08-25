@@ -14,3 +14,5 @@ tweets*.json
 cypress/screenshots
 cypress/videos
 static/uploads/twitter
+recipe-client.log
+recipe-server.log
