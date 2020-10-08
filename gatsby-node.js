@@ -5,7 +5,7 @@ require('ts-node').register();
 const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images-v2');
 const { getUniqueTags, getTagRouteUrl } = require('./src/tags-parser');
 const { removeBlogFromUrl } = require('./src/url-replacer');
 
