@@ -22,7 +22,7 @@ This is the personal blog of Isabel Sommerfeld based on [GatsbyJS][1] available 
 
 [1]: https://www.gatsbyjs.org/
 
-## Twitter Feed
+## Twitter Feed 
 
 To fetch and show tweets you have to create a `.env` file with the following keys and of course, add the actual values:
 
