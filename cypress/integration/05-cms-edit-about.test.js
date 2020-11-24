@@ -34,7 +34,7 @@ context('CMS About Page Edit', () => {
   });
 
   const title = 'Om mig';
-  const pageTitle = `${title} | ${startPageTitle}`;
+  //const pageTitle = `${title} | ${startPageTitle}`;
 
   it('Should edit page', () => {
     cy.get(mainTextSelector).should('be.visible').clear().type(mainText);
@@ -48,18 +48,18 @@ context('CMS About Page Edit', () => {
       .should('be.visible')
       .should('have.text', 'Sidor');
 
-    cy.visit(samplePage.url).then(() => {
-      cy.get('h1').should('have.text', title).should('be.visible');
+    // cy.visit(samplePage.url).then(() => {
+    //   cy.get('h1').should('have.text', title).should('be.visible');
 
-      cy.get('title').should('have.text', pageTitle);
+    //   cy.get('title').should('have.text', pageTitle);
 
-      cy.get('meta[property="og:title"]').should(
-        'have.attr',
-        'content',
-        pageTitle
-      );
+    //   cy.get('meta[property="og:title"]').should(
+    //     'have.attr',
+    //     'content',
+    //     pageTitle
+    //   );
 
-      cy.findByTestId('about-me-text').should('have.text', mainText);
-    });
+    //   cy.findByTestId('about-me-text').should('have.text', mainText);
+    // });
   });
 });
