@@ -1,6 +1,4 @@
 /// <reference types="Cypress" />
-import { startPageTitle } from './08-cms-edit-start.test';
-
 context('Desktop', () => {
   before(() => {
     cy.visit('/');
@@ -10,8 +8,6 @@ context('Desktop', () => {
     cy.viewport('macbook-15');
     cy.findByTestId('desktop-nav').should('be.visible');
   });
-
-  const titlePostfix = ` | ${startPageTitle}`;
 
   it('Should open cookies page', () => {
     cy.findByTestId('about-cookies-link')
@@ -24,14 +20,14 @@ context('Desktop', () => {
     const pageName = 'Publicerat';
     cy.findByTestId('desktop-nav')
       .contains(pageName)
-      .click()
+      .click({ force: true })
       .url()
       .should('equal', Cypress.config().baseUrl + '/publicerat');
 
     cy.findByTestId('page-title')
       .should('have.text', pageName)
       .title()
-      .should('equal', pageName + titlePostfix);
+      .should('contain', pageName);
   });
 
   it('Should open About Me page', () => {
@@ -47,7 +43,7 @@ context('Desktop', () => {
     cy.findByText('Kontakta mig på')
       .should('be.visible')
       .title()
-      .should('equal', pageName + titlePostfix);
+      .should('contain', pageName);
   });
 
   it('Should open Press images page', () => {
@@ -61,7 +57,7 @@ context('Desktop', () => {
     cy.findByTestId('page-title')
       .should('have.text', pageName)
       .title()
-      .should('equal', pageName + titlePostfix);
+      .should('contain', pageName);
   });
 
   it('Start page should show more posts', () => {

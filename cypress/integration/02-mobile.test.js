@@ -10,7 +10,6 @@ context('Mobile', () => {
     cy.viewport('iphone-6');
   });
 
-  const titlePostfix = ` | ${startPageTitle}`;
   const hamburgerMenuLabel = 'Hamburger menu button';
 
   it('Should open Published page', () => {
@@ -27,7 +26,7 @@ context('Mobile', () => {
     cy.findByTestId('page-title')
       .should('have.text', pageName)
       .title()
-      .should('equal', pageName + titlePostfix);
+      .should('contain', pageName);
   });
 
   it('Should open About Me page', () => {
@@ -47,7 +46,7 @@ context('Mobile', () => {
     cy.findByText('Kontakta mig på')
       .should('be.visible')
       .title()
-      .should('equal', pageName + titlePostfix);
+      .should('contain', pageName);
   });
 
   it('Should open Press images page', () => {
@@ -65,7 +64,7 @@ context('Mobile', () => {
     cy.findByTestId('page-title')
       .should('have.text', pageName)
       .title()
-      .should('equal', pageName + titlePostfix);
+      .should('contain', pageName);
   });
 
   it('Start page should show more posts', () => {
