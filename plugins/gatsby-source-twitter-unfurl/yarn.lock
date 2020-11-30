@@ -243,12 +243,10 @@ iconv-lite@^0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-image-downloader@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/image-downloader/-/image-downloader-3.5.0.tgz#88c437f83b28817e09b400d5ab1f0f753410135d"
-  integrity sha512-7n6xFEcelGaJHy3Zq/D/H78BOZtdTo2f7KiI5vxGkvJT0pcz/7LcDShSr3MwRudgIG9/QY0mxEakQ9SAExFMzg==
-  dependencies:
-    request "^2.88.0"
+image-downloader@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/image-downloader/-/image-downloader-4.0.1.tgz#2cf211107050595ed1f99af4531ebea4aeea3dfc"
+  integrity sha512-VfjlMHx1DDPN27x6IC15+6oejeG0A1S955r7oF4rsxqAh8+ygJ3avK8yi8pJztz5qir/x1dFV+eCIy3155byhg==
 
 inherits@^2.0.1, inherits@^2.0.3:
   version "2.0.4"
@@ -361,7 +359,7 @@ readable-stream@^3.1.1:
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
 
-request@^2.72.0, request@^2.88.0:
+request@^2.72.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
@@ -460,10 +458,10 @@ twitter@^1.7.1:
     deep-extend "^0.5.0"
     request "^2.72.0"
 
-unfurl.js@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/unfurl.js/-/unfurl.js-4.0.1.tgz#906f38511b74b6a8861bb5c136b1413dd4bfe3a6"
-  integrity sha512-qQPwWEx6HgthwD751Ah/SnYEEhZh4G8nUmhOVFd6YpHa6A+qOs6NSe9nrxCjvUgseJeUda6IzJVoO06uvwLC6w==
+unfurl.js@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/unfurl.js/-/unfurl.js-5.1.0.tgz#0c8626029311491c5f4416139f3a84eaa1d1abd3"
+  integrity sha512-ZCanhTharRygTySAR1wg+JiuyuBae338bE8umimaEX7B+l8/dxjCpZJEkrEYlekz/pBFD4NqiYUuEwiF6pwzVQ==
   dependencies:
     cross-fetch "^3.0.4"
     debug "^3.1.0"
