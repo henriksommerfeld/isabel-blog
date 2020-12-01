@@ -10,7 +10,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <script async defer data-domain="isabelsommerfeld.com" src="https://statistik.isabelsommerfeld.com/js/index.js"></script>
+        <script async defer data-domain="isabelsommerfeld.com" src="https://stats.isabelsommerfeld.com/js/index.js"></script>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
