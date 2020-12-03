@@ -27,10 +27,6 @@ Lagringstid: sessionen.
 Typ: sessionStorage\
 Lagringstid: sessionen.
 
-## Google Analytics
-
-Jag använder _Google Analytics_ för besöksstatistik. Mer information kan du hitta i [Googles sekretesspolicy](http://www.google.se/intl/sv/policies/privacy/).
-
 ## Disqus
 
 Jag använder _Disqus_ för kommentarer, men Disqus aktiveras endast när du klickar på knappen för att se kommentarer och det är endast då cookies sätts. Om du motsätter dig Disqus villkor kan du alltså avstå från att använda kommentarsfunktionen.
