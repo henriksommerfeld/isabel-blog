@@ -10,6 +10,7 @@ import {
 import { tailwindColors } from '../tailwind-colors';
 import Tweets from './Tweets';
 import EditSvg from '../../static/img/edit-filled.svg';
+import PlausiblePng from '../../static/img/plausible.png';
 import { Link } from 'gatsby';
 import ConfettiBomb from './ConfettiBomb';
 
@@ -48,19 +49,35 @@ export default function Footer({
         </div>
         <EditContainer>
           <ConfettiBomb />
-          <AnchorWithIcon
-            href={editLink || '/admin'}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Redigera sidan"
-          >
-            <Svg src={EditSvg} alt="Redigera sidan" />
-          </AnchorWithIcon>
+          <StatsAndEditWrapper>
+            <AnchorWithIcon
+              href={'https://plausible.io/login'}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Statistik (inloggning)"
+            >
+              <Svg src={PlausiblePng} alt="Statistik (inloggning)" />
+            </AnchorWithIcon>
+            <AnchorWithIcon
+              href={editLink || '/admin'}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Redigera sidan"
+            >
+              <Svg src={EditSvg} alt="Redigera sidan" />
+            </AnchorWithIcon>
+          </StatsAndEditWrapper>
         </EditContainer>
       </InnerFooter>
     </FooterWrapper>
   );
 }
+
+const StatsAndEditWrapper = styled('div')`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0.5em;
+`;
 
 const FooterWrapper = styled('div')`
   box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.5);
