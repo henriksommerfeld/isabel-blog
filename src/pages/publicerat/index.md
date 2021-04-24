@@ -3,6 +3,11 @@ templateKey: published-page
 title: Publicerat
 description: Publicerat i media om och av Isabel Sommerfeld
 ---
+## 2021
+
+[**Inrikesreportage - Godmorgon världen**](https://sverigesradio.se/artikel/polisen-synen-pa-vad-som-ar-overgrepp-pa-barn-har-forandrats)\
+Intervjuad om groomingbrott och arbetet som barnförhörsledare. 
+
 ## 2020
 
 [**Kan vi göra internet till en säkrare plats för våra barn?**](https://www.linkedin.com/pulse/kan-vi-g%C3%B6ra-internet-till-en-s%C3%A4krare-plats-f%C3%B6r-v%C3%A5ra-barn-sommerfeld/)\
