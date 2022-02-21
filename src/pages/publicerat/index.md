@@ -3,6 +3,11 @@ templateKey: published-page
 title: Publicerat
 description: Publicerat i media om och av Isabel Sommerfeld
 ---
+## 2022
+
+[**Tonårspodden: Grooming - fenomenet som bara ökar**](https://open.spotify.com/episode/6F3LNjNJxL5RjddGxDYkzB?si=EThimNxlTlC9hBnBhYWblg)\
+Deltog i ett samtal om grooming (sexualbrott mot barn på internet), tillsammans med skolkurator Alexandra Woxlin.
+
 ## 2021
 
 [**Inrikesreportage - Godmorgon världen**](https://sverigesradio.se/artikel/polisen-synen-pa-vad-som-ar-overgrepp-pa-barn-har-forandrats)\
