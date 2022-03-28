@@ -15,17 +15,11 @@ Intervjuad om groomingbrott och arbetet som barnförhörsledare.
 
 ## 2020
 
-[**Kan vi göra internet till en säkrare plats för våra barn?**](https://www.linkedin.com/pulse/kan-vi-g%C3%B6ra-internet-till-en-s%C3%A4krare-plats-f%C3%B6r-v%C3%A5ra-barn-sommerfeld/)\
-Artikel på LinkedIn om mina första insikter som brottsutredare på Gromninggruppen (där vi utreder sexualbrott mot barn över internet) och hur vi alla kan hjälpas åt att göra internet till en säkrare plats för våra barn.
-
 [**Reportage - Brottsjournalen**](https://www.tv4play.se/program/brottsjournalen/12490385)\
 Deltog i ett reportage om arbetet som civil utredare. Del 9, säsong 4.
 
 [**Intervju - Efterlyst**](https://www.viafree.se/program/samhalle/efterlyst/sasong-55/avsnitt-3)\
 Inslag i Efterlyst (TV3) om en brottsutredning där vi sökte vittnen. Säsong 55, avsnitt 3.
-
-[**Intervju - Aftonbladet TV**](https://www.aftonbladet.se/tv/a/305895/utredaren-om-dick-pics-vanligare-i-och-med-sociala-medier)\
-Intervjuad om sexuella ofredanden på nätet och "dick pics". 
 
 ## 2019
 
@@ -35,9 +29,6 @@ Om sexuella ofredanden på nätet. Tidning utgiven av S-kvinnor, nummer 4, 2019.
 [**Reportage och intervju i Expressen**](https://www.expressen.se/nyheter/polisen-isabel-32-sluta-skicka-bilder-pa-din-penis/)\
 Intervjuad efter ett facebook-inlägg jag skrivit i min roll som utredare hos Polisen (angående sexuella ofredanden och så kallade dick pics), 2019-08-15.
 
-[**Polisutredaren: ”Vi är trötta på att behöva se era dickpics”**](https://mitti.se/nyheter/polisutredaren-trotta-dickpics/)\
-Intervjuad av tidningen Mitt i, 2019-08-15.
-
 ## 2017
 
 [**Idrott och mänskliga rättigheter: den olympiska rörelsens, sponsorernas och statens ansvar**](http://su.diva-portal.org/smash/record.jsf?pid=diva2%3A1093697&dswid=3835)\
@@ -45,9 +36,6 @@ Examensarbete, Folkrätt, Juridik. VT 2017.
 
 [**Mediebolagens tryckfrihet går ut över den enskildes rättssäkerhet – ändra grundlagen**](http://www.dagensjuridik.se/2017/03/mediebolagens-tryckfrihet-gar-ut-over-den-enskildes-rattssakerhet-andra-grundlagen)\
 Debattartikel om den svenska tryckfrihets- och yttrandefrihetsprocessen, förtal och rätten till rättvis rättegång, Dagens Juridik, 2017-03-22.
-
-[**Nej tack till ”alternativa fakta”**](https://www.magasinetparagraf.se/nyheter/kronikor/48824-nej-tack-till-alternativa-fakta/)\
-Krönika om alternativa fakta, Fox News-inslaget, Sverige och brottsstatistiken, Magasinet Paragraf, 2017-03-02.
 
 ## 2016
 
@@ -64,9 +52,6 @@ Radiodokumentär om studentrevolten och den antisemitiska kampanjen i Polen 1968
 
 **Aftonbladet TV, Partiprogrammet**\
 Deltog i en diskussion om antisemitism tillsammans med integrationsminister Erik Ullenhag och Jonathan Leman (Expo). Sändes live på aftonbladet.se från Scandic Grand Central. 2014-08-13.
-
-[**Var är ni nu, antirasister?**](http://www.magasinetparagraf.se/kronikor/var-ar-ni-nu-antirasister)\
-Krönika publicerad på Magasinet Paragraf, 2014-08-05.
 
 [**Mänskliga rättigheter på hal is**](http://www.swedwatch.org/sites/default/files/swedwatch_manskliga_rattigheter_pa_hal_is.pdf)\
 Rapport om ishockey-VM i Belarus 2014, publicerad av Swedwatch i samarbete LO-TCO Biståndsnämnd, 2014-05-06.
@@ -110,9 +95,6 @@ Följdes som människorättsaktivist av ett TV-team från Uppdrag Granskning til
 
 `vimeo: https://vimeo.com/41248885`
 
-**Акцыя салідарнасці ў Стакгольме за свабоду слова ў Беларусі**\
-Belarusian Association of Journalists (baj.by) uppmärksammade vår solidaritetsaktion i Stockholm för det fria ordet, samt arresten av mig och två journalister från SVT:s Uppdrag Granskning i Minsk. Mars 2012.
-
 ## 2011
 
 [**Vi har två dagar på oss att rädda livet på Dmitry & Vladislav**](http://www.newsmill.se/artikel/2011/11/28/vi-har-tv-dagar-p-oss-att-r-dda-livet-p-dmitry-och-vladislav)\
@@ -133,19 +115,10 @@ Krönika+foto, uppdrag i Lettland för Östersjöjudisk Bulletin, nr 2-3 2011.
 **En diktators spel**\
 Krönika om presidentvalet i Belarus, Amnesty Press, nr 1 februari 2011.
 
-[**Stötta folket från scenen Roxette**](http://www.aftonbladet.se/debatt/article8433521.ab)\
-Debattartikel i Aftonbladet, månadsdagen efter presidentvalet i Belarus.
-
 [**Rapport från Vitryssland**](http://sverigesradio.se/sida/artikel.aspx?programid=503&artikel=4283322)\
 Radiokrönika och vittnesberättelse om presidentvalet den 19:e december 2010, SR, P1 – OBS, 2011-01-11.
 
-[**Svenska medier sprider Lukasjenkas propaganda**](http://www.newsmill.se/artikel/2011/01/05/svenska-medier-sprider-lukasjenkas-propaganda)\
-Debattartikel, Newsmill. 2011-01-05.
-
 ## 2010
-
-[**Jag såg demonstranter misshandlas medan Robert Wells tonsatte diktatorns propaganda**](http://svtdebatt.se/2010/12/jag-sag-demonstranter-misshandlas-medan-robert-wells-tonsatte-diktatorns-propaganda/)\
-Debattartikel, SVT Debatt, 2010-12-20.
 
 [**Vägra spela med i diktatorns rapsodi**](https://www.expressen.se/debatt/isabel-sommerfeld-vagra-spela-med-i-diktatorns-rapsodi/)\
 Debattartikel, Expressen Sidan 4, 2010-05-28.
@@ -162,19 +135,8 @@ Krönika, baserad på bl.a. en intervju med den f.d. presidentkandidaten Alaksan
 Radiokrönika, i P1, programmet OBS. Ang. lokalvalet och unga engagerade i Belarus. \
 2009-05-10.
 
-[**Protester mot nedläggningen av vitryska sändningar**](http://www.sr.se/cgi-bin/international/artikel.asp?artikel=3063280)\
-Intervju om aktion utanför SR. 2009-08-29.
-
-**Intervjuades av den belarusiska nyhetsbyrån Belapan**\
-Ang. namninsamling/protest mot nedläggningen av de belarusiska sändningarna på Sveriges Radio, 2009.
-
 [**Svenska skattepengar investeras i diktaturers förtryck**](http://svt.se/svt/jsp/Crosslink.jsp?d=35188&a=1555587&from=tipsa)\
 SVT Debatt, ang. Telia Sonera i Belarus, 2009.
 
 [**Vitryssland: Oppositionella fängslas och stängs av från studier**](http://www.gaudeamus.se/template_single.asp?id=895804652)\
 Gaudeamus, utrikesreportage, 2009.
-
-**Арганізацыя ”Ліберальныя студэнты Швецыі” збірае подпісы за працяг вяшчання Шведскага радыё на беларускай мове. ”Liberala Studenter i Sverige gör en namninsamling i protest mot Sveriges Radios nedläggning av de belarusiska sändningarna.”** \
-Vår namninsamling/kampanj mot nedläggningen av de belarusiska sändningarna på SR, uppmärksammades i Belarus. Nyhetsbyrån Belapan. 2009.
-
-**В Швеции борются за белорусский язык. ”Svenskar kämpar för belarusiska språket.” Estlands Television, novosti.err.ee** – Tog initiativ till en namninsamling/kampanj mot nedläggningen av de belarusiska sändningarna på SR som uppmärksammades av Estlands Television. 2009.
