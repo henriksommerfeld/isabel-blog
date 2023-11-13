@@ -16,10 +16,10 @@ Intervjuad om groomingbrott och arbetet som barnförhörsledare.
 ## 2020
 
 [**Reportage - Brottsjournalen**](https://www.tv4play.se/program/brottsjournalen/12490385)\
-Deltog i ett reportage om arbetet som civil utredare. Del 9, säsong 4.
+Deltog i ett reportage om arbetet som civil brottsutredare. Del 9, säsong 4.
 
 [**Intervju - Efterlyst**](https://www.viafree.se/program/samhalle/efterlyst/sasong-55/avsnitt-3)\
-Inslag i Efterlyst (TV3) om en brottsutredning där vi sökte vittnen. Säsong 55, avsnitt 3.
+Inslag i Efterlyst (TV3) om en brottsutredning där Polisen sökte vittnen. Säsong 55, avsnitt 3.
 
 ## 2019
 
@@ -48,10 +48,7 @@ En rapport om kommande fotbolls-VM i Ryssland och Qatar, samt fotbollsrörelsens
 ## 2014
 
 [**Ickemedborgarna**](https://soundcloud.com/magasinetparagraf/ickemedborgarna-2014-10-05)\
-Radiodokumentär om studentrevolten och den antisemitiska kampanjen i Polen 1968, av Isabel Sommerfeld & Daniela Auerbach (Stockholms dramatiska högskola). 2014-10-10. Publiceras av Magasinet Paragraf. 
-
-**Aftonbladet TV, Partiprogrammet**\
-Deltog i en diskussion om antisemitism tillsammans med integrationsminister Erik Ullenhag och Jonathan Leman (Expo). Sändes live på aftonbladet.se från Scandic Grand Central. 2014-08-13.
+Radiodokumentär om studentrevolten och den antisemitiska kampanjen i Polen 1968, av Isabel Sommerfeld & Daniela Auerbach (Stockholms dramatiska högskola). 2014-10-10. Publicerad av Magasinet Paragraf. 
 
 [**Mänskliga rättigheter på hal is**](http://www.swedwatch.org/sites/default/files/swedwatch_manskliga_rattigheter_pa_hal_is.pdf)\
 Rapport om ishockey-VM i Belarus 2014, publicerad av Swedwatch i samarbete LO-TCO Biståndsnämnd, 2014-05-06.
@@ -61,25 +58,13 @@ Rapport om ishockey-VM i Belarus 2014, publicerad av Swedwatch i samarbete LO-TC
 [**Ta barns rättigheter på allvar – gör barnkonventionen till svensk lag!**](https://www.magasinetparagraf.se/nyheter/kronikor/44476-gor-barnkonventionen-till-svensk-lag/)\
 Krönika publicerad på Magasinet Paragraf, 2013-10-21.
 
-[**Min släkt listades – bara två överlevde**](http://www.magasinetparagraf.se/kronikor/min-slakt-listades)\
-Krönika publicerad på Magasinet Paragraf, 2013-09-25.
-
-[**När stoltheten över mitt hemland krackelerar**](http://www.magasinetparagraf.se/kronikor/nar-stoltheten-over-mitt-hemland-krackelerar)\
-Krönika publicerad på Magasinet Paragraf, 2013-09-18.
-
 **Business As Usual (SVT:s Uppdrag Granskning)**\
 Deltog i den fortsatta granskningen av TeliaSoneras verksamhet i utlandet, 2013-05-22.
 
 [**Som en örfil mot yttrandefriheten (Debatt i P1 Morgon)**](http://sverigesradio.se/sida/artikel.aspx?programid=83&artikel=5525549)\
 Debatterade mot Svenska ishockeyförbundets ordförande Christer Englund ang. hockey och politiska symboler, samt förbudet av den belarusiska vit-röd-vita flaggan på hockeyarenan i Sverige. Sänt live i SR P1, 2013-05-06.
 
-**Efter tio med Malou – TV4**\
-Diskuterade judiska traditioner och judiskt liv i Sverige (direktsändning), 2013-03-27.
-
 ## 2012
-
-**Årsbok 2012 – Förbundet Kristen humanism**\
-Artikel om religion och demokrati, publicerad 2012.
 
 **Ordfront Magasin, Nr 5, 2012**\
 Artikel om yttrandefrihet och situationen i Belarus.
@@ -96,9 +81,6 @@ Följdes som människorättsaktivist av ett TV-team från Uppdrag Granskning til
 `vimeo: https://vimeo.com/41248885`
 
 ## 2011
-
-[**Vi har två dagar på oss att rädda livet på Dmitry & Vladislav**](http://www.newsmill.se/artikel/2011/11/28/vi-har-tv-dagar-p-oss-att-r-dda-livet-p-dmitry-och-vladislav)\
-Debattartikel ang. dödsstraffet i Belarus, Newsmill, 2011-11-28.
 
 [**Glöm inte bort frihetskämparna i Europas sista diktatur**](http://www.europaportalen.se/2011/05/glom-inte-bort-frihetskamparna-i-europas-sista-diktatur)\
 Debattartikel, Europaportalen, av Isabel Sommerfeld och riksdagsledamot Caroline Szyber, 2011-05-09.
@@ -131,7 +113,7 @@ Krönika, baserad på bl.a. en intervju med den f.d. presidentkandidaten Alaksan
 
 ## 2009
 
-**[Du borde tänka på din framtid](http://www.sr.se/webbradio/?type=broadcast&Id=2357945&BroadcastDate=&IsBlock=0)**\
+**[**Du borde tänka på din framtid**](http://www.sr.se/webbradio/?type=broadcast&Id=2357945&BroadcastDate=&IsBlock=0)**\
 Radiokrönika, i P1, programmet OBS. Ang. lokalvalet och unga engagerade i Belarus. \
 2009-05-10.
 
