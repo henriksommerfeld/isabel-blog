@@ -6,7 +6,7 @@ description: ''
 hidden: false
 language: sv
 date: 2024-01-10T08:08:24.523Z
-featuredimage: /uploads/khzwf393_400x400.jpg
+featuredimage: ''
 tags:
   - advokatfirmandebasso
   - De Basso
@@ -38,6 +38,6 @@ Sedan 2017 har jag arbetat som civil utredare på Polisen, inom bl.a. ungdomsbro
 
 Min förhoppning är att kunna göra ännu större skillnad framöver, bland annat i rollen som målsägandebiträde, särskild företrädare för barn och till slut också försvarare. 
 
-Eftersom jag drivs av att arbeta med människor och alltid har haft ett starkt engagemang för mänskliga rättigheter, är det ett naturligt steg att påbörja resan mot att bli advokat på en humanjuridisk advokatfirma, som dessutom har särskild inriktning mot straffrätt/brottmål. Känner mig tacksam och enormt motiverad. Det är en ära att få ingå i ett så kompetent team med advokater och jurister. 
+Eftersom jag drivs av att arbeta med människor och alltid har haft ett starkt engagemang för mänskliga rättigheter, är det ett naturligt steg att påbörja resan mot att bli advokat på en humanjuridisk advokatfirma (brottmål, socialrätt, migrationsrätt och familjerätt). Känner mig tacksam och enormt motiverad. Det är en ära att få ingå i ett så kompetent team med advokater och jurister. 
 
 Önskar er alla en god fortsättning på det nya året!
