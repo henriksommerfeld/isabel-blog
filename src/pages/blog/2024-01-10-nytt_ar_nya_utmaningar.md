@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 url: ''
-title: 'Nytt år, nya utmaningar'
+title: Nytt jobb som biträdande jurist
 description: ''
 hidden: false
 language: sv
