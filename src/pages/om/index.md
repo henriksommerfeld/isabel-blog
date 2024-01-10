@@ -3,7 +3,7 @@ templateKey: about-page
 title: Om mig
 image: /uploads/pressbild-1_square.jpg
 ---
-Jurist specialiserad inom mänskliga rättigheter och terapeutisk juridik, med gedigen kunskap inom straff- och processrätt. 
+Jurist specialiserad inom mänskliga rättigheter och terapeutisk juridik, med gedigen kunskap inom straff- och processrätt samt barnrätt. 
 
 Arbetar sedan år 2017 som civil utredare på Polismyndigheten, där jag utreder internetrelaterade sexuella övergrepp mot barn. Är även barnförhörsledare. 
 
