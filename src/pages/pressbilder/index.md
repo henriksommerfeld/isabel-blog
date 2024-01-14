@@ -1,7 +1,7 @@
 ---
 templateKey: pressimages-page
 title: Pressbilder
-description: Pressbilder för fri publicering
+description: Tillstånd erfordras för att nyttja pressbilderna
 downloadableimages:
   - /uploads/pressbild-2.jpg
   - /uploads/pressbild-9.jpg
@@ -13,5 +13,5 @@ downloadableimages:
   - /uploads/pressbild-8.jpg
 ---
 
-Pressbilder för fri publicering. \
+Tillstånd erfordras för att nyttja pressbilderna. \
 Ange alltid: _**Foto av Felicia Margineanu**_.
