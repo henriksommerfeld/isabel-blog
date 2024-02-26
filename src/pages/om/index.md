@@ -5,7 +5,7 @@ image: /uploads/pressbild-1_square.jpg
 ---
 Jurist specialiserad inom mänskliga rättigheter och terapeutisk juridik, med gedigen kunskap inom straff- och processrätt samt barnrätt. 
 
-Arbetar sedan år 2017 som civil utredare på Polismyndigheten, där jag utreder internetrelaterade sexuella övergrepp mot barn. Är även barnförhörsledare. 
+Sedan mars 2024 är jag biträdande jurist på Advokatfirman De Basso. Innan dess tjänstgjorde jag drygt 6,5 år på Polismyndigheten som brottsutredare, barnförhörsledare och granskare av dokumenterade sexuella övergrepp mot barn. 2022 tillträdde jag som en av de första ISÖB-utredarna (internetrelaterade sexuella övergrepp mot barn) i region Nord. Dessförinnan var jag stationerad i Stockholm på bl.a. Groominggruppen och Barnahus.
 
 Har erfarenhet av opinionsbildning, i framför allt människorättsfrågor. År 2009 grundade jag informations- och människorättsnätverket Info Belarus, som blev särskilt uppmärksammat i och med min medverkan i SVT:s granskning av TeliaSonera ([Uppdrag Granskning: De svarta lådorna](https://vimeo.com/86001576)), där stora brister i bl.a. bolagets människorätts- och anti-korruptions-due diligence avslöjades.
 
