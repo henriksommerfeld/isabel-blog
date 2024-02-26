@@ -3,7 +3,7 @@ templateKey: about-page
 title: Om mig
 image: /uploads/pressbild-1_square.jpg
 ---
-Jurist specialiserad inom mänskliga rättigheter och terapeutisk juridik, med gedigen kunskap inom straff- och processrätt samt barnrätt. 
+Målinriktad och driven jurist med ett starkt engagemang för mänskliga rättigheter och gedigen kunskap inom straff- och processrätt samt barnrätt. 
 
 Sedan mars 2024 är jag biträdande jurist på Advokatfirman De Basso. Innan dess tjänstgjorde jag drygt 6,5 år på Polismyndigheten som brottsutredare, barnförhörsledare och granskare av dokumenterade sexuella övergrepp mot barn. 2022 tillträdde jag som en av de första ISÖB-utredarna (internetrelaterade sexuella övergrepp mot barn) i region Nord. Dessförinnan var jag stationerad i Stockholm på bl.a. Groominggruppen och Barnahus.
 
